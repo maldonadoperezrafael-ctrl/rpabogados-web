@@ -40,21 +40,38 @@ const { title, description = 'Estudio Jurídico de Litigación de Alta Complejid
     <link rel="icon" type="image/png" href="/fotos/logo-rp-abogados.png" />
     <link rel="apple-touch-icon" href="/fotos/logo-rp-abogados.png" />
 
-    <!-- Schema.org - Local Business -->
+    <!-- Schema.org - LegalService Multi-Sucursal -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "LegalService",
       "name": "RP Abogados",
+      "alternateName": "RP Abogados - Litigación de Alta Complejidad",
       "image": "https://rpabogados.cl/fotos/logo-rp-abogados.png",
+      "logo": "https://rpabogados.cl/fotos/logo-rp-abogados.png",
       "url": "https://rpabogados.cl",
       "telephone": "+56985497497",
       "email": "contacto@rpabogados.cl",
+      "priceRange": "$$",
+      "currenciesAccepted": "CLP",
+      "paymentAccepted": "Cash, Credit Card, Bank Transfer",
+      "openingHours": "Mo-Fr 09:00-18:00",
+      "founder": {
+        "@type": "Person",
+        "name": "Rafael Pérez Maldonado",
+        "jobTitle": "Socio Fundador"
+      },
+      "employee": {
+        "@type": "Person",
+        "name": "Yerko Scheihing Sepúlveda",
+        "jobTitle": "Abogado Asociado"
+      },
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Eliodoro Yáñez 2084, oficina 41",
         "addressLocality": "Providencia",
         "addressRegion": "Región Metropolitana",
+        "postalCode": "7500000",
         "addressCountry": "CL"
       },
       "geo": {
@@ -62,30 +79,78 @@ const { title, description = 'Estudio Jurídico de Litigación de Alta Complejid
         "latitude": -33.4263,
         "longitude": -70.6166
       },
+      "hasMap": "https://www.google.com/maps/search/?api=1&query=Eliodoro+Y%C3%A1%C3%B1ez+2084+Providencia+Santiago",
       "areaServed": [
         {
           "@type": "City",
-          "name": "Santiago"
+          "name": "Santiago",
+          "sameAs": "https://en.wikipedia.org/wiki/Santiago"
+        },
+        {
+          "@type": "City", 
+          "name": "Pichilemu",
+          "sameAs": "https://en.wikipedia.org/wiki/Pichilemu"
         },
         {
           "@type": "AdministrativeArea",
-          "name": "Región Metropolitana"
+          "name": "Región Metropolitana de Santiago"
         },
         {
           "@type": "AdministrativeArea",
-          "name": "VI Región de O'Higgins"
+          "name": "Región de O'Higgins"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Provincia de Cardenal Caro"
         }
       ],
-      "priceRange": "$$",
-      "openingHours": "Mo-Fr 09:00-18:00",
-      "founder": {
-        "@type": "Person",
-        "name": "Rafael Pérez Maldonado"
+      "location": [
+        {
+          "@type": "Place",
+          "name": "Oficina Santiago",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Eliodoro Yáñez 2084, oficina 41",
+            "addressLocality": "Providencia",
+            "addressRegion": "Región Metropolitana",
+            "addressCountry": "CL"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": -33.4263,
+            "longitude": -70.6166
+          }
+        },
+        {
+          "@type": "Place",
+          "name": "Atención Pichilemu",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Pichilemu",
+            "addressRegion": "Región de O'Higgins",
+            "addressCountry": "CL"
+          }
+        }
+      ],
+      "serviceArea": {
+        "@type": "GeoCircle",
+        "geoMidpoint": {
+          "@type": "GeoCoordinates",
+          "latitude": -33.4263,
+          "longitude": -70.6166
+        },
+        "geoRadius": "200000"
       },
-      "employee": {
-        "@type": "Person",
-        "name": "Yerko Scheihing Sepúlveda"
-      }
+      "knowsAbout": [
+        "Derecho Civil",
+        "Derecho Penal Económico",
+        "Derecho Público",
+        "Contencioso Administrativo",
+        "Derecho Laboral",
+        "Litigación de Alta Complejidad"
+      ],
+      "slogan": "Litigación de Alta Complejidad con Estándar de Santiago",
+      "description": "Estudio jurídico boutique con oficina en Providencia, Santiago y atención preferente en Pichilemu y la VI Región de O'Higgins. Especialistas en litigación civil, penal, contencioso administrativo y laboral."
     }
     </script>
 
