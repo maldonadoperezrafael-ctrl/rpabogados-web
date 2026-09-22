@@ -8,28 +8,27 @@ import Footer from '../components/Footer.astro';
   <Header />
 
   <main class="pt-20">
-    <!-- Hero Section -->
-    <section class="min-h-screen flex items-center bg-gradient-to-br from-bg-light to-white relative overflow-hidden">
-      <div class="absolute inset-0 opacity-5">
-        <div class="absolute top-20 left-10 w-72 h-72 bg-primary rounded-full blur-3xl"></div>
-        <div class="absolute bottom-20 right-10 w-96 h-96 bg-accent rounded-full blur-3xl"></div>
+    <!-- Hero Section Estilo Colombara -->
+    <section class="relative min-h-screen flex items-end overflow-hidden">
+      <!-- Imagen de fondo -->
+      <div class="absolute inset-0">
+        <img src="/fotos/hero-textura.jpg" alt="" class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
       </div>
 
-      <div class="max-w-6xl mx-auto px-4 py-20 relative z-10">
-        <div class="max-w-3xl" data-aos="fade-up">
-          <p class="text-accent font-medium tracking-widest uppercase mb-4 text-sm">
-            Estudio Jurídico con atención en la Región Metropolitana y la VI Región
-          </p>
-          <h1 class="text-5xl md:text-6xl lg:text-7xl mb-6 leading-tight font-light">
-            Litigación de Alta Exigencia & <span class="text-accent italic">Estrategia Jurídica Integral</span>
+      <!-- Contenido -->
+      <div class="relative z-10 w-full max-w-7xl mx-auto px-6 pb-20">
+        <div class="max-w-4xl" data-aos="fade-up">
+          <h1 class="text-white text-5xl md:text-7xl lg:text-8xl font-light leading-none mb-6 tracking-tight">
+            RP<br>ABOGADOS
           </h1>
-          <p class="text-xl text-text-light mb-8 leading-relaxed">
-            Estudio jurídico con abogados altamente especializados en litigación de alta complejidad, derecho civil, penal, contencioso administrativo y laboral. Desde Santiago y la Región de O'Higgins, asesoramos a personas, empresas e instituciones en los casos más desafiantes, con un enfoque estratégico, ético y orientado a resultados. Nuestros profesionales combinan experiencia académica de primer nivel con una práctica activa en los tribunales más relevantes del país.
+          <div class="w-24 h-1 bg-accent mb-8"></div>
+          <p class="text-white/90 text-lg md:text-xl font-light leading-relaxed max-w-2xl mb-8">
+            Estudio jurídico con abogados altamente especializados en litigación de alta complejidad, derecho civil, penal, contencioso administrativo y laboral. Desde Santiago y la Región de O'Higgins, asesoramos a personas, empresas e instituciones en los casos más desafiantes, con un enfoque estratégico, ético y orientado a resultados.
           </p>
-          <div class="flex flex-wrap gap-4">
-            <a href="#contacto" class="btn-primary">Solicitar Consulta</a>
-            <a href="https://wa.me/56985497497" class="btn-secondary">Atención por WhatsApp</a>
-          </div>
+          <a href="#contacto" class="inline-block bg-white text-primary px-8 py-4 font-medium tracking-widest uppercase text-sm hover:bg-accent hover:text-white transition-all duration-300">
+            Solicitar Consulta
+          </a>
         </div>
       </div>
     </section>
