@@ -11,11 +11,83 @@ const { title, description = 'Estudio Jurídico de Litigación de Alta Complejid
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
+
+    <!-- SEO Primary -->
     <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content="abogados Providencia, abogados Santiago, litigación alta complejidad, derecho civil, derecho penal, contencioso administrativo, derecho laboral, RP Abogados, estudio jurídico Chile" />
+    <meta name="author" content="RP Abogados" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://rpabogados.cl/" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://rpabogados.cl/" />
+    <meta property="og:title" content="RP Abogados | Litigación de Alta Complejidad en Santiago" />
+    <meta property="og:description" content="Estudio jurídico en Providencia, Santiago. Especialistas en litigación civil, penal, contencioso administrativo y laboral. Atención en Región Metropolitana y VI Región." />
+    <meta property="og:image" content="https://rpabogados.cl/fotos/logo-rp-abogados.png" />
+    <meta property="og:locale" content="es_CL" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://rpabogados.cl/" />
+    <meta property="twitter:title" content="RP Abogados | Litigación de Alta Complejidad" />
+    <meta property="twitter:description" content="Estudio jurídico en Providencia, Santiago. Litigación civil, penal, contencioso administrativo y laboral." />
+    <meta property="twitter:image" content="https://rpabogados.cl/fotos/logo-rp-abogados.png" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/fotos/logo-rp-abogados.png" />
+    <link rel="apple-touch-icon" href="/fotos/logo-rp-abogados.png" />
+
+    <!-- Schema.org - Local Business -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LegalService",
+      "name": "RP Abogados",
+      "image": "https://rpabogados.cl/fotos/logo-rp-abogados.png",
+      "url": "https://rpabogados.cl",
+      "telephone": "+56985497497",
+      "email": "contacto@rpabogados.cl",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Eliodoro Yáñez 2084, oficina 41",
+        "addressLocality": "Providencia",
+        "addressRegion": "Región Metropolitana",
+        "addressCountry": "CL"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -33.4263,
+        "longitude": -70.6166
+      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Santiago"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Región Metropolitana"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "VI Región de O'Higgins"
+        }
+      ],
+      "priceRange": "$$",
+      "openingHours": "Mo-Fr 09:00-18:00",
+      "founder": {
+        "@type": "Person",
+        "name": "Rafael Pérez Maldonado"
+      },
+      "employee": {
+        "@type": "Person",
+        "name": "Yerko Scheihing Sepúlveda"
+      }
+    }
+    </script>
 
     <!-- Google Fonts: Raleway -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
