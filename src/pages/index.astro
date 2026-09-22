@@ -58,111 +58,73 @@ import Footer from '../components/Footer.astro';
       </div>
     </section>
 
-    <!-- Áreas de Práctica -->
-    <section id="areas" class="section-padding bg-white">
-      <div class="max-w-6xl mx-auto px-4">
-        <div class="text-center mb-16" data-aos="fade-up">
-          <p class="text-accent font-medium tracking-widest uppercase mb-4 text-sm">Áreas de Práctica</p>
-          <h2 class="text-4xl md:text-5xl mb-4 font-light">Áreas de Práctica</h2>
-          <p class="text-text-light max-w-2xl mx-auto">
-            Defensa y representación judicial en materias patrimoniales, penal económico, contencioso administrativo y laboral, con conducción directa de nuestros abogados en Santiago y la Región de O'Higgins.
-          </p>
+        <!-- Áreas de Práctica Estilo Colombara -->
+    <section id="areas" class="py-0 bg-white">
+      <!-- Título -->
+      <div class="text-center py-16 bg-bg-light">
+        <h2 class="text-4xl md:text-5xl font-light text-primary">Áreas de práctica</h2>
+      </div>
+
+      <!-- Grid de áreas con imágenes -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+        <!-- Área 1: Civil -->
+        <div class="relative h-96 overflow-hidden group cursor-pointer" data-aos="fade-up" data-aos-delay="0">
+          <img src="/fotos/area-civil.jpg" alt="Litigación Civil" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+          <div class="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition-all duration-500"></div>
+          <div class="relative z-10 h-full flex flex-col justify-end p-6">
+            <h3 class="text-white text-2xl font-semibold mb-2">Litigación Civil</h3>
+            <div class="w-12 h-0.5 bg-accent mb-4"></div>
+            <ul class="text-white/80 text-sm space-y-1 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+              <li>• Particiones de herencias</li>
+              <li>• Reclamos por ocupación de terrenos</li>
+              <li>• Responsabilidad contractual</li>
+              <li>• Controversias sobre inmuebles</li>
+            </ul>
+          </div>
         </div>
 
-        <div class="grid md:grid-cols-2 gap-8">
-          <!-- Área 1: Civil -->
-          <div class="card-lift bg-bg-light p-8" data-aos="fade-up" data-aos-delay="0">
-            <div class="text-accent font-light text-5xl mb-4">01</div>
-            <p class="text-accent text-sm font-medium tracking-widest uppercase mb-2">Civil & Patrimonial</p>
-            <h3 class="text-2xl mb-4">Litigación Civil</h3>
-            <p class="text-text-light mb-4">
-              Representación especializada en juicios ordinarios y sumarios de alta cuantía ante tribunales civiles y Cortes de Apelaciones.
-            </p>
-            <ul class="space-y-2 text-sm text-text-light">
-              <li class="flex items-start gap-2">
-                <span class="text-accent mt-1">•</span>
-                Particiones de herencias y divisiones de bienes entre herederos
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-accent mt-1">•</span>
-                Reclamos por ocupaciones de terrenos y daños a la propiedad
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-accent mt-1">•</span>
-                Demandas por responsabilidad contractual y extracontractual
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-accent mt-1">•</span>
-                Resolución de contratos y controversias sobre inmuebles
-              </li>
+        <!-- Área 2: Penal -->
+        <div class="relative h-96 overflow-hidden group cursor-pointer" data-aos="fade-up" data-aos-delay="100">
+          <img src="/fotos/area-penal.jpg" alt="Litigación Penal" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+          <div class="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition-all duration-500"></div>
+          <div class="relative z-10 h-full flex flex-col justify-end p-6">
+            <h3 class="text-white text-2xl font-semibold mb-2">Litigación Penal</h3>
+            <div class="w-12 h-0.5 bg-accent mb-4"></div>
+            <ul class="text-white/80 text-sm space-y-1 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+              <li>• Compliance</li>
+              <li>• Querellas criminales</li>
+              <li>• Representación penal</li>
             </ul>
           </div>
+        </div>
 
-          <!-- Área 2: Penal -->
-          <div class="card-lift bg-bg-light p-8" data-aos="fade-up" data-aos-delay="100">
-            <div class="text-accent font-light text-5xl mb-4">02</div>
-            <p class="text-accent text-sm font-medium tracking-widest uppercase mb-2">Penal Económico</p>
-            <h3 class="text-2xl mb-4">Litigación Penal</h3>
-            <p class="text-text-light mb-4">
-              Defensa y querellas en litigios de alta complejidad, en todas las etapas del proceso, con estrategia y reserva absoluta.
-            </p>
-            <ul class="space-y-2 text-sm text-text-light">
-              <li class="flex items-start gap-2">
-                <span class="text-accent mt-1">•</span>
-                Compliance
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-accent mt-1">•</span>
-                Presentación de querellas criminales y representación penal
-              </li>
+        <!-- Área 3: Público -->
+        <div class="relative h-96 overflow-hidden group cursor-pointer" data-aos="fade-up" data-aos-delay="200">
+          <img src="/fotos/area-publico.jpg" alt="Derecho Público" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+          <div class="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition-all duration-500"></div>
+          <div class="relative z-10 h-full flex flex-col justify-end p-6">
+            <h3 class="text-white text-2xl font-semibold mb-2">Derecho Público</h3>
+            <div class="w-12 h-0.5 bg-accent mb-4"></div>
+            <ul class="text-white/80 text-sm space-y-1 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+              <li>• Procesos disciplinarios</li>
+              <li>• Juicios de cuentas</li>
+              <li>• Acciones constitucionales</li>
+              <li>• Tribunal de Contratación Pública</li>
             </ul>
           </div>
+        </div>
 
-          <!-- Área 3: Público -->
-          <div class="card-lift bg-bg-light p-8" data-aos="fade-up" data-aos-delay="200">
-            <div class="text-accent font-light text-5xl mb-4">03</div>
-            <p class="text-accent text-sm font-medium tracking-widest uppercase mb-2">Público & Regulatorio</p>
-            <h3 class="text-2xl mb-4">Derecho Público y Contencioso Administrativo</h3>
-            <p class="text-text-light mb-4">
-              Asesoría y representación en controversias con el Estado, municipalidades y organismos fiscalizadores.
-            </p>
-            <ul class="space-y-2 text-sm text-text-light">
-              <li class="flex items-start gap-2">
-                <span class="text-accent mt-1">•</span>
-                Representación ante organismos públicos por procesos disciplinarios o de fiscalización
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-accent mt-1">•</span>
-                Juicios de cuentas
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-accent mt-1">•</span>
-                Acciones constitucionales
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-accent mt-1">•</span>
-                Tribunal de Contratación Pública
-              </li>
-            </ul>
-          </div>
-
-          <!-- Área 4: Laboral -->
-          <div class="card-lift bg-bg-light p-8" data-aos="fade-up" data-aos-delay="300">
-            <div class="text-accent font-light text-5xl mb-4">04</div>
-            <p class="text-accent text-sm font-medium tracking-widest uppercase mb-2">Laboral</p>
-            <h3 class="text-2xl mb-4">Litigación Laboral</h3>
-            <p class="text-text-light mb-4">
-              Defensa y representación en juicios laborales complejos, desvinculaciones de directivos y ejecutivos, y tutelas de derechos fundamentales.
-            </p>
-            <ul class="space-y-2 text-sm text-text-light">
-              <li class="flex items-start gap-2">
-                <span class="text-accent mt-1">•</span>
-                Negociaciones colectivas sector público y privado
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-accent mt-1">•</span>
-                Representación judicial trabajador y empleador
-              </li>
+        <!-- Área 4: Laboral -->
+        <div class="relative h-96 overflow-hidden group cursor-pointer" data-aos="fade-up" data-aos-delay="300">
+          <img src="/fotos/area-laboral.jpg" alt="Derecho Laboral" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+          <div class="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition-all duration-500"></div>
+          <div class="relative z-10 h-full flex flex-col justify-end p-6">
+            <h3 class="text-white text-2xl font-semibold mb-2">Derecho Laboral</h3>
+            <div class="w-12 h-0.5 bg-accent mb-4"></div>
+            <ul class="text-white/80 text-sm space-y-1 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+              <li>• Negociaciones colectivas</li>
+              <li>• Sector público y privado</li>
+              <li>• Representación trabajador y empleador</li>
             </ul>
           </div>
         </div>
