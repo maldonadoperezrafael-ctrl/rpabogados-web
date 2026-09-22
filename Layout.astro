@@ -1,0 +1,283 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = 'Boutique Jurídica de Litigación Estratégica • Santiago & Regiones' } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+
+    <!-- Google Fonts: Raleway -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <!-- AOS (Animate On Scroll) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style is:global>
+      :root {
+        --color-primary: #212529;
+        --color-accent: #FC5D23;
+        --color-bg-light: #F8F8F8;
+        --color-text-light: #6c757d;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: 'Raleway', sans-serif;
+        color: var(--color-primary);
+        background-color: #ffffff;
+        line-height: 1.8;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      h1, h2, h3, h4, h5, h6 {
+        font-family: 'Raleway', sans-serif;
+      }
+
+      h1 { font-weight: 300; letter-spacing: 1px; }
+      h2 { font-weight: 400; }
+      h3 { font-weight: 500; }
+
+      /* Fullscreen Menu Styles */
+      .fullscreen-menu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(33, 37, 41, 0.98);
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.5s cubic-bezier(0.77, 0, 0.175, 1), visibility 0.5s;
+      }
+
+      .fullscreen-menu.active {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .fullscreen-menu nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        text-align: center;
+      }
+
+      .fullscreen-menu nav ul li {
+        margin: 1.5rem 0;
+        opacity: 0;
+        transform: translateY(-20px);
+        transition: opacity 0.4s ease, transform 0.4s ease;
+      }
+
+      .fullscreen-menu.active nav ul li {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .fullscreen-menu nav ul li:nth-child(1) { transition-delay: 0.1s; }
+      .fullscreen-menu nav ul li:nth-child(2) { transition-delay: 0.15s; }
+      .fullscreen-menu nav ul li:nth-child(3) { transition-delay: 0.2s; }
+      .fullscreen-menu nav ul li:nth-child(4) { transition-delay: 0.25s; }
+      .fullscreen-menu nav ul li:nth-child(5) { transition-delay: 0.3s; }
+      .fullscreen-menu nav ul li:nth-child(6) { transition-delay: 0.35s; }
+
+      .fullscreen-menu nav ul li a {
+        color: #ffffff;
+        font-size: 2.25rem;
+        font-weight: 300;
+        text-decoration: none;
+        letter-spacing: 1px;
+        transition: color 0.3s ease;
+      }
+
+      .fullscreen-menu nav ul li a:hover {
+        color: var(--color-accent);
+      }
+
+      .menu-toggle {
+        width: 30px;
+        height: 22px;
+        position: relative;
+        cursor: pointer;
+        z-index: 10000;
+      }
+
+      .menu-toggle span {
+        display: block;
+        width: 100%;
+        height: 2px;
+        background-color: var(--color-primary);
+        position: absolute;
+        transition: all 0.3s ease;
+      }
+
+      .menu-toggle span:nth-child(1) { top: 0; }
+      .menu-toggle span:nth-child(2) { top: 10px; }
+      .menu-toggle span:nth-child(3) { top: 20px; }
+
+      .menu-toggle.active span {
+        background-color: #ffffff;
+      }
+
+      .menu-toggle.active span:nth-child(1) {
+        top: 10px;
+        transform: rotate(45deg);
+      }
+
+      .menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .menu-toggle.active span:nth-child(3) {
+        top: 10px;
+        transform: rotate(-45deg);
+      }
+
+      /* Header scroll effect */
+      .site-header {
+        transition: all 0.4s ease;
+      }
+
+      .site-header.scrolled {
+        background-color: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+      }
+
+      /* Button styles */
+      .btn-primary {
+        display: inline-block;
+        background-color: var(--color-accent);
+        color: #ffffff;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        padding: 16px 32px;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+      }
+
+      .btn-primary:hover {
+        background-color: var(--color-primary);
+      }
+
+      .btn-secondary {
+        display: inline-block;
+        background-color: transparent;
+        color: var(--color-primary);
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        padding: 16px 32px;
+        border: 2px solid var(--color-primary);
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+      }
+
+      .btn-secondary:hover {
+        background-color: var(--color-primary);
+        color: #ffffff;
+      }
+
+      /* Card hover effects */
+      .card-lift {
+        transition: all 0.4s ease;
+      }
+
+      .card-lift:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 40px rgba(0,0,0,0.12);
+      }
+
+      /* Section spacing */
+      .section-padding {
+        padding-top: 100px;
+        padding-bottom: 100px;
+      }
+
+      @media (max-width: 768px) {
+        .section-padding {
+          padding-top: 60px;
+          padding-bottom: 60px;
+        }
+
+        .fullscreen-menu nav ul li a {
+          font-size: 1.75rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <slot />
+
+    <!-- AOS Init -->
+    <script>
+      import AOS from 'aos';
+      AOS.init({
+        duration: 800,
+        easing: 'cubic-bezier(0.77, 0, 0.175, 1)',
+        once: true,
+        offset: 100,
+      });
+    </script>
+
+    <!-- Menu Toggle Script -->
+    <script>
+      const menuToggle = document.querySelector('.menu-toggle');
+      const fullscreenMenu = document.querySelector('.fullscreen-menu');
+
+      if (menuToggle && fullscreenMenu) {
+        menuToggle.addEventListener('click', () => {
+          menuToggle.classList.toggle('active');
+          fullscreenMenu.classList.toggle('active');
+          document.body.style.overflow = fullscreenMenu.classList.contains('active') ? 'hidden' : '';
+        });
+
+        // Close menu on link click
+        fullscreenMenu.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', () => {
+            menuToggle.classList.remove('active');
+            fullscreenMenu.classList.remove('active');
+            document.body.style.overflow = '';
+          });
+        });
+      }
+
+      // Header scroll effect
+      const header = document.querySelector('.site-header');
+      if (header) {
+        window.addEventListener('scroll', () => {
+          if (window.scrollY > 100) {
+            header.classList.add('scrolled');
+          } else {
+            header.classList.remove('scrolled');
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
