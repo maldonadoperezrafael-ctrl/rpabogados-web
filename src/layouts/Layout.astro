@@ -4,7 +4,7 @@ interface Props {
   description?: string;
 }
 
-const { title, description = 'Boutique Jurídica de Litigación Estratégica • Santiago & Regiones' } = Astro.props;
+const { title, description = 'Estudio Jurídico de Litigación de Alta Complejidad • Pichilemu, VI Región de O\'Higgins' } = Astro.props;
 ---
 
 <!doctype html>
@@ -48,11 +48,12 @@ const { title, description = 'Boutique Jurídica de Litigación Estratégica •
 
       h1, h2, h3, h4, h5, h6 {
         font-family: 'Raleway', sans-serif;
+        font-weight: 600;
       }
 
-      h1 { font-weight: 300; letter-spacing: 1px; }
-      h2 { font-weight: 400; }
-      h3 { font-weight: 500; }
+      h1 { font-weight: 700; letter-spacing: 0.5px; }
+      h2 { font-weight: 600; }
+      h3 { font-weight: 600; }
 
       /* Fullscreen Menu Styles */
       .fullscreen-menu {
@@ -105,7 +106,7 @@ const { title, description = 'Boutique Jurídica de Litigación Estratégica •
       .fullscreen-menu nav ul li a {
         color: #ffffff;
         font-size: 2.25rem;
-        font-weight: 300;
+        font-weight: 400;
         text-decoration: none;
         letter-spacing: 1px;
         transition: color 0.3s ease;
@@ -170,7 +171,7 @@ const { title, description = 'Boutique Jurídica de Litigación Estratégica •
         display: inline-block;
         background-color: var(--color-accent);
         color: #ffffff;
-        font-weight: 500;
+        font-weight: 600;
         text-transform: uppercase;
         letter-spacing: 1px;
         padding: 16px 32px;
@@ -188,7 +189,7 @@ const { title, description = 'Boutique Jurídica de Litigación Estratégica •
         display: inline-block;
         background-color: transparent;
         color: var(--color-primary);
-        font-weight: 500;
+        font-weight: 600;
         text-transform: uppercase;
         letter-spacing: 1px;
         padding: 16px 32px;
