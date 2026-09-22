@@ -1,0 +1,132 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout 
+  title="Abogados en Pichilemu | RP Abogados - Litigación de Alta Complejidad VI Región"
+  description="Abogados en Pichilemu con estándar de Santiago. Litigación civil, penal, contencioso administrativo y laboral en la VI Región de O'Higgins. Atención preferente en la costa."
+>
+  <Header />
+
+  <main class="pt-20">
+    <!-- Hero Pichilemu -->
+    <section class="relative py-24 bg-primary">
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="max-w-3xl" data-aos="fade-up">
+          <p class="text-accent font-medium tracking-widest uppercase mb-4 text-sm">
+            VI Región de O'Higgins
+          </p>
+          <h1 class="text-5xl md:text-6xl font-light text-white mb-6">
+            Abogados en Pichilemu<br>
+            <span class="text-accent">Estándar de Santiago</span>
+          </h1>
+          <p class="text-xl text-white/80 leading-relaxed mb-8">
+            Somos abogados con oficina en Santiago (Providencia) y atención preferente en Pichilemu y toda la VI Región. Traemos el estándar de litigación de la capital a la costa de O'Higgins.
+          </p>
+          <a href="#contacto" class="inline-block bg-[#25D366] text-white px-8 py-4 font-medium tracking-widest uppercase text-sm hover:bg-[#1da851] transition-all duration-300">
+            Consulta en Pichilemu
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ventaja competitiva -->
+    <section class="py-16 bg-white">
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div data-aos="fade-right">
+            <h2 class="text-3xl md:text-4xl font-semibold text-primary mb-6">
+              ¿Por qué elegir abogados de Santiago en Pichilemu?
+            </h2>
+            <ul class="space-y-4 text-text-light">
+              <li class="flex items-start gap-3">
+                <span class="text-accent mt-1">✓</span>
+                <span><strong class="text-primary">Experiencia en tribunales superiores:</strong> Corte Suprema, Cortes de Apelaciones, casos de alta complejidad.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-accent mt-1">✓</span>
+                <span><strong class="text-primary">Recursos y red profesional:</strong> Conexiones con expertos, peritos y redes profesionales de la capital.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-accent mt-1">✓</span>
+                <span><strong class="text-primary">Atención local:</strong> Presencia en Pichilemu, conocemos la realidad de la VI Región.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-accent mt-1">✓</span>
+                <span><strong class="text-primary">Tecnología:</strong> Atención telemática eficiente, sin necesidad de viajar a Santiago.</span>
+              </li>
+            </ul>
+          </div>
+          <div class="bg-bg-light p-8" data-aos="fade-left">
+            <h3 class="text-xl font-semibold text-primary mb-4">Áreas de práctica en Pichilemu</h3>
+            <ul class="space-y-3 text-text-light">
+              <li>• Litigación Civil</li>
+              <li>• Litigación Penal Económico</li>
+              <li>• Derecho Público y Contencioso Administrativo</li>
+              <li>• Derecho Laboral</li>
+            </ul>
+            <div class="mt-6 pt-6 border-t border-gray-200">
+              <p class="text-sm text-text-light">
+                <strong class="text-primary">Cobertura:</strong> Pichilemu, Marchihue, Litueche, La Estrella, Navidad, Paredones y toda la Provincia de Cardenal Caro.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cobertura -->
+    <section class="py-16 bg-bg-light">
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="text-center mb-12" data-aos="fade-up">
+          <h2 class="text-3xl md:text-4xl font-semibold text-primary mb-4">Cobertura en la VI Región</h2>
+          <p class="text-text-light max-w-2xl mx-auto">
+            Atendemos causas en toda la Provincia de Cardenal Caro y la VI Región de O'Higgins.
+          </p>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="bg-white p-4 text-center">
+            <div class="font-semibold text-primary">Pichilemu</div>
+            <div class="text-sm text-text-light">Capital provincial</div>
+          </div>
+          <div class="bg-white p-4 text-center">
+            <div class="font-semibold text-primary">Marchihue</div>
+            <div class="text-sm text-text-light">Comuna vecina</div>
+          </div>
+          <div class="bg-white p-4 text-center">
+            <div class="font-semibold text-primary">Litueche</div>
+            <div class="text-sm text-text-light">Comuna costera</div>
+          </div>
+          <div class="bg-white p-4 text-center">
+            <div class="font-semibold text-primary">Paredones</div>
+            <div class="text-sm text-text-light">Comuna rural</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section id="contacto" class="py-16 bg-primary">
+      <div class="max-w-4xl mx-auto px-4 text-center">
+        <h2 class="text-3xl md:text-4xl font-light text-white mb-6" data-aos="fade-up">
+          Consulta en Pichilemu
+        </h2>
+        <p class="text-white/80 mb-8" data-aos="fade-up" data-aos-delay="100">
+          Agenda tu consulta presencial en Pichilemu o telemática. Respondemos en menos de 24 horas.
+        </p>
+        <div class="flex flex-wrap justify-center gap-4" data-aos="fade-up" data-aos-delay="200">
+          <a href="https://wa.me/56985497497" class="inline-block bg-[#25D366] text-white px-8 py-4 font-medium tracking-widest uppercase text-sm hover:bg-[#1da851] transition-all duration-300">
+            WhatsApp Directo
+          </a>
+          <a href="tel:+56985497497" class="inline-block bg-white text-primary px-8 py-4 font-medium tracking-widest uppercase text-sm hover:bg-gray-100 transition-all duration-300">
+            Llamar Ahora
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
