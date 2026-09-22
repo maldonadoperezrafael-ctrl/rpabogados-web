@@ -4,7 +4,7 @@ interface Props {
   description?: string;
 }
 
-const { title, description = 'Estudio Jurídico de Litigación de Alta Complejidad • Pichilemu, VI Región de O\'Higgins' } = Astro.props;
+const { title, description = 'Estudio Jurídico de Litigación de Alta Complejidad • Región Metropolitana y VI Región' } = Astro.props;
 ---
 
 <!doctype html>
@@ -48,12 +48,11 @@ const { title, description = 'Estudio Jurídico de Litigación de Alta Complejid
 
       h1, h2, h3, h4, h5, h6 {
         font-family: 'Raleway', sans-serif;
-        font-weight: 600;
       }
 
-      h1 { font-weight: 700; letter-spacing: 0.5px; }
-      h2 { font-weight: 600; }
-      h3 { font-weight: 600; }
+      h1 { font-weight: 300; letter-spacing: 1px; }
+      h2 { font-weight: 400; }
+      h3 { font-weight: 500; }
 
       /* Fullscreen Menu Styles */
       .fullscreen-menu {
@@ -106,7 +105,7 @@ const { title, description = 'Estudio Jurídico de Litigación de Alta Complejid
       .fullscreen-menu nav ul li a {
         color: #ffffff;
         font-size: 2.25rem;
-        font-weight: 400;
+        font-weight: 300;
         text-decoration: none;
         letter-spacing: 1px;
         transition: color 0.3s ease;
@@ -171,7 +170,7 @@ const { title, description = 'Estudio Jurídico de Litigación de Alta Complejid
         display: inline-block;
         background-color: var(--color-accent);
         color: #ffffff;
-        font-weight: 600;
+        font-weight: 500;
         text-transform: uppercase;
         letter-spacing: 1px;
         padding: 16px 32px;
@@ -189,7 +188,7 @@ const { title, description = 'Estudio Jurídico de Litigación de Alta Complejid
         display: inline-block;
         background-color: transparent;
         color: var(--color-primary);
-        font-weight: 600;
+        font-weight: 500;
         text-transform: uppercase;
         letter-spacing: 1px;
         padding: 16px 32px;
