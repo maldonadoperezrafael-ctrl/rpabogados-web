@@ -224,7 +224,7 @@ import Footer from '../components/Footer.astro';
       </div>
     </section>
 
-    <!-- Cita Doctrinal -->
+    <!-- Cita Doctrinal con Rotación -->
     <section class="py-24 bg-primary text-white relative overflow-hidden">
       <div class="absolute inset-0 opacity-10">
         <div class="absolute top-0 left-1/4 w-96 h-96 bg-accent rounded-full blur-3xl"></div>
@@ -233,12 +233,121 @@ import Footer from '../components/Footer.astro';
         <svg class="w-12 h-12 mx-auto mb-8 text-accent opacity-50" viewBox="0 0 24 24" fill="currentColor">
           <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
         </svg>
-        <blockquote class="text-2xl md:text-3xl font-light italic leading-relaxed mb-8">
-          "Tu deber es luchar por el Derecho, pero el día que encuentres en conflicto el Derecho con la Justicia, lucha por la Justicia"
-        </blockquote>
-        <cite class="text-white/60 text-sm tracking-widest uppercase">— Jurista Universal</cite>
+
+        <!-- Contenedor de citas con rotación -->
+        <div class="quote-container relative min-h-[200px] flex items-center justify-center">
+          <!-- Cita 1: Ulpiano -->
+          <div class="quote-slide absolute inset-0 flex flex-col items-center justify-center opacity-100 transition-opacity duration-1000" data-quote="0">
+            <blockquote class="text-2xl md:text-3xl font-light italic leading-relaxed mb-8">
+              "La justicia es la constante y perpetua voluntad de dar a cada uno su derecho"
+            </blockquote>
+            <cite class="text-white/60 text-sm tracking-widest uppercase">— Ulpiano (170-228), Jurista Romano</cite>
+          </div>
+
+          <!-- Cita 2: Cicerón -->
+          <div class="quote-slide absolute inset-0 flex flex-col items-center justify-center opacity-0 transition-opacity duration-1000 pointer-events-none" data-quote="1">
+            <blockquote class="text-2xl md:text-3xl font-light italic leading-relaxed mb-8">
+              "La ciencia que se aparte de la justicia, más que ciencia, debe llamarse astucia"
+            </blockquote>
+            <cite class="text-white/60 text-sm tracking-widest uppercase">— Marco Tulio Cicerón (106-43 a.C.), Orador y Jurista Romano</cite>
+          </div>
+
+          <!-- Cita 3: Montesquieu -->
+          <div class="quote-slide absolute inset-0 flex flex-col items-center justify-center opacity-0 transition-opacity duration-1000 pointer-events-none" data-quote="2">
+            <blockquote class="text-2xl md:text-3xl font-light italic leading-relaxed mb-8">
+              "Una cosa no es justa por el hecho de ser ley. Debe ser ley porque es justa"
+            </blockquote>
+            <cite class="text-white/60 text-sm tracking-widest uppercase">— Montesquieu (1689-1755), Filósofo y Jurista Francés</cite>
+          </div>
+
+          <!-- Cita 4: Edward Coke -->
+          <div class="quote-slide absolute inset-0 flex flex-col items-center justify-center opacity-0 transition-opacity duration-1000 pointer-events-none" data-quote="3">
+            <blockquote class="text-2xl md:text-3xl font-light italic leading-relaxed mb-8">
+              "El rey mismo no debe estar sujeto al hombre, sino a Dios y a la ley, porque la ley lo hace rey"
+            </blockquote>
+            <cite class="text-white/60 text-sm tracking-widest uppercase">— Edward Coke (1552-1634), Jurista Británico</cite>
+          </div>
+        </div>
+
+        <!-- Indicadores de cita -->
+        <div class="flex justify-center gap-3 mt-8">
+          <button class="quote-dot w-2 h-2 rounded-full bg-accent transition-all duration-300" data-target="0" aria-label="Cita 1"></button>
+          <button class="quote-dot w-2 h-2 rounded-full bg-white/30 transition-all duration-300" data-target="1" aria-label="Cita 2"></button>
+          <button class="quote-dot w-2 h-2 rounded-full bg-white/30 transition-all duration-300" data-target="2" aria-label="Cita 3"></button>
+          <button class="quote-dot w-2 h-2 rounded-full bg-white/30 transition-all duration-300" data-target="3" aria-label="Cita 4"></button>
+        </div>
       </div>
     </section>
+
+    <script>
+      // Sistema de rotación de citas
+      document.addEventListener('DOMContentLoaded', () => {
+        const slides = document.querySelectorAll('.quote-slide');
+        const dots = document.querySelectorAll('.quote-dot');
+        let currentQuote = 0;
+        let quoteInterval;
+
+        function showQuote(index) {
+          // Ocultar todas
+          slides.forEach((slide, i) => {
+            if (i === index) {
+              slide.classList.remove('opacity-0', 'pointer-events-none');
+              slide.classList.add('opacity-100');
+            } else {
+              slide.classList.add('opacity-0', 'pointer-events-none');
+              slide.classList.remove('opacity-100');
+            }
+          });
+
+          // Actualizar dots
+          dots.forEach((dot, i) => {
+            if (i === index) {
+              dot.classList.remove('bg-white/30');
+              dot.classList.add('bg-accent');
+            } else {
+              dot.classList.add('bg-white/30');
+              dot.classList.remove('bg-accent');
+            }
+          });
+
+          currentQuote = index;
+        }
+
+        function nextQuote() {
+          const next = (currentQuote + 1) % slides.length;
+          showQuote(next);
+        }
+
+        // Auto-rotación cada 6 segundos
+        function startRotation() {
+          quoteInterval = setInterval(nextQuote, 6000);
+        }
+
+        function stopRotation() {
+          clearInterval(quoteInterval);
+        }
+
+        // Click en dots
+        dots.forEach((dot) => {
+          dot.addEventListener('click', () => {
+            const target = parseInt(dot.getAttribute('data-target'));
+            stopRotation();
+            showQuote(target);
+            startRotation();
+          });
+        });
+
+        // Pausar al hover
+        const container = document.querySelector('.quote-container');
+        if (container) {
+          container.addEventListener('mouseenter', stopRotation);
+          container.addEventListener('mouseleave', startRotation);
+        }
+
+        // Iniciar rotación
+        startRotation();
+      });
+    </script>
 
     <!-- Coyuntura Forense / Noticias -->
     <section id="noticias" class="section-padding bg-white">
