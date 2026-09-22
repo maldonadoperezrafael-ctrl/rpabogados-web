@@ -333,65 +333,80 @@ import Footer from '../components/Footer.astro';
       });
     </script>
 
-    <!-- Coyuntura Forense / Noticias -->
-    <section id="noticias" class="section-padding bg-white">
-      <div class="max-w-6xl mx-auto px-4">
-        <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12" data-aos="fade-up">
-          <div>
-            <p class="text-accent font-medium tracking-widest uppercase mb-4 text-sm">Coyuntura Forense</p>
-            <h2 class="text-4xl md:text-5xl mb-4 font-light">Análisis Jurisprudencial Reciente</h2>
-            <p class="text-text-light">Edición Quincenal • Actualización en derecho procesal y sustantivo</p>
+    <!-- Coyuntura Forense / Noticias Estilo Colombara -->
+    <section id="noticias" class="py-0 bg-white">
+      <!-- Noticia Principal -->
+      <div class="relative overflow-hidden mb-8">
+        <div class="absolute inset-0">
+          <img src="/fotos/textura-verde.jpg" alt="" class="w-full h-full object-cover">
+          <div class="absolute inset-0 bg-black/40"></div>
+        </div>
+        <div class="relative z-10 max-w-7xl mx-auto px-6 py-16">
+          <div class="grid md:grid-cols-2 gap-8 items-center">
+            <div data-aos="fade-right">
+              <h2 class="text-white text-4xl md:text-5xl font-light mb-4">COYUNTURA<br>FORENSE</h2>
+              <p class="text-white/80 text-lg leading-relaxed mb-6">
+                En "Coyuntura Forense", analizamos las sentencias más relevantes de los tribunales chilenos. Conversamos sobre derecho del consumidor, civil y laboral con un enfoque práctico y actualizado.
+              </p>
+              <a href="https://www.diarioconstitucional.cl/" target="_blank" rel="noopener noreferrer" class="inline-block bg-white/10 backdrop-blur-sm text-white px-6 py-3 text-sm tracking-widest uppercase hover:bg-white hover:text-primary transition-all duration-300">
+                Ver más
+              </a>
+            </div>
+            <div class="relative" data-aos="fade-left">
+              <div class="border-4 border-white/20 overflow-hidden">
+                <img src="/fotos/corte-suprema-audiencia.jpg" alt="Corte Suprema" class="w-full h-64 object-cover">
+              </div>
+            </div>
           </div>
         </div>
+      </div>
 
-        <div class="grid md:grid-cols-3 gap-8">
-          <article class="card-lift bg-bg-light overflow-hidden" data-aos="fade-up" data-aos-delay="0">
-            <a href="https://www.diarioconstitucional.cl/2025/07/05/corte-suprema-anula-fallo-y-declara-abusiva-clausula-que-permitia-acelerar-la-deuda-por-infraccion-a-la-prohibicion-de-enajenar/" target="_blank" rel="noopener noreferrer" class="block">
-              <div class="h-48 overflow-hidden">
-                <img src="/fotos/corte-suprema-audiencia.jpg" alt="Corte Suprema de Chile" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+      <!-- Noticias Secundarias -->
+      <div class="max-w-7xl mx-auto px-6 pb-16">
+        <div class="grid md:grid-cols-2 gap-8">
+          <!-- Noticia 2 -->
+          <div class="relative overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+            <div class="absolute inset-0">
+              <img src="/fotos/textura-dorada.jpg" alt="" class="w-full h-full object-cover">
+              <div class="absolute inset-0 bg-black/50"></div>
+            </div>
+            <div class="relative z-10 p-8">
+              <span class="inline-block bg-white/10 backdrop-blur-sm text-white px-4 py-2 text-xs tracking-widest uppercase mb-4">REVISA NUESTRO ANÁLISIS</span>
+              <p class="text-white/90 text-sm leading-relaxed mb-6">
+                En el primer análisis, examinamos la teoría de la imprevisión en el derecho chileno de contratos y su impacto en la seguridad jurídica de las operaciones comerciales.
+              </p>
+              <div class="flex items-end gap-4">
+                <a href="https://laquintasala.cl/" target="_blank" rel="noopener noreferrer" class="inline-block bg-white/10 backdrop-blur-sm text-white px-6 py-3 text-sm tracking-widest uppercase hover:bg-white hover:text-primary transition-all duration-300">
+                  Ver más
+                </a>
+                <div class="flex-1">
+                  <img src="/fotos/corte-justicia-chile.jpg" alt="Tribunales de Justicia" class="w-full h-32 object-cover border-2 border-white/30">
+                </div>
               </div>
-              <div class="p-6">
-                <p class="text-accent text-xs font-medium tracking-widest uppercase mb-2">Derecho del Consumidor</p>
-                <h3 class="text-lg mb-3 leading-snug">Corte Suprema anula fallo y declara abusiva cláusula que permitía acelerar la deuda</h3>
-                <p class="text-text-light text-sm mb-4">
-                  El máximo tribunal invalidó sentencia que rechazó excepciones de consumidor. Rol 12146-2024, 5 de julio de 2025.
-                </p>
-                <span class="text-accent text-sm font-medium">Ver sentencia →</span>
-              </div>
-            </a>
-          </article>
+            </div>
+          </div>
 
-          <article class="card-lift bg-bg-light overflow-hidden" data-aos="fade-up" data-aos-delay="100">
-            <a href="https://laquintasala.cl/" target="_blank" rel="noopener noreferrer" class="block">
-              <div class="h-48 overflow-hidden">
-                <img src="/fotos/corte-justicia-chile.jpg" alt="Palacio de los Tribunales de Justicia" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+          <!-- Noticia 3 -->
+          <div class="relative overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+            <div class="absolute inset-0">
+              <img src="/fotos/textura-dorada.jpg" alt="" class="w-full h-full object-cover">
+              <div class="absolute inset-0 bg-black/50"></div>
+            </div>
+            <div class="relative z-10 p-8">
+              <span class="inline-block bg-white/10 backdrop-blur-sm text-white px-4 py-2 text-xs tracking-widest uppercase mb-4">LITIGACIÓN LABORAL</span>
+              <p class="text-white/90 text-sm leading-relaxed mb-6">
+                Descubre las últimas novedades en derecho laboral con nuestro análisis sobre la nulidad del despido y las diferencias en cotizaciones por semana corrida.
+              </p>
+              <div class="flex items-end gap-4">
+                <a href="https://www.portal.ijuridica.cl/" target="_blank" rel="noopener noreferrer" class="inline-block bg-white/10 backdrop-blur-sm text-white px-6 py-3 text-sm tracking-widest uppercase hover:bg-white hover:text-primary transition-all duration-300">
+                  Ver más
+                </a>
+                <div class="flex-1">
+                  <img src="/fotos/corte-apelaciones-santiago.jpg" alt="Corte de Apelaciones" class="w-full h-32 object-cover border-2 border-white/30">
+                </div>
               </div>
-              <div class="p-6">
-                <p class="text-accent text-xs font-medium tracking-widest uppercase mb-2">Derecho Civil</p>
-                <h3 class="text-lg mb-3 leading-snug">Teoría de la imprevisión no tiene cabida en el derecho chileno de contratos</h3>
-                <p class="text-text-light text-sm mb-4">
-                  La CS confirmó que la imprevisión no opera en nuestro ordenamiento contractual. Sentencia 217.959-2023, 11 de marzo de 2025.
-                </p>
-                <span class="text-accent text-sm font-medium">Ver análisis →</span>
-              </div>
-            </a>
-          </article>
-
-          <article class="card-lift bg-bg-light overflow-hidden" data-aos="fade-up" data-aos-delay="200">
-            <a href="https://www.portal.ijuridica.cl/2026/07/corte-de-santiago-precisa-que-corresponde-nulidad-del-despido-si-sentencia-declara-diferencias-de-remuneracionales-por-semana-corrida/" target="_blank" rel="noopener noreferrer" class="block">
-              <div class="h-48 overflow-hidden">
-                <img src="/fotos/corte-apelaciones-santiago.jpg" alt="Corte de Apelaciones de Santiago" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
-              </div>
-              <div class="p-6">
-                <p class="text-accent text-xs font-medium tracking-widest uppercase mb-2">Derecho Laboral</p>
-                <h3 class="text-lg mb-3 leading-snug">Corte de Santiago: Nulidad del despido si hay diferencias en semana corrida</h3>
-                <p class="text-text-light text-sm mb-4">
-                  La CA estableció que diferencias en cotizaciones por semana corrida proceden sanción de nulidad. Rol 796-2025.
-                </p>
-                <span class="text-accent text-sm font-medium">Ver noticia →</span>
-              </div>
-            </a>
-          </article>
+            </div>
+          </div>
         </div>
       </div>
     </section>
