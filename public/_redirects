@@ -1,0 +1,18 @@
+# Redirecciones 301 - RP Abogados
+# De URLs antiguas a nuevas estructura
+
+/areas/derecho-laboral/ /#areas 301
+/areas/derecho-publico/ /#areas 301
+/areas/litigio-penal/ /#areas 301
+/areas/litigio-civil/ /#areas 301
+/areas/ /#areas 301
+/areas-practica/ /#areas 301
+/equipo/ /#equipo 301
+/contacto/ /#contacto 301
+/nosotros/ /#equipo 301
+/servicios/ /#areas 301
+
+# Redirección de www a no-www
+https://www.rpabogados.cl/* https://rpabogados.cl/:splat 301
+http://rpabogados.cl/* https://rpabogados.cl/:splat 301
+http://www.rpabogados.cl/* https://rpabogados.cl/:splat 301
