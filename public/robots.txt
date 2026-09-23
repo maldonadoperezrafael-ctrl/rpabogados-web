@@ -1,0 +1,14 @@
+# robots.txt - RP Abogados
+# https://rpabogados.cl
+
+User-agent: *
+Allow: /
+Disallow: /areas/
+Disallow: /areas-practica/
+Disallow: /equipo/
+Disallow: /contacto/
+Disallow: /nosotros/
+Disallow: /servicios/
+
+# Sitemap
+Sitemap: https://rpabogados.cl/sitemap.xml
