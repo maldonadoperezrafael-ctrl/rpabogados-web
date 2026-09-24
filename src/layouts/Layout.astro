@@ -333,14 +333,43 @@ const { title, description = 'Estudio Jurídico de Litigación de Alta Complejid
     justify-content: space-between !important;
   }
 
-  /* Logo con tamaño óptimo y sin deformación */
+  /* Barra superior estilizada e independiente */
+  header, nav, .navbar, .site-header {
+    background-color: #ffffff !important;
+    border-bottom: 1px solid #e2e8f0 !important;
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 50 !important;
+    padding: 10px 0 !important;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05) !important;
+  }
+
+  /* Distribución de la barra */
+  header > div, nav > div, .navbar > div, .site-header > div {
+    width: 100% !important;
+    max-width: 1240px !important;
+    margin: 0 auto !important;
+    padding: 0 24px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+  }
+
+  /* Logo con presencia y sin restricciones mínimas */
   header img, nav img, .logo img, .site-header img {
-    height: 46px !important;
-    max-height: 46px !important;
+    height: 62px !important;
+    max-height: 65px !important;
     width: auto !important;
-    max-width: 200px !important;
+    max-width: 240px !important;
     object-fit: contain !important;
     display: block !important;
+  }
+
+  /* Menú a la derecha */
+  header button, nav button, .hamburger-btn {
+    margin-left: auto !important;
+  }
+</style>
   }
 
   /* Menú a la derecha */
