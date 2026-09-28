@@ -307,11 +307,11 @@ const { title, description = 'Estudio Jurídico de Litigación de Alta Complejid
   </body>
 </html>
 <style is:global>
-  /* Barra superior armónica y fija */
+  /* Barra superior con mayor altura para acoger el logo grande */
   header, nav, .navbar, .site-header {
     width: 100% !important;
-    height: 72px !important;
-    max-height: 72px !important;
+    height: 96px !important;
+    max-height: 96px !important;
     background-color: #ffffff !important;
     border-bottom: 1px solid #e2e8f0 !important;
     position: sticky !important;
@@ -320,27 +320,6 @@ const { title, description = 'Estudio Jurídico de Litigación de Alta Complejid
     display: flex !important;
     align-items: center !important;
     box-sizing: border-box !important;
-  }
-
-  /* Distribución: Logo a la izquierda, menú a la derecha */
-  header > div, nav > div, .navbar > div, .site-header > div {
-    width: 100% !important;
-    max-width: 1200px !important;
-    margin: 0 auto !important;
-    padding: 0 24px !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-  }
-
-  /* Barra superior estilizada e independiente */
-  header, nav, .navbar, .site-header {
-    background-color: #ffffff !important;
-    border-bottom: 1px solid #e2e8f0 !important;
-    position: sticky !important;
-    top: 0 !important;
-    z-index: 50 !important;
-    padding: 10px 0 !important;
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05) !important;
   }
 
@@ -355,12 +334,12 @@ const { title, description = 'Estudio Jurídico de Litigación de Alta Complejid
     justify-content: space-between !important;
   }
 
-  /* Logo con presencia y sin restricciones mínimas */
+  /* Logo grande, nítido y protagonista */
   header img, nav img, .logo img, .site-header img {
-    height: 62px !important;
-    max-height: 65px !important;
+    height: 82px !important;
+    max-height: 85px !important;
     width: auto !important;
-    max-width: 240px !important;
+    max-width: 320px !important;
     object-fit: contain !important;
     display: block !important;
   }
