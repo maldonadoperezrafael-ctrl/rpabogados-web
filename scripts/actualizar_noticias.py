@@ -16,27 +16,27 @@ FEEDS = [
 def clean_html(raw_html):
     if not raw_html:
         return ""
-    text = re.sub(r'<[^>]+>', '', raw_html)
-    text = re.sub(r'\s+', ' ', text).strip()
-    return text[:140] + '...' if len(text) > 140 else text
+    text = re.sub(r"<[^>]+>", "", raw_html)
+    text = re.sub(r"\s+", " ", text).strip()
+    return text[:140] + "..." if len(text) > 140 else text
 
 def fetch_feed(source):
     articles = []
     try:
         req = urllib.request.Request(
-            source["url"], 
+            source["url"],
             headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) RPAbogadosBot/1.0"}
         )
         with urllib.request.urlopen(req, timeout=12) as response:
             xml_data = response.read()
             root = ET.fromstring(xml_data)
-            
+
             for item in root.findall(".//item")[:5]:
                 title = item.find("title").text if item.find("title") is not None else ""
                 link = item.find("link").text if item.find("link") is not None else ""
                 pub_date_str = item.find("pubDate").text if item.find("pubDate") is not None else ""
                 desc = item.find("description").text if item.find("description") is not None else ""
-                
+
                 try:
                     dt = parsedate_to_datetime(pub_date_str)
                     iso_date = dt.isoformat()
@@ -63,20 +63,20 @@ def main():
     for source in FEEDS:
         print(f"Descargando {source['name']}...")
         all_articles.extend(fetch_feed(source))
-    
-    # Ordenar por fecha cronológica (lo más reciente primero)
+
+    # Ordenar por fecha cronologica (lo mas reciente primero)
     all_articles.sort(key=lambda x: x["timestamp"], reverse=True)
     top_articles = all_articles[:9]
-    
+
     # Asegurar que la carpeta public existe (para Astro)
     os.makedirs("public", exist_ok=True)
-    
+
     # Guardar en public/noticias.json
     output_path = os.path.join("public", "noticias.json")
     with open(output_path, "w", encoding="utf-8") as f:
         json.dump(top_articles, f, ensure_ascii=False, indent=2)
-    
-    print(f"Actualización exitosa: {len(top_articles)} noticias guardadas en {output_path}.")
+
+    print(f"Actualizacion exitosa: {len(top_articles)} noticias guardadas en {output_path}.")
 
 if __name__ == "__main__":
     main()
