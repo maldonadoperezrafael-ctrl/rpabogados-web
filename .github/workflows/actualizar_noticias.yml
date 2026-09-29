@@ -16,6 +16,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: main
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Configurar Python
         uses: actions/setup-python@v5
@@ -29,8 +30,13 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          
+          # Resguardar archivo generado y sincronizar limpiamente con main
+          cp public/noticias.json /tmp/saved_noticias.json
           git fetch origin main
-          git checkout -B main origin/main
+          git checkout -f -B main origin/main
+          cp /tmp/saved_noticias.json public/noticias.json
+
           git add public/noticias.json
           if git diff --staged --quiet; then
             echo "No hay noticias nuevas en este ciclo. Todo al día."
