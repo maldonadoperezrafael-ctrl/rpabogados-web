@@ -5,7 +5,7 @@ import re
 import os
 from email.utils import parsedate_to_datetime
 
-# Principales portales judiciales y legales de Chile
+# Portales judiciales y legales de Chile
 FEEDS = [
     {"name": "Diario Constitucional", "url": "https://www.diarioconstitucional.cl/feed/"},
     {"name": "Estado Diario", "url": "https://estadodiario.com/feed/"},
@@ -23,7 +23,6 @@ def clean_html(raw_html):
     return text[:140] + "..." if len(text) > 140 else text
 
 def fetch_og_image(link):
-    """Extrae la imagen original de la nota desde sus metadatos Open Graph"""
     if not link:
         return ""
     try:
@@ -43,31 +42,26 @@ def fetch_og_image(link):
     return ""
 
 def extract_image(item, raw_desc, link):
-    # 1. Enclosure tag
     enc = item.find("enclosure")
     if enc is not None and enc.get("url"):
         return enc.get("url")
 
-    # 2. Etiquetas Media RSS
     for tag in ["{http://search.yahoo.com/mrss/}content", "{http://search.yahoo.com/mrss/}thumbnail"]:
         m = item.find(tag)
         if m is not None and m.get("url"):
             return m.get("url")
 
-    # 3. WordPress content:encoded
     content_enc = item.find("{http://purl.org/rss/1.0/modules/content/}encoded")
     if content_enc is not None and content_enc.text:
         match = re.search(r'<img[^>]+src=["\']([^"\']+)["\']', content_enc.text, re.I)
         if match:
             return match.group(1)
 
-    # 4. Imagen en descripción
     if raw_desc:
         match = re.search(r'<img[^>]+src=["\']([^"\']+)["\']', raw_desc, re.I)
         if match:
             return match.group(1)
 
-    # 5. Extracción directa de la web original
     og_img = fetch_og_image(link)
     if og_img:
         return og_img
@@ -122,21 +116,21 @@ def main():
         print(f"Descargando {source['name']}...")
         all_articles.extend(fetch_feed(source))
 
-    # Ordenar por fecha reciente y seleccionar notas variadas de todos los medios
+    # Ordenar por fecha reciente
     all_articles.sort(key=lambda x: x["timestamp"], reverse=True)
     
-    # Asegurar diversidad de fuentes en los primeros resultados
+    # SELECCIÓN EQUILIBRADA: Máximo 2 notas por medio para garantizar variedad
     selected = []
-    seen_sources = {}
+    seen = {}
     for a in all_articles:
         s = a["source"]
-        if seen_sources.get(s, 0) < 2:  # Máximo 2 notas por medio para dar cabida a todos
+        if seen.get(s, 0) < 2:
             selected.append(a)
-            seen_sources[s] = seen_sources.get(s, 0) + 1
+            seen[s] = seen.get(s, 0) + 1
         if len(selected) == 6:
             break
             
-    # Si faltan para completar 6, rellenar con las más recientes
+    # Rellenar hasta 6 si hiciera falta
     if len(selected) < 6:
         for a in all_articles:
             if a not in selected:
@@ -149,7 +143,7 @@ def main():
     with open(output_path, "w", encoding="utf-8") as f:
         json.dump(selected, f, ensure_ascii=False, indent=2)
 
-    print(f"Actualización exitosa: {len(selected)} noticias de diversos medios guardadas en {output_path}.")
+    print(f"Guardadas {len(selected)} noticias de diversos medios en {output_path}.")
 
 if __name__ == "__main__":
     main()
