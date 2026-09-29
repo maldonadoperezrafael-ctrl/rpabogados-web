@@ -50,42 +50,50 @@ import Footer from '../components/Footer.astro';
       </div>
     </section>
 
-    <!-- Sección: Pilares de Nuestra Práctica -->
-    <section class="py-16 bg-slate-50 border-t border-b border-slate-200" id="pilares">
+    <!-- Sección: Pilares de Nuestra Práctica (Corregida con Números Grandes y Filete Dorado) -->
+    <section class="py-20 bg-slate-50 border-t border-b border-slate-200" id="pilares">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center max-w-3xl mx-auto mb-12">
+        
+        <!-- Cabecera de Sección -->
+        <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
           <span class="text-xs font-bold uppercase tracking-widest text-[#C5A880] block mb-2">Estándar Profesional</span>
-          <h2 class="text-3xl font-bold text-slate-900 tracking-tight">Pilares de Nuestra Práctica</h2>
+          <h2 class="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">Pilares de Nuestra Práctica</h2>
           <div class="w-12 h-0.5 bg-[#C5A880] mx-auto mt-4"></div>
         </div>
 
+        <!-- Grid de 3 Tarjetas con Filete Dorado, Números Grandes y Texto Equilibrado -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          
           <!-- Pilar I -->
-          <div class="bg-white p-8 rounded-md border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
-            <span class="text-sm font-extrabold text-[#C5A880] tracking-wider block mb-3">01</span>
-            <h3 class="text-lg font-bold text-slate-900 mb-3">Dirección Personalizada de Cada Causa</h3>
-            <p class="text-slate-600 text-sm leading-relaxed text-justify">
-              Lideramos personalmente el desarrollo de cada caso, integrando la experiencia y el análisis crítico de todo el equipo en cada etapa del proceso.
+          <div class="bg-white p-8 rounded-sm border border-slate-200 border-t-4 border-t-[#C5A880] shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300" data-aos="fade-up" data-aos-delay="0">
+            <span class="text-4xl md:text-5xl font-bold text-[#C5A880] block mb-4 tracking-tight">01</span>
+            <h3 class="text-xl font-bold text-slate-900 mb-3 leading-snug">Dirección Personalizada de Cada Causa</h3>
+            <div class="w-8 h-0.5 bg-slate-200 mb-4"></div>
+            <p class="text-slate-600 text-sm leading-relaxed text-left">
+              Conducción directa y estratégica de cada litigio a cargo de los socios de la firma, integrando análisis crítico y visión multidisciplinaria en cada etapa procesal.
             </p>
           </div>
 
           <!-- Pilar II -->
-          <div class="bg-white p-8 rounded-md border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
-            <span class="text-sm font-extrabold text-[#C5A880] tracking-wider block mb-3">02</span>
-            <h3 class="text-lg font-bold text-slate-900 mb-3">Fundamentación y Precisión Técnica</h3>
-            <p class="text-slate-600 text-sm leading-relaxed text-justify">
-              Sustentamos nuestras estrategias legales sobre la base del análisis exhaustivo de la legislación especializada, la doctrina y los precedentes jurisprudenciales consolidados, construyendo argumentos rigurosos, verificables y de alto estándar técnico.
+          <div class="bg-white p-8 rounded-md border border-slate-200 border-t-4 border-t-[#C5A880] shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
+            <span class="text-4xl md:text-5xl font-bold text-[#C5A880] block mb-4 tracking-tight">02</span>
+            <h3 class="text-xl font-bold text-slate-900 mb-3 leading-snug">Fundamentación y Precisión Técnica</h3>
+            <div class="w-8 h-0.5 bg-slate-200 mb-4"></div>
+            <p class="text-slate-600 text-sm leading-relaxed text-left">
+              Construcción de argumentos de alto estándar técnico sustentados en el análisis exhaustivo de legislación especializada, doctrina y jurisprudencia consolidada.
             </p>
           </div>
 
           <!-- Pilar III -->
-          <div class="bg-white p-8 rounded-md border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
-            <span class="text-sm font-extrabold text-[#C5A880] tracking-wider block mb-3">03</span>
-            <h3 class="text-lg font-bold text-slate-900 mb-3">Comunicación Permanente y Confidencialidad</h3>
-            <p class="text-slate-600 text-sm leading-relaxed text-justify">
-              Mantenemos a nuestros clientes informados sobre el avance del proceso que llevamos junto a ellos, brindando claridad de escenarios y rigurosidad técnica para enfrentar cada etapa.
+          <div class="bg-white p-8 rounded-md border border-slate-200 border-t-4 border-t-[#C5A880] shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
+            <span class="text-4xl md:text-5xl font-bold text-[#C5A880] block mb-4 tracking-tight">03</span>
+            <h3 class="text-xl font-bold text-slate-900 mb-3 leading-snug">Comunicación Permanente y Confidencialidad</h3>
+            <div class="w-8 h-0.5 bg-slate-200 mb-4"></div>
+            <p class="text-slate-600 text-sm leading-relaxed text-left">
+              Información continua y transparente sobre los avances y escenarios de cada causa, bajo el más estricto resguardo ético y reserva profesional.
             </p>
           </div>
+
         </div>
       </div>
     </section>
@@ -152,313 +160,4 @@ import Footer from '../components/Footer.astro';
 
         <div class="relative h-96 overflow-hidden group cursor-pointer" data-aos="fade-up" data-aos-delay="200">
           <img src="/fotos/area-publico.jpg" alt="Derecho Público" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-          <div class="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition-all duration-500"></div>
-          <div class="relative z-10 h-full flex flex-col justify-end p-6">
-            <h3 class="text-white text-2xl font-semibold mb-2">Derecho Público</h3>
-            <div class="w-12 h-0.5 bg-accent mb-4"></div>
-            <ul class="text-white/80 text-sm space-y-1 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-              <li>• Procesos disciplinarios</li>
-              <li>• Juicios de cuentas</li>
-              <li>• Acciones constitucionales</li>
-              <li>• Tribunal de Contratación Pública</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="relative h-96 overflow-hidden group cursor-pointer" data-aos="fade-up" data-aos-delay="300">
-          <img src="/fotos/area-laboral.jpg" alt="Derecho Laboral" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-          <div class="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition-all duration-500"></div>
-          <div class="relative z-10 h-full flex flex-col justify-end p-6">
-            <h3 class="text-white text-2xl font-semibold mb-2">Derecho Laboral</h3>
-            <div class="w-12 h-0.5 bg-accent mb-4"></div>
-            <ul class="text-white/80 text-sm space-y-1 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-              <li>• Negociaciones colectivas</li>
-              <li>• Sector público y privado</li>
-              <li>• Representación trabajador y empleador</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Cita Doctrinal con Rotación -->
-    <section class="py-24 bg-primary text-white relative overflow-hidden">
-      <div class="absolute inset-0 opacity-10">
-        <div class="absolute top-0 left-1/4 w-96 h-96 bg-accent rounded-full blur-3xl"></div>
-      </div>
-      <div class="max-w-4xl mx-auto px-4 text-center relative z-10" data-aos="fade-up">
-        <svg class="w-12 h-12 mx-auto mb-8 text-accent opacity-50" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
-        </svg>
-
-        <div class="quote-container relative min-h-[200px] flex items-center justify-center">
-          <div class="quote-slide absolute inset-0 flex flex-col items-center justify-center opacity-100 transition-opacity duration-1000" data-quote="0">
-            <blockquote class="text-2xl md:text-3xl font-light italic leading-relaxed mb-8">
-              "La justicia es la constante y perpetua voluntad de dar a cada uno su derecho"
-            </blockquote>
-            <cite class="text-white/60 text-sm tracking-widest uppercase">— Ulpiano (170-228), Jurista Romano</cite>
-          </div>
-
-          <div class="quote-slide absolute inset-0 flex flex-col items-center justify-center opacity-0 transition-opacity duration-1000 pointer-events-none" data-quote="1">
-            <blockquote class="text-2xl md:text-3xl font-light italic leading-relaxed mb-8">
-              "La ciencia que se aparte de la justicia, más que ciencia, debe llamarse astucia"
-            </blockquote>
-            <cite class="text-white/60 text-sm tracking-widest uppercase">— Marco Tulio Cicerón (106-43 a.C.), Orador y Jurista Romano</cite>
-          </div>
-
-          <div class="quote-slide absolute inset-0 flex flex-col items-center justify-center opacity-0 transition-opacity duration-1000 pointer-events-none" data-quote="2">
-            <blockquote class="text-2xl md:text-3xl font-light italic leading-relaxed mb-8">
-              "Una cosa no es justa por el hecho de ser ley. Debe ser ley porque es justa"
-            </blockquote>
-            <cite class="text-white/60 text-sm tracking-widest uppercase">— Montesquieu (1689-1755), Filósofo y Jurista Francés</cite>
-          </div>
-
-          <div class="quote-slide absolute inset-0 flex flex-col items-center justify-center opacity-0 transition-opacity duration-1000 pointer-events-none" data-quote="3">
-            <blockquote class="text-2xl md:text-3xl font-light italic leading-relaxed mb-8">
-              "El rey mismo no debe estar sujeto al hombre, sino a Dios y a la ley, porque la ley lo hace rey"
-            </blockquote>
-            <cite class="text-white/60 text-sm tracking-widest uppercase">— Edward Coke (1552-1634), Jurista Británico</cite>
-          </div>
-        </div>
-
-        <div class="flex justify-center gap-3 mt-8">
-          <button class="quote-dot w-2 h-2 rounded-full bg-accent transition-all duration-300" data-target="0" aria-label="Cita 1"></button>
-          <button class="quote-dot w-2 h-2 rounded-full bg-white/30 transition-all duration-300" data-target="1" aria-label="Cita 2"></button>
-          <button class="quote-dot w-2 h-2 rounded-full bg-white/30 transition-all duration-300" data-target="2" aria-label="Cita 3"></button>
-          <button class="quote-dot w-2 h-2 rounded-full bg-white/30 transition-all duration-300" data-target="3" aria-label="Cita 4"></button>
-        </div>
-      </div>
-    </section>
-
-    <!-- Coyuntura Forense / Noticias -->
-    <section id="noticias" class="py-0 bg-white">
-      <div class="relative overflow-hidden mb-8">
-        <div class="absolute inset-0">
-          <img src="/fotos/textura-verde.jpg" alt="" class="w-full h-full object-cover">
-          <div class="absolute inset-0 bg-black/40"></div>
-        </div>
-        <div class="relative z-10 max-w-7xl mx-auto px-6 py-16">
-          <div class="grid md:grid-cols-5 gap-8 items-center">
-            <div class="md:col-span-2" data-aos="fade-right">
-              <h2 class="text-white text-4xl md:text-5xl font-light mb-4">COYUNTURA<br>FORENSE</h2>
-              <p class="text-white/80 text-base leading-relaxed mb-6">
-                Análisis de las sentencias más relevantes de los tribunales chilenos. Derecho del consumidor, civil y laboral con enfoque práctico.
-              </p>
-              <a href="https://www.diarioconstitucional.cl/" target="_blank" rel="noopener noreferrer" class="inline-block bg-white/10 backdrop-blur-sm text-white px-6 py-3 text-sm tracking-widest uppercase hover:bg-white hover:text-primary transition-all duration-300">
-                Ver más
-              </a>
-            </div>
-            <div class="md:col-span-3 relative" data-aos="fade-left">
-              <div class="border-4 border-white/20 overflow-hidden">
-                <img src="/fotos/palacio-tribunales-frente.jpg" alt="Palacio de Tribunales de Justicia" class="w-full h-80 object-cover">
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="max-w-7xl mx-auto px-6 pb-16">
-        <div class="grid md:grid-cols-2 gap-8">
-          <div class="relative overflow-hidden" data-aos="fade-up" data-aos-delay="100">
-            <div class="absolute inset-0">
-              <img src="/fotos/textura-dorada.jpg" alt="" class="w-full h-full object-cover">
-              <div class="absolute inset-0 bg-black/50"></div>
-            </div>
-            <div class="relative z-10 p-8">
-              <span class="inline-block bg-white/10 backdrop-blur-sm text-white px-4 py-2 text-xs tracking-widest uppercase mb-4">DERECHO CIVIL</span>
-              <p class="text-white/90 text-sm leading-relaxed mb-6">
-                Teoría de la imprevisión en el derecho chileno de contratos y su impacto en la seguridad jurídica de las operaciones comerciales.
-              </p>
-              <div class="flex items-end gap-4">
-                <a href="https://laquintasala.cl/" target="_blank" rel="noopener noreferrer" class="inline-block bg-white/10 backdrop-blur-sm text-white px-6 py-3 text-sm tracking-widest uppercase hover:bg-white hover:text-primary transition-all duration-300">
-                  Ver más
-                </a>
-                <div class="flex-1">
-                  <img src="/fotos/fachada-tribunales.jpg" alt="Fachada Tribunales de Justicia" class="w-full h-40 object-cover border-2 border-white/30">
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="relative overflow-hidden" data-aos="fade-up" data-aos-delay="200">
-            <div class="absolute inset-0">
-              <img src="/fotos/textura-dorada.jpg" alt="" class="w-full h-full object-cover">
-              <div class="absolute inset-0 bg-black/50"></div>
-            </div>
-            <div class="relative z-10 p-8">
-              <span class="inline-block bg-white/10 backdrop-blur-sm text-white px-4 py-2 text-xs tracking-widest uppercase mb-4">DERECHO LABORAL</span>
-              <p class="text-white/90 text-sm leading-relaxed mb-6">
-                Nulidad del despido y diferencias en cotizaciones por semana corrida. Análisis de jurisprudencia laboral reciente.
-              </p>
-              <div class="flex items-end gap-4">
-                <a href="https://www.portal.ijuridica.cl/" target="_blank" rel="noopener noreferrer" class="inline-block bg-white/10 backdrop-blur-sm text-white px-6 py-3 text-sm tracking-widest uppercase hover:bg-white hover:text-primary transition-all duration-300">
-                  Ver más
-                </a>
-                <div class="flex-1">
-                  <img src="/fotos/academia-judicial.jpg" alt="Academia Judicial de Chile" class="w-full h-40 object-cover border-2 border-white/30">
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Equipo -->
-    <section id="equipo" class="section-padding bg-bg-light">
-      <div class="max-w-6xl mx-auto px-4">
-        <div class="text-center mb-16" data-aos="fade-up">
-          <p class="text-accent font-medium tracking-widest uppercase mb-4 text-sm">Nuestro Equipo</p>
-          <h2 class="text-4xl md:text-5xl mb-4 font-light">Equipo de Abogados</h2>
-          <p class="text-text-light max-w-2xl mx-auto">
-            Profesionales con trayectoria probada en el ejercicio forense, docencia universitaria y servicio público.
-          </p>
-        </div>
-
-        <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          <div class="card-lift bg-white p-8 text-center" data-aos="fade-up" data-aos-delay="0">
-            <div class="w-48 h-48 mx-auto mb-6 overflow-hidden">
-              <img src="/fotos/rafael-perez.jpg" alt="Rafael Pérez Maldonado" class="w-full h-full object-cover grayscale">
-            </div>
-            <h3 class="text-xl mb-1">Rafael Pérez Maldonado</h3>
-            <p class="text-accent text-sm font-medium mb-3">Socio Fundador</p>
-            <p class="text-text-light text-sm leading-relaxed">
-              Abogado y Magíster en Derecho Público y Litigación Constitucional. Más de 15 años de trayectoria profesional en litigación en materias penales, civiles y constitucionales, asesoría a instituciones públicas, tramitación legislativa y controversias patrimoniales complejas.
-            </p>
-          </div>
-
-          <div class="card-lift bg-white p-8 text-center" data-aos="fade-up" data-aos-delay="100">
-            <div class="w-48 h-48 mx-auto mb-6 overflow-hidden">
-              <img src="/fotos/yerko-scheihing.jpg" alt="Yerko Scheihing Sepúlveda" class="w-full h-full object-cover grayscale">
-            </div>
-            <h3 class="text-xl mb-1">Yerko Scheihing Sepúlveda</h3>
-            <p class="text-accent text-sm font-medium mb-3">Abogado Asociado</p>
-            <p class="text-text-light text-sm leading-relaxed">Litigación de alta complejidad en delitos económicos, patrimoniales, tributarios, contra la indemnidad sexual y Derechos Humanos.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contacto -->
-    <section id="contacto" class="section-padding bg-white">
-      <div class="max-w-6xl mx-auto px-4">
-        <div class="grid md:grid-cols-2 gap-12">
-          <div data-aos="fade-right">
-            <p class="text-accent font-medium tracking-widest uppercase mb-4 text-sm">Atención Personalizada</p>
-            <h2 class="text-4xl md:text-5xl mb-6 font-light">Contacto y Ubicación</h2>
-            <p class="text-text-light mb-8">
-              Estudio jurídico ubicado en el corazón de Providencia, Santiago. Atención presencial en nuestras oficinas y telemática en toda la Región Metropolitana y VI Región de O'Higgins.
-            </p>
-
-            <div class="mb-8 rounded-lg overflow-hidden shadow-lg">
-              <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3329.1234567890123!2d-70.6166!3d-33.4263!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662c50b12345678%3A0x1234567890abcdef!2sEliodoro%20Y%C3%A1%C3%B1ez%202084%2C%20Providencia%2C%20Santiago!5e0!3m2!1ses!2scl!4v1234567890123!5m2!1ses!2scl" 
-                width="100%" 
-                height="300" 
-                style="border:0;" 
-                allowfullscreen="" 
-                loading="lazy" 
-                referrerpolicy="no-referrer-when-downgrade"
-                title="Ubicación RP Abogados - Eliodoro Yáñez 2084, Providencia, Santiago">
-              </iframe>
-            </div>
-
-            <div class="space-y-4">
-              <div class="flex items-start gap-4">
-                <div class="w-12 h-12 bg-bg-light flex items-center justify-center flex-shrink-0">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="#FC5D23"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                </div>
-                <div>
-                  <h4 class="font-semibold mb-1">Dirección</h4>
-                  <p class="text-text-light text-sm">Eliodoro Yáñez 2084, oficina 41<br>Providencia, Santiago, Chile</p>
-                </div>
-              </div>
-
-              <div class="flex items-start gap-4">
-                <div class="w-12 h-12 bg-bg-light flex items-center justify-center flex-shrink-0">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="#FC5D23"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-2.2 2.2a15.053 15.053 0 0 1-6.59-6.59l2.2-2.21a.96.96 0 0 0 .25-1.01A11.36 11.36 0 0 1 8.5 3.92c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.54c0-.54-.45-.99-.99-.99z"/></svg>
-                </div>
-                <div>
-                  <h4 class="font-semibold mb-1">Teléfono</h4>
-                  <a href="tel:+56985497497" class="text-text-light text-sm hover:text-accent transition-colors">+56 9 8549 7497</a>
-                </div>
-              </div>
-
-              <div class="flex items-start gap-4">
-                <div class="w-12 h-12 bg-bg-light flex items-center justify-center flex-shrink-0">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="#FC5D23"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                </div>
-                <div>
-                  <h4 class="font-semibold mb-1">Email</h4>
-                  <a href="mailto:contacto@rpabogados.cl" class="text-text-light text-sm hover:text-accent transition-colors">contacto@rpabogados.cl</a>
-                </div>
-              </div>
-            </div>
-
-            <div class="flex gap-4 mt-8">
-              <a href="https://wa.me/56985497497" class="btn-primary">WhatsApp Directo</a>
-              <a href="mailto:contacto@rpabogados.cl" class="btn-secondary">Enviar Email</a>
-            </div>
-          </div>
-
-          <div class="bg-bg-light p-8" data-aos="fade-left">
-            <h3 class="text-2xl mb-6">Solicitar Consulta Confidencial</h3>
-            <form class="space-y-4">
-              <div>
-                <label for="nombre" class="block text-sm font-medium mb-2">Nombre completo</label>
-                <input 
-                  type="text" 
-                  id="nombre" 
-                  name="nombre" 
-                  class="w-full px-4 py-3 border border-gray-200 focus:border-accent focus:outline-none transition-colors" 
-                  placeholder="" 
-                />
-              </div>
-
-              <div>
-                <label for="email" class="block text-sm font-medium mb-2">Email</label>
-                <input 
-                  type="email" 
-                  id="email" 
-                  name="email" 
-                  class="w-full px-4 py-3 border border-gray-200 focus:border-accent focus:outline-none transition-colors" 
-                  placeholder="" 
-                />
-              </div>
-
-              <div>
-                <label for="telefono" class="block text-sm font-medium mb-2">Teléfono</label>
-                <input 
-                  type="tel" 
-                  id="telefono" 
-                  name="telefono" 
-                  class="w-full px-4 py-3 border border-gray-200 focus:border-accent focus:outline-none transition-colors" 
-                  placeholder="" 
-                />
-              </div>
-
-              <div>
-                <label for="mensaje" class="block text-sm font-medium mb-2">Mensaje</label>
-                <textarea 
-                  id="mensaje" 
-                  name="mensaje" 
-                  rows="4" 
-                  class="w-full px-4 py-3 border border-gray-200 focus:border-accent focus:outline-none transition-colors resize-none" 
-                  placeholder="Describa brevemente su caso..."
-                ></textarea>
-              </div>
-
-              <button type="submit" class="btn-primary w-full">Enviar Consulta</button>
-
-              <p class="text-xs text-text-light text-center mt-4">
-                Toda información es tratada con estricta confidencialidad profesional.
-              </p>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <Footer />
-</Layout>
+          <div class="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition-all
