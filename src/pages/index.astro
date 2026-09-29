@@ -1,121 +1,46 @@
-<!-- SECCIÓN PRENSA & ACTUALIDAD JURÍDICA (FONDO CONTRASTADO Y RELIEVE) -->
-<section class="py-24 bg-[#0c1017] text-slate-100 border-t border-slate-800 relative overflow-hidden">
-  
-  <div class="relative max-w-7xl mx-auto px-6 lg:px-8">
-    
-    <!-- Encabezado de la Sección -->
-    <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
-      <div>
-        <span class="text-xs font-bold uppercase tracking-widest text-[#d4af37]">Monitoreo de Precedentes & Prensa</span>
-        <h2 class="text-3xl lg:text-4xl font-extrabold text-white mt-2 tracking-tight">Actualidad Jurídica</h2>
-      </div>
-      <p class="text-sm text-slate-400 max-w-md">
-        Seguimiento jurisprudencial y contingencia legal analizada desde los principales medios especializados.
-      </p>
-    </div>
+name: Actualizar Noticias Judiciales
 
-    <!-- Contenedor de las Tarjetas -->
-    <div id="judicial-cards-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      <div class="col-span-full text-center py-12 text-slate-400 animate-pulse">
-        Cargando notas jurídicas...
-      </div>
-    </div>
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 11 * * *'
 
-  </div>
-</section>
+permissions:
+  contents: write
 
-<!-- SCRIPT DE CARGA CON FOTOS, INTERACTIVIDAD Y SEPARACIÓN DE "ESTADO DIARIO" -->
-<script is:inline>
-(async function loadNews() {
-  const container = document.getElementById('judicial-cards-container');
-  if (!container) return;
+jobs:
+  actualizar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          token: ${{ secrets.GITHUB_TOKEN }}
 
-  try {
-    const res = await fetch('/noticias.json?v=' + Date.now());
-    if (!res.ok) throw new Error('Archivo aún no disponible');
-    const items = await res.json();
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
 
-    if (!items || items.length === 0) {
-      container.innerHTML = '<div class="col-span-full text-center py-8 text-slate-400">Sin notas recientes.</div>';
-      return;
-    }
+      - name: Ejecutar recopilacion de fallos
+        run: python scripts/actualizar_noticias.py
 
-    container.innerHTML = items.slice(0, 6).map(item => {
-      // 1. Formateo de fecha
-      const dateStr = item.date 
-        ? new Date(item.date).toLocaleDateString('es-CL', { day: '2-digit', month: 'short' }) 
-        : 'Reciente';
-      
-      // 2. Fotografía automática con imagen de respaldo si viniera vacía
-      const imgSrc = item.image && item.image.trim() !== '' 
-        ? item.image 
-        : 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=800&q=80';
-      
-      // 3. SEPARACIÓN ESTRICTA: Transforma cualquier "EstadoDiario" en "Estado Diario"
-      let sourceName = item.source || '';
-      if (sourceName.toLowerCase().replace(/\s+/g, '') === 'estadodiario') {
-        sourceName = 'Estado Diario';
-      }
-      const isEstadoDiario = sourceName === 'Estado Diario';
-
-      // 4. Tarjeta interactiva con fondo oscuro, zoom y elevación
-      return `
-        <article class="group bg-[#151c27] rounded-xl overflow-hidden border border-slate-700/60 shadow-lg hover:shadow-2xl hover:border-[#d4af37]/70 hover:-translate-y-2 transition-all duration-300 flex flex-col">
+      - name: Guardar cambios si hay noticias nuevas
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
           
-          <!-- FOTOGRAFÍA CON ZOOM INTERACTIVO -->
-          <div class="relative h-48 w-full overflow-hidden bg-slate-900">
-            <img 
-              src="${imgSrc}" 
-              alt="${item.title}" 
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
-              loading="lazy"
-              onerror="this.src='https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=800&q=80'"
-            />
-            <div class="absolute inset-0 bg-gradient-to-t from-[#151c27] via-transparent to-transparent"></div>
-            
-            <!-- BADGE CON NOMBRE "ESTADO DIARIO" O "EN ESTRADO" -->
-            <span class="absolute top-3 left-3 text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded shadow-md ${
-              isEstadoDiario ? 'bg-amber-600 text-white' : 'bg-slate-900/90 text-slate-200 border border-slate-700'
-            }">
-              ${sourceName}
-            </span>
-          </div>
+          # Resguardar archivo generado y sincronizar limpiamente con main
+          cp public/noticias.json /tmp/saved_noticias.json
+          git fetch origin main
+          git checkout -f -B main origin/main
+          cp /tmp/saved_noticias.json public/noticias.json
 
-          <!-- CUERPO DE LA TARJETA -->
-          <div class="p-6 flex flex-col flex-1">
-            <div class="flex justify-between items-center text-xs text-slate-400 font-medium mb-3">
-              <span class="text-[#d4af37] font-semibold">${dateStr}</span>
-              <span class="text-slate-500">• 3 min lectura</span>
-            </div>
-
-            <h3 class="text-base font-bold text-white group-hover:text-[#e5c875] transition-colors line-clamp-2 leading-snug mb-3">
-              ${item.title}
-            </h3>
-
-            <p class="text-xs text-slate-300 line-clamp-3 leading-relaxed mb-6">
-              ${item.snippet}
-            </p>
-
-            <!-- FOOTER INTERACTIVO -->
-            <div class="mt-auto pt-4 border-t border-slate-700/60 flex justify-between items-center text-xs">
-              <span class="font-semibold text-slate-400 uppercase tracking-wider text-[11px]">Jurisprudencia</span>
-              <a 
-                href="${item.link}" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                class="font-bold text-white group-hover:text-[#d4af37] inline-flex items-center gap-1 transition-colors"
-              >
-                Ver nota <span class="group-hover:translate-x-1.5 transition-transform">→</span>
-              </a>
-            </div>
-          </div>
-
-        </article>
-      `;
-    }).join('');
-
-  } catch (err) {
-    container.innerHTML = '<div class="col-span-full text-center py-8 text-slate-400">Actualizando notas jurídicas...</div>';
-  }
-})();
-</script>
+          git add public/noticias.json
+          if git diff --staged --quiet; then
+            echo "No hay noticias nuevas en este ciclo. Todo al día."
+          else
+            git commit -m "chore: actualiza noticias judiciales [skip ci]"
+            git push origin main
+          fi
