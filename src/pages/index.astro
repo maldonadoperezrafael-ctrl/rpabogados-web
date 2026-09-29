@@ -1,46 +1,263 @@
-name: Actualizar Noticias Judiciales
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
 
-on:
-  workflow_dispatch:
-  schedule:
-    - cron: '0 11 * * *'
+<Layout title="RP Abogados | Litigio Estratégico Penal Santiago y VI Región">
+  <Header />
 
-permissions:
-  contents: write
+  <main class="pt-0">
+    <!-- Hero Section con Texto Integrado directamente en el Fondo -->
+    <section class="relative min-h-screen flex items-end overflow-hidden bg-[#181a1f]">
+      <div class="absolute inset-0">
+        <img 
+          src="/fotos/fondo-hormigon.jpg?v=2" 
+          alt="RP Abogados" 
+          class="w-full h-full object-cover object-center"
+        />
+        <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent"></div>
+      </div>
 
-jobs:
-  actualizar:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Descargar repositorio
-        uses: actions/checkout@v4
-        with:
-          ref: main
-          token: ${{ secrets.GITHUB_TOKEN }}
+      <div class="relative z-10 w-full max-w-7xl mx-auto px-6 pb-20 pt-28">
+        <div class="max-w-3xl" data-aos="fade-up">
+          <h1 class="text-white text-5xl md:text-7xl lg:text-8xl font-medium leading-none mb-6 tracking-tight drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)]">
+            RP<br />ABOGADOS
+          </h1>
 
-      - name: Configurar Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
+          <div class="w-24 h-1 bg-[#FC5D23] mb-8 shadow-md"></div>
 
-      - name: Ejecutar recopilacion de fallos
-        run: python scripts/actualizar_noticias.py
+          <p class="text-white/95 text-lg md:text-xl font-normal leading-relaxed max-w-2xl mb-8 drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]">
+            Estudio jurídico orientado en litigación de alta complejidad, en juicios de derechos de daños, en delitos penales económicos-tributarios y de alta connotación social, contencioso administrativos, acción constitucionales, derecho migratorio y derecho laboral de la empresa colectivo e individual. Desde Santiago y la Región de O'Higgins, asesoramos a personas, empresas e instituciones en los casos más desafiantes, con un enfoque estratégico, ético y orientado a resultados.
+          </p>
 
-      - name: Guardar cambios si hay noticias nuevas
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          
-          # Resguardar archivo generado y sincronizar limpiamente con main
-          cp public/noticias.json /tmp/saved_noticias.json
-          git fetch origin main
-          git checkout -f -B main origin/main
-          cp /tmp/saved_noticias.json public/noticias.json
+          <a 
+            href="#contacto" 
+            class="inline-block bg-[#25D366] hover:bg-[#1eb956] text-white px-8 py-4 font-medium tracking-widest uppercase text-sm transition-all duration-300 shadow-xl"
+          >
+            Solicitar Consulta
+          </a>
+        </div>
+      </div>
+    </section>
 
-          git add public/noticias.json
-          if git diff --staged --quiet; then
-            echo "No hay noticias nuevas en este ciclo. Todo al día."
-          else
-            git commit -m "chore: actualiza noticias judiciales [skip ci]"
-            git push origin main
-          fi
+    <!-- Sección: Pilares de Nuestra Práctica -->
+    <section class="py-20 bg-slate-50 border-t border-b border-slate-200" id="pilares">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+          <span class="text-xs font-bold uppercase tracking-widest text-[#C5A880] block mb-2">Estándar Profesional</span>
+          <h2 class="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">Pilares de Nuestra Práctica</h2>
+          <div class="w-12 h-0.5 bg-[#C5A880] mx-auto mt-4"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Pilar I -->
+          <div class="bg-white p-8 rounded-sm border border-slate-200 border-t-4 border-t-[#C5A880] shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300" data-aos="fade-up" data-aos-delay="0">
+            <span class="text-4xl md:text-5xl font-bold text-[#C5A880] block mb-4 tracking-tight">01</span>
+            <h3 class="text-xl font-bold text-slate-900 mb-3 leading-snug">Dirección Personalizada de Cada Causa</h3>
+            <div class="w-8 h-0.5 bg-slate-200 mb-4"></div>
+            <p class="text-slate-600 text-sm leading-relaxed text-left">
+              Conducción directa y estratégica de cada litigio a cargo de los socios de la firma, integrando análisis crítico y visión multidisciplinaria en cada etapa procesal.
+            </p>
+          </div>
+
+          <!-- Pilar II -->
+          <div class="bg-white p-8 rounded-md border border-slate-200 border-t-4 border-t-[#C5A880] shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
+            <span class="text-4xl md:text-5xl font-bold text-[#C5A880] block mb-4 tracking-tight">02</span>
+            <h3 class="text-xl font-bold text-slate-900 mb-3 leading-snug">Fundamentación y Precisión Técnica</h3>
+            <div class="w-8 h-0.5 bg-slate-200 mb-4"></div>
+            <p class="text-slate-600 text-sm leading-relaxed text-left">
+              Construcción de argumentos de alto estándar técnico sustentados en el análisis exhaustivo de legislación especializada, doctrina y jurisprudencia consolidada.
+            </p>
+          </div>
+
+          <!-- Pilar III -->
+          <div class="bg-white p-8 rounded-md border border-slate-200 border-t-4 border-t-[#C5A880] shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
+            <span class="text-4xl md:text-5xl font-bold text-[#C5A880] block mb-4 tracking-tight">03</span>
+            <h3 class="text-xl font-bold text-slate-900 mb-3 leading-snug">Comunicación Permanente y Confidencialidad</h3>
+            <div class="w-8 h-0.5 bg-slate-200 mb-4"></div>
+            <p class="text-slate-600 text-sm leading-relaxed text-left">
+              Información continua y transparente sobre los avances y escenarios de cada causa, bajo el más estricto resguardo ético y reserva profesional.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Barra de Datos -->
+    <section class="bg-primary text-white py-12">
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          <div data-aos="fade-up" data-aos-delay="0">
+            <div class="text-4xl font-light text-accent mb-2">15+</div>
+            <div class="text-sm text-white/70">Años de Trayectoria Jurídica y Sector Público</div>
+          </div>
+          <div data-aos="fade-up" data-aos-delay="100">
+            <div class="text-4xl font-light text-accent mb-2">TS</div>
+            <div class="text-sm text-white/70">Tribunales Superiores: Corte Suprema, Cortes de Apelaciones y Tribunal Constitucional</div>
+          </div>
+          <div data-aos="fade-up" data-aos-delay="200">
+            <div class="text-4xl font-light text-accent mb-2">100%</div>
+            <div class="text-sm text-white/70">Conducción Exclusiva por Socios</div>
+          </div>
+          <div data-aos="fade-up" data-aos-delay="300">
+            <div class="text-4xl font-light text-accent mb-2">RM-VI</div>
+            <div class="text-sm text-white/70">Región Metropolitana y VI Región de O'Higgins</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Áreas de Práctica -->
+    <section id="areas" class="py-0 bg-white">
+      <div class="text-center py-16 bg-bg-light">
+        <h2 class="text-4xl md:text-5xl font-light text-primary">Áreas de práctica</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+        <!-- 1. Civil -->
+        <div class="relative h-96 overflow-hidden group cursor-pointer" data-aos="fade-up" data-aos-delay="0">
+          <img src="/fotos/area-civil.jpg" alt="Litigación Civil" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+          <div class="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition-all duration-500"></div>
+          <div class="relative z-10 h-full flex flex-col justify-end p-6">
+            <h3 class="text-white text-2xl font-semibold mb-2">Litigación Civil</h3>
+            <div class="w-12 h-0.5 bg-accent mb-4"></div>
+            <ul class="text-white/80 text-sm space-y-1 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+              <li>• Particiones de herencias</li>
+              <li>• Reclamos por ocupación de terrenos</li>
+              <li>• Responsabilidad contractual</li>
+              <li>• Controversias sobre inmuebles</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 2. Penal -->
+        <div class="relative h-96 overflow-hidden group cursor-pointer" data-aos="fade-up" data-aos-delay="100">
+          <img src="/fotos/area-penal.jpg" alt="Litigación Penal" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+          <div class="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition-all duration-500"></div>
+          <div class="relative z-10 h-full flex flex-col justify-end p-6">
+            <h3 class="text-white text-2xl font-semibold mb-2">Litigación Penal</h3>
+            <div class="w-12 h-0.5 bg-accent mb-4"></div>
+            <ul class="text-white/80 text-sm space-y-1 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+              <li>• Compliance</li>
+              <li>• Querellas criminales</li>
+              <li>• Representación penal</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 3. Público -->
+        <div class="relative h-96 overflow-hidden group cursor-pointer" data-aos="fade-up" data-aos-delay="200">
+          <img src="/fotos/area-publico.jpg" alt="Derecho Público" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+          <div class="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition-all duration-500"></div>
+          <div class="relative z-10 h-full flex flex-col justify-end p-6">
+            <h3 class="text-white text-2xl font-semibold mb-2">Derecho Público</h3>
+            <div class="w-12 h-0.5 bg-accent mb-4"></div>
+            <ul class="text-white/80 text-sm space-y-1 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+              <li>• Contencioso administrativo</li>
+              <li>• Sanciones de superintendencias</li>
+              <li>• Recursos de protección</li>
+              <li>• Contratación pública</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 4. Laboral -->
+        <div class="relative h-96 overflow-hidden group cursor-pointer" data-aos="fade-up" data-aos-delay="300">
+          <img src="/fotos/area-laboral.jpg" alt="Litigación Laboral" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+          <div class="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition-all duration-500"></div>
+          <div class="relative z-10 h-full flex flex-col justify-end p-6">
+            <h3 class="text-white text-2xl font-semibold mb-2">Litigación Laboral</h3>
+            <div class="w-12 h-0.5 bg-accent mb-4"></div>
+            <ul class="text-white/80 text-sm space-y-1 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+              <li>• Juicios laborales de alta cuantía</li>
+              <li>• Tutela de derechos fundamentales</li>
+              <li>• Desvinculaciones ejecutivas</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SECCIÓN ACTUALIDAD JUDICIAL AUTOMÁTICA ================= -->
+    <section id="actualidad" class="py-20 bg-slate-50 border-t border-slate-200">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 pb-4 border-b border-slate-200 gap-4" data-aos="fade-up">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-widest text-[#C5A880] block mb-2">
+              Radar Judicial Nacional
+            </span>
+            <h2 class="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">
+              Actualidad de Tribunales & Jurisprudencia
+            </h2>
+          </div>
+          <div>
+            <span class="text-xs font-semibold uppercase text-slate-500 bg-white border border-slate-200 px-3 py-1.5 rounded-sm">
+              Actualización Diaria
+            </span>
+          </div>
+        </div>
+
+        <div id="judicial-cards-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="col-span-full text-center py-10 text-slate-400 text-sm">
+            Cargando actualidad judicial...
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<script is:inline>
+  (async function loadNews() {
+    const container = document.getElementById('judicial-cards-container');
+    if (!container) return;
+
+    try {
+      const res = await fetch('/noticias.json?v=' + Date.now());
+      if (!res.ok) throw new Error('Archivo aún no disponible');
+      const items = await res.json();
+
+      if (!items || items.length === 0) {
+        container.innerHTML = '<div class="col-span-full text-center py-6 text-slate-400">Sin notas recientes.</div>';
+        return;
+      }
+
+      container.innerHTML = items.slice(0, 6).map(item => {
+        const dateStr = item.date ? new Date(item.date).toLocaleDateString('es-CL', { day: '2-digit', month: 'short' }) : 'Reciente';
+        return `
+          <article class="bg-white border border-slate-200 rounded-sm p-6 flex flex-col justify-between hover:shadow-xl hover:border-[#C5A880] hover:-translate-y-1 transition-all duration-300">
+            <div>
+              <div class="flex justify-between items-center mb-3">
+                <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-sm bg-[#F4EFEA] text-[#8C6D37]">
+                  ${item.source}
+                </span>
+                <span class="text-xs text-slate-400">${dateStr}</span>
+              </div>
+              <h3 class="text-base font-bold text-slate-900 mb-2 leading-snug">
+                <a href="${item.link}" target="_blank" rel="noopener noreferrer" class="hover:text-[#C5A880] transition-colors">
+                  ${item.title}
+                </a>
+              </h3>
+              <p class="text-xs text-slate-600 line-clamp-3 mb-4 leading-relaxed">
+                ${item.snippet}
+              </p>
+            </div>
+            <div class="pt-3 border-t border-slate-100 flex justify-between items-center text-xs">
+              <span class="text-slate-400">Jurisprudencia</span>
+              <a href="${item.link}" target="_blank" rel="noopener noreferrer" class="text-[#C5A880] font-semibold hover:underline">
+                Ver nota &rarr;
+              </a>
+            </div>
+          </article>
+        `;
+      }).join('');
+    } catch (e) {
+      container.innerHTML = '<div class="col-span-full text-center py-6 text-slate-400">Actualidad judicial disponible en portales oficiales.</div>';
+    }
+  })();
+</script>
