@@ -16,7 +16,6 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: main
-          fetch-depth: 0
 
       - name: Configurar Python
         uses: actions/setup-python@v5
@@ -30,11 +29,12 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git fetch origin main
+          git checkout -B main origin/main
           git add public/noticias.json
           if git diff --staged --quiet; then
             echo "No hay noticias nuevas en este ciclo. Todo al día."
           else
             git commit -m "chore: actualiza noticias judiciales [skip ci]"
-            git pull origin main --rebase
-            git push origin HEAD:main
+            git push origin main
           fi
