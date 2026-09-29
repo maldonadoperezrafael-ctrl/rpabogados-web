@@ -1,263 +1,121 @@
----
-import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
----
-
-<Layout title="RP Abogados | Litigio Estratégico Penal Santiago y VI Región">
-  <Header />
-
-  <main class="pt-0">
-    <!-- Hero Section con Texto Integrado directamente en el Fondo -->
-    <section class="relative min-h-screen flex items-end overflow-hidden bg-[#181a1f]">
-      <div class="absolute inset-0">
-        <img 
-          src="/fotos/fondo-hormigon.jpg?v=2" 
-          alt="RP Abogados" 
-          class="w-full h-full object-cover object-center"
-        />
-        <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent"></div>
+<!-- SECCIÓN PRENSA & ACTUALIDAD JURÍDICA (FONDO CONTRASTADO Y RELIEVE) -->
+<section class="py-24 bg-[#0c1017] text-slate-100 border-t border-slate-800 relative overflow-hidden">
+  
+  <div class="relative max-w-7xl mx-auto px-6 lg:px-8">
+    
+    <!-- Encabezado de la Sección -->
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+      <div>
+        <span class="text-xs font-bold uppercase tracking-widest text-[#d4af37]">Monitoreo de Precedentes & Prensa</span>
+        <h2 class="text-3xl lg:text-4xl font-extrabold text-white mt-2 tracking-tight">Actualidad Jurídica</h2>
       </div>
+      <p class="text-sm text-slate-400 max-w-md">
+        Seguimiento jurisprudencial y contingencia legal analizada desde los principales medios especializados.
+      </p>
+    </div>
 
-      <div class="relative z-10 w-full max-w-7xl mx-auto px-6 pb-20 pt-28">
-        <div class="max-w-3xl" data-aos="fade-up">
-          <h1 class="text-white text-5xl md:text-7xl lg:text-8xl font-medium leading-none mb-6 tracking-tight drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)]">
-            RP<br />ABOGADOS
-          </h1>
-
-          <div class="w-24 h-1 bg-[#FC5D23] mb-8 shadow-md"></div>
-
-          <p class="text-white/95 text-lg md:text-xl font-normal leading-relaxed max-w-2xl mb-8 drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]">
-            Estudio jurídico orientado en litigación de alta complejidad, en juicios de derechos de daños, en delitos penales económicos-tributarios y de alta connotación social, contencioso administrativos, acción constitucionales, derecho migratorio y derecho laboral de la empresa colectivo e individual. Desde Santiago y la Región de O'Higgins, asesoramos a personas, empresas e instituciones en los casos más desafiantes, con un enfoque estratégico, ético y orientado a resultados.
-          </p>
-
-          <a 
-            href="#contacto" 
-            class="inline-block bg-[#25D366] hover:bg-[#1eb956] text-white px-8 py-4 font-medium tracking-widest uppercase text-sm transition-all duration-300 shadow-xl"
-          >
-            Solicitar Consulta
-          </a>
-        </div>
+    <!-- Contenedor de las Tarjetas -->
+    <div id="judicial-cards-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="col-span-full text-center py-12 text-slate-400 animate-pulse">
+        Cargando notas jurídicas...
       </div>
-    </section>
+    </div>
 
-    <!-- Sección: Pilares de Nuestra Práctica -->
-    <section class="py-20 bg-slate-50 border-t border-b border-slate-200" id="pilares">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
-          <span class="text-xs font-bold uppercase tracking-widest text-[#C5A880] block mb-2">Estándar Profesional</span>
-          <h2 class="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">Pilares de Nuestra Práctica</h2>
-          <div class="w-12 h-0.5 bg-[#C5A880] mx-auto mt-4"></div>
-        </div>
+  </div>
+</section>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <!-- Pilar I -->
-          <div class="bg-white p-8 rounded-sm border border-slate-200 border-t-4 border-t-[#C5A880] shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300" data-aos="fade-up" data-aos-delay="0">
-            <span class="text-4xl md:text-5xl font-bold text-[#C5A880] block mb-4 tracking-tight">01</span>
-            <h3 class="text-xl font-bold text-slate-900 mb-3 leading-snug">Dirección Personalizada de Cada Causa</h3>
-            <div class="w-8 h-0.5 bg-slate-200 mb-4"></div>
-            <p class="text-slate-600 text-sm leading-relaxed text-left">
-              Conducción directa y estratégica de cada litigio a cargo de los socios de la firma, integrando análisis crítico y visión multidisciplinaria en cada etapa procesal.
-            </p>
-          </div>
-
-          <!-- Pilar II -->
-          <div class="bg-white p-8 rounded-md border border-slate-200 border-t-4 border-t-[#C5A880] shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
-            <span class="text-4xl md:text-5xl font-bold text-[#C5A880] block mb-4 tracking-tight">02</span>
-            <h3 class="text-xl font-bold text-slate-900 mb-3 leading-snug">Fundamentación y Precisión Técnica</h3>
-            <div class="w-8 h-0.5 bg-slate-200 mb-4"></div>
-            <p class="text-slate-600 text-sm leading-relaxed text-left">
-              Construcción de argumentos de alto estándar técnico sustentados en el análisis exhaustivo de legislación especializada, doctrina y jurisprudencia consolidada.
-            </p>
-          </div>
-
-          <!-- Pilar III -->
-          <div class="bg-white p-8 rounded-md border border-slate-200 border-t-4 border-t-[#C5A880] shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
-            <span class="text-4xl md:text-5xl font-bold text-[#C5A880] block mb-4 tracking-tight">03</span>
-            <h3 class="text-xl font-bold text-slate-900 mb-3 leading-snug">Comunicación Permanente y Confidencialidad</h3>
-            <div class="w-8 h-0.5 bg-slate-200 mb-4"></div>
-            <p class="text-slate-600 text-sm leading-relaxed text-left">
-              Información continua y transparente sobre los avances y escenarios de cada causa, bajo el más estricto resguardo ético y reserva profesional.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Barra de Datos -->
-    <section class="bg-primary text-white py-12">
-      <div class="max-w-6xl mx-auto px-4">
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-          <div data-aos="fade-up" data-aos-delay="0">
-            <div class="text-4xl font-light text-accent mb-2">15+</div>
-            <div class="text-sm text-white/70">Años de Trayectoria Jurídica y Sector Público</div>
-          </div>
-          <div data-aos="fade-up" data-aos-delay="100">
-            <div class="text-4xl font-light text-accent mb-2">TS</div>
-            <div class="text-sm text-white/70">Tribunales Superiores: Corte Suprema, Cortes de Apelaciones y Tribunal Constitucional</div>
-          </div>
-          <div data-aos="fade-up" data-aos-delay="200">
-            <div class="text-4xl font-light text-accent mb-2">100%</div>
-            <div class="text-sm text-white/70">Conducción Exclusiva por Socios</div>
-          </div>
-          <div data-aos="fade-up" data-aos-delay="300">
-            <div class="text-4xl font-light text-accent mb-2">RM-VI</div>
-            <div class="text-sm text-white/70">Región Metropolitana y VI Región de O'Higgins</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Áreas de Práctica -->
-    <section id="areas" class="py-0 bg-white">
-      <div class="text-center py-16 bg-bg-light">
-        <h2 class="text-4xl md:text-5xl font-light text-primary">Áreas de práctica</h2>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
-        <!-- 1. Civil -->
-        <div class="relative h-96 overflow-hidden group cursor-pointer" data-aos="fade-up" data-aos-delay="0">
-          <img src="/fotos/area-civil.jpg" alt="Litigación Civil" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-          <div class="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition-all duration-500"></div>
-          <div class="relative z-10 h-full flex flex-col justify-end p-6">
-            <h3 class="text-white text-2xl font-semibold mb-2">Litigación Civil</h3>
-            <div class="w-12 h-0.5 bg-accent mb-4"></div>
-            <ul class="text-white/80 text-sm space-y-1 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-              <li>• Particiones de herencias</li>
-              <li>• Reclamos por ocupación de terrenos</li>
-              <li>• Responsabilidad contractual</li>
-              <li>• Controversias sobre inmuebles</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- 2. Penal -->
-        <div class="relative h-96 overflow-hidden group cursor-pointer" data-aos="fade-up" data-aos-delay="100">
-          <img src="/fotos/area-penal.jpg" alt="Litigación Penal" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-          <div class="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition-all duration-500"></div>
-          <div class="relative z-10 h-full flex flex-col justify-end p-6">
-            <h3 class="text-white text-2xl font-semibold mb-2">Litigación Penal</h3>
-            <div class="w-12 h-0.5 bg-accent mb-4"></div>
-            <ul class="text-white/80 text-sm space-y-1 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-              <li>• Compliance</li>
-              <li>• Querellas criminales</li>
-              <li>• Representación penal</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- 3. Público -->
-        <div class="relative h-96 overflow-hidden group cursor-pointer" data-aos="fade-up" data-aos-delay="200">
-          <img src="/fotos/area-publico.jpg" alt="Derecho Público" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-          <div class="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition-all duration-500"></div>
-          <div class="relative z-10 h-full flex flex-col justify-end p-6">
-            <h3 class="text-white text-2xl font-semibold mb-2">Derecho Público</h3>
-            <div class="w-12 h-0.5 bg-accent mb-4"></div>
-            <ul class="text-white/80 text-sm space-y-1 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-              <li>• Contencioso administrativo</li>
-              <li>• Sanciones de superintendencias</li>
-              <li>• Recursos de protección</li>
-              <li>• Contratación pública</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- 4. Laboral -->
-        <div class="relative h-96 overflow-hidden group cursor-pointer" data-aos="fade-up" data-aos-delay="300">
-          <img src="/fotos/area-laboral.jpg" alt="Litigación Laboral" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-          <div class="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition-all duration-500"></div>
-          <div class="relative z-10 h-full flex flex-col justify-end p-6">
-            <h3 class="text-white text-2xl font-semibold mb-2">Litigación Laboral</h3>
-            <div class="w-12 h-0.5 bg-accent mb-4"></div>
-            <ul class="text-white/80 text-sm space-y-1 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-              <li>• Juicios laborales de alta cuantía</li>
-              <li>• Tutela de derechos fundamentales</li>
-              <li>• Desvinculaciones ejecutivas</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= SECCIÓN ACTUALIDAD JUDICIAL AUTOMÁTICA ================= -->
-    <section id="actualidad" class="py-20 bg-slate-50 border-t border-slate-200">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 pb-4 border-b border-slate-200 gap-4" data-aos="fade-up">
-          <div>
-            <span class="text-xs font-bold uppercase tracking-widest text-[#C5A880] block mb-2">
-              Radar Judicial Nacional
-            </span>
-            <h2 class="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">
-              Actualidad de Tribunales & Jurisprudencia
-            </h2>
-          </div>
-          <div>
-            <span class="text-xs font-semibold uppercase text-slate-500 bg-white border border-slate-200 px-3 py-1.5 rounded-sm">
-              Actualización Diaria
-            </span>
-          </div>
-        </div>
-
-        <div id="judicial-cards-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div class="col-span-full text-center py-10 text-slate-400 text-sm">
-            Cargando actualidad judicial...
-          </div>
-        </div>
-
-      </div>
-    </section>
-  </main>
-
-  <Footer />
-</Layout>
-
+<!-- SCRIPT DE CARGA CON FOTOS, INTERACTIVIDAD Y SEPARACIÓN DE "ESTADO DIARIO" -->
 <script is:inline>
-  (async function loadNews() {
-    const container = document.getElementById('judicial-cards-container');
-    if (!container) return;
+(async function loadNews() {
+  const container = document.getElementById('judicial-cards-container');
+  if (!container) return;
 
-    try {
-      const res = await fetch('/noticias.json?v=' + Date.now());
-      if (!res.ok) throw new Error('Archivo aún no disponible');
-      const items = await res.json();
+  try {
+    const res = await fetch('/noticias.json?v=' + Date.now());
+    if (!res.ok) throw new Error('Archivo aún no disponible');
+    const items = await res.json();
 
-      if (!items || items.length === 0) {
-        container.innerHTML = '<div class="col-span-full text-center py-6 text-slate-400">Sin notas recientes.</div>';
-        return;
+    if (!items || items.length === 0) {
+      container.innerHTML = '<div class="col-span-full text-center py-8 text-slate-400">Sin notas recientes.</div>';
+      return;
+    }
+
+    container.innerHTML = items.slice(0, 6).map(item => {
+      // 1. Formateo de fecha
+      const dateStr = item.date 
+        ? new Date(item.date).toLocaleDateString('es-CL', { day: '2-digit', month: 'short' }) 
+        : 'Reciente';
+      
+      // 2. Fotografía automática con imagen de respaldo si viniera vacía
+      const imgSrc = item.image && item.image.trim() !== '' 
+        ? item.image 
+        : 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=800&q=80';
+      
+      // 3. SEPARACIÓN ESTRICTA: Transforma cualquier "EstadoDiario" en "Estado Diario"
+      let sourceName = item.source || '';
+      if (sourceName.toLowerCase().replace(/\s+/g, '') === 'estadodiario') {
+        sourceName = 'Estado Diario';
       }
+      const isEstadoDiario = sourceName === 'Estado Diario';
 
-      container.innerHTML = items.slice(0, 6).map(item => {
-        const dateStr = item.date ? new Date(item.date).toLocaleDateString('es-CL', { day: '2-digit', month: 'short' }) : 'Reciente';
-        return `
-          <article class="bg-white border border-slate-200 rounded-sm p-6 flex flex-col justify-between hover:shadow-xl hover:border-[#C5A880] hover:-translate-y-1 transition-all duration-300">
-            <div>
-              <div class="flex justify-between items-center mb-3">
-                <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-sm bg-[#F4EFEA] text-[#8C6D37]">
-                  ${item.source}
-                </span>
-                <span class="text-xs text-slate-400">${dateStr}</span>
-              </div>
-              <h3 class="text-base font-bold text-slate-900 mb-2 leading-snug">
-                <a href="${item.link}" target="_blank" rel="noopener noreferrer" class="hover:text-[#C5A880] transition-colors">
-                  ${item.title}
-                </a>
-              </h3>
-              <p class="text-xs text-slate-600 line-clamp-3 mb-4 leading-relaxed">
-                ${item.snippet}
-              </p>
+      // 4. Tarjeta interactiva con fondo oscuro, zoom y elevación
+      return `
+        <article class="group bg-[#151c27] rounded-xl overflow-hidden border border-slate-700/60 shadow-lg hover:shadow-2xl hover:border-[#d4af37]/70 hover:-translate-y-2 transition-all duration-300 flex flex-col">
+          
+          <!-- FOTOGRAFÍA CON ZOOM INTERACTIVO -->
+          <div class="relative h-48 w-full overflow-hidden bg-slate-900">
+            <img 
+              src="${imgSrc}" 
+              alt="${item.title}" 
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+              loading="lazy"
+              onerror="this.src='https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=800&q=80'"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-[#151c27] via-transparent to-transparent"></div>
+            
+            <!-- BADGE CON NOMBRE "ESTADO DIARIO" O "EN ESTRADO" -->
+            <span class="absolute top-3 left-3 text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded shadow-md ${
+              isEstadoDiario ? 'bg-amber-600 text-white' : 'bg-slate-900/90 text-slate-200 border border-slate-700'
+            }">
+              ${sourceName}
+            </span>
+          </div>
+
+          <!-- CUERPO DE LA TARJETA -->
+          <div class="p-6 flex flex-col flex-1">
+            <div class="flex justify-between items-center text-xs text-slate-400 font-medium mb-3">
+              <span class="text-[#d4af37] font-semibold">${dateStr}</span>
+              <span class="text-slate-500">• 3 min lectura</span>
             </div>
-            <div class="pt-3 border-t border-slate-100 flex justify-between items-center text-xs">
-              <span class="text-slate-400">Jurisprudencia</span>
-              <a href="${item.link}" target="_blank" rel="noopener noreferrer" class="text-[#C5A880] font-semibold hover:underline">
-                Ver nota &rarr;
+
+            <h3 class="text-base font-bold text-white group-hover:text-[#e5c875] transition-colors line-clamp-2 leading-snug mb-3">
+              ${item.title}
+            </h3>
+
+            <p class="text-xs text-slate-300 line-clamp-3 leading-relaxed mb-6">
+              ${item.snippet}
+            </p>
+
+            <!-- FOOTER INTERACTIVO -->
+            <div class="mt-auto pt-4 border-t border-slate-700/60 flex justify-between items-center text-xs">
+              <span class="font-semibold text-slate-400 uppercase tracking-wider text-[11px]">Jurisprudencia</span>
+              <a 
+                href="${item.link}" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                class="font-bold text-white group-hover:text-[#d4af37] inline-flex items-center gap-1 transition-colors"
+              >
+                Ver nota <span class="group-hover:translate-x-1.5 transition-transform">→</span>
               </a>
             </div>
-          </article>
-        `;
-      }).join('');
-    } catch (e) {
-      container.innerHTML = '<div class="col-span-full text-center py-6 text-slate-400">Actualidad judicial disponible en portales oficiales.</div>';
-    }
-  })();
+          </div>
+
+        </article>
+      `;
+    }).join('');
+
+  } catch (err) {
+    container.innerHTML = '<div class="col-span-full text-center py-8 text-slate-400">Actualizando notas jurídicas...</div>';
+  }
+})();
 </script>
