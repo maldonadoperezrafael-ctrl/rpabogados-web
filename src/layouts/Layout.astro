@@ -38,8 +38,8 @@ const { title, description } = Astro.props;
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="/fotos/logo-rp-abogados.png?v=3" />
-    <link rel="apple-touch-icon" href="/fotos/logo-rp-abogados.png?v=3" /> 
-    
+    <link rel="apple-touch-icon" href="/fotos/logo-rp-abogados.png?v=3" />
+
     <!-- Google Fonts: Raleway -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -252,6 +252,45 @@ const { title, description } = Astro.props;
           font-size: 1.75rem;
         }
       }
+
+      /* Barra superior ajustada para ganar terreno de contenido */
+      header, nav, .navbar, .site-header {
+        width: 100% !important;
+        height: 64px !important;
+        max-height: 64px !important;
+        background-color: #ffffff !important;
+        border-bottom: 1px solid #e2e8f0 !important;
+        position: sticky !important;
+        top: 0 !important;
+        z-index: 50 !important;
+        display: flex !important;
+        align-items: center !important;
+        box-sizing: border-box !important;
+        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05) !important;
+      }
+
+      header > div, nav > div, .navbar > div, .site-header > div {
+        width: 100% !important;
+        max-width: 1240px !important;
+        margin: 0 auto !important;
+        padding: 0 24px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+      }
+
+      header img, nav img, .logo img, .site-header img {
+        height: 48px !important;
+        max-height: 50px !important;
+        width: auto !important;
+        max-width: 240px !important;
+        object-fit: contain !important;
+        display: block !important;
+      }
+
+      header button, nav button, .hamburger-btn {
+        margin-left: auto !important;
+      }
     </style>
   </head>
   <body>
@@ -280,7 +319,6 @@ const { title, description } = Astro.props;
           document.body.style.overflow = fullscreenMenu.classList.contains('active') ? 'hidden' : '';
         });
 
-        // Close menu on link click
         fullscreenMenu.querySelectorAll('a').forEach(link => {
           link.addEventListener('click', () => {
             menuToggle.classList.remove('active');
@@ -290,7 +328,6 @@ const { title, description } = Astro.props;
         });
       }
 
-      // Header scroll effect
       const header = document.querySelector('.site-header');
       if (header) {
         window.addEventListener('scroll', () => {
@@ -304,23 +341,3 @@ const { title, description } = Astro.props;
     </script>
   </body>
 </html>
-
-<style is:global>
-  /* Barra superior ajustada para ganar terreno de contenido */
-  header, nav, .navbar, .site-header {
-    width: 100% !important;
-    height: 64px !important;
-    max-height: 64px !important;
-    background-color: #ffffff !important;
-    border-bottom: 1px solid #e2e8f0 !important;
-    position: sticky !important;
-    top: 0 !important;
-    z-index: 50 !important;
-    display: flex !important;
-    align-items: center !important;
-    box-sizing: border-box !important;
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05) !important;
-  }
-
-  /* Distribución de la barra */
-  header
