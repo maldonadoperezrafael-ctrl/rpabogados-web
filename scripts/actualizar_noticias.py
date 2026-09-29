@@ -5,12 +5,14 @@ import re
 import os
 from email.utils import parsedate_to_datetime
 
-# Portales judiciales de Chile (Corregido 'Estado Diario' con espacio)
+# Principales portales judiciales y legales de Chile
 FEEDS = [
     {"name": "Diario Constitucional", "url": "https://www.diarioconstitucional.cl/feed/"},
     {"name": "Estado Diario", "url": "https://estadodiario.com/feed/"},
     {"name": "En Estrado", "url": "https://enestrado.com/feed/"},
-    {"name": "Idealex.press", "url": "https://idealex.press/feed/"}
+    {"name": "Idealex.press", "url": "https://idealex.press/feed/"},
+    {"name": "Microjuris Chile", "url": "https://aldia.microjuris.com/feed/"},
+    {"name": "Palabras del Derecho", "url": "https://palabrasdelderecho.com/feed/"}
 ]
 
 def clean_html(raw_html):
@@ -21,13 +23,13 @@ def clean_html(raw_html):
     return text[:140] + "..." if len(text) > 140 else text
 
 def fetch_og_image(link):
-    """Extrae la imagen destacada directamente desde la página web de la noticia"""
+    """Extrae la imagen original de la nota desde sus metadatos Open Graph"""
     if not link:
         return ""
     try:
         req = urllib.request.Request(
             link,
-            headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36"}
+            headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36"}
         )
         with urllib.request.urlopen(req, timeout=6) as response:
             html = response.read().decode('utf-8', errors='ignore')
@@ -52,35 +54,34 @@ def extract_image(item, raw_desc, link):
         if m is not None and m.get("url"):
             return m.get("url")
 
-    # 3. Imagen en content:encoded (estándar de WordPress donde viene la foto)
+    # 3. WordPress content:encoded
     content_enc = item.find("{http://purl.org/rss/1.0/modules/content/}encoded")
     if content_enc is not None and content_enc.text:
         match = re.search(r'<img[^>]+src=["\']([^"\']+)["\']', content_enc.text, re.I)
         if match:
             return match.group(1)
 
-    # 4. Imagen embebida en la descripción
+    # 4. Imagen en descripción
     if raw_desc:
         match = re.search(r'<img[^>]+src=["\']([^"\']+)["\']', raw_desc, re.I)
         if match:
             return match.group(1)
 
-    # 5. Extracción directa desde la nota original (og:image)
+    # 5. Extracción directa de la web original
     og_img = fetch_og_image(link)
     if og_img:
         return og_img
 
-    # 6. Imagen de respaldo sobria si la nota original no contiene foto
-    return "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=800&q=80"
+    return "/fotos/fondo-hormigon.jpg?v=2"
 
 def fetch_feed(source):
     articles = []
     try:
         req = urllib.request.Request(
             source["url"],
-            headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) RPAbogadosBot/1.0"}
+            headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36"}
         )
-        with urllib.request.urlopen(req, timeout=12) as response:
+        with urllib.request.urlopen(req, timeout=10) as response:
             xml_data = response.read()
             root = ET.fromstring(xml_data)
 
@@ -121,15 +122,34 @@ def main():
         print(f"Descargando {source['name']}...")
         all_articles.extend(fetch_feed(source))
 
+    # Ordenar por fecha reciente y seleccionar notas variadas de todos los medios
     all_articles.sort(key=lambda x: x["timestamp"], reverse=True)
-    top_articles = all_articles[:9]
+    
+    # Asegurar diversidad de fuentes en los primeros resultados
+    selected = []
+    seen_sources = {}
+    for a in all_articles:
+        s = a["source"]
+        if seen_sources.get(s, 0) < 2:  # Máximo 2 notas por medio para dar cabida a todos
+            selected.append(a)
+            seen_sources[s] = seen_sources.get(s, 0) + 1
+        if len(selected) == 6:
+            break
+            
+    # Si faltan para completar 6, rellenar con las más recientes
+    if len(selected) < 6:
+        for a in all_articles:
+            if a not in selected:
+                selected.append(a)
+            if len(selected) == 6:
+                break
 
     os.makedirs("public", exist_ok=True)
     output_path = os.path.join("public", "noticias.json")
     with open(output_path, "w", encoding="utf-8") as f:
-        json.dump(top_articles, f, ensure_ascii=False, indent=2)
+        json.dump(selected, f, ensure_ascii=False, indent=2)
 
-    print(f"Actualizacion exitosa: {len(top_articles)} noticias guardadas en {output_path}.")
+    print(f"Actualización exitosa: {len(selected)} noticias de diversos medios guardadas en {output_path}.")
 
 if __name__ == "__main__":
     main()
