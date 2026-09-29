@@ -234,22 +234,22 @@ import Footer from '../components/Footer.astro';
             <div>
               <div class="flex justify-between items-center mb-3">
                 <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-sm bg-[#F4EFEA] text-[#8C6D37]">
-                  \${item.source}
+                  ${item.source}
                 </span>
-                <span class="text-xs text-slate-400">\${dateStr}</span>
+                <span class="text-xs text-slate-400">${dateStr}</span>
               </div>
               <h3 class="text-base font-bold text-slate-900 mb-2 leading-snug">
-                <a href="\${item.link}" target="_blank" rel="noopener noreferrer" class="hover:text-[#C5A880] transition-colors">
-                  \${item.title}
+                <a href="${item.link}" target="_blank" rel="noopener noreferrer" class="hover:text-[#C5A880] transition-colors">
+                  ${item.title}
                 </a>
               </h3>
               <p class="text-xs text-slate-600 line-clamp-3 mb-4 leading-relaxed">
-                \${item.snippet}
+                ${item.snippet}
               </p>
             </div>
             <div class="pt-3 border-t border-slate-100 flex justify-between items-center text-xs">
               <span class="text-slate-400">Jurisprudencia</span>
-              <a href="\${item.link}" target="_blank" rel="noopener noreferrer" class="text-[#C5A880] font-semibold hover:underline">
+              <a href="${item.link}" target="_blank" rel="noopener noreferrer" class="text-[#C5A880] font-semibold hover:underline">
                 Ver nota &rarr;
               </a>
             </div>
