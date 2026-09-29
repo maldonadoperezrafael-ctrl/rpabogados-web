@@ -20,6 +20,26 @@ def clean_html(raw_html):
     text = re.sub(r"\s+", " ", text).strip()
     return text[:140] + "..." if len(text) > 140 else text
 
+def extract_image(item, raw_desc):
+    # 1. Enclosure tag
+    enc = item.find("enclosure")
+    if enc is not None and enc.get("url"):
+        return enc.get("url")
+
+    # 2. Etiquetas Media RSS
+    for tag in ["{http://search.yahoo.com/mrss/}content", "{http://search.yahoo.com/mrss/}thumbnail"]:
+        m = item.find(tag)
+        if m is not None and m.get("url"):
+            return m.get("url")
+
+    # 3. Imagen embebida en la descripcion
+    if raw_desc:
+        match = re.search(r'<img[^>]+src=["\']([^"\']+)["\']', raw_desc, re.I)
+        if match:
+            return match.group(1)
+
+    return ""
+
 def fetch_feed(source):
     articles = []
     try:
@@ -36,6 +56,7 @@ def fetch_feed(source):
                 link = item.find("link").text if item.find("link") is not None else ""
                 pub_date_str = item.find("pubDate").text if item.find("pubDate") is not None else ""
                 desc = item.find("description").text if item.find("description") is not None else ""
+                image_url = extract_image(item, desc)
 
                 try:
                     dt = parsedate_to_datetime(pub_date_str)
@@ -52,7 +73,8 @@ def fetch_feed(source):
                         "link": link.strip(),
                         "date": iso_date,
                         "timestamp": timestamp,
-                        "snippet": clean_html(desc)
+                        "snippet": clean_html(desc),
+                        "image": image_url
                     })
     except Exception as e:
         print(f"Error consultando {source['name']}: {e}")
@@ -64,14 +86,10 @@ def main():
         print(f"Descargando {source['name']}...")
         all_articles.extend(fetch_feed(source))
 
-    # Ordenar por fecha cronologica (lo mas reciente primero)
     all_articles.sort(key=lambda x: x["timestamp"], reverse=True)
     top_articles = all_articles[:9]
 
-    # Asegurar que la carpeta public existe (para Astro)
     os.makedirs("public", exist_ok=True)
-
-    # Guardar en public/noticias.json
     output_path = os.path.join("public", "noticias.json")
     with open(output_path, "w", encoding="utf-8") as f:
         json.dump(top_articles, f, ensure_ascii=False, indent=2)
