@@ -4,7 +4,7 @@ interface Props {
   description?: string;
 }
 
-
+const { title, description } = Astro.props;
 ---
 
 <!doctype html>
@@ -16,29 +16,30 @@ interface Props {
     <!-- SEO Primary -->
     <title>{title}</title>
     <meta name="description" content={description} />
-  <meta name="keywords" content="abogados Providencia, abogados Santiago, litigación alta complejidad, derecho civil, derecho penal, contencioso administrativo" />
-<meta name="author" content="RP Abogados" />
-<meta name="robots" content="index, follow" />
-<link rel="canonical" href="https://rpabogados.cl/" />
+    <meta name="keywords" content="abogados Providencia, abogados Santiago, litigación alta complejidad, derecho civil, derecho penal, contencioso administrativo" />
+    <meta name="author" content="RP Abogados" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://rpabogados.cl/" />
 
-<!-- Open Graph / Facebook -->
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://rpabogados.cl/" />
-<meta property="og:title" content="RP Abogados | Litigación de Alta Complejidad en Santiago" />
-<meta property="og:description" content="Estudio jurídico en Providencia, Santiago. Especialistas en litigación civil, penal, contencioso administrativo y laboral." />
-<meta property="og:image" content="https://rpabogados.cl/fotos/logo-rp-abogados.png" />
-<meta property="og:locale" content="es_CL" />
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://rpabogados.cl/" />
+    <meta property="og:title" content="RP Abogados | Litigación de Alta Complejidad en Santiago" />
+    <meta property="og:description" content="Estudio jurídico en Providencia, Santiago. Especialistas en litigación civil, penal, contencioso administrativo y laboral." />
+    <meta property="og:image" content="https://rpabogados.cl/fotos/logo-rp-abogados.png" />
+    <meta property="og:locale" content="es_CL" />
 
-<!-- Twitter -->
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:url" content="https://rpabogados.cl/" />
-<meta name="twitter:title" content="RP Abogados | Litigación de Alta Complejidad" />
-<meta name="twitter:description" content="Estudio jurídico en Providencia, Santiago. Litigación civil, penal, contencioso administrativo y laboral." />
-<meta name="twitter:image" content="https://rpabogados.cl/fotos/logo-rp-abogados.png" />
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://rpabogados.cl/" />
+    <meta name="twitter:title" content="RP Abogados | Litigación de Alta Complejidad" />
+    <meta name="twitter:description" content="Estudio jurídico en Providencia, Santiago. Litigación civil, penal, contencioso administrativo y laboral." />
+    <meta name="twitter:image" content="https://rpabogados.cl/fotos/logo-rp-abogados.png" />
 
-<!-- Favicon -->
-<link rel="icon" type="image/png" href="/fotos/logo-rp-abogados.png?v=2" />
-<link rel="apple-touch-icon" href="/fotos/logo-rp-abogados.png?v=2" /> 
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/fotos/logo-rp-abogados.png?v=3" />
+    <link rel="apple-touch-icon" href="/fotos/logo-rp-abogados.png?v=3" /> 
+    
     <!-- Google Fonts: Raleway -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -303,12 +304,13 @@ interface Props {
     </script>
   </body>
 </html>
+
 <style is:global>
-  /* Barra superior con mayor altura para acoger el logo grande */
+  /* Barra superior ajustada para ganar terreno de contenido */
   header, nav, .navbar, .site-header {
     width: 100% !important;
-    height: 96px !important;
-    max-height: 96px !important;
+    height: 64px !important;
+    max-height: 64px !important;
     background-color: #ffffff !important;
     border-bottom: 1px solid #e2e8f0 !important;
     position: sticky !important;
@@ -321,28 +323,4 @@ interface Props {
   }
 
   /* Distribución de la barra */
-  header > div, nav > div, .navbar > div, .site-header > div {
-    width: 100% !important;
-    max-width: 1240px !important;
-    margin: 0 auto !important;
-    padding: 0 24px !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-  }
-
-  /* Logo grande, nítido y protagonista */
-  header img, nav img, .logo img, .site-header img {
-    height: 82px !important;
-    max-height: 85px !important;
-    width: auto !important;
-    max-width: 320px !important;
-    object-fit: contain !important;
-    display: block !important;
-  }
-
-  /* Menú a la derecha */
-  header button, nav button, .hamburger-btn {
-    margin-left: auto !important;
-  }
-</style>
+  header
