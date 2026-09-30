@@ -2,32 +2,29 @@
 // src/components/Header.astro
 ---
 
-<header class="fixed top-0 left-0 right-0 z-50 bg-[#12151B]/90 backdrop-blur-md border-b border-white/10 py-3 px-6">
+<header class="fixed top-0 left-0 right-0 z-50 bg-[#12151B] border-b border-white/10 py-3 px-4 md:px-6">
   <div class="max-w-7xl mx-auto flex justify-between items-center">
     
-    <!-- Lado Izquierdo: Nuevo Logo Institucional -->
-    <a href="#inicio" class="flex items-center gap-3 group">
+    <!-- Lado Izquierdo: Logo Institucional -->
+    <a href="#inicio" class="flex items-center gap-2">
       <img 
         src="/logo-rp.png" 
         alt="RP Abogados - Ayudamos a la gente" 
-        class="h-9 md:h-10 w-auto filter brightness-0 invert opacity-90 group-hover:opacity-100 transition-opacity" 
+        class="h-8 md:h-10 w-auto object-contain" 
+        onerror="this.src='/logo_white.png';"
       />
     </a>
 
-    <!-- Lado Derecho: Menú de Navegación Rápida (Escritorio) -->
-    <nav class="hidden md:flex items-center gap-6 text-xs text-white/80 font-medium tracking-wider uppercase">
-      <a href="#filosofia" class="hover:text-[#C5A880] transition-colors">Filosofía</a>
-      <a href="#areas" class="hover:text-[#C5A880] transition-colors">Áreas</a>
-      <a href="#equipo" class="hover:text-[#C5A880] transition-colors">Socios</a>
-      <a href="#actualidad" class="hover:text-[#C5A880] transition-colors">Actualidad</a>
-      <a href="#contacto" class="px-4 py-2 bg-[#C5A880] text-[#12151B] font-bold rounded-sm hover:bg-[#b5966c] transition-colors shadow-sm">
-        Contacto
-      </a>
-    </nav>
+    <!-- Lado Derecho: Menú de Navegación y Contacto -->
+    <div class="flex items-center gap-4 md:gap-6">
+      <nav class="hidden lg:flex items-center gap-6 text-xs text-white/90 font-medium tracking-wider uppercase">
+        <a href="#filosofia" class="hover:text-[#C5A880] transition-colors">Filosofía</a>
+        <a href="#areas" class="hover:text-[#C5A880] transition-colors">Áreas</a>
+        <a href="#equipo" class="hover:text-[#C5A880] transition-colors">Socios</a>
+        <a href="#actualidad" class="hover:text-[#C5A880] transition-colors">Actualidad</a>
+      </nav>
 
-    <!-- Versión simplificada para pantallas móviles -->
-    <div class="md:hidden flex items-center">
-      <a href="#contacto" class="px-3 py-1.5 bg-[#C5A880] text-[#12151B] font-bold text-xs rounded-sm uppercase tracking-wider shadow-sm">
+      <a href="#contacto" class="px-4 py-2 bg-[#C5A880] text-[#12151B] font-bold text-xs rounded-sm hover:bg-[#b5966c] transition-colors shadow-sm uppercase tracking-wider">
         Contacto
       </a>
     </div>
