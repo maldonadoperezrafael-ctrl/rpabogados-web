@@ -633,18 +633,26 @@ import Footer from '../components/Footer.astro';
       </div>
     </section>
 
-    <!-- ================= BARRA INFERIOR / FOOTER INSTITUCIONAL ================= -->
-    <footer class="bg-[#0E1116] text-slate-300 py-12 border-t border-slate-800">
+    <!-- ================= BARRA INFERIOR / FOOTER REESTRUCTURADO CON EL NUEVO LOGO ================= -->
+    <footer class="bg-[#0E1116] text-slate-300 py-14 border-t border-slate-800">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
-          <div>
-            <p class="text-base font-bold tracking-widest text-white mb-1">RP ABOGADOS</p>
-            <p class="text-xs text-[#C5A880] font-semibold uppercase tracking-wider mb-2">« AYUDAMOS A LA GENTE »</p>
-            <p class="text-xs text-slate-400 leading-relaxed">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10 items-start">
+          
+          <!-- Columna 1: Nuevo Logo Destacado -->
+          <div class="md:col-span-1">
+            <a href="#inicio" class="inline-block mb-3">
+              <img 
+                src="/logo-rp.png" 
+                alt="RP Abogados - Ayudamos a la gente" 
+                class="h-16 w-auto filter brightness-0 invert opacity-95 hover:opacity-100 transition-opacity" 
+              />
+            </a>
+            <p class="text-xs text-slate-400 leading-relaxed mt-2">
               Estudio Jurídico orientado en litigios de alta complejidad ante tribunales ordinarios y superiores de justicia.
             </p>
           </div>
 
+          <!-- Columna 2: Áreas de Práctica -->
           <div>
             <h4 class="text-xs font-bold uppercase tracking-wider text-white mb-3">Áreas de Práctica</h4>
             <ul class="space-y-1.5 text-xs text-slate-400">
@@ -655,6 +663,7 @@ import Footer from '../components/Footer.astro';
             </ul>
           </div>
 
+          <!-- Columna 3: Socios del Estudio -->
           <div>
             <h4 class="text-xs font-bold uppercase tracking-wider text-white mb-3">Socios del Estudio</h4>
             <ul class="space-y-1.5 text-xs text-slate-400">
@@ -663,6 +672,7 @@ import Footer from '../components/Footer.astro';
             </ul>
           </div>
 
+          <!-- Columna 4: Contacto Directo -->
           <div>
             <h4 class="text-xs font-bold uppercase tracking-wider text-white mb-3">Contacto Directo</h4>
             <p class="text-xs text-slate-400 leading-relaxed mb-2">Eliodoro Yáñez 2084, Of. 41, Providencia, Santiago</p>
@@ -671,15 +681,14 @@ import Footer from '../components/Footer.astro';
           </div>
         </div>
 
-        <!-- Barra inferior con Logo abajo a la derecha -->
+        <!-- Barra inferior de copyright con el isotipo de la marca -->
         <div class="border-t border-slate-800 pt-6 flex flex-wrap justify-between items-center text-xs text-slate-500 gap-4">
           <span>&copy; 2026 RP Abogados. Todos los derechos reservados. &bull; Providencia, Santiago &bull; Región de O'Higgins, Chile</span>
           <div class="flex items-center">
             <img 
-              src="/logo_white.png" 
+              src="/logo-rp.png" 
               alt="RP Abogados" 
-              class="h-9 w-auto opacity-80 hover:opacity-100 transition-opacity" 
-              onerror="if(this.src.indexOf('/fotos/')===-1){this.src='/fotos/logo_white.png';}"
+              class="h-8 w-auto filter brightness-0 invert opacity-70 hover:opacity-100 transition-opacity" 
             />
           </div>
         </div>
