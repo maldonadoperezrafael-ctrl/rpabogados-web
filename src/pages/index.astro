@@ -475,8 +475,8 @@ import Footer from '../components/Footer.astro';
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
           
-          <!-- Bloque Info Contacto: Tipografía Proporcional y Números Tabulares Alineados -->
-          <div class="contact-info-panel">
+          <!-- Bloque Info Contacto -->
+          <div>
             <span class="text-xs font-bold uppercase tracking-widest text-[#C5A880] block mb-2">Atención & Coordinación</span>
             <h2 class="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight mb-4">Contacto Directo</h2>
             <div class="w-12 h-0.5 bg-[#C5A880] mb-8"></div>
@@ -484,22 +484,22 @@ import Footer from '../components/Footer.astro';
               Atención presencial en nuestra sede de Providencia, Santiago de Chile, y coordinación telemática para litigios ante tribunales ordinarios y superiores en todo el territorio nacional.
             </p>
 
-            <div class="contact-details-clean">
-              <div class="contact-item-clean">
-                <span class="contact-label-clean">Oficina Principal:</span>
-                <span class="contact-value-clean">Calle Eliodoro Yáñez, Oficina 41, Providencia, Santiago, Chile.</span>
+            <div class="flex flex-col gap-4">
+              <div class="flex flex-col gap-1 pb-3 border-b border-slate-200">
+                <span class="text-[11px] font-bold uppercase tracking-wider text-slate-900">Oficina Principal:</span>
+                <span class="text-sm text-slate-600 leading-normal">Calle Eliodoro Yáñez, Oficina 41, Providencia, Santiago, Chile.</span>
               </div>
-              <div class="contact-item-clean">
-                <span class="contact-label-clean">Teléfono:</span>
-                <span class="contact-value-clean num-clean"><a href="tel:+56985497497" class="hover:text-[#C5A880]">+56 9 8549 7497</a></span>
+              <div class="flex flex-col gap-1 pb-3 border-b border-slate-200">
+                <span class="text-[11px] font-bold uppercase tracking-wider text-slate-900">Teléfono:</span>
+                <span class="text-sm text-slate-600 font-sans tracking-wide"><a href="tel:+56985497497" class="hover:text-[#C5A880]">+56 9 8549 7497</a></span>
               </div>
-              <div class="contact-item-clean">
-                <span class="contact-label-clean">Correo Electrónico:</span>
-                <span class="contact-value-clean"><a href="mailto:contacto@rpabogados.cl" class="text-[#C5A880] font-semibold hover:underline">contacto@rpabogados.cl</a></span>
+              <div class="flex flex-col gap-1 pb-3 border-b border-slate-200">
+                <span class="text-[11px] font-bold uppercase tracking-wider text-slate-900">Correo Electrónico:</span>
+                <span class="text-sm text-slate-600"><a href="mailto:contacto@rpabogados.cl" class="text-[#C5A880] font-semibold hover:underline">contacto@rpabogados.cl</a></span>
               </div>
-              <div class="contact-item-clean">
-                <span class="contact-label-clean">Horario de Atención:</span>
-                <span class="contact-value-clean num-clean">Lunes a Viernes: 09:00 a 19:00 hrs.</span>
+              <div class="flex flex-col gap-1 pb-3 border-b border-slate-200">
+                <span class="text-[11px] font-bold uppercase tracking-wider text-slate-900">Horario de Atención:</span>
+                <span class="text-sm text-slate-600 font-sans tracking-wide">Lunes a Viernes: 09:00 a 19:00 hrs.</span>
               </div>
             </div>
           </div>
@@ -546,38 +546,3 @@ import Footer from '../components/Footer.astro';
 
   <Footer />
 </Layout>
-
-<style>
-  .contact-details-clean {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-
-  .contact-item-clean {
-    display: flex;
-    flex-direction: column;
-    gap: 3px;
-    padding-bottom: 12px;
-    border-bottom: 1px solid #E2E8F0;
-  }
-
-  .contact-label-clean {
-    font-size: 11px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: #1E293B;
-  }
-
-  .contact-value-clean {
-    font-size: 14px;
-    color: #475569;
-    line-height: 1.5;
-  }
-
-  .num-clean {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    font-variant-numeric: lining-nums tabular-nums;
-    font-feature-settings: "lnum" 1, "tnum" 1;
-    letter-spacing: 0.03em
