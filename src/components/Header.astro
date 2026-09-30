@@ -2,166 +2,186 @@
 // src/components/Header.astro
 ---
 
-<!-- 1. BARRA SUPERIOR CON INFORMACIÓN DE LA OFICINA -->
-<div class="office-top-bar">
-  <div class="top-bar-inner">
-    <div class="top-bar-left">
-      <span class="office-badge">Sede Central</span>
-      <span class="office-address">Calle Eliodoro Yáñez, Oficina 41, Providencia, Santiago &bull; Región de O'Higgins</span>
+<!-- BARRA SUPERIOR LINEAL Y SOBRIA -->
+<div class="top-office-bar">
+  <div class="bar-container">
+    <div class="bar-left">
+      <span class="office-location">Calle Eliodoro Yáñez 2084, Of. 41, Providencia, Santiago &bull; Región de O'Higgins</span>
     </div>
-    <div class="top-bar-right">
-      <span class="office-hours">Lun - Vie: 09:00 a 19:00 hrs</span>
-      <span class="divider">&bull;</span>
-      <a href="https://wa.me/56985497497" target="_blank" rel="noopener" class="top-link">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-2.2 2.2a15.053 15.053 0 0 1-6.59-6.59l2.2-2.21a.96.96 0 0 0 .25-1.01A11.36 11.36 0 0 1 8.5 3.92c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.54c0-.54-.45-.99-.99-.99z"/></svg>
+    <div class="bar-right">
+      <span class="office-time">Lun - Vie: 09:00 a 19:00 hrs</span>
+      <span class="bar-sep">&bull;</span>
+      <a href="https://wa.me/56985497497" target="_blank" rel="noopener" class="bar-link">
+        <svg class="icon-inline" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-2.2 2.2a15.053 15.053 0 0 1-6.59-6.59l2.2-2.21a.96.96 0 0 0 .25-1.01A11.36 11.36 0 0 1 8.5 3.92c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.54c0-.54-.45-.99-.99-.99z"/></svg>
         +56 9 8549 7497
       </a>
-      <span class="divider">&bull;</span>
-      <a href="mailto:contacto@rpabogados.cl" class="top-link">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+      <span class="bar-sep">&bull;</span>
+      <a href="mailto:contacto@rpabogados.cl" class="bar-link">
+        <svg class="icon-inline" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
         contacto@rpabogados.cl
       </a>
     </div>
   </div>
 </div>
 
-<!-- 2. NAVEGACIÓN PRINCIPAL -->
-<header class="main-site-header">
-  <div class="header-inner">
-    <a href="#inicio" class="logo-brand">
+<!-- CABECERA PRINCIPAL CON LOGO Y NAVEGACIÓN -->
+<header class="navbar-wrapper">
+  <div class="nav-container">
+    
+    <!-- Logo Oficial RP Abogados con Lema -->
+    <a href="#inicio" class="brand-link" aria-label="RP Abogados Inicio">
       <img 
         src="/logo_dark.png" 
-        alt="RP Abogados - Litigación Estratégica" 
-        class="logo-img"
+        alt="RP Abogados - Ayudamos a la gente" 
+        class="brand-logo"
         onerror="if(this.src.indexOf('/fotos/')===-1){this.src='/fotos/logo_dark.png';}"
       />
     </a>
 
-    <!-- Navegación Escritorio -->
-    <nav class="desktop-navigation">
-      <a href="#inicio" class="nav-item">Inicio</a>
-      <a href="#filosofia" class="nav-item">Nuestra Filosofía</a>
+    <!-- Menú Escritorio -->
+    <nav class="desktop-menu">
+      <a href="#inicio" class="nav-link">Inicio</a>
+      <a href="#filosofia" class="nav-link">Pilares</a>
       
-      <!-- Desplegable Áreas -->
-      <div class="nav-dropdown">
-        <a href="#areas" class="nav-item dropdown-toggle">
-          Áreas de Práctica <span class="arrow-indicator">&#9662;</span>
+      <!-- Desplegable Áreas de Práctica -->
+      <div class="dropdown-wrap">
+        <a href="#areas" class="nav-link dropdown-head">
+          Áreas de Práctica <span class="arrow-glyph">&#9662;</span>
         </a>
-        <div class="dropdown-menu">
-          <a href="#areas" class="dropdown-link">Litigación Civil &amp; Patrimonial</a>
-          <a href="#areas" class="dropdown-link">Litigación Penal &amp; Compliance</a>
-          <a href="#areas" class="dropdown-link">Derecho Público &amp; Administrativo</a>
-          <a href="#areas" class="dropdown-link">Litigación Laboral Estratégica</a>
+        <div class="dropdown-box">
+          <a href="#areas" class="dropdown-item">Litigación Civil &amp; Patrimonial</a>
+          <a href="#areas" class="dropdown-item">Litigación Penal &amp; Compliance</a>
+          <a href="#areas" class="dropdown-item">Derecho Público &amp; Administrativo</a>
+          <a href="#areas" class="dropdown-item">Litigación Laboral Estratégica</a>
         </div>
       </div>
 
       <!-- Desplegable Socios -->
-      <div class="nav-dropdown">
-        <a href="#equipo" class="nav-item dropdown-toggle">
-          Socios <span class="arrow-indicator">&#9662;</span>
+      <div class="dropdown-wrap">
+        <a href="#equipo" class="nav-link dropdown-head">
+          Socios <span class="arrow-glyph">&#9662;</span>
         </a>
-        <div class="dropdown-menu">
-          <a href="#equipo" class="dropdown-link">Rafael Pérez Maldonado</a>
-          <a href="#equipo" class="dropdown-link">Yerko Scheihing Sepúlveda</a>
+        <div class="dropdown-box">
+          <a href="#equipo" class="dropdown-item">Rafael Pérez Maldonado</a>
+          <a href="#equipo" class="dropdown-item">Yerko Scheihing Sepúlveda</a>
         </div>
       </div>
 
-      <a href="#actualidad" class="nav-item">Actualidad</a>
-      <a href="#contacto" class="nav-btn-contact">Contacto</a>
+      <a href="#actualidad" class="nav-link">Actualidad</a>
+      <a href="#contacto" class="btn-contacto-header">Contacto</a>
     </nav>
 
     <!-- Botón Hamburguesa Móvil -->
-    <button id="mobileMenuBtn" class="mobile-hamburger" type="button" aria-label="Abrir Menú">
-      <span class="ham-bar"></span>
-      <span class="ham-bar"></span>
-      <span class="ham-bar"></span>
+    <button id="menuHamburgerBtn" class="hamburger-trigger" type="button" aria-label="Abrir Menú">
+      <span class="ham-line"></span>
+      <span class="ham-line"></span>
+      <span class="ham-line"></span>
     </button>
+
   </div>
 
-  <!-- 3. PANEL MÓVIL DESPLEGABLE (Oculto permanentemente en Escritorio) -->
-  <div id="mobileMenuDrawer" class="mobile-drawer">
-    <div class="drawer-content">
-      <a href="#inicio" class="drawer-link">Inicio</a>
-      <a href="#filosofia" class="drawer-link">Nuestra Filosofía</a>
+  <!-- Panel Desplegable Móvil (Oculto 100% en Escritorio) -->
+  <div id="mobileDrawerMenu" class="mobile-drawer-box">
+    <div class="mobile-drawer-inner">
+      <a href="#inicio" class="mob-link">Inicio</a>
+      <a href="#filosofia" class="mob-link">Pilares</a>
       
-      <div class="drawer-section-title">Áreas de Práctica</div>
-      <div class="drawer-sublinks">
-        <a href="#areas" class="drawer-sublink">&bull; Litigación Civil &amp; Patrimonial</a>
-        <a href="#areas" class="drawer-sublink">&bull; Litigación Penal &amp; Compliance</a>
-        <a href="#areas" class="drawer-sublink">&bull; Derecho Público &amp; Administrativo</a>
-        <a href="#areas" class="drawer-sublink">&bull; Litigación Laboral Estratégica</a>
+      <div class="mob-title">Áreas de Práctica</div>
+      <div class="mob-subgroup">
+        <a href="#areas" class="mob-sublink">&bull; Litigación Civil &amp; Patrimonial</a>
+        <a href="#areas" class="mob-sublink">&bull; Litigación Penal &amp; Compliance</a>
+        <a href="#areas" class="mob-sublink">&bull; Derecho Público &amp; Administrativo</a>
+        <a href="#areas" class="mob-sublink">&bull; Litigación Laboral Estratégica</a>
       </div>
 
-      <div class="drawer-section-title">Socios del Estudio</div>
-      <div class="drawer-sublinks">
-        <a href="#equipo" class="drawer-sublink">&bull; Rafael Pérez Maldonado</a>
-        <a href="#equipo" class="drawer-sublink">&bull; Yerko Scheihing Sepúlveda</a>
+      <div class="mob-title">Socios del Estudio</div>
+      <div class="mob-subgroup">
+        <a href="#equipo" class="mob-sublink">&bull; Rafael Pérez Maldonado</a>
+        <a href="#equipo" class="mob-sublink">&bull; Yerko Scheihing Sepúlveda</a>
       </div>
 
-      <a href="#actualidad" class="drawer-link">Actualidad Jurídica</a>
-      <a href="#contacto" class="drawer-contact-btn">Contacto Directo</a>
+      <a href="#actualidad" class="mob-link">Actualidad Jurídica</a>
+      <a href="#contacto" class="mob-btn-action">Contacto Directo</a>
       
-      <div class="drawer-office-info">
-        <p>Providencia, Santiago &bull; +56 9 8549 7497</p>
-        <p><a href="mailto:contacto@rpabogados.cl" style="color: #C5A880; text-decoration: underline;">contacto@rpabogados.cl</a></p>
+      <div class="mob-extra-info">
+        <p>Eliodoro Yáñez 2084, Of. 41, Providencia</p>
+        <p>Tel: +56 9 8549 7497 &bull; contacto@rpabogados.cl</p>
       </div>
     </div>
   </div>
 </header>
 
 <style>
-  .office-top-bar {
-    background-color: #0E1116;
-    color: #94A3B8;
-    font-size: 11px;
-    letter-spacing: 0.05em;
+  .top-office-bar, .navbar-wrapper {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+
+  .top-office-bar {
+    background-color: #12151B;
+    color: #CBD5E1;
+    font-size: 11.5px;
+    font-weight: 400;
+    line-height: 1.4;
     border-bottom: 1px solid #1E293B;
     position: relative;
     z-index: 60;
   }
-  .top-bar-inner {
+
+  .bar-container {
     max-width: 1240px;
     margin: 0 auto;
-    padding: 7px 24px;
+    padding: 8px 24px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .bar-left {
+    display: flex;
+    align-items: center;
     gap: 8px;
   }
-  .top-bar-left {
+
+  .office-location {
+    color: #E2E8F0;
+    font-size: 11.5px;
+    letter-spacing: 0.02em;
+  }
+
+  .bar-right {
     display: flex;
     align-items: center;
     gap: 10px;
   }
-  .office-badge {
-    background-color: #C5A880;
-    color: #0E1116;
-    font-weight: 700;
-    text-transform: uppercase;
-    font-size: 9.5px;
-    padding: 2px 7px;
-    border-radius: 2px;
+
+  .office-time {
+    color: #94A3B8;
   }
-  .office-address { color: #CBD5E1; }
-  .top-bar-right {
-    display: flex;
-    align-items: center;
-    gap: 12px;
+
+  .bar-sep {
+    color: #475569;
   }
-  .office-hours { color: #94A3B8; }
-  .divider { color: #475569; }
-  .top-link {
-    color: #E2E8F0;
+
+  .bar-link {
+    color: #F1F5F9;
     text-decoration: none;
     display: inline-flex;
     align-items: center;
     gap: 5px;
     transition: color 0.2s ease;
   }
-  .top-link:hover { color: #C5A880; }
 
-  .main-site-header {
+  .bar-link:hover {
+    color: #C5A880;
+  }
+
+  .icon-inline {
+    vertical-align: middle;
+  }
+
+  .navbar-wrapper {
     background-color: #FFFFFF;
     border-bottom: 1px solid #E2E8F0;
     position: sticky;
@@ -169,7 +189,8 @@
     z-index: 50;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
   }
-  .header-inner {
+
+  .nav-container {
     max-width: 1240px;
     margin: 0 auto;
     padding: 10px 24px;
@@ -178,30 +199,62 @@
     align-items: center;
     min-height: 72px;
   }
-  .logo-brand { display: flex; align-items: center; text-decoration: none; }
-  .logo-img { height: 52px; width: auto; max-width: 230px; object-fit: contain; display: block; }
 
-  .desktop-navigation { display: flex; align-items: center; gap: 24px; }
-  .nav-item {
+  .brand-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+  }
+
+  .brand-logo {
+    height: 52px;
+    width: auto;
+    max-width: 220px;
+    object-fit: contain;
+    display: block;
+  }
+
+  .desktop-menu {
+    display: flex;
+    align-items: center;
+    gap: 26px;
+  }
+
+  .nav-link {
     font-size: 12px;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.12em;
     color: #334155;
     text-decoration: none;
-    padding: 10px 0;
+    padding: 8px 0;
     display: inline-flex;
     align-items: center;
     gap: 4px;
     transition: color 0.2s ease;
   }
-  .nav-item:hover { color: #C5A880; }
-  .arrow-indicator { font-size: 9px; color: #94A3B8; transition: transform 0.2s ease; }
 
-  .nav-dropdown { position: relative; display: inline-block; }
-  .nav-dropdown:hover .arrow-indicator { transform: rotate(180deg); color: #C5A880; }
+  .nav-link:hover {
+    color: #C5A880;
+  }
 
-  .dropdown-menu {
+  .arrow-glyph {
+    font-size: 9px;
+    color: #94A3B8;
+    transition: transform 0.2s ease;
+  }
+
+  .dropdown-wrap {
+    position: relative;
+    display: inline-block;
+  }
+
+  .dropdown-wrap:hover .arrow-glyph {
+    transform: rotate(180deg);
+    color: #C5A880;
+  }
+
+  .dropdown-box {
     display: none !important;
     position: absolute;
     top: 100%;
@@ -215,9 +268,12 @@
     padding: 8px 0;
     z-index: 100;
   }
-  .nav-dropdown:hover .dropdown-menu { display: block !important; }
 
-  .dropdown-link {
+  .dropdown-wrap:hover .dropdown-box {
+    display: block !important;
+  }
+
+  .dropdown-item {
     display: block;
     padding: 9px 18px;
     font-size: 12px;
@@ -227,10 +283,18 @@
     border-bottom: 1px solid #F8FAFC;
     transition: all 0.2s ease;
   }
-  .dropdown-link:last-child { border-bottom: none; }
-  .dropdown-link:hover { background-color: #F8FAFC; color: #C5A880; padding-left: 22px; }
 
-  .nav-btn-contact {
+  .dropdown-item:last-child {
+    border-bottom: none;
+  }
+
+  .dropdown-item:hover {
+    background-color: #F8FAFC;
+    color: #C5A880;
+    padding-left: 22px;
+  }
+
+  .btn-contacto-header {
     border: 1px solid #C5A880;
     color: #C5A880;
     font-size: 11.5px;
@@ -242,22 +306,32 @@
     text-decoration: none;
     transition: all 0.25s ease;
   }
-  .nav-btn-contact:hover { background-color: #C5A880; color: #0E1116; }
 
-  .mobile-hamburger {
+  .btn-contacto-header:hover {
+    background-color: #C5A880;
+    color: #12151B;
+  }
+
+  .hamburger-trigger {
     display: none;
     flex-direction: column;
     justify-content: space-between;
-    width: 28px;
-    height: 20px;
+    width: 26px;
+    height: 19px;
     background: transparent;
     border: none;
     cursor: pointer;
     padding: 0;
   }
-  .ham-bar { width: 100%; height: 2.5px; background-color: #0E1116; border-radius: 2px; }
 
-  .mobile-drawer {
+  .ham-line {
+    width: 100%;
+    height: 2.5px;
+    background-color: #12151B;
+    border-radius: 2px;
+  }
+
+  .mobile-drawer-box {
     display: none !important;
     position: absolute;
     top: 100%;
@@ -268,16 +342,58 @@
     box-shadow: 0 16px 36px rgba(0, 0, 0, 0.16);
     z-index: 90;
   }
-  .mobile-drawer.is-open { display: block !important; }
-  .drawer-content { padding: 20px 24px; display: flex; flex-direction: column; gap: 8px; max-height: 80vh; overflow-y: auto; }
-  .drawer-link { font-size: 12.5px; font-weight: 700; text-transform: uppercase; color: #0E1116; text-decoration: none; padding: 8px 0; border-bottom: 1px solid #F1F5F9; }
-  .drawer-section-title { font-size: 11px; font-weight: 700; text-transform: uppercase; color: #C5A880; margin-top: 8px; border-bottom: 1px solid #F1F5F9; padding-bottom: 4px; }
-  .drawer-sublinks { padding-left: 8px; display: flex; flex-direction: column; gap: 6px; }
-  .drawer-sublink { font-size: 11.5px; color: #475569; text-decoration: none; padding: 4px 0; }
-  .drawer-contact-btn {
+
+  .mobile-drawer-box.is-open {
+    display: block !important;
+  }
+
+  .mobile-drawer-inner {
+    padding: 20px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-height: 80vh;
+    overflow-y: auto;
+  }
+
+  .mob-link {
+    font-size: 12.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #12151B;
+    text-decoration: none;
+    padding: 8px 0;
+    border-bottom: 1px solid #F1F5F9;
+  }
+
+  .mob-title {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #C5A880;
+    margin-top: 8px;
+    border-bottom: 1px solid #F1F5F9;
+    padding-bottom: 4px;
+  }
+
+  .mob-subgroup {
+    padding-left: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .mob-sublink {
+    font-size: 11.5px;
+    color: #475569;
+    text-decoration: none;
+    padding: 4px 0;
+  }
+
+  .mob-btn-action {
     margin-top: 12px;
     text-align: center;
-    background-color: #0E1116;
+    background-color: #12151B;
     color: #FFFFFF !important;
     font-size: 12px;
     font-weight: 700;
@@ -286,22 +402,29 @@
     border-radius: 2px;
     text-decoration: none;
   }
-  .drawer-office-info { margin-top: 10px; text-align: center; font-size: 11px; color: #64748B; }
+
+  .mob-extra-info {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 11px;
+    color: #64748B;
+  }
 
   @media (max-width: 960px) {
-    .office-address { display: none; }
-    .desktop-navigation { display: none !important; }
-    .mobile-hamburger { display: flex; }
+    .office-location { font-size: 10.5px; }
+    .desktop-menu { display: none !important; }
+    .hamburger-trigger { display: flex; }
   }
+
   @media (min-width: 961px) {
-    .mobile-drawer { display: none !important; }
+    .mobile-drawer-box { display: none !important; }
   }
 </style>
 
 <script is:inline>
-  (function initMobileMenu() {
-    const btn = document.getElementById('mobileMenuBtn');
-    const drawer = document.getElementById('mobileMenuDrawer');
+  (function() {
+    const btn = document.getElementById('menuHamburgerBtn');
+    const drawer = document.getElementById('mobileDrawerMenu');
     if (!btn || !drawer) return;
 
     btn.addEventListener('click', (e) => {
