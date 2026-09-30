@@ -2,11 +2,11 @@
 // src/components/Header.astro
 ---
 
-<header class="site-header-custom" style="position: relative !important; top: auto !important;">
-  <div class="header-container">
+<header class="site-header-clean">
+  <div class="header-inner">
     
     <!-- Logo Oficial: RP Abogados « Ayudamos a la gente » -->
-    <a href="#inicio" class="logo-container">
+    <a href="#inicio" class="logo-link">
       <img 
         src="/logo_dark.png" 
         alt="RP Abogados - Ayudamos a la gente" 
@@ -15,221 +15,126 @@
       />
     </a>
 
-    <!-- Navegación de Escritorio con Desplegables -->
-    <nav class="desktop-navigation">
-      <a href="#inicio" class="nav-link">Inicio</a>
-      <a href="#filosofia" class="nav-link">Nuestra Filosofía</a>
-      
-      <!-- Desplegable Áreas de Práctica -->
-      <div class="nav-dropdown">
-        <a href="#areas" class="nav-link dropdown-trigger">
-          Áreas de Práctica <span class="arrow-down">&#9662;</span>
-        </a>
-        <div class="dropdown-panel">
-          <a href="#areas" class="dropdown-item">Litigación Civil</a>
-          <a href="#areas" class="dropdown-item">Litigación Penal & Compliance</a>
-          <a href="#areas" class="dropdown-item">Derecho Público & Administrativo</a>
-          <a href="#areas" class="dropdown-item">Litigación Laboral</a>
-        </div>
-      </div>
-
-      <!-- Desplegable Socios -->
-      <div class="nav-dropdown">
-        <a href="#equipo" class="nav-link dropdown-trigger">
-          Socios <span class="arrow-down">&#9662;</span>
-        </a>
-        <div class="dropdown-panel">
-          <a href="#equipo" class="dropdown-item">Rafael Pérez Maldonado</a>
-          <a href="#equipo" class="dropdown-item">Yerko Scheihing Sepúlveda</a>
-        </div>
-      </div>
-
-      <a href="#actualidad" class="nav-link">Actualidad</a>
-      <a href="#contacto" class="nav-link nav-btn-contact">Contacto</a>
-    </nav>
-
-    <!-- Botón Menú Móvil -->
-    <button id="mobileToggleBtn" class="mobile-toggle-btn" aria-label="Abrir menú" type="button">
-      <span class="bar"></span>
-      <span class="bar"></span>
-      <span class="bar"></span>
+    <!-- Ícono de 3 Líneas Horizontales -->
+    <button id="menuToggleBtn" class="menu-toggle-btn" aria-label="Abrir menú" type="button">
+      <span class="line line-1"></span>
+      <span class="line line-2"></span>
+      <span class="line line-3"></span>
     </button>
 
   </div>
 
-  <!-- Menú Móvil Desplegable Compacto -->
-  <div id="mobileMenuPanel" class="mobile-menu-panel">
-    <div class="mobile-menu-content">
-      <a href="#inicio" class="mobile-link">Inicio</a>
-      <a href="#filosofia" class="mobile-link">Nuestra Filosofía</a>
+  <!-- Panel Desplegable -->
+  <nav id="navDropdownPanel" class="nav-dropdown-panel" aria-label="Navegación principal">
+    <div class="dropdown-inner">
       
-      <div class="mobile-group-title">Áreas de Práctica</div>
-      <div class="mobile-sublinks">
-        <a href="#areas" class="mobile-sublink">&bull; Litigación Civil</a>
-        <a href="#areas" class="mobile-sublink">&bull; Litigación Penal & Compliance</a>
-        <a href="#areas" class="mobile-sublink">&bull; Derecho Público & Administrativo</a>
-        <a href="#areas" class="mobile-sublink">&bull; Litigación Laboral</a>
+      <div class="nav-col">
+        <a href="#inicio" class="main-link">Inicio</a>
+        <a href="#filosofia" class="main-link">Nuestra Filosofía</a>
+        <a href="#actualidad" class="main-link">Actualidad</a>
+        <a href="#contacto" class="main-link contact-pill">Contacto</a>
       </div>
 
-      <div class="mobile-group-title">Socios del Estudio</div>
-      <div class="mobile-sublinks">
-        <a href="#equipo" class="mobile-sublink">&bull; Rafael Pérez Maldonado</a>
-        <a href="#equipo" class="mobile-sublink">&bull; Yerko Scheihing Sepúlveda</a>
+      <div class="nav-col">
+        <span class="group-title">Áreas de Práctica</span>
+        <div class="sub-links">
+          <a href="#areas" class="sub-link">&bull; Litigación Civil</a>
+          <a href="#areas" class="sub-link">&bull; Litigación Penal & Compliance</a>
+          <a href="#areas" class="sub-link">&bull; Derecho Público & Administrativo</a>
+          <a href="#areas" class="sub-link">&bull; Litigación Laboral</a>
+        </div>
       </div>
 
-      <a href="#actualidad" class="mobile-link">Actualidad</a>
-      <a href="#contacto" class="mobile-link mobile-contact-btn">Contacto</a>
+      <div class="nav-col">
+        <span class="group-title">Socios del Estudio</span>
+        <div class="sub-links">
+          <a href="#equipo" class="sub-link">&bull; Rafael Pérez Maldonado</a>
+          <a href="#equipo" class="sub-link">&bull; Yerko Scheihing Sepúlveda</a>
+        </div>
+      </div>
+
     </div>
-  </div>
+
+    <!-- Barra inferior institucional con información de la oficina -->
+    <div class="dropdown-footer-bar">
+      <span>Calle Eliodoro Yáñez, Oficina 41, Providencia, Santiago</span>
+      <span>Tel: <a href="tel:+56985497497">+56 9 8549 7497</a></span>
+      <span><a href="mailto:contacto@rpabogados.cl">contacto@rpabogados.cl</a></span>
+    </div>
+  </nav>
 </header>
 
 <style>
-  /* Header NO fijo (fluye normalmente con la página) */
-  .site-header-custom {
-    position: relative !important;
-    top: auto !important;
+  .site-header-clean {
+    position: relative;
     width: 100%;
-    z-index: 100;
     background-color: #FFFFFF;
     border-bottom: 1px solid #E2E8F0;
-    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.04);
-    min-height: 80px;
-    display: flex;
-    align-items: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+    z-index: 50;
   }
 
-  .header-container {
-    width: 100%;
+  .header-inner {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 12px 24px;
+    padding: 14px 24px;
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
 
-  .logo-container {
+  .logo-link {
     display: flex;
     align-items: center;
     text-decoration: none;
   }
 
   .logo-img {
-    height: 52px;
+    height: 54px;
     width: auto;
-    max-width: 230px;
+    max-width: 250px;
     object-fit: contain;
     display: block;
   }
 
-  .desktop-navigation {
+  /* Ícono de 3 Líneas Horizontales */
+  .menu-toggle-btn {
     display: flex;
-    align-items: center;
-    gap: 26px;
-  }
-
-  .nav-link {
-    font-size: 11.5px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: #334155;
-    text-decoration: none;
-    padding: 8px 0;
-    transition: color 0.2s ease;
-  }
-
-  .nav-link:hover {
-    color: #C5A880;
-  }
-
-  .arrow-down {
-    font-size: 9px;
-    margin-left: 2px;
-    display: inline-block;
-  }
-
-  /* Desplegables Escritorio */
-  .nav-dropdown {
-    position: relative;
-    display: inline-block;
-  }
-
-  .dropdown-panel {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: #FFFFFF;
-    min-width: 250px;
-    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
-    border: 1px solid #E2E8F0;
-    border-radius: 2px;
-    padding: 8px 0;
-    z-index: 1000;
-  }
-
-  .nav-dropdown:hover .dropdown-panel {
-    display: block;
-  }
-
-  .dropdown-item {
-    display: block;
-    padding: 10px 18px;
-    font-size: 11.5px;
-    font-weight: 500;
-    color: #475569;
-    text-decoration: none;
-    letter-spacing: 0.04em;
-    border-bottom: 1px solid #F1F5F9;
-    transition: background 0.2s, color 0.2s, padding-left 0.2s;
-  }
-
-  .dropdown-item:last-child {
-    border-bottom: none;
-  }
-
-  .dropdown-item:hover {
-    background-color: #F8FAFC;
-    color: #C5A880;
-    padding-left: 22px;
-  }
-
-  .nav-btn-contact {
-    border: 1px solid #C5A880;
-    color: #C5A880 !important;
-    padding: 8px 16px;
-    border-radius: 2px;
-    transition: all 0.3s ease;
-  }
-
-  .nav-btn-contact:hover {
-    background-color: #C5A880;
-    color: #FFFFFF !important;
-  }
-
-  /* Botón hamburguesa móvil */
-  .mobile-toggle-btn {
-    display: none;
     flex-direction: column;
     justify-content: space-between;
-    width: 26px;
-    height: 19px;
+    width: 32px;
+    height: 22px;
     background: transparent;
     border: none;
     cursor: pointer;
-    padding: 0;
+    padding: 2px;
+    transition: transform 0.2s ease;
   }
 
-  .mobile-toggle-btn .bar {
+  .menu-toggle-btn:hover {
+    transform: scale(1.05);
+  }
+
+  .menu-toggle-btn .line {
     width: 100%;
-    height: 2px;
+    height: 2.5px;
     background-color: #14171C;
+    border-radius: 2px;
     transition: all 0.3s ease;
   }
 
-  /* Menú Móvil Desplegable */
-  .mobile-menu-panel {
+  .menu-toggle-btn.is-active .line-1 {
+    transform: translateY(7px) rotate(45deg);
+  }
+  .menu-toggle-btn.is-active .line-2 {
+    opacity: 0;
+  }
+  .menu-toggle-btn.is-active .line-3 {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  /* Panel Desplegable */
+  .nav-dropdown-panel {
     display: none;
     position: absolute;
     top: 100%;
@@ -237,98 +142,98 @@
     right: 0;
     background-color: #FFFFFF;
     border-bottom: 2px solid #C5A880;
-    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.15);
-    z-index: 1000;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.12);
+    z-index: 100;
   }
 
-  .mobile-menu-panel.is-open {
+  .nav-dropdown-panel.is-open {
     display: block;
   }
 
-  .mobile-menu-content {
-    padding: 18px 24px;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+  .dropdown-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 28px 24px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 28px;
   }
 
-  .mobile-link {
-    font-size: 12px;
+  .nav-col {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .main-link {
+    font-size: 13px;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.12em;
-    color: #1E293B;
+    color: #14171C;
     text-decoration: none;
-    padding: 8px 0;
-    border-bottom: 1px solid #F1F5F9;
+    padding: 6px 0;
+    transition: color 0.2s ease;
   }
 
-  .mobile-group-title {
+  .main-link:hover {
+    color: #C5A880;
+  }
+
+  .contact-pill {
+    margin-top: 6px;
+    display: inline-block;
+    background-color: #14171C;
+    color: #FFFFFF !important;
+    text-align: center;
+    padding: 8px 16px;
+    border-radius: 2px;
+    font-size: 11.5px;
+    font-weight: 600;
+  }
+
+  .group-title {
     font-size: 11px;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.14em;
     color: #C5A880;
-    margin-top: 6px;
-    padding-bottom: 2px;
+    border-bottom: 1px solid #F1F5F9;
+    padding-bottom: 6px;
   }
 
-  .mobile-sublinks {
-    padding-left: 12px;
+  .sub-links {
     display: flex;
     flex-direction: column;
-    gap: 4px;
-    margin-bottom: 6px;
+    gap: 8px;
+    padding-top: 4px;
   }
 
-  .mobile-sublink {
-    font-size: 11px;
-    color: #64748B;
+  .sub-link {
+    font-size: 12px;
+    color: #475569;
     text-decoration: none;
-    padding: 4px 0;
+    line-height: 1.4;
+    transition: color 0.2s ease;
   }
 
-  .mobile-contact-btn {
-    margin-top: 10px;
-    text-align: center;
+  .sub-link:hover {
+    color: #C5A880;
+  }
+
+  /* Barra inferior de la oficina */
+  .dropdown-footer-bar {
     background-color: #14171C;
-    color: #FFFFFF !important;
-    padding: 10px 0;
-    border-radius: 2px;
-    border-bottom: none;
+    color: #A0ACB8;
+    padding: 12px 24px;
+    font-size: 11.5px;
+    letter-spacing: 0.06em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 18px;
   }
 
-  @media (max-width: 900px) {
-    .desktop-navigation {
-      display: none;
-    }
-    .mobile-toggle-btn {
-      display: flex;
-    }
-  }
-</style>
-
-<script is:inline>
-  (function() {
-    const btn = document.getElementById('mobileToggleBtn');
-    const panel = document.getElementById('mobileMenuPanel');
-    if (!btn || !panel) return;
-
-    btn.addEventListener('click', function(e) {
-      e.stopPropagation();
-      panel.classList.toggle('is-open');
-    });
-
-    document.querySelectorAll('.mobile-link, .mobile-sublink').forEach(function(link) {
-      link.addEventListener('click', function() {
-        panel.classList.remove('is-open');
-      });
-    });
-
-    document.addEventListener('click', function(e) {
-      if (!panel.contains(e.target) && !btn.contains(e.target)) {
-        panel.classList.remove('is-open');
-      }
-    });
-  })();
-</script>
+  .dropdown-footer-bar a {
+    color: #C5A
