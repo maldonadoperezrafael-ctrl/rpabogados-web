@@ -2,40 +2,38 @@
 // src/components/Header.astro
 ---
 
-<header style="position: fixed; top: 0; left: 0; right: 0; z-index: 50; background-color: #12151B; border-bottom: 1px solid rgba(197, 168, 128, 0.3); padding: 12px 24px; box-shadow: 0 4px 6px rgba(0,0,0,0.3);">
-  <div style="max-width: 1280px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;">
+<header style="position: fixed !important; top: 0 !important; left: 0 !important; right: 0 !important; z-index: 9999 !important; background-color: #12151B !important; border-bottom: 1px solid #C5A880 !important; padding: 12px 24px !important; box-shadow: 0 4px 12px rgba(0,0,0,0.5) !important;">
+  <div style="max-width: 1280px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; width: 100%;">
     
-    <!-- Lado Izquierdo: Logotipo y Marca -->
+    <!-- Logotipo Institucional -->
     <a href="#inicio" style="display: flex; align-items: center; gap: 12px; text-decoration: none;">
-      <img 
-        src="/logo-rp.png" 
-        alt="RP Abogados" 
-        style="height: 38px; width: auto; object-fit: contain;"
-      />
+      <div style="background-color: #C5A880; color: #12151B; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 18px; border-radius: 2px; letter-spacing: -1px;">
+        RP
+      </div>
       <div style="display: flex; flex-direction: column;">
-        <span style="color: #ffffff; font-weight: bold; font-size: 14px; letter-spacing: 0.05em; text-transform: uppercase;">
+        <span style="color: #ffffff !important; font-weight: bold; font-size: 15px; letter-spacing: 0.05em; text-transform: uppercase; line-height: 1.2;">
           RP Abogados
         </span>
-        <span style="color: #C5A880; font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase;">
+        <span style="color: #C5A880 !important; font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase;">
           Ayudamos a la gente
         </span>
       </div>
     </a>
 
-    <!-- Centro: Menú de Navegación -->
-    <nav style="display: flex; align-items: center; gap: 24px;">
-      <a href="#inicio" style="color: #ffffff; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none;">Inicio</a>
-      <a href="#filosofia" style="color: #ffffff; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none;">Filosofía</a>
-      <a href="#areas" style="color: #ffffff; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none;">Áreas</a>
-      <a href="#equipo" style="color: #ffffff; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none;">Socios</a>
-      <a href="#actualidad" style="color: #ffffff; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none;">Actualidad</a>
+    <!-- Menú de Navegación Completo -->
+    <nav style="display: flex; align-items: center; gap: 28px;">
+      <a href="#inicio" style="color: #ffffff !important; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none;">Inicio</a>
+      <a href="#filosofia" style="color: #ffffff !important; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none;">Filosofía</a>
+      <a href="#areas" style="color: #ffffff !important; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none;">Áreas</a>
+      <a href="#equipo" style="color: #ffffff !important; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none;">Socios</a>
+      <a href="#actualidad" style="color: #ffffff !important; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none;">Actualidad</a>
     </nav>
 
-    <!-- Lado Derecho: Botón de Contacto -->
+    <!-- Botón de Contacto -->
     <div>
       <a 
         href="#contacto" 
-        style="background-color: #C5A880; color: #12151B; font-weight: bold; font-size: 11px; padding: 10px 20px; border-radius: 2px; text-transform: uppercase; letter-spacing: 0.1em; text-decoration: none; display: inline-block;"
+        style="background-color: #C5A880 !important; color: #12151B !important; font-weight: bold; font-size: 11px; padding: 10px 20px; border-radius: 2px; text-transform: uppercase; letter-spacing: 0.1em; text-decoration: none; display: inline-block;"
       >
         Contacto
       </a>
