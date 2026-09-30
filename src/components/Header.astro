@@ -2,7 +2,7 @@
 // src/components/Header.astro
 ---
 
-<header class="site-header-custom">
+<header class="site-header-custom" style="position: relative !important; top: auto !important;">
   <div class="header-container">
     
     <!-- Logo Oficial: RP Abogados « Ayudamos a la gente » -->
@@ -11,7 +11,7 @@
         src="/logo_dark.png" 
         alt="RP Abogados - Ayudamos a la gente" 
         class="logo-img"
-        onerror="if(this.src.indexOf('/fotos/')===-1){this.src='/fotos/logo_dark.png';}"
+        onerror="if(this.src.indexOf('/fotos/')===-1){this.src='/fotos/logo_dark.png';}else if(this.src.indexOf('logo.png')===-1){this.src='/logo.png';}"
       />
     </a>
 
@@ -86,7 +86,8 @@
 <style>
   /* Header NO fijo (fluye normalmente con la página) */
   .site-header-custom {
-    position: relative;
+    position: relative !important;
+    top: auto !important;
     width: 100%;
     z-index: 100;
     background-color: #FFFFFF;
