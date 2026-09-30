@@ -2,238 +2,132 @@
 // src/components/Header.astro
 ---
 
-<header class="site-header-clean">
-  <div class="header-inner">
-    
-    <!-- Logo Oficial: RP Abogados « Ayudamos a la gente » -->
-    <a href="#inicio" class="logo-link">
-      <img 
-        src="/logo_dark.png" 
-        alt="RP Abogados - Ayudamos a la gente" 
-        class="logo-img"
-        onerror="if(this.src.indexOf('/fotos/')===-1){this.src='/fotos/logo_dark.png';}else if(this.src.indexOf('logo.png')===-1){this.src='/logo.png';}"
-      />
-    </a>
+<header class="fixed top-0 left-0 right-0 z-50 bg-[#14171c]/95 backdrop-blur-md border-b border-white/10 transition-all duration-300" id="mainHeader">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-20">
+      
+      <!-- Logo de la Firma -->
+      <a href="/" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 border border-[#C5A880] flex items-center justify-center text-[#C5A880] font-bold text-lg tracking-wider group-hover:bg-[#C5A880] group-hover:text-[#14171c] transition-all duration-300">
+          RP
+        </div>
+        <div class="flex flex-col">
+          <span class="text-white font-semibold tracking-wider text-base uppercase leading-tight">RP Abogados</span>
+          <span class="text-[#C5A880] text-[10px] tracking-widest uppercase font-medium">Litigación Estratégica</span>
+        </div>
+      </a>
 
-    <!-- Ícono de 3 Líneas Horizontales -->
-    <button id="menuToggleBtn" class="menu-toggle-btn" aria-label="Abrir menú" type="button">
-      <span class="line line-1"></span>
-      <span class="line line-2"></span>
-      <span class="line line-3"></span>
-    </button>
+      <!-- Menú Escritorio -->
+      <nav class="hidden md:flex items-center space-x-8 text-xs font-semibold uppercase tracking-widest text-slate-300">
+        <a href="#inicio" class="hover:text-[#C5A880] transition-colors py-2">Inicio</a>
+        <a href="#pilares" class="hover:text-[#C5A880] transition-colors py-2">Pilares</a>
+        <a href="#areas" class="hover:text-[#C5A880] transition-colors py-2">Áreas de Práctica</a>
+        <a href="#equipo" class="hover:text-[#C5A880] transition-colors py-2">Socios</a>
+        <a href="#actualidad" class="hover:text-[#C5A880] transition-colors py-2">Actualidad</a>
+        <a href="#contacto" class="text-[#C5A880] border border-[#C5A880]/50 px-4 py-2 hover:bg-[#C5A880] hover:text-[#14171c] transition-all duration-300 rounded-sm">
+          Contacto
+        </a>
+      </nav>
 
+      <!-- Botón Menú Móvil -->
+      <div class="flex items-center md:hidden">
+        <button 
+          id="mobileMenuBtn" 
+          type="button" 
+          aria-label="Abrir Menú" 
+          class="text-white p-2 focus:outline-none hover:text-[#C5A880] transition-colors"
+        >
+          <svg id="menuIconOpen" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+          <svg id="menuIconClose" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+
+    </div>
   </div>
 
-  <!-- Panel Desplegable -->
-  <nav id="navDropdownPanel" class="nav-dropdown-panel" aria-label="Navegación principal">
-    <div class="dropdown-inner">
-      
-      <div class="nav-col">
-        <a href="#inicio" class="main-link">Inicio</a>
-        <a href="#filosofia" class="main-link">Nuestra Filosofía</a>
-        <a href="#actualidad" class="main-link">Actualidad</a>
-        <a href="#contacto" class="main-link contact-pill">Contacto</a>
+  <!-- Barra Desplegable Móvil: Compacta, Armoniosa y Proporcional -->
+  <div 
+    id="mobileMenuDropdown" 
+    class="hidden md:hidden bg-[#181c22]/98 border-b border-[#C5A880]/30 shadow-2xl transition-all duration-300"
+  >
+    <div class="px-6 py-4 space-y-1 divide-y divide-white/5">
+      <div class="py-1">
+        <a href="#inicio" class="mobile-nav-link block py-2 text-xs font-semibold tracking-widest uppercase text-white hover:text-[#C5A880] transition-colors">
+          Inicio
+        </a>
       </div>
-
-      <div class="nav-col">
-        <span class="group-title">Áreas de Práctica</span>
-        <div class="sub-links">
-          <a href="#areas" class="sub-link">&bull; Litigación Civil</a>
-          <a href="#areas" class="sub-link">&bull; Litigación Penal & Compliance</a>
-          <a href="#areas" class="sub-link">&bull; Derecho Público & Administrativo</a>
-          <a href="#areas" class="sub-link">&bull; Litigación Laboral</a>
+      <div class="py-1">
+        <a href="#pilares" class="mobile-nav-link block py-2 text-xs font-semibold tracking-widest uppercase text-slate-300 hover:text-[#C5A880] transition-colors">
+          Pilares de Práctica
+        </a>
+      </div>
+      <div class="py-1">
+        <a href="#areas" class="mobile-nav-link block py-2 text-xs font-semibold tracking-widest uppercase text-slate-300 hover:text-[#C5A880] transition-colors">
+          Áreas de Práctica
+        </a>
+        <div class="pl-4 pb-1 space-y-1">
+          <a href="#areas" class="mobile-nav-link block py-1 text-[11px] text-slate-400 hover:text-[#C5A880]">&bull; Litigación Civil</a>
+          <a href="#areas" class="mobile-nav-link block py-1 text-[11px] text-slate-400 hover:text-[#C5A880]">&bull; Litigación Penal & Compliance</a>
+          <a href="#areas" class="mobile-nav-link block py-1 text-[11px] text-slate-400 hover:text-[#C5A880]">&bull; Derecho Público & Administrativo</a>
+          <a href="#areas" class="mobile-nav-link block py-1 text-[11px] text-slate-400 hover:text-[#C5A880]">&bull; Litigación Laboral</a>
         </div>
       </div>
-
-      <div class="nav-col">
-        <span class="group-title">Socios del Estudio</span>
-        <div class="sub-links">
-          <a href="#equipo" class="sub-link">&bull; Rafael Pérez Maldonado</a>
-          <a href="#equipo" class="sub-link">&bull; Yerko Scheihing Sepúlveda</a>
+      <div class="py-1">
+        <a href="#equipo" class="mobile-nav-link block py-2 text-xs font-semibold tracking-widest uppercase text-slate-300 hover:text-[#C5A880] transition-colors">
+          Socios del Estudio
+        </a>
+        <div class="pl-4 pb-1 space-y-1">
+          <a href="#equipo" class="mobile-nav-link block py-1 text-[11px] text-slate-400 hover:text-[#C5A880]">&bull; Rafael Pérez Maldonado</a>
+          <a href="#equipo" class="mobile-nav-link block py-1 text-[11px] text-slate-400 hover:text-[#C5A880]">&bull; Yerko Scheihing Sepúlveda</a>
         </div>
       </div>
-
+      <div class="py-1">
+        <a href="#actualidad" class="mobile-nav-link block py-2 text-xs font-semibold tracking-widest uppercase text-slate-300 hover:text-[#C5A880] transition-colors">
+          Actualidad & Jurisprudencia
+        </a>
+      </div>
+      <div class="pt-3 pb-1">
+        <a href="#contacto" class="mobile-nav-link block w-full text-center py-2.5 text-xs font-bold tracking-widest uppercase text-[#14171c] bg-[#C5A880] hover:bg-[#d8bc94] rounded-sm transition-colors shadow-md">
+          Contacto Directo
+        </a>
+      </div>
     </div>
-
-    <!-- Barra inferior institucional con información de la oficina -->
-    <div class="dropdown-footer-bar">
-      <span>Calle Eliodoro Yáñez, Oficina 41, Providencia, Santiago</span>
-      <span>Tel: <a href="tel:+56985497497">+56 9 8549 7497</a></span>
-      <span><a href="mailto:contacto@rpabogados.cl">contacto@rpabogados.cl</a></span>
-    </div>
-  </nav>
+  </div>
 </header>
 
-<style>
-  .site-header-clean {
-    position: relative;
-    width: 100%;
-    background-color: #FFFFFF;
-    border-bottom: 1px solid #E2E8F0;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
-    z-index: 50;
-  }
+<script is:inline>
+  (function initNav() {
+    const btn = document.getElementById('mobileMenuBtn');
+    const menu = document.getElementById('mobileMenuDropdown');
+    const iconOpen = document.getElementById('menuIconOpen');
+    const iconClose = document.getElementById('menuIconClose');
+    const links = document.querySelectorAll('.mobile-nav-link');
 
-  .header-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 14px 24px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+    if (!btn || !menu) return;
 
-  .logo-link {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-  }
+    btn.addEventListener('click', () => {
+      const isHidden = menu.classList.contains('hidden');
+      if (isHidden) {
+        menu.classList.remove('hidden');
+        iconOpen?.classList.add('hidden');
+        iconClose?.classList.remove('hidden');
+      } else {
+        menu.classList.add('hidden');
+        iconOpen?.classList.remove('hidden');
+        iconClose?.classList.add('hidden');
+      }
+    });
 
-  .logo-img {
-    height: 54px;
-    width: auto;
-    max-width: 250px;
-    object-fit: contain;
-    display: block;
-  }
-
-  /* Ícono de 3 Líneas Horizontales */
-  .menu-toggle-btn {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 32px;
-    height: 22px;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 2px;
-    transition: transform 0.2s ease;
-  }
-
-  .menu-toggle-btn:hover {
-    transform: scale(1.05);
-  }
-
-  .menu-toggle-btn .line {
-    width: 100%;
-    height: 2.5px;
-    background-color: #14171C;
-    border-radius: 2px;
-    transition: all 0.3s ease;
-  }
-
-  .menu-toggle-btn.is-active .line-1 {
-    transform: translateY(7px) rotate(45deg);
-  }
-  .menu-toggle-btn.is-active .line-2 {
-    opacity: 0;
-  }
-  .menu-toggle-btn.is-active .line-3 {
-    transform: translateY(-7px) rotate(-45deg);
-  }
-
-  /* Panel Desplegable */
-  .nav-dropdown-panel {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background-color: #FFFFFF;
-    border-bottom: 2px solid #C5A880;
-    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.12);
-    z-index: 100;
-  }
-
-  .nav-dropdown-panel.is-open {
-    display: block;
-  }
-
-  .dropdown-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 28px 24px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 28px;
-  }
-
-  .nav-col {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .main-link {
-    font-size: 13px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: #14171C;
-    text-decoration: none;
-    padding: 6px 0;
-    transition: color 0.2s ease;
-  }
-
-  .main-link:hover {
-    color: #C5A880;
-  }
-
-  .contact-pill {
-    margin-top: 6px;
-    display: inline-block;
-    background-color: #14171C;
-    color: #FFFFFF !important;
-    text-align: center;
-    padding: 8px 16px;
-    border-radius: 2px;
-    font-size: 11.5px;
-    font-weight: 600;
-  }
-
-  .group-title {
-    font-size: 11px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
-    color: #C5A880;
-    border-bottom: 1px solid #F1F5F9;
-    padding-bottom: 6px;
-  }
-
-  .sub-links {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    padding-top: 4px;
-  }
-
-  .sub-link {
-    font-size: 12px;
-    color: #475569;
-    text-decoration: none;
-    line-height: 1.4;
-    transition: color 0.2s ease;
-  }
-
-  .sub-link:hover {
-    color: #C5A880;
-  }
-
-  /* Barra inferior de la oficina */
-  .dropdown-footer-bar {
-    background-color: #14171C;
-    color: #A0ACB8;
-    padding: 12px 24px;
-    font-size: 11.5px;
-    letter-spacing: 0.06em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 18px;
-  }
-
-  .dropdown-footer-bar a {
-    color: #C5A
+    links.forEach(l => {
+      l.addEventListener('click', () => {
+        menu.classList.add('hidden');
+        iconOpen?.classList.remove('hidden');
+        iconClose?.classList.add('hidden');
+      });
+    });
+  })();
+</script>
