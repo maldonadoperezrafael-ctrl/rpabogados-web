@@ -334,7 +334,7 @@ import Footer from '../components/Footer.astro';
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <!-- Notas de actualidad -->
+          <!-- Nota 1 -->
           <article class="bg-white border border-slate-200 rounded-sm p-6 flex flex-col justify-between shadow-sm hover:shadow-xl hover:border-[#C5A880] hover:-translate-y-1 transition-all duration-300">
             <div>
               <div class="flex justify-between items-center mb-3">
@@ -347,7 +347,7 @@ import Footer from '../components/Footer.astro';
                 </a>
               </h3>
               <p class="text-xs text-slate-600 line-clamp-3 mb-4 leading-relaxed">
-                La justicia fijó un criterio claro: si un juez decides bajar el monto que una persona pide por daño moral, no puede escudarse en frases vagas.
+                La justicia fijó un criterio claro: si un juez decide bajar el monto que una persona pide por daño moral, no puede escudarse en frases vagas.
               </p>
             </div>
             <div class="pt-3 border-t border-slate-100 flex justify-between items-center text-xs">
@@ -373,15 +373,17 @@ import Footer from '../components/Footer.astro';
       </div>
     </section>
 
-    <!-- Footer de 4 columnas -->
+    <!-- Footer de 4 columnas con el Logo Real -->
     <footer class="bg-[#0E1116] text-slate-300 py-14 border-t border-slate-800">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10 items-start">
           <div>
             <a href="#inicio" class="inline-block mb-3">
-              <div style="background-color: #C5A880; color: #12151B; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 22px; border-radius: 2px;">
-                RP
-              </div>
+              <img 
+                src="/logo-rp.png" 
+                alt="RP Abogados" 
+                class="h-14 w-auto object-contain filter brightness-0 invert" 
+              />
             </a>
             <p class="text-xs text-slate-400 leading-relaxed mt-2">
               Estudio Jurídico orientado en litigios de alta complejidad ante tribunales ordinarios y superiores de justicia.
