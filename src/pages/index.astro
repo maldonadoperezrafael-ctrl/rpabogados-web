@@ -2,39 +2,29 @@
 // src/components/Header.astro
 ---
 
-<header style="position: fixed !important; top: 0 !important; left: 0 !important; right: 0 !important; z-index: 9999 !important; background-color: #12151B !important; border-bottom: 1px solid #C5A880 !important; padding: 12px 24px !important; box-shadow: 0 4px 12px rgba(0,0,0,0.5) !important;">
-  <div style="max-width: 1280px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; width: 100%;">
+<header class="fixed top-0 left-0 right-0 z-50 bg-[#12151B] border-b border-white/10 py-3 px-4 md:px-8">
+  <div class="max-w-7xl mx-auto flex justify-between items-center">
     
-    <!-- Logotipo Institucional Blindado (Sin errores de rutas de imágenes) -->
-    <a href="#inicio" style="display: flex; align-items: center; gap: 12px; text-decoration: none;">
-      <div style="background-color: #C5A880; color: #12151B; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 18px; border-radius: 2px; letter-spacing: -1px;">
-        RP
-      </div>
-      <div style="display: flex; flex-direction: column;">
-        <span style="color: #ffffff !important; font-weight: bold; font-size: 15px; letter-spacing: 0.05em; text-transform: uppercase; line-height: 1.2;">
-          RP Abogados
-        </span>
-        <span style="color: #C5A880 !important; font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase;">
-          Ayudamos a la gente
-        </span>
-      </div>
+    <!-- Lado Izquierdo: Tu Logo Original (Imagen) -->
+    <a href="#inicio" class="flex items-center gap-3">
+      <img 
+        src="/logo-rp.png" 
+        alt="RP Abogados" 
+        class="h-9 md:h-10 w-auto object-contain"
+      />
     </a>
 
-    <!-- Menú de Navegación Completo -->
-    <nav style="display: flex; align-items: center; gap: 28px;">
-      <a href="#inicio" style="color: #ffffff !important; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none;">Inicio</a>
-      <a href="#filosofia" style="color: #ffffff !important; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none;">Filosofía</a>
-      <a href="#areas" style="color: #ffffff !important; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none;">Áreas</a>
-      <a href="#equipo" style="color: #ffffff !important; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none;">Socios</a>
-      <a href="#actualidad" style="color: #ffffff !important; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none;">Actualidad</a>
-    </nav>
+    <!-- Lado Derecho: Menú de Navegación y Contacto -->
+    <div class="flex items-center gap-6">
+      <nav class="hidden md:flex items-center gap-6 text-xs text-white/90 font-medium tracking-widest uppercase">
+        <a href="#inicio" class="hover:text-[#C5A880] transition-colors">Inicio</a>
+        <a href="#filosofia" class="hover:text-[#C5A880] transition-colors">Filosofía</a>
+        <a href="#areas" class="hover:text-[#C5A880] transition-colors">Áreas</a>
+        <a href="#equipo" class="hover:text-[#C5A880] transition-colors">Socios</a>
+        <a href="#actualidad" class="hover:text-[#C5A880] transition-colors">Actualidad</a>
+      </nav>
 
-    <!-- Botón de Contacto -->
-    <div>
-      <a 
-        href="#contacto" 
-        style="background-color: #C5A880 !important; color: #12151B !important; font-weight: bold; font-size: 11px; padding: 10px 20px; border-radius: 2px; text-transform: uppercase; letter-spacing: 0.1em; text-decoration: none; display: inline-block;"
-      >
+      <a href="#contacto" class="px-4 py-2 bg-[#C5A880] text-[#12151B] font-bold text-xs rounded-sm hover:bg-[#b5966c] transition-colors shadow-sm uppercase tracking-widest">
         Contacto
       </a>
     </div>
