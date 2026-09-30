@@ -334,7 +334,6 @@ import Footer from '../components/Footer.astro';
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <!-- Nota 1 -->
           <article class="bg-white border border-slate-200 rounded-sm p-6 flex flex-col justify-between shadow-sm hover:shadow-xl hover:border-[#C5A880] hover:-translate-y-1 transition-all duration-300">
             <div>
               <div class="flex justify-between items-center mb-3">
@@ -359,21 +358,125 @@ import Footer from '../components/Footer.astro';
       </div>
     </section>
 
-    <!-- Sección Contacto -->
+    <!-- Sección Contacto y Formulario Completo Restaurado -->
     <section class="py-16 bg-white border-t border-slate-200" id="contacto">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+          
+          <!-- Columna Izquierda: Mapa e Información -->
           <div class="lg:col-span-6" data-aos="fade-right">
-            <span class="text-xs font-bold uppercase tracking-widest text-[#C5A880] block mb-1">Atención Presencial &amp; Telemática</span>
-            <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 mb-3">Contacto y Ubicación</h2>
+            <span class="text-xs font-bold uppercase tracking-widest text-[#C5A880] block mb-1">
+              Atención Presencial &amp; Telemática
+            </span>
+            <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 mb-3">
+              Contacto y Ubicación
+            </h2>
             <div class="w-12 h-0.5 bg-[#C5A880] mb-4"></div>
-            <p class="text-slate-600 text-sm leading-relaxed mb-6">Estudio jurídico ubicado en Providencia, Santiago.</p>
+            
+            <p class="text-slate-600 text-sm leading-relaxed mb-6">
+              Estudio jurídico ubicado en Providencia, Santiago. Conducción directa de causas complejas en tribunales ordinarios y superiores de la Región Metropolitana y la VI Región de O'Higgins.
+            </p>
+
+            <div class="mb-6 rounded overflow-hidden shadow-sm border border-slate-200">
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3329.475685817757!2d-70.6128527!3d-33.4368522!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662cf7a2163b4f9%3A0xb36d888126b23b1!2sAv.%20Eliodoro%20Y%C3%A1%C3%B1ez%202084%2C%20Providencia%2C%20Regi%C3%B3n%20Metropolitana!5e0!3m2!1ses!2scl!4v1700000000000!5m2!1ses!2scl" 
+                width="100%" 
+                height="260" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade"
+                title="Ubicación RP Abogados - Eliodoro Yáñez 2084, Providencia, Santiago">
+              </iframe>
+            </div>
+
+            <div class="space-y-3.5 text-xs text-slate-700">
+              <div class="flex items-center gap-3">
+                <span class="w-7 h-7 rounded bg-slate-100 flex items-center justify-center text-[#C5A880] shrink-0 font-bold">📍</span>
+                <span><strong>Dirección:</strong> Eliodoro Yáñez 2084, Oficina 41, Providencia, Santiago</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <span class="w-7 h-7 rounded bg-slate-100 flex items-center justify-center text-[#C5A880] shrink-0 font-bold">📞</span>
+                <span><strong>Teléfono &amp; WhatsApp:</strong> <a href="https://wa.me/56985497497" target="_blank" rel="noopener" class="text-[#C5A880] hover:underline font-semibold">+56 9 8549 7497</a></span>
+              </div>
+              <div class="flex items-center gap-3">
+                <span class="w-7 h-7 rounded bg-slate-100 flex items-center justify-center text-[#C5A880] shrink-0 font-bold">✉️</span>
+                <span><strong>Correo Electrónico:</strong> <a href="mailto:contacto@rpabogados.cl" class="text-slate-800 hover:text-[#C5A880] font-semibold">contacto@rpabogados.cl</a></span>
+              </div>
+            </div>
           </div>
+
+          <!-- Columna Derecha: Formulario de Consulta Restablecido -->
+          <div class="lg:col-span-6 bg-slate-50 border border-slate-200 p-8 rounded-sm shadow-sm" data-aos="fade-left">
+            <h3 class="text-xl font-bold text-slate-900 mb-1">Consulta Confidencial</h3>
+            <p class="text-xs text-slate-500 mb-5">Indique los antecedentes preliminares para la evaluación jurídica de su asunto.</p>
+
+            <form class="space-y-4" action="mailto:contacto@rpabogados.cl" method="POST" enctype="text/plain">
+              <div>
+                <label for="nombre" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">Nombre Completo</label>
+                <input 
+                  type="text" 
+                  id="nombre" 
+                  name="nombre" 
+                  required 
+                  class="w-full px-3.5 py-2 border border-slate-300 focus:border-[#C5A880] focus:outline-none text-xs transition-colors rounded-sm bg-white" 
+                  placeholder="Ej: Francisco González" 
+                />
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label for="email" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">Correo Electrónico</label>
+                  <input 
+                    type="email" 
+                    id="email" 
+                    name="email" 
+                    required 
+                    class="w-full px-3.5 py-2 border border-slate-300 focus:border-[#C5A880] focus:outline-none text-xs transition-colors rounded-sm bg-white" 
+                    placeholder="correo@ejemplo.cl" 
+                  />
+                </div>
+                <div>
+                  <label for="telefono" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">Teléfono</label>
+                  <input 
+                    type="tel" 
+                    id="telefono" 
+                    name="telefono" 
+                    class="w-full px-3.5 py-2 border border-slate-300 focus:border-[#C5A880] focus:outline-none text-xs transition-colors rounded-sm bg-white" 
+                    placeholder="+56 9 8549 7497" 
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label for="mensaje" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">Resumen del Asunto</label>
+                <textarea 
+                  id="mensaje" 
+                  name="mensaje" 
+                  rows="4" 
+                  class="w-full px-3.5 py-2 border border-slate-300 focus:border-[#C5A880] focus:outline-none text-xs transition-colors resize-none rounded-sm bg-white" 
+                  placeholder="Describa brevemente los antecedentes de su causa..."
+                ></textarea>
+              </div>
+
+              <button 
+                type="submit" 
+                class="w-full py-3 px-6 bg-[#12151B] hover:bg-[#C5A880] text-[#C5A880] hover:text-[#12151B] font-bold text-xs uppercase tracking-widest transition-all duration-300 rounded-sm shadow-sm"
+              >
+                Enviar Consulta Estratégica &rarr;
+              </button>
+
+              <p class="text-[11px] text-slate-500 text-center mt-2">
+                Toda información recibida está sujeta a estricto secreto profesional.
+              </p>
+            </form>
+          </div>
+
         </div>
       </div>
     </section>
 
-    <!-- Footer con el nombre de archivo correcto: /logo-rp-abogados.png -->
+    <!-- Footer de 4 columnas con el logo correcto: /logo-rp-abogados.png -->
     <footer class="bg-[#0E1116] text-slate-300 py-14 border-t border-slate-800">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10 items-start">
