@@ -314,7 +314,7 @@ import Footer from '../components/Footer.astro';
       </div>
     </section>
 
-    <!-- ================= SECCIÓN ACTUALIDAD JUDICIAL (Espacio armónico) ================= -->
+    <!-- ================= SECCIÓN ACTUALIDAD JUDICIAL ================= -->
     <section id="actualidad" class="relative py-14 overflow-hidden bg-slate-100 border-t border-slate-200">
       <div class="absolute inset-0 pointer-events-none">
         <img 
@@ -562,7 +562,7 @@ import Footer from '../components/Footer.astro';
             </div>
           </div>
 
-          <!-- Formulario de Consulta Rápida -->
+          <!-- Formulario de Consulta Rápida (Sin Área de Interés) -->
           <div class="lg:col-span-6 bg-slate-50 border border-slate-200 p-8 rounded-sm shadow-sm" data-aos="fade-left">
             <h3 class="text-xl font-bold text-slate-900 mb-1">Consulta Confidencial</h3>
             <p class="text-xs text-slate-500 mb-5">Indique los antecedentes preliminares para la evaluación jurídica de su asunto.</p>
@@ -605,21 +605,6 @@ import Footer from '../components/Footer.astro';
               </div>
 
               <div>
-                <label for="materia" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">Área de Interés</label>
-                <select 
-                  id="materia" 
-                  name="materia" 
-                  class="w-full px-3.5 py-2 border border-slate-300 focus:border-[#C5A880] focus:outline-none text-xs transition-colors rounded-sm bg-white"
-                >
-                  <option value="civil">Litigación Civil &amp; Patrimonial (Herencias, Particiones, Daños)</option>
-                  <option value="penal">Litigación Penal &amp; Compliance (Querellas, Delitos Económicos)</option>
-                  <option value="publico">Derecho Público, Contencioso Administrativo &amp; Compras Públicas</option>
-                  <option value="laboral">Litigación Laboral &amp; Accidentes del Trabajo (Art. 184 CT)</option>
-                  <option value="otra">Otra Materia Judicial</option>
-                </select>
-              </div>
-
-              <div>
                 <label for="mensaje" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">Resumen del Asunto</label>
                 <textarea 
                   id="mensaje" 
@@ -654,9 +639,9 @@ import Footer from '../components/Footer.astro';
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
           <div>
             <p class="text-base font-bold tracking-widest text-white mb-1">RP ABOGADOS</p>
-            <p class="text-xs text-[#C5A880] font-semibold uppercase tracking-wider mb-2">« Ayudamos a la gente »</p>
+            <p class="text-xs text-[#C5A880] font-semibold uppercase tracking-wider mb-2">« AYUDAMOS A LA GENTE »</p>
             <p class="text-xs text-slate-400 leading-relaxed">
-              Boutique jurídica de litigación de alta complejidad ante tribunales ordinarios y superiores de justicia.
+              Estudio Jurídico orientado en litigios de alta complejidad ante tribunales ordinarios y superiores de justicia.
             </p>
           </div>
 
@@ -686,9 +671,17 @@ import Footer from '../components/Footer.astro';
           </div>
         </div>
 
-        <div class="border-t border-slate-800 pt-6 flex flex-wrap justify-between items-center text-xs text-slate-5000 pt-6 flex flex-wrap justify-between items-center text-xs text-slate-500 gap-2">
-          <span>&copy; 2026 RP Abogados. Todos los derechos reservados.</span>
-          <span>Providencia, Santiago &bull; Región de O'Higgins, Chile</span>
+        <!-- Barra inferior con Logo abajo a la derecha -->
+        <div class="border-t border-slate-800 pt-6 flex flex-wrap justify-between items-center text-xs text-slate-500 gap-4">
+          <span>&copy; 2026 RP Abogados. Todos los derechos reservados. &bull; Providencia, Santiago &bull; Región de O'Higgins, Chile</span>
+          <div class="flex items-center">
+            <img 
+              src="/logo_white.png" 
+              alt="RP Abogados" 
+              class="h-9 w-auto opacity-80 hover:opacity-100 transition-opacity" 
+              onerror="if(this.src.indexOf('/fotos/')===-1){this.src='/fotos/logo_white.png';}"
+            />
+          </div>
         </div>
       </div>
     </footer>
