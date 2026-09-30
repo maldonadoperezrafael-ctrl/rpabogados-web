@@ -1,0 +1,104 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITIO } from '../lib/sitio';
+
+const actualizada = '30 de septiembre de 2026';
+const h2 = 'text-xl font-bold text-slate-900 mt-10 mb-3';
+const p = 'text-slate-700 leading-relaxed mb-3';
+const li = 'text-slate-700 leading-relaxed';
+---
+
+<Layout
+  title="Política de privacidad | RP Abogados"
+  description="Cómo RP Abogados trata los datos personales que recibe a través de su sitio web, conforme a la Ley N° 19.628 y la Ley N° 21.719."
+>
+  <Header />
+
+  <main class="pt-24 pb-16 bg-white">
+    <article class="max-w-3xl mx-auto px-4 sm:px-6">
+      <p class="text-xs font-bold uppercase tracking-widest text-oro-oscuro mb-2">Protección de datos personales</p>
+      <h1 class="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight mb-2">Política de privacidad</h1>
+      <p class="text-sm text-slate-600 mb-8">Última actualización: {actualizada}</p>
+
+      <p class={p}>
+        En {SITIO.nombre} tratamos los datos personales que nos entregas a través de este sitio con la misma reserva con que tratamos
+        los asuntos de nuestros clientes. Esta política explica qué datos recibimos, para qué los usamos y cómo puedes ejercer tus
+        derechos, conforme a la Ley N° 19.628 sobre Protección de la Vida Privada y sus modificaciones, incluida la Ley N° 21.719.
+      </p>
+
+      <h2 class={h2}>1. Responsable del tratamiento</h2>
+      <p class={p}>
+        {SITIO.nombre}, con domicilio en {SITIO.direccion.calle}, {SITIO.direccion.comuna}, {SITIO.direccion.ciudad}, Chile.
+        Contacto para materias de privacidad: <a class="text-oro-oscuro underline" href={`mailto:${SITIO.email}`}>{SITIO.email}</a>.
+      </p>
+
+      <h2 class={h2}>2. Qué datos recibimos</h2>
+      <ul class="list-disc pl-6 space-y-2 mb-3">
+        <li class={li}><strong>Formulario de contacto:</strong> nombre, correo electrónico, teléfono (opcional), área de la consulta y el resumen del asunto que escribas.</li>
+        <li class={li}><strong>WhatsApp y correo:</strong> si nos escribes por esos medios, los datos que tú incluyas en el mensaje.</li>
+        <li class={li}><strong>Datos técnicos de navegación:</strong> dirección IP y datos del navegador que los servidores registran para operar y proteger el sitio. No usamos cookies de publicidad ni de seguimiento.</li>
+      </ul>
+      <p class={p}>
+        Te pedimos no incluir en el formulario datos sensibles ni antecedentes que no sean necesarios para una primera evaluación de tu asunto.
+      </p>
+
+      <h2 class={h2}>3. Para qué los usamos</h2>
+      <p class={p}>
+        Usamos tus datos únicamente para responder tu consulta, evaluar tu asunto y, si lo decides, preparar una propuesta de servicios.
+        No los usamos para publicidad, no los vendemos y no los cedemos a terceros para fines propios de ellos.
+      </p>
+
+      <h2 class={h2}>4. Fundamento del tratamiento</h2>
+      <p class={p}>
+        Tu consentimiento, que otorgas al marcar la casilla del formulario, y la necesidad de atender una solicitud que tú mismo nos
+        haces antes de una eventual relación profesional. Puedes retirar tu consentimiento en cualquier momento escribiendo a {SITIO.email}.
+      </p>
+
+      <h2 class={h2}>5. Secreto profesional</h2>
+      <p class={p}>
+        La información que nos entregas sobre tu asunto queda protegida por el deber de secreto profesional del abogado. Solo acceden
+        a ella los socios y el personal del estudio que la necesitan para atenderte.
+      </p>
+
+      <h2 class={h2}>6. Proveedores que intervienen</h2>
+      <p class={p}>Para operar el sitio y el correo usamos proveedores que tratan datos por cuenta nuestra y bajo nuestras instrucciones:</p>
+      <ul class="list-disc pl-6 space-y-2 mb-3">
+        <li class={li}><strong>Cloudflare:</strong> alojamiento y seguridad del sitio.</li>
+        <li class={li}><strong>Resend:</strong> envío de las consultas del formulario al correo del estudio.</li>
+        <li class={li}><strong>Google Workspace:</strong> correo electrónico del estudio.</li>
+        <li class={li}><strong>Google Fonts y Google Maps:</strong> tipografías del sitio y, solo si presionas «Ver mapa», el mapa de ubicación.</li>
+        <li class={li}><strong>WhatsApp (Meta):</strong> solo si decides escribirnos por ese medio.</li>
+      </ul>
+      <p class={p}>
+        Algunos de estos proveedores almacenan datos en servidores fuera de Chile, principalmente en Estados Unidos, con medidas de
+        seguridad adecuadas.
+      </p>
+
+      <h2 class={h2}>7. Cuánto tiempo los conservamos</h2>
+      <p class={p}>
+        Mientras sea necesario para atender tu consulta. Si no se inicia una relación profesional, eliminamos los datos del formulario
+        en un plazo máximo de 12 meses, salvo que una obligación legal exija conservarlos por más tiempo.
+      </p>
+
+      <h2 class={h2}>8. Tus derechos</h2>
+      <p class={p}>
+        Puedes solicitar el acceso, la rectificación, la supresión, la oposición, la portabilidad y el bloqueo de tus datos, escribiendo
+        a <a class="text-oro-oscuro underline" href={`mailto:${SITIO.email}`}>{SITIO.email}</a>. Responderemos dentro de los plazos
+        legales. Si consideras que no hemos atendido tu solicitud, puedes reclamar ante la Agencia de Protección de Datos Personales.
+      </p>
+
+      <h2 class={h2}>9. Seguridad</h2>
+      <p class={p}>
+        El sitio funciona con conexión cifrada (HTTPS), el formulario incorpora medidas contra el envío automatizado y el acceso a las
+        consultas está restringido a quienes deben atenderlas.
+      </p>
+
+      <h2 class={h2}>10. Cambios a esta política</h2>
+      <p class={p}>Si modificamos esta política, publicaremos la nueva versión en esta página con su fecha de actualización.</p>
+    </article>
+  </main>
+
+  <Footer />
+</Layout>

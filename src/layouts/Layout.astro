@@ -1,90 +1,80 @@
 ---
+import 'aos/dist/aos.css';
+import { SITIO, datosEstructurados, urlCanonica } from '../lib/sitio';
+
 interface Props {
   title: string;
   description?: string;
 }
 
-const { title, description } = Astro.props;
+const { title, description = SITIO.descripcion } = Astro.props;
+const canonica = urlCanonica(Astro.url.pathname);
+const imagenSocial = `${SITIO.url}/og-rpabogados.png`;
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang="es-CL">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#12151B" />
 
-    <!-- SEO Primary -->
     <title>{title}</title>
     <meta name="description" content={description} />
-    <meta name="keywords" content="abogados Providencia, abogados Santiago, litigación alta complejidad, derecho civil, derecho penal, contencioso administrativo" />
-    <meta name="author" content="RP Abogados" />
+    <meta name="author" content={SITIO.nombre} />
     <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://rpabogados.cl/" />
+    <link rel="canonical" href={canonica} />
 
-    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://rpabogados.cl/" />
-    <meta property="og:title" content="RP Abogados | Litigación de Alta Complejidad en Santiago" />
-    <meta property="og:description" content="Estudio jurídico en Providencia, Santiago. Especialistas en litigación civil, penal, contencioso administrativo y laboral." />
-    <meta property="og:image" content="https://rpabogados.cl/fotos/logo-rp-abogados.png" />
+    <meta property="og:site_name" content={SITIO.nombre} />
+    <meta property="og:url" content={canonica} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={imagenSocial} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="RP Abogados — Ayudamos a la gente" />
     <meta property="og:locale" content="es_CL" />
 
-    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content="https://rpabogados.cl/" />
-    <meta name="twitter:title" content="RP Abogados | Litigación de Alta Complejidad" />
-    <meta name="twitter:description" content="Estudio jurídico en Providencia, Santiago. Litigación civil, penal, contencioso administrativo y laboral." />
-    <meta name="twitter:image" content="https://rpabogados.cl/fotos/logo-rp-abogados.png" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={imagenSocial} />
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="/fotos/logo-rp-abogados.png?v=3" />
-    <link rel="apple-touch-icon" href="/fotos/logo-rp-abogados.png?v=3" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
-    <!-- Google Fonts: Raleway (texto) + Cormorant Garamond (título de portada) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Raleway:wght@400;600;700&display=swap" rel="stylesheet">
+    <script type="application/ld+json" set:html={JSON.stringify(datosEstructurados())} />
 
-    <!-- AOS (Animate On Scroll) -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Raleway:wght@400;600;700&display=swap" rel="stylesheet" />
 
     <style is:global>
-      :root {
-        --color-primary: #212529;
-        --color-accent: #FC5D23;
-        --color-bg-light: #F8F8F8;
-        --color-text-light: #6c757d;
-      }
-
       html {
         scroll-behavior: smooth;
       }
 
       body {
         font-family: 'Raleway', sans-serif;
-        color: var(--color-primary);
+        color: #12151B;
         background-color: #ffffff;
         line-height: 1.8;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
       }
 
-      h1, h2, h3, h4, h5, h6 {
-        font-family: 'Raleway', sans-serif;
-      }
-
       h1 { font-weight: 300; letter-spacing: 1px; }
       h2 { font-weight: 400; }
       h3 { font-weight: 500; }
 
-      /* Fullscreen Menu Styles */
+      /* Menú móvil a pantalla completa */
       .fullscreen-menu {
         position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
+        inset: 0;
         height: 100vh;
-        background-color: rgba(33, 37, 41, 0.98);
+        background-color: rgba(18, 21, 27, 0.98);
         z-index: 9999;
         display: flex;
         align-items: center;
@@ -127,7 +117,7 @@ const { title, description } = Astro.props;
 
       .fullscreen-menu nav ul li a {
         color: #C5A880;
-        font-size: 2.25rem;
+        font-size: 1.75rem;
         font-weight: 300;
         text-decoration: none;
         letter-spacing: 1px;
@@ -162,105 +152,20 @@ const { title, description } = Astro.props;
       .menu-toggle span:nth-child(2) { top: 10px; }
       .menu-toggle span:nth-child(3) { top: 20px; }
 
-      .menu-toggle.active span {
-        background-color: #E6CC9F;
-      }
+      .menu-toggle.active span { background-color: #E6CC9F; }
+      .menu-toggle.active span:nth-child(1) { top: 10px; transform: rotate(45deg); }
+      .menu-toggle.active span:nth-child(2) { opacity: 0; }
+      .menu-toggle.active span:nth-child(3) { top: 10px; transform: rotate(-45deg); }
 
-      .menu-toggle.active span:nth-child(1) {
-        top: 10px;
-        transform: rotate(45deg);
-      }
-
-      .menu-toggle.active span:nth-child(2) {
-        opacity: 0;
-      }
-
-      .menu-toggle.active span:nth-child(3) {
-        top: 10px;
-        transform: rotate(-45deg);
-      }
-
-      /* Header scroll effect */
-      .site-header {
-        transition: all 0.4s ease;
-      }
-
-      .site-header.scrolled {
-        background-color: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(10px);
-        box-shadow: 0 2px 20px rgba(0,0,0,0.08);
-      }
-
-      /* Button styles */
-      .btn-primary {
-        display: inline-block;
-        background-color: var(--color-accent);
-        color: #ffffff;
-        font-weight: 500;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        padding: 16px 32px;
-        border: none;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        text-decoration: none;
-      }
-
-      .btn-primary:hover {
-        background-color: var(--color-primary);
-      }
-
-      .btn-secondary {
-        display: inline-block;
-        background-color: transparent;
-        color: var(--color-primary);
-        font-weight: 500;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        padding: 16px 32px;
-        border: 2px solid var(--color-primary);
-        cursor: pointer;
-        transition: all 0.3s ease;
-        text-decoration: none;
-      }
-
-      .btn-secondary:hover {
-        background-color: var(--color-primary);
-        color: #ffffff;
-      }
-
-      /* Card hover effects */
-      .card-lift {
-        transition: all 0.4s ease;
-      }
-
-      .card-lift:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 40px rgba(0,0,0,0.12);
-      }
-
-      /* Section spacing */
-      .section-padding {
-        padding-top: 100px;
-        padding-bottom: 100px;
-      }
-
-      @media (max-width: 768px) {
-        .section-padding {
-          padding-top: 60px;
-          padding-bottom: 60px;
-        }
-
-        .fullscreen-menu nav ul li a {
-          font-size: 1.75rem;
-        }
+      @media (prefers-reduced-motion: reduce) {
+        html { scroll-behavior: auto; }
+        *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
       }
     </style>
   </head>
   <body>
     <slot />
 
-    <!-- AOS Init -->
     <script>
       import AOS from 'aos';
       AOS.init({
@@ -268,16 +173,14 @@ const { title, description } = Astro.props;
         easing: 'cubic-bezier(0.77, 0, 0.175, 1)',
         once: true,
         offset: 100,
+        disable: () => window.matchMedia('(prefers-reduced-motion: reduce)').matches,
       });
-    </script>
 
-    <!-- Menu Toggle Script -->
-    <script>
       const menuToggle = document.querySelector('.menu-toggle');
       const fullscreenMenu = document.querySelector('.fullscreen-menu');
 
       if (menuToggle && fullscreenMenu) {
-        const setMenu = (abierto) => {
+        const setMenu = (abierto: boolean) => {
           menuToggle.classList.toggle('active', abierto);
           fullscreenMenu.classList.toggle('active', abierto);
           menuToggle.setAttribute('aria-expanded', String(abierto));
@@ -285,29 +188,12 @@ const { title, description } = Astro.props;
           document.body.style.overflow = abierto ? 'hidden' : '';
         };
 
-        menuToggle.addEventListener('click', () => {
-          setMenu(!fullscreenMenu.classList.contains('active'));
-        });
-
-        fullscreenMenu.querySelectorAll('a').forEach(link => {
-          link.addEventListener('click', () => setMenu(false));
-        });
-
+        menuToggle.addEventListener('click', () => setMenu(!fullscreenMenu.classList.contains('active')));
+        fullscreenMenu.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => setMenu(false)));
         document.addEventListener('keydown', (e) => {
           if (e.key === 'Escape' && fullscreenMenu.classList.contains('active')) {
             setMenu(false);
-            menuToggle.focus();
-          }
-        });
-      }
-
-      const header = document.querySelector('.site-header');
-      if (header) {
-        window.addEventListener('scroll', () => {
-          if (window.scrollY > 100) {
-            header.classList.add('scrolled');
-          } else {
-            header.classList.remove('scrolled');
+            (menuToggle as HTMLElement).focus();
           }
         });
       }

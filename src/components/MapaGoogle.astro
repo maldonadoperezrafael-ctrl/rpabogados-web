@@ -1,0 +1,40 @@
+---
+// El mapa de Google se carga recién cuando la persona lo pide: antes de eso Google no recibe
+// la visita ni instala cookies.
+import { SITIO } from '../lib/sitio';
+
+interface Props {
+  alto?: number;
+}
+
+const { alto = 260 } = Astro.props;
+---
+
+<div class="mapa-google relative w-full bg-tinta text-white overflow-hidden" style={`height:${alto}px`} data-src={SITIO.mapa.embed}>
+  <div class="absolute inset-0 flex flex-col items-center justify-center gap-3 px-6 text-center">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="#C5A880" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" /></svg>
+    <p class="text-sm">{SITIO.direccion.calle}, {SITIO.direccion.comuna}, {SITIO.direccion.ciudad}</p>
+    <button type="button" class="mapa-cargar px-4 py-2 bg-oro text-tinta font-bold text-xs uppercase tracking-widest rounded-sm hover:bg-oro-claro transition-colors">
+      Ver mapa
+    </button>
+    <p class="text-xs text-white/70">
+      Al abrir el mapa, Google puede usar cookies ·
+      <a href={SITIO.mapa.enlace} target="_blank" rel="noopener noreferrer" class="underline hover:text-oro-claro">Abrir en Google Maps</a>
+    </p>
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll<HTMLElement>('.mapa-google').forEach((contenedor) => {
+    contenedor.querySelector('.mapa-cargar')?.addEventListener('click', () => {
+      const iframe = document.createElement('iframe');
+      iframe.src = contenedor.dataset.src ?? '';
+      iframe.title = 'Ubicación de RP Abogados en Google Maps';
+      iframe.className = 'absolute inset-0 w-full h-full border-0';
+      iframe.loading = 'lazy';
+      iframe.referrerPolicy = 'no-referrer-when-downgrade';
+      iframe.allowFullscreen = true;
+      contenedor.replaceChildren(iframe);
+    });
+  });
+</script>

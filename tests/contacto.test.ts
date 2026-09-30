@@ -59,14 +59,17 @@ test('rechaza campos que no son texto', () => {
   assert.equal(r.ok, false);
 });
 
-test('detecta bots por honeypot y por velocidad', () => {
-  const ahora = 1_000_000_000_000;
-  const humano = String(ahora - TIEMPO_MINIMO_MS - 1);
-  assert.equal(pareceBot({ t: humano }, ahora), false);
-  assert.equal(pareceBot({ t: humano, sitio_web: 'http://spam' }, ahora), true);
-  assert.equal(pareceBot({ t: String(ahora - 500) }, ahora), true);
-  assert.equal(pareceBot({}, ahora), true);
-  assert.equal(pareceBot({ t: 'abc' }, ahora), true);
+test('detecta bots por honeypot y por velocidad medida en el navegador', () => {
+  const humano = String(TIEMPO_MINIMO_MS + 1);
+  assert.equal(pareceBot({ transcurrido: humano }), false);
+  assert.equal(pareceBot({ transcurrido: humano, sitio_web: 'http://spam' }), true);
+  assert.equal(pareceBot({ transcurrido: '500' }), true);
+  assert.equal(pareceBot({ transcurrido: 'abc' }), true);
+});
+
+test('sin JavaScript (sin tiempo medido) solo decide el honeypot', () => {
+  assert.equal(pareceBot({}), false);
+  assert.equal(pareceBot({ sitio_web: 'x' }), true);
 });
 
 test('enruta cada área a su socio y copia siempre al socio director', () => {

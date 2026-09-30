@@ -2,23 +2,29 @@
   "name": "rpabogados-astro",
   "type": "module",
   "version": "1.0.0",
+  "packageManager": "pnpm@9.15.0",
+  "engines": {
+    "node": ">=22.18"
+  },
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
-    "preview": "astro preview",
     "astro": "astro",
     "test": "node --test \"tests/*.test.ts\"",
     "test:e2e": "playwright test"
   },
   "dependencies": {
-    "astro": "^4.15.0",
-    "@astrojs/tailwind": "^5.1.0",
-    "@astrojs/cloudflare": "^11.0.0",
-    "tailwindcss": "^3.4.0",
+    "astro": "^5.18.2",
+    "@astrojs/tailwind": "^6.0.2",
+    "@astrojs/cloudflare": "^12.6.13",
+    "tailwindcss": "^3.4.19",
     "aos": "^2.3.4"
   },
   "devDependencies": {
     "@playwright/test": "^1.55.0"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": ["esbuild", "sharp", "workerd"]
   }
 }
