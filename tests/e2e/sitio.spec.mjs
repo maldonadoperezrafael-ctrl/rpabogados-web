@@ -1,11 +1,12 @@
 import { test, expect } from '@playwright/test';
 
-const PAGINAS = ['/', '/abogados-santiago', '/abogados-cardenal-caro', '/litigacion-vi-region', '/pichilemu-penal'];
+const PAGINAS = ['/', '/abogados-santiago', '/abogados-cardenal-caro', '/litigacion-vi-region', '/pichilemu-penal', '/privacidad'];
+const DOMINIO = 'https://rpabogados.cl';
 const esMovil = (testInfo) => testInfo.project.name === 'movil';
 
 for (const ruta of PAGINAS) {
   test.describe(`página ${ruta}`, () => {
-    test('carga sin errores, con un solo h1, imágenes y logos', async ({ page }) => {
+    test('carga sin errores, con un solo h1, imágenes y logos', async ({ page, request }) => {
       const errores = [];
       page.on('pageerror', (e) => errores.push(e.message));
       page.on('console', (m) => m.type() === 'error' && errores.push(m.text()));
@@ -15,10 +16,15 @@ for (const ruta of PAGINAS) {
       await expect(page).toHaveTitle(/RP Abogados/);
       await expect(page.locator('h1')).toHaveCount(1);
 
-      const rotas = await page.$$eval('img', (imgs) =>
-        imgs.filter((i) => !(i.complete && i.naturalWidth > 0)).map((i) => i.getAttribute('src')),
-      );
+      // Se descarga cada imagen: las de carga diferida fuera de pantalla todavía no las pidió el navegador.
+      const rotas = [];
+      for (const src of await page.$$eval('img', (imgs) => imgs.map((i) => i.getAttribute('src')))) {
+        const r = await request.get(src);
+        if (r.status() !== 200 || !(r.headers()['content-type'] ?? '').startsWith('image/')) rotas.push(src);
+      }
       expect(rotas, 'imágenes rotas').toEqual([]);
+      const noWebp = await page.$$eval('img', (imgs) => imgs.map((i) => i.getAttribute('src')).filter((s) => !/\.webp$/.test(s ?? '')));
+      expect(noWebp, 'imágenes que no son WebP').toEqual([]);
 
       await expect(page.locator('header a[href="/"] svg[aria-label]')).toBeVisible();
       await expect(page.locator('footer svg[aria-label]').first()).toBeVisible();
@@ -32,8 +38,21 @@ for (const ruta of PAGINAS) {
       const ancho = page.viewportSize().width;
       const logo = await footer.locator('svg[aria-label]').first().boundingBox();
       expect(Math.abs(logo.x + logo.width / 2 - ancho / 2), 'logo fuera del centro (px)').toBeLessThan(8);
-      const alineaciones = await footer.locator('h4, p').evaluateAll((els) => [...new Set(els.map((e) => getComputedStyle(e).textAlign))]);
+      const alineaciones = await footer.locator('h2, p').evaluateAll((els) => [...new Set(els.map((e) => getComputedStyle(e).textAlign))]);
       expect(alineaciones).toEqual(['center']);
+      await expect(footer.locator('a[href="/privacidad"]')).toBeVisible();
+    });
+
+    test('SEO: canonical propio, datos estructurados e imagen para redes', async ({ page, request }) => {
+      await page.goto(ruta);
+      await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', DOMINIO + ruta);
+      await expect(page.locator('meta[property="og:url"]')).toHaveAttribute('content', DOMINIO + ruta);
+      const ld = JSON.parse(await page.locator('script[type="application/ld+json"]').textContent());
+      expect(ld['@type']).toBe('LegalService');
+      expect(ld.address.addressLocality).toBe('Providencia');
+      for (const recurso of ['/og-rpabogados.png', '/favicon.svg', '/apple-touch-icon.png']) {
+        expect((await request.get(recurso)).status(), recurso).toBe(200);
+      }
     });
 
     test('los enlaces internos llevan a destinos que existen', async ({ page, request }) => {
@@ -91,6 +110,33 @@ test('Actualidad muestra 3 notas con enlace a su fuente', async ({ page }) => {
   for (const nota of await notas.all()) {
     await expect(nota.locator('h3 a[href^="https://"]')).toHaveCount(1);
   }
+});
+
+test('sitemap y robots listan todas las páginas públicas', async ({ request }) => {
+  const sitemap = await (await request.get('/sitemap.xml')).text();
+  for (const ruta of PAGINAS) expect(sitemap, ruta).toContain(`<loc>${DOMINIO}${ruta}</loc>`);
+  expect(sitemap).toMatch(/<lastmod>\d{4}-\d{2}-\d{2}<\/lastmod>/);
+  const robots = await (await request.get('/robots.txt')).text();
+  expect(robots).toContain(`Sitemap: ${DOMINIO}/sitemap.xml`);
+  expect(robots).not.toMatch(/Disallow: \/(areas|equipo|contacto)/);
+});
+
+test('el mapa de Google carga solo cuando se pide', async ({ page }) => {
+  await page.goto('/#contacto');
+  const mapa = page.locator('.mapa-google');
+  await expect(mapa.locator('iframe')).toHaveCount(0);
+  await mapa.getByRole('button', { name: 'Ver mapa' }).click();
+  await expect(mapa.locator('iframe')).toHaveAttribute('src', /google\.com\/maps\/embed/);
+});
+
+test('cabeceras de seguridad en el sitio desplegado', async ({ request, baseURL }) => {
+  test.skip(!baseURL?.startsWith('https://'), 'las cabeceras las pone Cloudflare, no el servidor local');
+  const h = (await request.get('/')).headers();
+  expect(h['content-security-policy']).toContain("script-src 'self'");
+  expect(h['strict-transport-security']).toContain('max-age=');
+  expect(h['x-content-type-options']).toBe('nosniff');
+  expect(h['x-frame-options']).toBe('DENY');
+  expect(h['referrer-policy']).toBe('strict-origin-when-cross-origin');
 });
 
 test.describe('formulario de contacto', () => {

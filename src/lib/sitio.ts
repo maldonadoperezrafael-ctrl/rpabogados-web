@@ -37,6 +37,16 @@ export const SITIO = {
   zonas: ['Región Metropolitana de Santiago', 'Región del Libertador General Bernardo O’Higgins'],
 } as const;
 
+// Páginas públicas del sitio: la fuente del sitemap y de las pruebas de navegación.
+export const PAGINAS = [
+  { ruta: '/', prioridad: 1.0, frecuencia: 'weekly' },
+  { ruta: '/abogados-santiago', prioridad: 0.9, frecuencia: 'monthly' },
+  { ruta: '/litigacion-vi-region', prioridad: 0.9, frecuencia: 'monthly' },
+  { ruta: '/abogados-cardenal-caro', prioridad: 0.9, frecuencia: 'monthly' },
+  { ruta: '/pichilemu-penal', prioridad: 0.8, frecuencia: 'monthly' },
+  { ruta: '/privacidad', prioridad: 0.3, frecuencia: 'yearly' },
+] as const;
+
 export function datosEstructurados() {
   return {
     '@context': 'https://schema.org',

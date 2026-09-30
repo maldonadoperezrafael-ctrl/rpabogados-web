@@ -12,4 +12,6 @@ export default defineConfig({
   build: { format: 'file' },
   trailingSlash: 'never',
   devToolbar: { enabled: process.env.CI !== 'true' },
+  // Scripts siempre como archivo: la CSP (public/_headers) solo permite scripts de 'self', no en línea.
+  vite: { build: { assetsInlineLimit: 0 } },
 });

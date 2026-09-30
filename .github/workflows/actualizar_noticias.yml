@@ -1,9 +1,10 @@
 name: Actualizar Noticias Judiciales
 
+# Ejecución diaria desactivada: generaba un commit y un despliegue por día para un
+# noticias.json que ninguna página lee. Queda manual hasta que Actualidad se administre
+# desde la plataforma de contenidos (sección Actualidad autogestionable).
 on:
   workflow_dispatch:
-  schedule:
-    - cron: '0 11 * * *'
 
 permissions:
   contents: write
