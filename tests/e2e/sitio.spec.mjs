@@ -73,6 +73,15 @@ test('portada: título en Cormorant Garamond, descripción sans serif y sin bot�
   await expect(page.getByRole('link', { name: 'CONFIDENCIAL', exact: true })).toHaveCount(0);
 });
 
+test('Actualidad muestra 3 notas con enlace a su fuente', async ({ page }) => {
+  await page.goto('/');
+  const notas = page.locator('#actualidad article');
+  await expect(notas).toHaveCount(3);
+  for (const nota of await notas.all()) {
+    await expect(nota.locator('h3 a[href^="https://"]')).toHaveCount(1);
+  }
+});
+
 test.describe('formulario de contacto', () => {
   const ENVIO_JSON = { headers: { Accept: 'application/json' } };
   const valido = () => ({
