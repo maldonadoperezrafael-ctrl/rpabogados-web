@@ -4,19 +4,19 @@ import Logo from './Logo.astro';
 
 <footer class="bg-primary text-white">
   <!-- Footer Principal -->
-  <div class="max-w-6xl mx-auto px-4 py-16">
-    <div class="grid md:grid-cols-3 gap-12">
-      <!-- Columna 1: Logo y descripción -->
-      <div>
-        <a href="/" class="inline-block mb-4 text-white hover:opacity-90 transition-opacity">
-          <Logo variante="vertical" class="h-24" />
-        </a>
-        <p class="text-white/70 text-sm leading-relaxed">
-          Litigio estratégico en materia penal. Estudio jurídico con estándar de Santiago. Atención en toda la Región Metropolitana y VI Región de O'Higgins.
-        </p>
-      </div>
+  <div class="max-w-6xl mx-auto px-4 py-16 text-center">
+    <!-- Logo y descripción -->
+    <div class="flex flex-col items-center mb-12">
+      <a href="/" class="inline-block text-white hover:opacity-90 transition-opacity">
+        <Logo variante="vertical" class="h-24" />
+      </a>
+      <p class="text-white/70 text-sm leading-relaxed mt-4 max-w-md">
+        Litigio estratégico en materia penal. Estudio jurídico con estándar de Santiago. Atención en toda la Región Metropolitana y VI Región de O'Higgins.
+      </p>
+    </div>
 
-      <!-- Columna 2: Enlaces rápidos -->
+    <div class="grid md:grid-cols-2 gap-12 max-w-3xl mx-auto">
+      <!-- Enlaces rápidos -->
       <div>
         <h4 class="font-semibold mb-4 text-accent">Navegación</h4>
         <ul class="space-y-2 text-white/70 text-sm">
@@ -28,19 +28,19 @@ import Logo from './Logo.astro';
         </ul>
       </div>
 
-      <!-- Columna 3: Contacto -->
+      <!-- Contacto -->
       <div>
         <h4 class="font-semibold mb-4 text-accent">Contacto</h4>
         <ul class="space-y-2 text-white/70 text-sm">
-          <li class="flex items-start gap-2">
+          <li class="flex items-start justify-center gap-2">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" class="mt-1 flex-shrink-0"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
             <span>Eliodoro Yáñez 2084, oficina 41<br>Providencia, Santiago, Chile</span>
           </li>
-          <li class="flex items-center gap-2">
+          <li class="flex items-center justify-center gap-2">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" class="flex-shrink-0"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-2.2 2.2a15.053 15.053 0 0 1-6.59-6.59l2.2-2.21a.96.96 0 0 0 .25-1.01A11.36 11.36 0 0 1 8.5 3.92c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.54c0-.54-.45-.99-.99-.99z"/></svg>
             <a href="tel:+56985497497" class="hover:text-accent transition-colors tabular-nums">+56 9 8549 7497</a>
           </li>
-          <li class="flex items-center gap-2">
+          <li class="flex items-center justify-center gap-2">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
             <a href="mailto:contacto@rpabogados.cl" class="hover:text-accent transition-colors">contacto@rpabogados.cl</a>
           </li>
@@ -51,7 +51,7 @@ import Logo from './Logo.astro';
 
   <!-- Footer Inferior -->
   <div class="border-t border-white/10">
-    <div class="max-w-6xl mx-auto px-4 py-6 flex flex-col md:flex-row justify-between items-center text-sm text-white/50">
+    <div class="max-w-6xl mx-auto px-4 py-6 flex flex-col md:flex-row justify-center items-center md:gap-8 text-center text-sm text-white/50">
       <p>&copy; 2026 RP Abogados. Todos los derechos reservados.</p>
       <p class="mt-2 md:mt-0">Región Metropolitana • VI Región de O'Higgins</p>
     </div>

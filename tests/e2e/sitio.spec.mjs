@@ -25,6 +25,17 @@ for (const ruta of PAGINAS) {
       expect(errores, 'errores de consola').toEqual([]);
     });
 
+    test('el footer está centrado', async ({ page }) => {
+      await page.goto(ruta);
+      const footer = page.locator('footer').last();
+      await footer.scrollIntoViewIfNeeded();
+      const ancho = page.viewportSize().width;
+      const logo = await footer.locator('svg[aria-label]').first().boundingBox();
+      expect(Math.abs(logo.x + logo.width / 2 - ancho / 2), 'logo fuera del centro (px)').toBeLessThan(8);
+      const alineaciones = await footer.locator('h4, p').evaluateAll((els) => [...new Set(els.map((e) => getComputedStyle(e).textAlign))]);
+      expect(alineaciones).toEqual(['center']);
+    });
+
     test('los enlaces internos llevan a destinos que existen', async ({ page, request }) => {
       await page.goto(ruta);
       const hrefs = await page.$$eval('a[href^="/"], a[href^="#"]', (as) => [...new Set(as.map((a) => a.getAttribute('href')))]);
