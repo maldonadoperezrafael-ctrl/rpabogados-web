@@ -7,19 +7,19 @@ import Footer from '../components/Footer.astro';
 <Layout title="RP Abogados | Litigación Estratégica & Derecho Público | Santiago, Chile">
   <Header />
 
-  <main class="pt-0">
-    <!-- Hero Section con Texto Integrado en Fondo de Hormigón -->
-    <section id="inicio" class="relative min-h-screen flex items-end overflow-hidden bg-[#181a1f]">
+  <main class="pt-[75px]">
+    <!-- Hero Section con Fondo de Hormigón -->
+    <section id="inicio" class="relative min-h-[90vh] flex items-end overflow-hidden bg-[#181a1f]">
       <div class="absolute inset-0">
         <img 
           src="/fotos/fondo-hormigon.jpg?v=2" 
           alt="RP Abogados" 
           class="w-full h-full object-cover object-center"
         />
-        <div class="absolute inset-0 bg-gradient-to-r from-black/85 via-black/50 to-transparent"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-black/85 via-black/55 to-transparent"></div>
       </div>
 
-      <div class="relative z-10 w-full max-w-7xl mx-auto px-6 pb-20 pt-28">
+      <div class="relative z-10 w-full max-w-7xl mx-auto px-6 pb-20 pt-24">
         <div class="max-w-3xl" data-aos="fade-up">
           <h1 class="text-white text-5xl md:text-7xl lg:text-8xl font-medium leading-none mb-6 tracking-tight drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)]">
             RP<br />ABOGADOS
@@ -28,30 +28,29 @@ import Footer from '../components/Footer.astro';
           <div class="w-24 h-1 bg-[#FC5D23] mb-8 shadow-md"></div>
 
           <p class="text-white/95 text-lg md:text-xl font-normal leading-relaxed max-w-2xl mb-8 drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]">
-            Estudio jurídico orientado en litigación de alta complejidad, en juicios de derechos de daños, en delitos penales económicos-tributarios y de alta connotación social, contencioso administrativos, acciones constitucionales, derecho migratorio y derecho laboral de la empresa colectivo e individual. Desde Santiago de Chile, asesoramos a personas, empresas e instituciones en los casos más desafiantes, con un enfoque estratégico, ético y orientado a resultados.
+            Estudio jurídico orientado en litigación de alta complejidad, en juicios de derechos de daños, en delitos penales económicos-tributarios y de alta connotación social, contencioso administrativos, acciones constitucionales, derecho migratorio y derecho laboral de la empresa colectivo e individual. Desde Santiago y la Región de O'Higgins, asesoramos a personas, empresas e instituciones en los casos más desafiantes, con un enfoque estratégico, ético y orientado a resultados.
           </p>
 
           <a 
             href="#contacto" 
-            class="inline-block bg-[#C5A880] hover:bg-[#b09268] text-[#14171c] px-8 py-4 font-semibold tracking-widest uppercase text-xs transition-all duration-300 shadow-xl rounded-sm"
+            class="inline-block bg-[#25D366] hover:bg-[#1eb956] text-white px-8 py-4 font-bold tracking-widest uppercase text-xs transition-all duration-300 shadow-xl rounded-sm"
           >
-            Solicitar Consulta Confidencial
+            CONFIDENCIAL
           </a>
         </div>
       </div>
     </section>
 
-    <!-- Sección: Pilares de Nuestra Práctica -->
-    <section class="py-20 bg-slate-50 border-t border-b border-slate-200" id="pilares">
+    <!-- Sección: Nuestra Filosofía -->
+    <section class="py-20 bg-slate-50 border-t border-b border-slate-200" id="filosofia">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
-          <span class="text-xs font-bold uppercase tracking-widest text-[#C5A880] block mb-2">Estándar Profesional</span>
-          <h2 class="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">Pilares de Nuestra Práctica</h2>
+          <h2 class="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">Nuestra Filosofía</h2>
           <div class="w-12 h-0.5 bg-[#C5A880] mx-auto mt-4"></div>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <!-- Pilar I -->
+          <!-- 01 -->
           <div class="bg-white p-8 rounded-sm border border-slate-200 border-t-4 border-t-[#C5A880] shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300" data-aos="fade-up" data-aos-delay="0">
             <span class="text-4xl md:text-5xl font-bold text-[#C5A880] block mb-4 tracking-tight">01</span>
             <h3 class="text-xl font-bold text-slate-900 mb-3 leading-snug">Dirección Personalizada de Cada Causa</h3>
@@ -61,7 +60,7 @@ import Footer from '../components/Footer.astro';
             </p>
           </div>
 
-          <!-- Pilar II -->
+          <!-- 02 -->
           <div class="bg-white p-8 rounded-sm border border-slate-200 border-t-4 border-t-[#C5A880] shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
             <span class="text-4xl md:text-5xl font-bold text-[#C5A880] block mb-4 tracking-tight">02</span>
             <h3 class="text-xl font-bold text-slate-900 mb-3 leading-snug">Fundamentación y Precisión Técnica</h3>
@@ -71,7 +70,7 @@ import Footer from '../components/Footer.astro';
             </p>
           </div>
 
-          <!-- Pilar III -->
+          <!-- 03 -->
           <div class="bg-white p-8 rounded-sm border border-slate-200 border-t-4 border-t-[#C5A880] shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
             <span class="text-4xl md:text-5xl font-bold text-[#C5A880] block mb-4 tracking-tight">03</span>
             <h3 class="text-xl font-bold text-slate-900 mb-3 leading-snug">Comunicación Permanente y Confidencialidad</h3>
@@ -101,8 +100,8 @@ import Footer from '../components/Footer.astro';
             <div class="text-sm text-white/70">Conducción Exclusiva por Socios</div>
           </div>
           <div data-aos="fade-up" data-aos-delay="300">
-            <div class="text-4xl font-light text-[#C5A880] mb-2">NAC</div>
-            <div class="text-sm text-white/70">Litigación en Santiago y Cobertura Nacional</div>
+            <div class="text-4xl font-light text-[#C5A880] mb-2">RM-VI</div>
+            <div class="text-sm text-white/70">Litigación RM y VI Región</div>
           </div>
         </div>
       </div>
@@ -187,7 +186,7 @@ import Footer from '../components/Footer.astro';
       </div>
     </section>
 
-    <!-- ================= SECCIÓN SOCIOS / EQUIPO ================= -->
+    <!-- ================= SECCIÓN SOCIOS / QUIÉNES SOMOS ================= -->
     <section id="equipo" class="py-24 bg-white border-t border-slate-200">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
@@ -208,12 +207,12 @@ import Footer from '../components/Footer.astro';
           
           <!-- Socio 1: Rafael Pérez Maldonado -->
           <article class="bg-slate-50 border border-slate-200 rounded-sm overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col" data-aos="fade-up" data-aos-delay="0">
-            <div class="relative h-80 w-full overflow-hidden bg-slate-900">
+            <div class="relative h-88 w-full overflow-hidden bg-slate-900">
               <img 
-                src="/fotos/foto_gerente.jpg" 
+                src="/foto_gerente.jpg" 
                 alt="Rafael Pérez Maldonado" 
                 class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500"
-                onerror="this.src='/fotos/fondo-hormigon.jpg?v=2'"
+                onerror="if(this.src.indexOf('/fotos/')===-1){this.src='/fotos/foto_gerente.jpg';}"
               />
               <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent"></div>
               <div class="absolute bottom-4 left-4 right-4">
@@ -246,12 +245,12 @@ import Footer from '../components/Footer.astro';
 
           <!-- Socio 2: Yerko Scheihing Sepúlveda -->
           <article class="bg-slate-50 border border-slate-200 rounded-sm overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col" data-aos="fade-up" data-aos-delay="100">
-            <div class="relative h-80 w-full overflow-hidden bg-slate-900">
+            <div class="relative h-88 w-full overflow-hidden bg-slate-900">
               <img 
-                src="/fotos/foto_yerko.jpg" 
+                src="/foto_yerko.jpg" 
                 alt="Yerko Scheihing Sepúlveda" 
                 class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500"
-                onerror="this.src='/fotos/fondo-hormigon.jpg?v=2'"
+                onerror="if(this.src.indexOf('/fotos/')===-1){this.src='/fotos/foto_yerko.jpg';}"
               />
               <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent"></div>
               <div class="absolute bottom-4 left-4 right-4">
@@ -287,7 +286,7 @@ import Footer from '../components/Footer.astro';
       </div>
     </section>
 
-    <!-- ================= SECCIÓN ACTUALIDAD JUDICIAL (ESTÁTICA, NUNCA DESAPARECE) ================= -->
+    <!-- ================= SECCIÓN ACTUALIDAD JUDICIAL ================= -->
     <section id="actualidad" class="relative py-20 overflow-hidden bg-slate-100 border-t border-slate-200">
       <div class="absolute inset-0 pointer-events-none">
         <img 
@@ -299,20 +298,13 @@ import Footer from '../components/Footer.astro';
 
       <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 pb-4 border-b border-slate-300 gap-4" data-aos="fade-up">
-          <div>
-            <span class="text-xs font-bold uppercase tracking-widest text-[#C5A880] block mb-2">
-              Radar Jurídico & Jurisprudencia
-            </span>
-            <h2 class="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">
-              Actualidad de Tribunales & Fallos Clave
-            </h2>
-          </div>
-          <div>
-            <span class="text-xs font-semibold uppercase text-slate-600 bg-white border border-slate-200 px-3 py-1.5 rounded-sm shadow-sm">
-              Boletín Jurídico Permanente
-            </span>
-          </div>
+        <div class="mb-12 pb-4 border-b border-slate-300" data-aos="fade-up">
+          <span class="text-xs font-bold uppercase tracking-widest text-[#C5A880] block mb-2">
+            Radar Jurídico & Jurisprudencia
+          </span>
+          <h2 class="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">
+            Actualidad de Tribunales & Fallos Clave
+          </h2>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -483,46 +475,36 @@ import Footer from '../components/Footer.astro';
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
           
-          <div>
+          <!-- Bloque Info Contacto: Tipografía Proporcional y Números Tabulares Alineados -->
+          <div class="contact-info-panel">
             <span class="text-xs font-bold uppercase tracking-widest text-[#C5A880] block mb-2">Atención & Coordinación</span>
             <h2 class="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight mb-4">Contacto Directo</h2>
-            <div class="w-12 h-0.5 bg-[#C5A880] mb-6"></div>
+            <div class="w-12 h-0.5 bg-[#C5A880] mb-8"></div>
             <p class="text-slate-600 text-sm leading-relaxed mb-8">
               Atención presencial en nuestra sede de Providencia, Santiago de Chile, y coordinación telemática para litigios ante tribunales ordinarios y superiores en todo el territorio nacional.
             </p>
 
-            <div class="space-y-4 text-sm text-slate-700">
-              <div class="flex items-start gap-3">
-                <span class="text-[#C5A880] font-bold mt-0.5">&bull;</span>
-                <div>
-                  <strong class="block text-slate-900">Oficina Principal:</strong>
-                  Calle Eliodoro Yáñez, Oficina 41, Providencia, Santiago, Chile.
-                </div>
+            <div class="contact-details-clean">
+              <div class="contact-item-clean">
+                <span class="contact-label-clean">Oficina Principal:</span>
+                <span class="contact-value-clean">Calle Eliodoro Yáñez, Oficina 41, Providencia, Santiago, Chile.</span>
               </div>
-              <div class="flex items-start gap-3">
-                <span class="text-[#C5A880] font-bold mt-0.5">&bull;</span>
-                <div>
-                  <strong class="block text-slate-900">Teléfono:</strong>
-                  <a href="tel:+56985497497" class="text-slate-700 hover:text-[#C5A880]">+56 9 8549 7497</a>
-                </div>
+              <div class="contact-item-clean">
+                <span class="contact-label-clean">Teléfono:</span>
+                <span class="contact-value-clean num-clean"><a href="tel:+56985497497" class="hover:text-[#C5A880]">+56 9 8549 7497</a></span>
               </div>
-              <div class="flex items-start gap-3">
-                <span class="text-[#C5A880] font-bold mt-0.5">&bull;</span>
-                <div>
-                  <strong class="block text-slate-900">Correo Electrónico:</strong>
-                  <a href="mailto:contacto@rpabogados.cl" class="text-[#C5A880] font-medium hover:underline">contacto@rpabogados.cl</a>
-                </div>
+              <div class="contact-item-clean">
+                <span class="contact-label-clean">Correo Electrónico:</span>
+                <span class="contact-value-clean"><a href="mailto:contacto@rpabogados.cl" class="text-[#C5A880] font-semibold hover:underline">contacto@rpabogados.cl</a></span>
               </div>
-              <div class="flex items-start gap-3">
-                <span class="text-[#C5A880] font-bold mt-0.5">&bull;</span>
-                <div>
-                  <strong class="block text-slate-900">Horario de Atención:</strong>
-                  Lunes a Viernes: 09:00 a 19:00 hrs.
-                </div>
+              <div class="contact-item-clean">
+                <span class="contact-label-clean">Horario de Atención:</span>
+                <span class="contact-value-clean num-clean">Lunes a Viernes: 09:00 a 19:00 hrs.</span>
               </div>
             </div>
           </div>
 
+          <!-- Formulario con Áreas de Consulta en Blanco por Defecto -->
           <div class="bg-white p-8 border border-slate-200 rounded-sm shadow-sm">
             <h3 class="text-lg font-bold text-slate-900 mb-2">Consulta Profesional</h3>
             <p class="text-xs text-slate-500 mb-6">Indique los antecedentes de su controversia judicial o requerimiento.</p>
@@ -538,12 +520,13 @@ import Footer from '../components/Footer.astro';
               </div>
               <div>
                 <label class="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1">Área Jurídica</label>
-                <select class="w-full px-3 py-2 text-sm border border-slate-300 rounded-sm focus:outline-none focus:border-[#C5A880] bg-white">
-                  <option>Litigación Civil & Indemnizaciones</option>
-                  <option>Litigación Penal & Compliance</option>
-                  <option>Derecho Público & Administrativo</option>
-                  <option>Litigación Laboral de Alta Cuantía</option>
-                  <option>Otra materia</option>
+                <select class="w-full px-3 py-2 text-sm border border-slate-300 rounded-sm focus:outline-none focus:border-[#C5A880] bg-white text-slate-700">
+                  <option value="" selected></option>
+                  <option value="civil">Litigación Civil & Indemnizaciones</option>
+                  <option value="penal">Litigación Penal & Compliance</option>
+                  <option value="publico">Derecho Público & Administrativo</option>
+                  <option value="laboral">Litigación Laboral de Alta Cuantía</option>
+                  <option value="otra">Otra materia</option>
                 </select>
               </div>
               <div>
@@ -563,3 +546,40 @@ import Footer from '../components/Footer.astro';
 
   <Footer />
 </Layout>
+
+<style>
+  .contact-details-clean {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .contact-item-clean {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #E2E8F0;
+  }
+
+  .contact-label-clean {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #1E293B;
+  }
+
+  .contact-value-clean {
+    font-size: 14px;
+    color: #475569;
+    line-height: 1.5;
+  }
+
+  .num-clean {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-variant-numeric: lining-nums tabular-nums;
+    font-feature-settings: "lnum" 1, "tnum" 1;
+    letter-spacing: 0.03em;
+  }
+</style>
