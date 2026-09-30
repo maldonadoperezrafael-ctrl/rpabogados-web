@@ -140,7 +140,8 @@ test('cabeceras de seguridad en el sitio desplegado', async ({ request, baseURL 
 });
 
 test.describe('formulario de contacto', () => {
-  const ENVIO_JSON = { headers: { Accept: 'application/json' } };
+  // Un navegador siempre envía Origin en un POST; sin él Astro lo rechaza como envío de otro sitio (CSRF).
+  const json = (baseURL) => ({ headers: { Accept: 'application/json', Origin: new URL(baseURL).origin } });
   const valido = () => ({
     nombre: 'Prueba Automática',
     email: 'prueba@ejemplo.cl',
@@ -148,27 +149,39 @@ test.describe('formulario de contacto', () => {
     area: 'civil',
     mensaje: 'Consulta de prueba automática del sitio web.',
     consentimiento: 'si',
-    t: String(Date.now() - 10_000),
   });
 
-  test('la API rechaza datos inválidos con errores por campo', async ({ request }) => {
-    const r = await request.post('/api/contacto', { ...ENVIO_JSON, form: { ...valido(), email: 'malo', consentimiento: '' } });
+  test('la API rechaza datos inválidos con errores por campo', async ({ request, baseURL }) => {
+    const r = await request.post('/api/contacto', { ...json(baseURL), form: { ...valido(), email: 'malo', consentimiento: '' } });
     expect(r.status()).toBe(422);
     const data = await r.json();
     expect(data.estado).toBe('error');
     expect(Object.keys(data.errores).sort()).toEqual(['consentimiento', 'email']);
   });
 
-  test('la API descarta bots sin enviar correo', async ({ request }) => {
-    const r = await request.post('/api/contacto', { ...ENVIO_JSON, form: { ...valido(), sitio_web: 'http://spam.example' } });
+  test('la API descarta bots sin enviar correo', async ({ request, baseURL }) => {
+    const r = await request.post('/api/contacto', { ...json(baseURL), form: { ...valido(), sitio_web: 'http://spam.example' } });
     expect(r.status()).toBe(200);
     expect((await r.json()).estado).toBe('ok');
   });
 
-  test('sin JavaScript el servidor redirige de vuelta al formulario', async ({ request }) => {
-    const r = await request.post('/api/contacto', { form: { ...valido(), email: 'malo' }, maxRedirects: 0 });
+  test('sin JavaScript el servidor redirige de vuelta al formulario', async ({ request, baseURL }) => {
+    const r = await request.post('/api/contacto', {
+      headers: { Origin: new URL(baseURL).origin },
+      form: { ...valido(), email: 'malo' },
+      maxRedirects: 0,
+    });
     expect(r.status()).toBe(303);
     expect(r.headers()['location']).toBe('/?contacto=error#contacto');
+  });
+
+  test('rechaza envíos desde otro sitio (CSRF)', async ({ request, baseURL }) => {
+    test.skip(!baseURL?.startsWith('https://'), 'la protección de origen se aplica en el build desplegado');
+    const r = await request.post('/api/contacto', {
+      headers: { Accept: 'application/json', Origin: 'https://sitio-ajeno.example' },
+      form: valido(),
+    });
+    expect(r.status()).toBe(403);
   });
 
   test('en pantalla muestra los errores del servidor junto a cada campo', async ({ page }) => {
