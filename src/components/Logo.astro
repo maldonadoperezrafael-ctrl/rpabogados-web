@@ -1,0 +1,15 @@
+---
+// El SVG se inserta en línea para que herede el color del texto (fill="currentColor").
+import horizontal from '../assets/logos/logo-rp-abogados-horizontal.svg?raw';
+import vertical from '../assets/logos/logo-rp-abogados-vertical.svg?raw';
+
+interface Props {
+  variante: 'horizontal' | 'vertical';
+  class?: string;
+}
+
+const { variante, class: clase = '' } = Astro.props;
+const svg = variante === 'horizontal' ? horizontal : vertical;
+---
+
+<span class={`inline-block [&>svg]:h-full [&>svg]:w-auto [&>svg]:block ${clase}`} set:html={svg} />

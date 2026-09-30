@@ -1,7 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
+import Logo from '../components/Logo.astro';
+import FormularioContacto from '../components/FormularioContacto.astro';
 ---
 
 <Layout title="RP Abogados | Litigación Estratégica & Derecho Público | Santiago, Chile">
@@ -12,8 +13,8 @@ import Footer from '../components/Footer.astro';
     <section id="inicio" class="relative min-h-[90vh] flex items-end overflow-hidden bg-[#181a1f]">
       <div class="absolute inset-0">
         <img 
-          src="/fotos/fondo-hormigon.jpg?v=2" 
-          alt="RP Abogados" 
+          src="/fotos/fondo-hormigon.jpg?v=2"
+          alt=""
           class="w-full h-full object-cover object-center"
         />
         <div class="absolute inset-0 bg-gradient-to-r from-black/85 via-black/55 to-transparent"></div>
@@ -21,22 +22,15 @@ import Footer from '../components/Footer.astro';
 
       <div class="relative z-10 w-full max-w-7xl mx-auto px-6 pb-20 pt-24">
         <div class="max-w-3xl">
-          <h1 class="text-white text-5xl md:text-7xl lg:text-8xl font-medium leading-none mb-6 tracking-tight drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)]">
+          <h1 class="font-cormorant text-white text-6xl md:text-8xl lg:text-9xl font-semibold leading-[0.9] mb-6 tracking-normal drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)]">
             RP<br />ABOGADOS
           </h1>
 
           <div class="w-24 h-1 bg-[#FC5D23] mb-8 shadow-md"></div>
 
-          <p class="text-white/95 text-lg md:text-xl font-normal leading-relaxed max-w-2xl mb-8 drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]">
+          <p class="text-white/95 text-lg md:text-xl font-normal leading-relaxed max-w-2xl drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]">
             Estudio jurídico orientado en litigación de alta complejidad, en juicios de derechos de daños, en delitos penales económicos-tributarios y de alta connotación social, contencioso administrativos, acciones constitucionales, derecho migratorio y derecho laboral de la empresa colectivo e individual. Desde Santiago y la Región de O'Higgins, asesoramos a personas, empresas e instituciones en los casos más desafiantes, con un enfoque estratégico, ético y orientado a resultados.
           </p>
-
-          <a 
-            href="#contacto" 
-            class="inline-block bg-[#25D366] hover:bg-[#1eb956] text-white px-8 py-4 font-bold tracking-widest uppercase text-xs transition-all duration-300 shadow-xl rounded-sm"
-          >
-            CONFIDENCIAL
-          </a>
         </div>
       </div>
     </section>
@@ -51,7 +45,7 @@ import Footer from '../components/Footer.astro';
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div class="bg-white p-7 rounded-sm border border-slate-200 border-t-4 border-t-[#C5A880] shadow-sm">
-            <span class="text-4xl md:text-5xl font-bold text-[#C5A880] block mb-3 tracking-tight">01</span>
+            <span class="text-4xl md:text-5xl font-bold text-oro-oscuro block mb-3 tracking-tight">01</span>
             <h3 class="text-xl font-bold text-slate-900 mb-2 leading-snug">Dirección Personalizada de Cada Causa</h3>
             <div class="w-8 h-0.5 bg-slate-200 mb-3"></div>
             <p class="text-slate-600 text-sm leading-relaxed text-left">
@@ -60,7 +54,7 @@ import Footer from '../components/Footer.astro';
           </div>
 
           <div class="bg-white p-7 rounded-sm border border-slate-200 border-t-4 border-t-[#C5A880] shadow-sm">
-            <span class="text-4xl md:text-5xl font-bold text-[#C5A880] block mb-3 tracking-tight">02</span>
+            <span class="text-4xl md:text-5xl font-bold text-oro-oscuro block mb-3 tracking-tight">02</span>
             <h3 class="text-xl font-bold text-slate-900 mb-2 leading-snug">Fundamentación y Precisión Técnica</h3>
             <div class="w-8 h-0.5 bg-slate-200 mb-3"></div>
             <p class="text-slate-600 text-sm leading-relaxed text-left">
@@ -69,7 +63,7 @@ import Footer from '../components/Footer.astro';
           </div>
 
           <div class="bg-white p-7 rounded-sm border border-slate-200 border-t-4 border-t-[#C5A880] shadow-sm">
-            <span class="text-4xl md:text-5xl font-bold text-[#C5A880] block mb-3 tracking-tight">03</span>
+            <span class="text-4xl md:text-5xl font-bold text-oro-oscuro block mb-3 tracking-tight">03</span>
             <h3 class="text-xl font-bold text-slate-900 mb-2 leading-snug">Comunicación Permanente y Confidencialidad</h3>
             <div class="w-8 h-0.5 bg-slate-200 mb-3"></div>
             <p class="text-slate-600 text-sm leading-relaxed text-left">
@@ -107,7 +101,7 @@ import Footer from '../components/Footer.astro';
     <!-- Áreas de Práctica -->
     <section id="areas" class="py-12 bg-white">
       <div class="text-center max-w-3xl mx-auto mb-8">
-        <span class="text-xs font-bold uppercase tracking-widest text-[#C5A880] block mb-1">Especialización Jurídica</span>
+        <span class="text-xs font-bold uppercase tracking-widest text-oro-oscuro block mb-1">Especialización Jurídica</span>
         <h2 class="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">Áreas de Práctica</h2>
         <div class="w-12 h-0.5 bg-[#C5A880] mx-auto mt-3"></div>
       </div>
@@ -183,7 +177,7 @@ import Footer from '../components/Footer.astro';
     <section id="equipo" class="py-14 bg-slate-50 border-t border-slate-200">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-3xl mx-auto mb-10">
-          <span class="text-xs font-bold uppercase tracking-widest text-[#C5A880] block mb-1">Dirección Jurídica &amp; Litigación</span>
+          <span class="text-xs font-bold uppercase tracking-widest text-oro-oscuro block mb-1">Dirección Jurídica &amp; Litigación</span>
           <h2 class="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">Socios del Estudio</h2>
           <div class="w-12 h-0.5 bg-[#C5A880] mx-auto mt-3"></div>
         </div>
@@ -191,7 +185,7 @@ import Footer from '../components/Footer.astro';
         <div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-4xl mx-auto">
           <article class="bg-white border border-slate-200 rounded-sm overflow-hidden shadow-sm flex flex-col">
             <div class="relative h-96 w-full overflow-hidden bg-slate-900">
-              <img src="/foto_gerente.jpg" alt="Rafael Pérez Maldonado" class="w-full h-full object-cover object-top block" />
+              <img src="/fotos/foto_gerente.jpg" alt="Rafael Pérez Maldonado" class="w-full h-full object-cover object-top block" />
               <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent"></div>
               <div class="absolute bottom-4 left-4 right-4">
                 <h3 class="text-white text-xl font-bold leading-tight">Rafael Pérez Maldonado</h3>
@@ -206,14 +200,14 @@ import Footer from '../components/Footer.astro';
                 </p>
               </div>
               <div class="pt-4 border-t border-slate-200 mt-6 flex justify-between items-center text-xs">
-                <a href="mailto:rafael@rpabogados.cl" class="text-slate-600 hover:text-[#C5A880] font-medium">rafael@rpabogados.cl</a>
+                <a href="mailto:rafael@rpabogados.cl" class="text-slate-600 hover:text-oro-oscuro font-medium">rafael@rpabogados.cl</a>
               </div>
             </div>
           </article>
 
           <article class="bg-white border border-slate-200 rounded-sm overflow-hidden shadow-sm flex flex-col">
             <div class="relative h-96 w-full overflow-hidden bg-slate-900">
-              <img src="/yerko-scheihing.jpg" alt="Yerko Scheihing Sepúlveda" class="w-full h-full object-cover object-top block" />
+              <img src="/fotos/yerko-scheihing.jpg" alt="Yerko Scheihing Sepúlveda" class="w-full h-full object-cover object-top block" />
               <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent"></div>
               <div class="absolute bottom-4 left-4 right-4">
                 <h3 class="text-white text-xl font-bold leading-tight">Yerko Scheihing Sepúlveda</h3>
@@ -228,7 +222,7 @@ import Footer from '../components/Footer.astro';
                 </p>
               </div>
               <div class="pt-4 border-t border-slate-200 mt-6 flex justify-between items-center text-xs">
-                <a href="mailto:yerko@rpabogados.cl" class="text-slate-600 hover:text-[#C5A880] font-medium">yerko@rpabogados.cl</a>
+                <a href="mailto:yerko@rpabogados.cl" class="text-slate-600 hover:text-oro-oscuro font-medium">yerko@rpabogados.cl</a>
               </div>
             </div>
           </article>
@@ -240,18 +234,18 @@ import Footer from '../components/Footer.astro';
     <section id="actualidad" class="relative py-14 overflow-hidden bg-slate-100 border-t border-slate-200">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="mb-10 pb-3 border-b border-slate-300">
-          <span class="text-xs font-bold uppercase tracking-widest text-[#C5A880] block mb-1">Radar Jurídico &amp; Jurisprudencia</span>
+          <span class="text-xs font-bold uppercase tracking-widest text-oro-oscuro block mb-1">Radar Jurídico &amp; Jurisprudencia</span>
           <h2 class="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">Actualidad de Tribunales &amp; Fallos Clave</h2>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <article class="bg-white border border-slate-200 rounded-sm p-6 flex flex-col justify-between shadow-sm">
             <div>
               <div class="flex justify-between items-center mb-3">
-                <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-sm bg-[#F4EFEA] text-[#8C6D37]">Indemnizaciones</span>
-                <span class="text-xs font-semibold text-red-600 bg-red-50 px-2 py-0.5 rounded-sm">Fallo Clave</span>
+                <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-sm bg-[#F4EFEA] text-oro-oscuro">Indemnizaciones</span>
+                <span class="text-xs font-semibold text-red-700 bg-red-50 px-2 py-0.5 rounded-sm">Fallo Clave</span>
               </div>
               <h3 class="text-base font-bold text-slate-900 mb-2 leading-snug">
-                <a href="https://www.diarioconstitucional.cl/videos/jueces-deben-explicar-fundadamente-por-que-reducen-el-monto-de-la-indemnizacion-de-perjuicios-por-dano-moral-mas-alla-de-una-somera-debilidad-probatoria/" target="_blank" rel="noopener noreferrer" class="hover:text-[#C5A880] transition-colors">
+                <a href="https://www.diarioconstitucional.cl/videos/jueces-deben-explicar-fundadamente-por-que-reducen-el-monto-de-la-indemnizacion-de-perjuicios-por-dano-moral-mas-alla-de-una-somera-debilidad-probatoria/" target="_blank" rel="noopener noreferrer" class="hover:text-oro-oscuro transition-colors">
                   Los jueces ya no pueden rebajar indemnizaciones «al ojo»: tienen que fundamentar cada peso
                 </a>
               </h3>
@@ -260,8 +254,50 @@ import Footer from '../components/Footer.astro';
               </p>
             </div>
             <div class="pt-3 border-t border-slate-100 flex justify-between items-center text-xs">
-              <span class="text-slate-400">Diario Constitucional</span>
-              <a href="https://www.diarioconstitucional.cl/videos/jueces-deben-explicar-fundadamente-por-que-reducen-el-monto-de-la-indemnizacion-de-perjuicios-por-dano-moral-mas-alla-de-una-somera-debilidad-probatoria/" target="_blank" rel="noopener noreferrer" class="text-[#C5A880] font-semibold hover:underline">Leer fallo &rarr;</a>
+              <span class="text-slate-500">Diario Constitucional</span>
+              <a href="https://www.diarioconstitucional.cl/videos/jueces-deben-explicar-fundadamente-por-que-reducen-el-monto-de-la-indemnizacion-de-perjuicios-por-dano-moral-mas-alla-de-una-somera-debilidad-probatoria/" target="_blank" rel="noopener noreferrer" class="text-oro-oscuro font-semibold hover:underline">Leer fallo &rarr;</a>
+            </div>
+          </article>
+
+          <article class="bg-white border border-slate-200 rounded-sm p-6 flex flex-col justify-between shadow-sm">
+            <div>
+              <div class="flex justify-between items-center mb-3">
+                <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-sm bg-[#F4EFEA] text-oro-oscuro">Redes Sociales</span>
+                <span class="text-xs font-semibold text-orange-800 bg-orange-50 px-2 py-0.5 rounded-sm">Corte Suprema</span>
+              </div>
+              <h3 class="text-base font-bold text-slate-900 mb-2 leading-snug">
+                <a href="https://www.diarioconstitucional.cl/2026/04/21/corte-suprema-pone-freno-a-acusaciones-de-delitos-sin-respaldo-difundidas-en-redes-sociales/" target="_blank" rel="noopener noreferrer" class="hover:text-oro-oscuro transition-colors">
+                  La Suprema frena las «funas» en internet: prohibido acusar de delitos sin pruebas en redes
+                </a>
+              </h3>
+              <p class="text-xs text-slate-600 line-clamp-3 mb-4 leading-relaxed">
+                El máximo tribunal le puso límites a las denuncias en LinkedIn, Instagram y X. Dejó en claro que nadie puede acusar a otra persona de un delito sin una condena judicial que lo demuestre, ordenando borrar de inmediato este tipo de publicaciones.
+              </p>
+            </div>
+            <div class="pt-3 border-t border-slate-100 flex justify-between items-center text-xs">
+              <span class="text-slate-500">Diario Constitucional</span>
+              <a href="https://www.diarioconstitucional.cl/2026/04/21/corte-suprema-pone-freno-a-acusaciones-de-delitos-sin-respaldo-difundidas-en-redes-sociales/" target="_blank" rel="noopener noreferrer" class="text-oro-oscuro font-semibold hover:underline">Leer fallo &rarr;</a>
+            </div>
+          </article>
+
+          <article class="bg-white border border-slate-200 rounded-sm p-6 flex flex-col justify-between shadow-sm">
+            <div>
+              <div class="flex justify-between items-center mb-3">
+                <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-sm bg-[#F4EFEA] text-oro-oscuro">Libertad de Prensa</span>
+                <span class="text-xs font-semibold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded-sm">Rol N° 7808-2026</span>
+              </div>
+              <h3 class="text-base font-bold text-slate-900 mb-2 leading-snug">
+                <a href="https://www.diarioconstitucional.cl/2026/06/16/corte-suprema-descarta-eliminar-noticias-invocando-el-derecho-al-olvido/" target="_blank" rel="noopener noreferrer" class="hover:text-oro-oscuro transition-colors">
+                  No se pueden borrar noticias de juicios pasados invocando el «derecho al olvido»
+                </a>
+              </h3>
+              <p class="text-xs text-slate-600 line-clamp-3 mb-4 leading-relaxed">
+                La Suprema rechazó el reclamo de quienes pedían eliminar de internet noticias sobre antiguos juicios. La Corte dictaminó que si la información fue real y de interés público, el derecho a informar de la prensa está primero.
+              </p>
+            </div>
+            <div class="pt-3 border-t border-slate-100 flex justify-between items-center text-xs">
+              <span class="text-slate-500">Diario Constitucional</span>
+              <a href="https://www.diarioconstitucional.cl/2026/06/16/corte-suprema-descarta-eliminar-noticias-invocando-el-derecho-al-olvido/" target="_blank" rel="noopener noreferrer" class="text-oro-oscuro font-semibold hover:underline">Leer fallo &rarr;</a>
             </div>
           </article>
         </div>
@@ -273,7 +309,7 @@ import Footer from '../components/Footer.astro';
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
           <div class="lg:col-span-6">
-            <span class="text-xs font-bold uppercase tracking-widest text-[#C5A880] block mb-1">Atención Presencial &amp; Telemática</span>
+            <span class="text-xs font-bold uppercase tracking-widest text-oro-oscuro block mb-1">Atención Presencial &amp; Telemática</span>
             <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 mb-3">Contacto y Ubicación</h2>
             <div class="w-12 h-0.5 bg-[#C5A880] mb-4"></div>
             <p class="text-slate-600 text-sm leading-relaxed mb-6">Estudio jurídico ubicado en Providencia, Santiago.</p>
@@ -295,32 +331,7 @@ import Footer from '../components/Footer.astro';
             <h3 class="text-xl font-bold text-slate-900 mb-1">Consulta Confidencial</h3>
             <p class="text-xs text-slate-500 mb-5">Indique los antecedentes preliminares para la evaluación jurídica de su asunto.</p>
 
-            <form class="space-y-4" action="mailto:contacto@rpabogados.cl" method="POST" enctype="text/plain">
-              <div>
-                <label for="nombre" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">Nombre Completo</label>
-                <input type="text" id="nombre" name="nombre" required class="w-full px-3.5 py-2 border border-slate-300 focus:border-[#C5A880] focus:outline-none text-xs rounded-sm bg-white" placeholder="Ej: Francisco González" />
-              </div>
-
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label for="email" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">Correo Electrónico</label>
-                  <input type="email" id="email" name="email" required class="w-full px-3.5 py-2 border border-slate-300 focus:border-[#C5A880] focus:outline-none text-xs rounded-sm bg-white" placeholder="correo@ejemplo.cl" />
-                </div>
-                <div>
-                  <label for="telefono" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">Teléfono</label>
-                  <input type="tel" id="telefono" name="telefono" class="w-full px-3.5 py-2 border border-slate-300 focus:border-[#C5A880] focus:outline-none text-xs rounded-sm bg-white" placeholder="+56 9 8549 7497" />
-                </div>
-              </div>
-
-              <div>
-                <label for="mensaje" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">Resumen del Asunto</label>
-                <textarea id="mensaje" name="mensaje" rows="4" class="w-full px-3.5 py-2 border border-slate-300 focus:border-[#C5A880] focus:outline-none text-xs resize-none rounded-sm bg-white" placeholder="Describa brevemente los antecedentes de su causa..."></textarea>
-              </div>
-
-              <button type="submit" class="w-full py-3 px-6 bg-[#12151B] hover:bg-[#C5A880] text-[#C5A880] hover:text-[#12151B] font-bold text-xs uppercase tracking-widest transition-all duration-300 rounded-sm shadow-sm">
-                Enviar Consulta Estratégica &rarr;
-              </button>
-            </form>
+            <FormularioContacto />
           </div>
         </div>
       </div>
@@ -328,16 +339,16 @@ import Footer from '../components/Footer.astro';
 
     <!-- Footer -->
     <footer class="bg-[#0E1116] text-slate-300 py-14 border-t border-slate-800">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10 items-start">
-          <div>
-            <a href="#inicio" class="inline-block mb-3">
-              <img src="/logo-rp-abogados.png" alt="RP Abogados" class="h-14 w-auto object-contain filter brightness-0 invert" />
-            </a>
-            <p class="text-xs text-slate-400 leading-relaxed mt-2">
-              Estudio Jurídico orientado en litigios de alta complejidad ante tribunales ordinarios y superiores de justicia.
-            </p>
-          </div>
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div class="flex flex-col items-center mb-10">
+          <a href="#inicio" class="inline-block text-white hover:opacity-90 transition-opacity">
+            <Logo variante="vertical" class="h-24" />
+          </a>
+          <p class="text-xs text-slate-400 leading-relaxed mt-4 max-w-md">
+            Estudio Jurídico orientado en litigios de alta complejidad ante tribunales ordinarios y superiores de justicia.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10 max-w-4xl mx-auto">
           <div>
             <h4 class="text-xs font-bold uppercase tracking-wider text-white mb-3">Áreas de Práctica</h4>
             <ul class="space-y-1.5 text-xs text-slate-400">
@@ -357,7 +368,7 @@ import Footer from '../components/Footer.astro';
             <p class="text-xs text-slate-400 leading-relaxed mb-2">Eliodoro Yáñez 2084, Of. 41, Providencia, Santiago</p>
           </div>
         </div>
-        <div class="border-t border-slate-800 pt-6 flex flex-wrap justify-between items-center text-xs text-slate-500 gap-4">
+        <div class="border-t border-slate-800 pt-6 flex flex-wrap justify-center items-center text-xs text-slate-400 gap-4">
           <span>&copy; 2026 RP Abogados. Todos los derechos reservados.</span>
         </div>
       </div>
