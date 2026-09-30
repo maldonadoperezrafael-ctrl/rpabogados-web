@@ -2,37 +2,29 @@
 // src/components/Header.astro
 ---
 
-<header style="position: fixed; top: 0; left: 0; right: 0; z-index: 9999; background-color: #12151B; border-bottom: 1px solid rgba(255,255,255,0.1); padding: 12px 24px; box-shadow: 0 4px 10px rgba(0,0,0,0.5);">
-  <div style="max-width: 1280px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; width: 100%;">
+<header class="fixed top-0 left-0 right-0 z-50 bg-[#12151B] border-b border-white/10 py-4 px-4 md:px-8">
+  <div class="max-w-7xl mx-auto flex justify-between items-center">
     
-    <!-- Lado Izquierdo: Tu logo real con respaldo -->
-    <a href="#inicio" style="display: flex; align-items: center; gap: 12px; text-decoration: none;">
+    <!-- Lado Izquierdo: Logotipo -->
+    <a href="#inicio" class="flex items-center gap-3 group">
       <img 
         src="/logo-rp-abogados.png" 
         alt="RP Abogados" 
-        style="height: 38px; width: auto; object-fit: contain; display: block;"
-        onerror="this.style.display='none'; document.getElementById('fallback-text').style.display='block';"
+        class="h-9 md:h-10 w-auto object-contain"
       />
-      <span id="fallback-text" style="display: none; color: #ffffff; font-weight: bold; font-size: 15px; letter-spacing: 0.05em; text-transform: uppercase;">
-        RP Abogados
-      </span>
     </a>
 
-    <!-- Centro / Lado Derecho: Menú de Navegación completo -->
-    <nav style="display: flex; align-items: center; gap: 24px;">
-      <a href="#inicio" style="color: rgba(255,255,255,0.9); font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none;">Inicio</a>
-      <a href="#filosofia" style="color: rgba(255,255,255,0.9); font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none;">Filosofía</a>
-      <a href="#areas" style="color: rgba(255,255,255,0.9); font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none;">Áreas</a>
-      <a href="#equipo" style="color: rgba(255,255,255,0.9); font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none;">Socios</a>
-      <a href="#actualidad" style="color: rgba(255,255,255,0.9); font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none;">Actualidad</a>
-    </nav>
+    <!-- Lado Derecho: Menú y Contacto -->
+    <div class="flex items-center gap-6">
+      <nav class="hidden md:flex items-center gap-6 text-xs text-white/90 font-medium tracking-widest uppercase">
+        <a href="#inicio" class="hover:text-[#C5A880] transition-colors">Inicio</a>
+        <a href="#filosofia" class="hover:text-[#C5A880] transition-colors">Filosofía</a>
+        <a href="#areas" class="hover:text-[#C5A880] transition-colors">Áreas</a>
+        <a href="#equipo" class="hover:text-[#C5A880] transition-colors">Socios</a>
+        <a href="#actualidad" class="hover:text-[#C5A880] transition-colors">Actualidad</a>
+      </nav>
 
-    <!-- Botón de Contacto -->
-    <div>
-      <a 
-        href="#contacto" 
-        style="background-color: #C5A880; color: #12151B; font-weight: bold; font-size: 11px; padding: 10px 20px; border-radius: 2px; text-transform: uppercase; letter-spacing: 0.1em; text-decoration: none; display: inline-block;"
-      >
+      <a href="#contacto" class="px-4 py-2 bg-[#C5A880] text-[#12151B] font-bold text-xs rounded-sm hover:bg-[#b5966c] transition-colors shadow-sm uppercase tracking-widest">
         Contacto
       </a>
     </div>
