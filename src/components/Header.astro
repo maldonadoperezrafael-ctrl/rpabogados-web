@@ -5,16 +5,17 @@
 <header class="site-header-custom">
   <div class="header-container">
     
-    <!-- Logo -->
-    <a href="#inicio" class="logo-box">
-      <div class="logo-crest">RP</div>
-      <div class="logo-text-group">
-        <span class="logo-title">RP ABOGADOS</span>
-        <span class="logo-subtitle">LITIGACIÓN ESTRATÉGICA</span>
-      </div>
+    <!-- Logo Oficial: RP Abogados « Ayudamos a la gente » -->
+    <a href="#inicio" class="logo-container">
+      <img 
+        src="/logo_dark.png" 
+        alt="RP Abogados - Ayudamos a la gente" 
+        class="logo-img"
+        onerror="if(this.src.indexOf('/fotos/')===-1){this.src='/fotos/logo_dark.png';}"
+      />
     </a>
 
-    <!-- Navegación de Escritorio con Desplegables Reales -->
+    <!-- Navegación de Escritorio con Desplegables -->
     <nav class="desktop-navigation">
       <a href="#inicio" class="nav-link">Inicio</a>
       <a href="#filosofia" class="nav-link">Nuestra Filosofía</a>
@@ -47,7 +48,7 @@
       <a href="#contacto" class="nav-link nav-btn-contact">Contacto</a>
     </nav>
 
-    <!-- Botón Móvil -->
+    <!-- Botón Menú Móvil -->
     <button id="mobileToggleBtn" class="mobile-toggle-btn" aria-label="Abrir menú" type="button">
       <span class="bar"></span>
       <span class="bar"></span>
@@ -83,16 +84,15 @@
 </header>
 
 <style>
+  /* Header NO fijo (fluye normalmente con la página) */
   .site-header-custom {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 9999;
+    position: relative;
+    width: 100%;
+    z-index: 100;
     background-color: #FFFFFF;
     border-bottom: 1px solid #E2E8F0;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-    height: 75px;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.04);
+    min-height: 80px;
     display: flex;
     align-items: center;
   }
@@ -101,57 +101,24 @@
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 24px;
+    padding: 12px 24px;
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
 
-  .logo-box {
+  .logo-container {
     display: flex;
     align-items: center;
-    gap: 12px;
     text-decoration: none;
   }
 
-  .logo-crest {
-    width: 38px;
-    height: 38px;
-    border: 1px solid #C5A880;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #C5A880;
-    font-weight: 700;
-    font-size: 16px;
-    letter-spacing: 1px;
-    transition: all 0.3s ease;
-  }
-
-  .logo-box:hover .logo-crest {
-    background-color: #C5A880;
-    color: #14171c;
-  }
-
-  .logo-text-group {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .logo-title {
-    font-size: 15px;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    color: #14171C;
-    line-height: 1.1;
-  }
-
-  .logo-subtitle {
-    font-size: 9.5px;
-    font-weight: 600;
-    letter-spacing: 0.15em;
-    color: #C5A880;
-    margin-top: 2px;
+  .logo-img {
+    height: 52px;
+    width: auto;
+    max-width: 230px;
+    object-fit: contain;
+    display: block;
   }
 
   .desktop-navigation {
@@ -198,7 +165,7 @@
     border: 1px solid #E2E8F0;
     border-radius: 2px;
     padding: 8px 0;
-    z-index: 10000;
+    z-index: 1000;
   }
 
   .nav-dropdown:hover .dropdown-panel {
@@ -264,14 +231,13 @@
   .mobile-menu-panel {
     display: none;
     position: absolute;
-    top: 75px;
+    top: 100%;
     left: 0;
     right: 0;
     background-color: #FFFFFF;
     border-bottom: 2px solid #C5A880;
     box-shadow: 0 16px 32px rgba(0, 0, 0, 0.15);
-    max-height: calc(100vh - 85px);
-    overflow-y: auto;
+    z-index: 1000;
   }
 
   .mobile-menu-panel.is-open {
