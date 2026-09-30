@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Logo from '../components/Logo.astro';
+import FormularioContacto from '../components/FormularioContacto.astro';
 ---
 
 <Layout title="RP Abogados | Litigación Estratégica & Derecho Público | Santiago, Chile">
@@ -288,32 +289,7 @@ import Logo from '../components/Logo.astro';
             <h3 class="text-xl font-bold text-slate-900 mb-1">Consulta Confidencial</h3>
             <p class="text-xs text-slate-500 mb-5">Indique los antecedentes preliminares para la evaluación jurídica de su asunto.</p>
 
-            <form class="space-y-4" action="mailto:contacto@rpabogados.cl" method="POST" enctype="text/plain">
-              <div>
-                <label for="nombre" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">Nombre Completo</label>
-                <input type="text" id="nombre" name="nombre" required class="w-full px-3.5 py-2 border border-slate-300 focus:border-oro-oscuro focus:outline-none focus:ring-2 focus:ring-oro-oscuro/30 text-xs rounded-sm bg-white" placeholder="Ej: Francisco González" />
-              </div>
-
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label for="email" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">Correo Electrónico</label>
-                  <input type="email" id="email" name="email" required class="w-full px-3.5 py-2 border border-slate-300 focus:border-oro-oscuro focus:outline-none focus:ring-2 focus:ring-oro-oscuro/30 text-xs rounded-sm bg-white" placeholder="correo@ejemplo.cl" />
-                </div>
-                <div>
-                  <label for="telefono" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">Teléfono</label>
-                  <input type="tel" id="telefono" name="telefono" class="w-full px-3.5 py-2 border border-slate-300 focus:border-oro-oscuro focus:outline-none focus:ring-2 focus:ring-oro-oscuro/30 text-xs rounded-sm bg-white" placeholder="+56 9 8549 7497" />
-                </div>
-              </div>
-
-              <div>
-                <label for="mensaje" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">Resumen del Asunto</label>
-                <textarea id="mensaje" name="mensaje" rows="4" class="w-full px-3.5 py-2 border border-slate-300 focus:border-oro-oscuro focus:outline-none focus:ring-2 focus:ring-oro-oscuro/30 text-xs resize-none rounded-sm bg-white" placeholder="Describa brevemente los antecedentes de su causa..."></textarea>
-              </div>
-
-              <button type="submit" class="w-full py-3 px-6 bg-[#12151B] hover:bg-[#C5A880] text-[#C5A880] hover:text-[#12151B] font-bold text-xs uppercase tracking-widest transition-all duration-300 rounded-sm shadow-sm">
-                Enviar Consulta Estratégica &rarr;
-              </button>
-            </form>
+            <FormularioContacto />
           </div>
         </div>
       </div>

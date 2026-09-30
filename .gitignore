@@ -21,3 +21,9 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# generados por Astro y Playwright
+.astro/
+test-results/
+playwright-report/
+.dev.vars
