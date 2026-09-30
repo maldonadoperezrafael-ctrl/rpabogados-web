@@ -1,33 +1,58 @@
 ---
-// src/components/Header.astro
+import Logo from './Logo.astro';
+
+const enlaces = [
+  { href: '/#inicio', texto: 'Inicio' },
+  { href: '/#filosofia', texto: 'Filosofía' },
+  { href: '/#areas', texto: 'Áreas' },
+  { href: '/#equipo', texto: 'Socios' },
+  { href: '/#actualidad', texto: 'Actualidad' },
+];
 ---
 
-<header class="fixed top-0 left-0 right-0 z-50 bg-[#12151B] border-b border-white/10 py-4 px-4 md:px-8">
-  <div class="max-w-7xl mx-auto flex justify-between items-center">
-    
-    <!-- Lado Izquierdo: Logotipo -->
-    <a href="#inicio" class="flex items-center gap-3 group">
-      <img 
-        src="/logo-rp-abogados.png" 
-        alt="RP Abogados" 
-        class="h-9 md:h-10 w-auto object-contain"
-      />
+<header class="fixed top-0 left-0 right-0 z-50 h-16 bg-tinta border-b border-white/10">
+  <div class="max-w-7xl h-full mx-auto px-4 md:px-8 flex justify-between items-center gap-4">
+
+    <a href="/" class="shrink-0 text-white hover:opacity-90 transition-opacity focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-oro">
+      <Logo variante="horizontal" class="h-8 md:h-10" />
     </a>
 
-    <!-- Lado Derecho: Menú y Contacto -->
-    <div class="flex items-center gap-6">
-      <nav class="hidden md:flex items-center gap-6 text-xs text-white/90 font-medium tracking-widest uppercase">
-        <a href="#inicio" class="hover:text-[#C5A880] transition-colors">Inicio</a>
-        <a href="#filosofia" class="hover:text-[#C5A880] transition-colors">Filosofía</a>
-        <a href="#areas" class="hover:text-[#C5A880] transition-colors">Áreas</a>
-        <a href="#equipo" class="hover:text-[#C5A880] transition-colors">Socios</a>
-        <a href="#actualidad" class="hover:text-[#C5A880] transition-colors">Actualidad</a>
+    <div class="flex items-center gap-4 md:gap-6">
+      <nav aria-label="Navegación principal" class="hidden md:flex items-center gap-6 text-xs font-semibold tracking-widest uppercase">
+        {enlaces.map(({ href, texto }) => (
+          <a
+            href={href}
+            class="text-oro transition-all duration-300 hover:text-oro-claro hover:[text-shadow:0_0_14px_rgba(230,204,159,0.65)] focus-visible:text-oro-claro focus-visible:[text-shadow:0_0_14px_rgba(230,204,159,0.65)] focus-visible:outline-none"
+          >
+            {texto}
+          </a>
+        ))}
       </nav>
 
-      <a href="#contacto" class="px-4 py-2 bg-[#C5A880] text-[#12151B] font-bold text-xs rounded-sm hover:bg-[#b5966c] transition-colors shadow-sm uppercase tracking-widest">
+      <a href="#contacto" class="hidden sm:inline-block px-4 py-2 bg-oro text-tinta font-bold text-xs rounded-sm hover:bg-oro-claro hover:shadow-[0_0_16px_rgba(230,204,159,0.45)] transition-all duration-300 uppercase tracking-widest">
         Contacto
       </a>
-    </div>
 
+      <button
+        type="button"
+        class="menu-toggle md:hidden"
+        aria-label="Abrir menú"
+        aria-expanded="false"
+        aria-controls="menu-movil"
+      >
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+
+  <div id="menu-movil" class="fullscreen-menu md:hidden">
+    <nav aria-label="Navegación móvil">
+      <ul>
+        {enlaces.map(({ href, texto }) => (
+          <li><a href={href}>{texto}</a></li>
+        ))}
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
   </div>
 </header>

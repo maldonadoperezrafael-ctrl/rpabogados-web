@@ -40,10 +40,10 @@ const { title, description } = Astro.props;
     <link rel="icon" type="image/png" href="/fotos/logo-rp-abogados.png?v=3" />
     <link rel="apple-touch-icon" href="/fotos/logo-rp-abogados.png?v=3" />
 
-    <!-- Google Fonts: Raleway -->
+    <!-- Google Fonts: Raleway (texto) + Cormorant Garamond (título de portada) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Raleway:wght@400;600;700&display=swap" rel="stylesheet">
 
     <!-- AOS (Animate On Scroll) -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -126,16 +126,19 @@ const { title, description } = Astro.props;
       .fullscreen-menu nav ul li:nth-child(6) { transition-delay: 0.35s; }
 
       .fullscreen-menu nav ul li a {
-        color: #ffffff;
+        color: #C5A880;
         font-size: 2.25rem;
         font-weight: 300;
         text-decoration: none;
         letter-spacing: 1px;
-        transition: color 0.3s ease;
+        transition: color 0.3s ease, text-shadow 0.3s ease;
       }
 
-      .fullscreen-menu nav ul li a:hover {
-        color: var(--color-accent);
+      .fullscreen-menu nav ul li a:hover,
+      .fullscreen-menu nav ul li a:focus-visible {
+        color: #E6CC9F;
+        text-shadow: 0 0 14px rgba(230, 204, 159, 0.65);
+        outline: none;
       }
 
       .menu-toggle {
@@ -150,7 +153,7 @@ const { title, description } = Astro.props;
         display: block;
         width: 100%;
         height: 2px;
-        background-color: var(--color-primary);
+        background-color: #C5A880;
         position: absolute;
         transition: all 0.3s ease;
       }
@@ -160,7 +163,7 @@ const { title, description } = Astro.props;
       .menu-toggle span:nth-child(3) { top: 20px; }
 
       .menu-toggle.active span {
-        background-color: #ffffff;
+        background-color: #E6CC9F;
       }
 
       .menu-toggle.active span:nth-child(1) {
@@ -252,45 +255,6 @@ const { title, description } = Astro.props;
           font-size: 1.75rem;
         }
       }
-
-      /* Barra superior ajustada para ganar terreno de contenido */
-      header, nav, .navbar, .site-header {
-        width: 100% !important;
-        height: 64px !important;
-        max-height: 64px !important;
-        background-color: #ffffff !important;
-        border-bottom: 1px solid #e2e8f0 !important;
-        position: sticky !important;
-        top: 0 !important;
-        z-index: 50 !important;
-        display: flex !important;
-        align-items: center !important;
-        box-sizing: border-box !important;
-        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05) !important;
-      }
-
-      header > div, nav > div, .navbar > div, .site-header > div {
-        width: 100% !important;
-        max-width: 1240px !important;
-        margin: 0 auto !important;
-        padding: 0 24px !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: space-between !important;
-      }
-
-      header img, nav img, .logo img, .site-header img {
-        height: 48px !important;
-        max-height: 50px !important;
-        width: auto !important;
-        max-width: 240px !important;
-        object-fit: contain !important;
-        display: block !important;
-      }
-
-      header button, nav button, .hamburger-btn {
-        margin-left: auto !important;
-      }
     </style>
   </head>
   <body>
@@ -313,18 +277,27 @@ const { title, description } = Astro.props;
       const fullscreenMenu = document.querySelector('.fullscreen-menu');
 
       if (menuToggle && fullscreenMenu) {
+        const setMenu = (abierto) => {
+          menuToggle.classList.toggle('active', abierto);
+          fullscreenMenu.classList.toggle('active', abierto);
+          menuToggle.setAttribute('aria-expanded', String(abierto));
+          menuToggle.setAttribute('aria-label', abierto ? 'Cerrar menú' : 'Abrir menú');
+          document.body.style.overflow = abierto ? 'hidden' : '';
+        };
+
         menuToggle.addEventListener('click', () => {
-          menuToggle.classList.toggle('active');
-          fullscreenMenu.classList.toggle('active');
-          document.body.style.overflow = fullscreenMenu.classList.contains('active') ? 'hidden' : '';
+          setMenu(!fullscreenMenu.classList.contains('active'));
         });
 
         fullscreenMenu.querySelectorAll('a').forEach(link => {
-          link.addEventListener('click', () => {
-            menuToggle.classList.remove('active');
-            fullscreenMenu.classList.remove('active');
-            document.body.style.overflow = '';
-          });
+          link.addEventListener('click', () => setMenu(false));
+        });
+
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape' && fullscreenMenu.classList.contains('active')) {
+            setMenu(false);
+            menuToggle.focus();
+          }
         });
       }
 

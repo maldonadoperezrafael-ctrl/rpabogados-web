@@ -1,4 +1,5 @@
 ---
+import Logo from './Logo.astro';
 ---
 
 <footer class="bg-primary text-white">
@@ -7,12 +8,9 @@
     <div class="grid md:grid-cols-3 gap-12">
       <!-- Columna 1: Logo y descripción -->
       <div>
-        <div class="flex items-center gap-3 mb-4">
-          <div class="w-10 h-10 bg-accent flex items-center justify-center">
-            <span class="text-white font-bold text-lg">RP</span>
-          </div>
-          <span class="font-semibold text-xl">RP Abogados</span>
-        </div>
+        <a href="/" class="inline-block mb-4 text-white hover:opacity-90 transition-opacity">
+          <Logo variante="vertical" class="h-24" />
+        </a>
         <p class="text-white/70 text-sm leading-relaxed">
           Litigio estratégico en materia penal. Estudio jurídico con estándar de Santiago. Atención en toda la Región Metropolitana y VI Región de O'Higgins.
         </p>
@@ -25,7 +23,7 @@
           <li><a href="/" class="hover:text-accent transition-colors">Inicio</a></li>
           <li><a href="/#areas" class="hover:text-accent transition-colors">Áreas de Práctica</a></li>
           <li><a href="/#equipo" class="hover:text-accent transition-colors">Equipo</a></li>
-          <li><a href="/#noticias" class="hover:text-accent transition-colors">Coyuntura Forense</a></li>
+          <li><a href="/#actualidad" class="hover:text-accent transition-colors">Coyuntura Forense</a></li>
           <li><a href="/#contacto" class="hover:text-accent transition-colors">Contacto</a></li>
         </ul>
       </div>
