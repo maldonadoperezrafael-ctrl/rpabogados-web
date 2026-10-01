@@ -133,6 +133,9 @@ test('cabeceras de seguridad en el sitio desplegado', async ({ request, baseURL 
   test.skip(!baseURL?.startsWith('https://'), 'las cabeceras las pone Cloudflare, no el servidor local');
   const h = (await request.get('/')).headers();
   expect(h['content-security-policy']).toContain("script-src 'self'");
+  // Cloudflare inyecta su Web Analytics solo en el dominio de producción: la CSP tiene que permitirlo.
+  expect(h['content-security-policy']).toContain('https://static.cloudflareinsights.com');
+  expect(h['content-security-policy']).toContain('https://cloudflareinsights.com');
   expect(h['strict-transport-security']).toContain('max-age=');
   expect(h['x-content-type-options']).toBe('nosniff');
   expect(h['x-frame-options']).toBe('DENY');
