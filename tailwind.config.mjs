@@ -4,8 +4,9 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: '#212529',
-        accent: '#FC5D23',
+        // Marca unificada: las páginas locales usaban #212529 y naranja #FC5D23; ahora tinta y oro, como la portada
+        primary: '#12151B',
+        accent: '#C5A880',
         'bg-light': '#F8F8F8',
         // #6c757d daba 4,42:1 sobre bg-light (falla WCAG AA); #5c636a da 5,73:1
         'text-light': '#5c636a',

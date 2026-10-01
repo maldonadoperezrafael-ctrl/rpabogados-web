@@ -1,0 +1,51 @@
+name: Pruebas
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pruebas-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  pruebas:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      CI: 'true'
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .node-version
+          cache: pnpm
+
+      - name: Instalar dependencias
+        run: pnpm install --frozen-lockfile
+
+      - name: Pruebas unitarias
+        run: pnpm test
+
+      - name: Build de producción
+        run: pnpm build
+
+      - name: Navegador para las pruebas
+        run: pnpm exec playwright install --with-deps chromium
+
+      - name: Pruebas de navegador (5 páginas + formulario)
+        run: |
+          set -o pipefail
+          pnpm exec astro dev --port 4321 --host 127.0.0.1 > astro-dev.log 2>&1 &
+          for i in $(seq 1 60); do curl -sf -o /dev/null http://127.0.0.1:4321/ && break; sleep 2; done
+          BASE_URL=http://127.0.0.1:4321 pnpm test:e2e --project=escritorio --project=movil
+
+      - name: Log del servidor si algo falló
+        if: failure()
+        run: tail -n 100 astro-dev.log || true

@@ -1,7 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import MapaGoogle from '../components/MapaGoogle.astro';
 import Header from '../components/Header.astro';
-import Logo from '../components/Logo.astro';
+import Footer from '../components/Footer.astro';
 import FormularioContacto from '../components/FormularioContacto.astro';
 ---
 
@@ -13,7 +14,7 @@ import FormularioContacto from '../components/FormularioContacto.astro';
     <section id="inicio" class="relative min-h-[90vh] flex items-end overflow-hidden bg-[#181a1f]">
       <div class="absolute inset-0">
         <img 
-          src="/fotos/fondo-hormigon.jpg?v=2"
+          src="/fotos/fondo-hormigon.webp" width="1920" height="1282" fetchpriority="high" decoding="async"
           alt=""
           class="w-full h-full object-cover object-center"
         />
@@ -26,7 +27,7 @@ import FormularioContacto from '../components/FormularioContacto.astro';
             RP<br />ABOGADOS
           </h1>
 
-          <div class="w-24 h-1 bg-[#FC5D23] mb-8 shadow-md"></div>
+          <div class="w-24 h-1 bg-oro mb-8 shadow-md"></div>
 
           <p class="text-white/95 text-lg md:text-xl font-normal leading-relaxed max-w-2xl drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]">
             Estudio jurídico orientado en litigación de alta complejidad, en juicios de derechos de daños, en delitos penales económicos-tributarios y de alta connotación social, contencioso administrativos, acciones constitucionales, derecho migratorio y derecho laboral de la empresa colectivo e individual. Desde Santiago y la Región de O'Higgins, asesoramos a personas, empresas e instituciones en los casos más desafiantes, con un enfoque estratégico, ético y orientado a resultados.
@@ -108,7 +109,7 @@ import FormularioContacto from '../components/FormularioContacto.astro';
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
         <div class="relative h-92 overflow-hidden group cursor-pointer">
-          <img src="/fotos/area-civil.jpg" alt="Litigación Civil" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+          <img src="/fotos/area-civil.webp" alt="" width="800" height="437" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
           <div class="absolute inset-0 bg-black/60 group-hover:bg-black/45 transition-all duration-500"></div>
           <div class="relative z-10 h-full flex flex-col justify-end p-6">
             <span class="text-xs font-bold uppercase tracking-widest text-[#C5A880] mb-1">01 / Civil</span>
@@ -124,7 +125,7 @@ import FormularioContacto from '../components/FormularioContacto.astro';
         </div>
 
         <div class="relative h-92 overflow-hidden group cursor-pointer">
-          <img src="/fotos/area-penal.jpg" alt="Litigación Penal & Compliance" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+          <img src="/fotos/area-penal.webp" alt="" width="600" height="439" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
           <div class="absolute inset-0 bg-black/60 group-hover:bg-black/45 transition-all duration-500"></div>
           <div class="relative z-10 h-full flex flex-col justify-end p-6">
             <span class="text-xs font-bold uppercase tracking-widest text-[#C5A880] mb-1">02 / Penal</span>
@@ -140,7 +141,7 @@ import FormularioContacto from '../components/FormularioContacto.astro';
         </div>
 
         <div class="relative h-92 overflow-hidden group cursor-pointer">
-          <img src="/fotos/area-publico.jpg" alt="Derecho Público & Administrativo" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+          <img src="/fotos/area-publico.webp" alt="" width="720" height="420" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
           <div class="absolute inset-0 bg-black/60 group-hover:bg-black/45 transition-all duration-500"></div>
           <div class="relative z-10 h-full flex flex-col justify-end p-6">
             <span class="text-xs font-bold uppercase tracking-widest text-[#C5A880] mb-1">03 / Público</span>
@@ -156,7 +157,7 @@ import FormularioContacto from '../components/FormularioContacto.astro';
         </div>
 
         <div class="relative h-92 overflow-hidden group cursor-pointer">
-          <img src="/fotos/area-laboral.jpg" alt="Litigación Laboral" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+          <img src="/fotos/area-laboral.webp" alt="" width="900" height="592" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
           <div class="absolute inset-0 bg-black/60 group-hover:bg-black/45 transition-all duration-500"></div>
           <div class="relative z-10 h-full flex flex-col justify-end p-6">
             <span class="text-xs font-bold uppercase tracking-widest text-[#C5A880] mb-1">04 / Laboral</span>
@@ -185,7 +186,7 @@ import FormularioContacto from '../components/FormularioContacto.astro';
         <div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-4xl mx-auto">
           <article class="bg-white border border-slate-200 rounded-sm overflow-hidden shadow-sm flex flex-col">
             <div class="relative h-96 w-full overflow-hidden bg-slate-900">
-              <img src="/fotos/foto_gerente.jpg" alt="Rafael Pérez Maldonado" class="w-full h-full object-cover object-top block" />
+              <img src="/fotos/foto_gerente.webp" alt="Rafael Pérez Maldonado" width="716" height="718" loading="lazy" decoding="async" class="w-full h-full object-cover object-top block" />
               <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent"></div>
               <div class="absolute bottom-4 left-4 right-4">
                 <h3 class="text-white text-xl font-bold leading-tight">Rafael Pérez Maldonado</h3>
@@ -207,7 +208,7 @@ import FormularioContacto from '../components/FormularioContacto.astro';
 
           <article class="bg-white border border-slate-200 rounded-sm overflow-hidden shadow-sm flex flex-col">
             <div class="relative h-96 w-full overflow-hidden bg-slate-900">
-              <img src="/fotos/yerko-scheihing.jpg" alt="Yerko Scheihing Sepúlveda" class="w-full h-full object-cover object-top block" />
+              <img src="/fotos/yerko-scheihing.webp" alt="Yerko Scheihing Sepúlveda" width="640" height="640" loading="lazy" decoding="async" class="w-full h-full object-cover object-top block" />
               <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent"></div>
               <div class="absolute bottom-4 left-4 right-4">
                 <h3 class="text-white text-xl font-bold leading-tight">Yerko Scheihing Sepúlveda</h3>
@@ -315,15 +316,7 @@ import FormularioContacto from '../components/FormularioContacto.astro';
             <p class="text-slate-600 text-sm leading-relaxed mb-6">Estudio jurídico ubicado en Providencia, Santiago.</p>
             
             <div class="mb-6 rounded overflow-hidden shadow-sm border border-slate-200">
-              <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3329.475685817757!2d-70.6128527!3d-33.4368522!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662cf7a2163b4f9%3A0xb36d888126b23b1!2sAv.%20Eliodoro%20Y%C3%A1%C3%B1ez%202084%2C%20Providencia%2C%20Regi%C3%B3n%20Metropolitana!5e0!3m2!1ses!2scl!4v1700000000000!5m2!1ses!2scl" 
-                width="100%" 
-                height="260" 
-                style="border:0;" 
-                allowfullscreen="" 
-                loading="lazy" 
-                title="Ubicación RP Abogados">
-              </iframe>
+              <MapaGoogle alto="h-[260px]" />
             </div>
           </div>
 
@@ -337,41 +330,7 @@ import FormularioContacto from '../components/FormularioContacto.astro';
       </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-[#0E1116] text-slate-300 py-14 border-t border-slate-800">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <div class="flex flex-col items-center mb-10">
-          <a href="#inicio" class="inline-block text-white hover:opacity-90 transition-opacity">
-            <Logo variante="vertical" class="h-24" />
-          </a>
-          <p class="text-xs text-slate-400 leading-relaxed mt-4 max-w-md">
-            Estudio Jurídico orientado en litigios de alta complejidad ante tribunales ordinarios y superiores de justicia.
-          </p>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10 max-w-4xl mx-auto">
-          <div>
-            <h4 class="text-xs font-bold uppercase tracking-wider text-white mb-3">Áreas de Práctica</h4>
-            <ul class="space-y-1.5 text-xs text-slate-400">
-              <li><a href="#areas" class="hover:text-[#C5A880] transition-colors">Litigación Civil</a></li>
-              <li><a href="#areas" class="hover:text-[#C5A880] transition-colors">Litigación Penal &amp; Compliance</a></li>
-            </ul>
-          </div>
-          <div>
-            <h4 class="text-xs font-bold uppercase tracking-wider text-white mb-3">Socios del Estudio</h4>
-            <ul class="space-y-1.5 text-xs text-slate-400">
-              <li><a href="mailto:rafael@rpabogados.cl" class="hover:text-[#C5A880] transition-colors">Rafael Pérez Maldonado</a></li>
-              <li><a href="mailto:yerko@rpabogados.cl" class="hover:text-[#C5A880] transition-colors">Yerko Scheihing Sepúlveda</a></li>
-            </ul>
-          </div>
-          <div>
-            <h4 class="text-xs font-bold uppercase tracking-wider text-white mb-3">Contacto Directo</h4>
-            <p class="text-xs text-slate-400 leading-relaxed mb-2">Eliodoro Yáñez 2084, Of. 41, Providencia, Santiago</p>
-          </div>
-        </div>
-        <div class="border-t border-slate-800 pt-6 flex flex-wrap justify-center items-center text-xs text-slate-400 gap-4">
-          <span>&copy; 2026 RP Abogados. Todos los derechos reservados.</span>
-        </div>
-      </div>
-    </footer>
   </main>
+
+  <Footer />
 </Layout>

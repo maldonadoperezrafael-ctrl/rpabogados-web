@@ -86,10 +86,15 @@ export function validarContacto(entrada: Record<string, unknown>): ResultadoVali
 }
 
 // Honeypot lleno o envío más rápido de lo humanamente posible => bot.
-export function pareceBot(entrada: Record<string, unknown>, ahora = Date.now()): boolean {
+// `transcurrido` lo mide el navegador (ms entre mostrar el formulario y enviarlo), así no depende
+// del reloj del servidor ni de cuándo se construyó la página estática. Sin JavaScript no llega:
+// en ese caso solo cuenta el honeypot, para no bloquear a personas sin JavaScript.
+export function pareceBot(entrada: Record<string, unknown>): boolean {
   if (texto(entrada.sitio_web)) return true;
-  const t = Number(texto(entrada.t));
-  return !Number.isFinite(t) || t <= 0 || ahora - t < TIEMPO_MINIMO_MS;
+  const crudo = texto(entrada.transcurrido);
+  if (!crudo) return false;
+  const ms = Number(crudo);
+  return !Number.isFinite(ms) || ms < TIEMPO_MINIMO_MS;
 }
 
 export function escaparHtml(s: string): string {

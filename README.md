@@ -1,102 +1,48 @@
-# RP Abogados - Astro + Cloudflare Pages
+# RP Abogados · rpabogados.cl
 
-Sitio web estilo "boutique law firm premium" inspirado en colombara.cl.
+Sitio del estudio jurídico RP Abogados: Astro 5 + Tailwind, publicado en Cloudflare Pages.
+Las páginas son estáticas (servidas desde la caché de Cloudflare); solo `/api/contacto` corre en el servidor.
 
-## Stack
+## Cómo se trabaja
 
-- **Astro 4** - Framework estático
-- **Tailwind CSS** - Estilos utility-first
-- **Cloudflare Pages** - Hosting y deploy
-- **AOS** - Animaciones on scroll
-- **Raleway** - Tipografía (Google Fonts)
+1. **Nunca editar `main` directo** (ni desde el editor web de GitHub): todo cambio va en una rama y un Pull Request.
+2. Cada rama genera un **preview** automático en Cloudflare (`<rama>.rpabogados.pages.dev`), que se revisa en el navegador.
+3. El PR corre las pruebas (workflow **Pruebas**). Con el preview aprobado y las pruebas en verde, se hace merge.
+4. El merge a `main` publica en **rpabogados.cl**.
 
-## Paleta de Colores
+## Dónde se cambia cada cosa
 
-| Color | Hex | Uso |
-|-------|-----|-----|
-| Primary | `#212529` | Textos, fondos oscuros |
-| Accent | `#FC5D23` | Botones, hover, acentos |
-| BG Light | `#F8F8F8` | Fondos alternados |
-| Text Light | `#6c757d` | Texto secundario |
+| Qué | Dónde |
+| --- | --- |
+| Datos del estudio (dirección, teléfono, correos, socios, horario, áreas) | `src/lib/sitio.ts` — una sola fuente para footer, Google y privacidad |
+| Destinatario del formulario por área | `src/lib/contacto.ts` (`AREAS`, `COPIA_SIEMPRE`) |
+| Textos de la portada, áreas, socios y Actualidad | `src/pages/index.astro` |
+| Páginas locales (Santiago, VI Región, Cardenal Caro, Pichilemu) | `src/pages/*.astro` |
+| Política de privacidad | `src/pages/privacidad.astro` |
+| Logos | `src/assets/logos/*.svg` (se insertan con `src/components/Logo.astro`) |
+| Colores y tipografías | `tailwind.config.mjs` (`oro`, `oro-oscuro`, `tinta`, `font-cormorant`) |
+| Cabeceras de seguridad y caché | `public/_headers` |
 
-## Desarrollo Local
+**Colores:** `oro` (#C5A880) solo sobre fondos oscuros; sobre blanco o gris claro usar `oro-oscuro` (#7A5C2E) para cumplir el contraste WCAG AA.
+**Imágenes:** en `public/fotos/`, en formato WebP y al ancho en que se muestran.
 
-```bash
-# Instalar dependencias
-npm install
+## Formulario de contacto
 
-# Servidor de desarrollo
-npm run dev
+`/api/contacto` valida los datos, filtra spam y envía el correo con [Resend](https://resend.com). Requiere en Cloudflare Pages → Settings → Variables:
 
-# Build de producción
-npm run build
+- `RESEND_API_KEY` (secreta): clave de Resend, con el dominio `rpabogados.cl` verificado.
+- `CONTACTO_REMITENTE` (opcional): por defecto `Sitio web RP Abogados <formulario@rpabogados.cl>`.
 
-# Preview del build
-npm run preview
-```
+Sin la clave, el formulario avisa que el envío en línea no está habilitado y ofrece correo y WhatsApp.
 
-## Deploy en Cloudflare Pages
-
-### Opción 1: Dashboard (recomendada)
-
-1. Subir este código a un repositorio GitHub
-2. Ir a [Cloudflare Dashboard](https://dash.cloudflare.com) → Pages
-3. Click "Create a project" → "Connect to Git"
-4. Seleccionar el repositorio
-5. Configurar build:
-   - **Framework preset**: Astro
-   - **Build command**: `npm run build`
-   - **Build output directory**: `dist`
-6. Click "Save and Deploy"
-
-### Opción 2: Wrangler CLI
+## Comandos
 
 ```bash
-# Instalar Wrangler
-npm install -g wrangler
-
-# Login
-wrangler login
-
-# Deploy
-wrangler pages deploy dist
+pnpm install        # dependencias (pnpm 9, ver packageManager)
+pnpm dev            # servidor local en http://localhost:4321
+pnpm build          # build de producción en dist/
+pnpm test           # pruebas unitarias del formulario
+BASE_URL=https://<rama>.rpabogados.pages.dev pnpm test:e2e   # pruebas de navegador contra un preview
 ```
 
-### Configurar Dominio Personalizado
-
-1. En Cloudflare Pages → Tu proyecto → Custom domains
-2. Agregar `rpabogados.cl`
-3. Cloudflare configurará automáticamente el DNS
-
-## Estructura
-
-```
-src/
-├── components/      # Header, Footer reutilizables
-├── layouts/         # Layout base con estilos globales
-├── pages/           # Páginas (index.astro)
-└── styles/          # Estilos adicionales si se necesitan
-public/
-└── assets/          # Imágenes, favicon, fuentes locales
-```
-
-## Características del Diseño (estilo Colombara)
-
-- ✅ Header fullscreen con menú hamburguesa
-- ✅ Tipografía Raleway (todos los pesos)
-- ✅ Animaciones fade suaves al hacer scroll
-- ✅ Paleta: gris oscuro #212529 + naranja #FC5D23
-- ✅ Espaciado generoso entre secciones
-- ✅ Botones estilo editorial (sin bordes redondeados)
-- ✅ Tarjetas con hover elevation
-- ✅ Secciones alternando fondos blanco/gris
-
-## Editar Contenido
-
-Todo el contenido está en `src/pages/index.astro`. Es HTML estándar con clases Tailwind.
-
-Para agregar nuevas páginas, crear archivos `.astro` en `src/pages/`.
-
----
-
-**Nota**: Este proyecto reemplaza completamente el HTML estático anterior con una base moderna, manteniendo 100% del contenido original.
+`E2E_FORMULARIO=1` agrega un envío real del formulario (si el sitio tiene `RESEND_API_KEY`, llega un correo).
