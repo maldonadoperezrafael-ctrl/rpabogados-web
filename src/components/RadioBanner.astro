@@ -74,8 +74,6 @@
 <script>
   function checkLiveStatus() {
     const now = new Date();
-    
-    // Convertir a hora de Chile continental (maneja automáticamente invierno/verano de la zona horaria America/Santiago)
     const options = { timeZone: 'America/Santiago', weekday: 'short', hour: 'numeric', minute: 'numeric', hour12: false };
     const formatter = new Intl.DateTimeFormat('en-US', options);
     const parts = formatter.formatToParts(now);
@@ -85,12 +83,11 @@
     let minute = 0;
 
     parts.forEach(part => {
-      if (part.type === 'weekday') weekday = part.value.toLowerCase(); // 'tue', 'fri', etc.
+      if (part.type === 'weekday') weekday = part.value.toLowerCase();
       if (part.type === 'hour') hour = parseInt(part.value, 10);
       if (part.type === 'minute') minute = parseInt(part.value, 10);
     });
 
-    // Martes ('tue') o Viernes ('fri') entre las 11:30 y las 12:30 hrs
     const isBroadcastDay = (weekday.startsWith('tu') || weekday.startsWith('fr'));
     const totalMinutes = hour * 60 + minute;
     const startTime = 11 * 60 + 30; // 11:30
@@ -103,7 +100,6 @@
     const btnText = document.getElementById('btn-text');
 
     if (isLiveTime && badge && btn && btnText) {
-      // ESTADO: TRANSMITIENDO EN VIVO AHORA
       badge.className = "inline-flex items-center gap-2 rounded-full bg-red-500/10 border border-red-500/30 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-red-400";
       badge.innerHTML = `
         <span class="relative flex h-2.5 w-2.5">
@@ -118,6 +114,5 @@
     }
   }
 
-  // Ejecutar al cargar la página
   checkLiveStatus();
 </script>
