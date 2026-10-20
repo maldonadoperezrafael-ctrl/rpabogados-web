@@ -1,11 +1,11 @@
 ---
-import RadioBanner from '../components/RadioBanner.astro';
 import Layout from '../layouts/Layout.astro';
 import MapaGoogle from '../components/MapaGoogle.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import FormularioContacto from '../components/FormularioContacto.astro';
 ---
+
 <Layout title="RP Abogados | Litigación Estratégica & Derecho Público | Santiago, Chile">
   <Header />
 
@@ -35,7 +35,99 @@ import FormularioContacto from '../components/FormularioContacto.astro';
         </div>
       </div>
     </section>
-<RadioBanner />
+
+    <!-- BANNER PROGRAMA RADIAL RP ABOGADOS -->
+    <section class="bg-[#12151B] py-8 px-4 border-t border-b border-[#C5A880]/40">
+      <div class="max-w-6xl mx-auto">
+        <div class="rounded-sm bg-[#181a1f] border border-slate-700 p-6 md:p-8 shadow-lg">
+          <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
+            
+            <div class="space-y-3 max-w-2xl">
+              <div id="live-badge" class="inline-flex items-center gap-2 rounded-sm bg-slate-800 border border-slate-600 px-3 py-1 text-xs font-bold uppercase tracking-widest text-[#C5A880]">
+                <span>📻 Programa Radial • Martes y Viernes 11:30 hrs</span>
+              </div>
+
+              <h2 class="text-2xl md:text-3xl font-bold text-white tracking-tight">
+                «¿Por qué nadie lo ha dicho antes?» <span class="text-[#C5A880]">La Ley sin Letra Chica</span>
+              </h2>
+
+              <p class="text-white/85 text-sm md:text-base leading-relaxed">
+                Sintoniza a <strong class="text-white">Rafael Pérez Maldonado</strong> junto a Germán Rojas López en <strong class="text-white">Radio Corporación Pichilemu (97.7 FM)</strong>. Todos los martes y viernes a las 11:30 hrs analizamos casos reales, defensa de terrenos, herencias, negligencias y respondemos tus consultas en directo.
+              </p>
+            </div>
+
+            <div class="flex flex-col sm:flex-row lg:flex-col gap-3 shrink-0">
+              <a 
+                id="live-btn"
+                href="https://www.radiocorporacionpichilemu.net/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                class="inline-flex items-center justify-center gap-2 rounded-sm bg-[#C5A880] hover:bg-[#b5966d] text-slate-950 font-bold px-6 py-3.5 text-sm transition shadow-md text-center"
+              >
+                <span id="btn-text">▶ Escuchar Señal Oficial Online</span>
+              </a>
+
+              <div class="flex items-center justify-center gap-4 text-xs pt-1">
+                <a 
+                  href="https://radio.garden/listen/radio-corporacion-pichilemu-97-7-fm/5txg3gi4?hl=es" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  class="text-white/70 hover:text-[#C5A880] underline transition"
+                >
+                  Radio Garden (Celular)
+                </a>
+                <span class="text-white/30">•</span>
+                <a 
+                  href="https://emisora.cl/corporacion-pichilemu/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  class="text-white/70 hover:text-[#C5A880] underline transition"
+                >
+                  Señal Emisora.cl
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script is:inline>
+      (function checkLiveStatus() {
+        try {
+          const now = new Date();
+          const options = { timeZone: 'America/Santiago', weekday: 'short', hour: 'numeric', minute: 'numeric', hour12: false };
+          const parts = new Intl.DateTimeFormat('en-US', options).formatToParts(now);
+          
+          let weekday = '';
+          let hour = 0;
+          let minute = 0;
+
+          parts.forEach(part => {
+            if (part.type === 'weekday') weekday = part.value.toLowerCase();
+            if (part.type === 'hour') hour = parseInt(part.value, 10);
+            if (part.type === 'minute') minute = parseInt(part.value, 10);
+          });
+
+          const isBroadcastDay = (weekday.startsWith('tu') || weekday.startsWith('fr'));
+          const totalMinutes = hour * 60 + minute;
+          const isLiveTime = isBroadcastDay && (totalMinutes >= 690 && totalMinutes <= 750);
+
+          const badge = document.getElementById('live-badge');
+          const btn = document.getElementById('live-btn');
+          const btnText = document.getElementById('btn-text');
+
+          if (isLiveTime && badge && btn && btnText) {
+            badge.className = "inline-flex items-center gap-2 rounded-sm bg-red-950 border border-red-500 px-3 py-1 text-xs font-bold uppercase tracking-widest text-red-300";
+            badge.innerHTML = "🔴 ¡ESTAMOS AL AIRE AHORA MISMO! (11:30 - 12:30 HRS)";
+            btn.className = "inline-flex items-center justify-center gap-2 rounded-sm bg-red-600 hover:bg-red-500 text-white font-bold px-6 py-3.5 text-sm transition shadow-lg text-center";
+            btnText.textContent = "🔴 Escuchar Programa en Vivo Ahora";
+          }
+        } catch (e) {}
+      })();
+    </script>
+
     <!-- Nuestra Filosofía -->
     <section class="py-14 bg-slate-50 border-t border-b border-slate-200" id="filosofia">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
