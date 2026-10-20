@@ -13,11 +13,7 @@ import FormularioContacto from '../components/FormularioContacto.astro';
     <!-- Hero Section -->
     <section id="inicio" class="relative min-h-[90vh] flex items-end overflow-hidden bg-[#181a1f]">
       <div class="absolute inset-0">
-        <img 
-          src="/fotos/fondo-hormigon.webp" width="1920" height="1282" fetchpriority="high" decoding="async"
-          alt=""
-          class="w-full h-full object-cover object-center"
-        />
+        <img src="/fotos/fondo-hormigon.webp" width="1920" height="1282" fetchpriority="high" decoding="async" alt="" class="w-full h-full object-cover object-center" />
         <div class="absolute inset-0 bg-gradient-to-r from-black/85 via-black/55 to-transparent"></div>
       </div>
 
@@ -29,22 +25,28 @@ import FormularioContacto from '../components/FormularioContacto.astro';
 
           <div class="w-24 h-1 bg-oro mb-8 shadow-md"></div>
 
-          <p class="text-white/95 text-lg md:text-xl font-normal leading-relaxed max-w-2xl drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]">
+          <p class="text-white/95 text-lg md:text-xl font-normal leading-relaxed max-w-2xl drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)] mb-8">
             Estudio jurídico orientado en litigación de alta complejidad, en juicios de derechos de daños, en delitos penales económicos-tributarios y de alta connotación social, contencioso administrativos, acciones constitucionales, derecho migratorio y derecho laboral de la empresa colectivo e individual. Desde Santiago y la Región de O'Higgins, asesoramos a personas, empresas e instituciones en los casos más desafiantes, con un enfoque estratégico, ético y orientado a resultados.
           </p>
+
+          <!-- BOTÓN DIRECTO EN LA PORTADA PRINCIPAL -->
+          <div class="mt-6">
+            <a id="hero-radio-btn" href="https://www.radiocorporacionpichilemu.net/" target="_blank" rel="noopener noreferrer" style="background-color: #C5A880; color: #12151B; display: inline-flex; align-items: center; gap: 10px; padding: 14px 24px; font-weight: 700; font-size: 14px; border-radius: 4px; text-decoration: none; box-shadow: 0 4px 14px rgba(0,0,0,0.5);">
+              <span>📻 Escúchanos en Vivo: Martes y Viernes 11:30 hrs (Radio Corporación 97.7 FM)</span>
+            </a>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- BANNER PROGRAMA RADIAL RP ABOGADOS -->
-    <section class="bg-[#12151B] py-8 px-4 border-t border-b border-[#C5A880]/40">
+    <section class="bg-[#12151B] py-10 px-4 border-t border-b border-white/20">
       <div class="max-w-6xl mx-auto">
         <div class="rounded-sm bg-[#181a1f] border border-slate-700 p-6 md:p-8 shadow-lg">
           <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
-            
             <div class="space-y-3 max-w-2xl">
-              <div id="live-badge" class="inline-flex items-center gap-2 rounded-sm bg-slate-800 border border-slate-600 px-3 py-1 text-xs font-bold uppercase tracking-widest text-[#C5A880]">
-                <span>📻 Programa Radial • Martes y Viernes 11:30 hrs</span>
+              <div id="live-badge" style="background-color: #1e293b; border: 1px solid #C5A880; color: #C5A880; display: inline-block; padding: 4px 12px; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;">
+                📻 Programa Radial • Martes y Viernes 11:30 hrs
               </div>
 
               <h2 class="text-2xl md:text-3xl font-bold text-white tracking-tight">
@@ -56,38 +58,17 @@ import FormularioContacto from '../components/FormularioContacto.astro';
               </p>
             </div>
 
-            <div class="flex flex-col sm:flex-row lg:flex-col gap-3 shrink-0">
-              <a 
-                id="live-btn"
-                href="https://www.radiocorporacionpichilemu.net/" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                class="inline-flex items-center justify-center gap-2 rounded-sm bg-[#C5A880] hover:bg-[#b5966d] text-slate-950 font-bold px-6 py-3.5 text-sm transition shadow-md text-center"
-              >
+            <div class="flex flex-col gap-3 shrink-0">
+              <a id="live-btn" href="https://www.radiocorporacionpichilemu.net/" target="_blank" rel="noopener noreferrer" style="background-color: #C5A880; color: #12151B; display: inline-flex; align-items: center; justify-content: center; padding: 14px 24px; font-weight: 700; font-size: 14px; border-radius: 4px; text-decoration: none; text-align: center;">
                 <span id="btn-text">▶ Escuchar Señal Oficial Online</span>
               </a>
 
               <div class="flex items-center justify-center gap-4 text-xs pt-1">
-                <a 
-                  href="https://radio.garden/listen/radio-corporacion-pichilemu-97-7-fm/5txg3gi4?hl=es" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  class="text-white/70 hover:text-[#C5A880] underline transition"
-                >
-                  Radio Garden (Celular)
-                </a>
+                <a href="https://radio.garden/listen/radio-corporacion-pichilemu-97-7-fm/5txg3gi4?hl=es" target="_blank" rel="noopener noreferrer" style="color: #cbd5e1; text-decoration: underline;">Radio Garden (Celular)</a>
                 <span class="text-white/30">•</span>
-                <a 
-                  href="https://emisora.cl/corporacion-pichilemu/" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  class="text-white/70 hover:text-[#C5A880] underline transition"
-                >
-                  Señal Emisora.cl
-                </a>
+                <a href="https://emisora.cl/corporacion-pichilemu/" target="_blank" rel="noopener noreferrer" style="color: #cbd5e1; text-decoration: underline;">Señal Emisora.cl</a>
               </div>
             </div>
-
           </div>
         </div>
       </div>
@@ -99,7 +80,6 @@ import FormularioContacto from '../components/FormularioContacto.astro';
           const now = new Date();
           const options = { timeZone: 'America/Santiago', weekday: 'short', hour: 'numeric', minute: 'numeric', hour12: false };
           const parts = new Intl.DateTimeFormat('en-US', options).formatToParts(now);
-          
           let weekday = '';
           let hour = 0;
           let minute = 0;
@@ -117,12 +97,25 @@ import FormularioContacto from '../components/FormularioContacto.astro';
           const badge = document.getElementById('live-badge');
           const btn = document.getElementById('live-btn');
           const btnText = document.getElementById('btn-text');
+          const heroBtn = document.getElementById('hero-radio-btn');
 
-          if (isLiveTime && badge && btn && btnText) {
-            badge.className = "inline-flex items-center gap-2 rounded-sm bg-red-950 border border-red-500 px-3 py-1 text-xs font-bold uppercase tracking-widest text-red-300";
-            badge.innerHTML = "🔴 ¡ESTAMOS AL AIRE AHORA MISMO! (11:30 - 12:30 HRS)";
-            btn.className = "inline-flex items-center justify-center gap-2 rounded-sm bg-red-600 hover:bg-red-500 text-white font-bold px-6 py-3.5 text-sm transition shadow-lg text-center";
-            btnText.textContent = "🔴 Escuchar Programa en Vivo Ahora";
+          if (isLiveTime) {
+            if (badge) {
+              badge.style.backgroundColor = '#7f1d1d';
+              badge.style.borderColor = '#ef4444';
+              badge.style.color = '#fecaca';
+              badge.innerHTML = '🔴 ¡ESTAMOS AL AIRE AHORA MISMO! (11:30 - 12:30 HRS)';
+            }
+            if (btn && btnText) {
+              btn.style.backgroundColor = '#dc2626';
+              btn.style.color = '#ffffff';
+              btnText.textContent = '🔴 Escuchar Programa en Vivo Ahora';
+            }
+            if (heroBtn) {
+              heroBtn.style.backgroundColor = '#dc2626';
+              heroBtn.style.color = '#ffffff';
+              heroBtn.innerHTML = '<span>🔴 ¡AL AIRE AHORA! Escuchar Programa en Vivo (97.7 FM)</span>';
+            }
           }
         } catch (e) {}
       })();
@@ -406,7 +399,6 @@ import FormularioContacto from '../components/FormularioContacto.astro';
             <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 mb-3">Contacto y Ubicación</h2>
             <div class="w-12 h-0.5 bg-[#C5A880] mb-4"></div>
             <p class="text-slate-600 text-sm leading-relaxed mb-6">Estudio jurídico ubicado en Providencia, Santiago.</p>
-            
             <div class="mb-6 rounded overflow-hidden shadow-sm border border-slate-200">
               <MapaGoogle alto="h-[260px]" />
             </div>
@@ -415,13 +407,11 @@ import FormularioContacto from '../components/FormularioContacto.astro';
           <div class="lg:col-span-6 bg-slate-50 border border-slate-200 p-8 rounded-sm shadow-sm">
             <h3 class="text-xl font-bold text-slate-900 mb-1">Consulta Confidencial</h3>
             <p class="text-xs text-slate-500 mb-5">Indique los antecedentes preliminares para la evaluación jurídica de su asunto.</p>
-
             <FormularioContacto />
           </div>
         </div>
       </div>
     </section>
-
   </main>
 
   <Footer />
