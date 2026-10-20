@@ -29,9 +29,9 @@ import FormularioContacto from '../components/FormularioContacto.astro';
             Estudio jurídico orientado en litigación de alta complejidad, en juicios de derechos de daños, en delitos penales económicos-tributarios y de alta connotación social, contencioso administrativos, acciones constitucionales, derecho migratorio y derecho laboral de la empresa colectivo e individual. Desde Santiago y la Región de O'Higgins, asesoramos a personas, empresas e instituciones en los casos más desafiantes, con un enfoque estratégico, ético y orientado a resultados.
           </p>
 
-          <!-- BOTÓN DIRECTO EN LA PORTADA PRINCIPAL -->
-          <div class="mt-6">
-            <a id="hero-radio-btn" href="https://www.radiocorporacionpichilemu.net/" target="_blank" rel="noopener noreferrer" style="background-color: #C5A880; color: #12151B; display: inline-flex; align-items: center; gap: 10px; padding: 14px 24px; font-weight: 700; font-size: 14px; border-radius: 4px; text-decoration: none; box-shadow: 0 4px 14px rgba(0,0,0,0.5);">
+          <!-- BOTÓN DIRECTO EN LA PORTADA -->
+          <div class="mt-6 flex flex-wrap gap-4">
+            <a href="https://www.radiocorporacionpichilemu.net/" target="_blank" rel="noopener noreferrer" style="background-color: #C5A880; color: #12151B; display: inline-flex; align-items: center; gap: 10px; padding: 14px 24px; font-weight: 700; font-size: 14px; border-radius: 4px; text-decoration: none; box-shadow: 0 4px 14px rgba(0,0,0,0.5);">
               <span>📻 Escúchanos en Vivo: Martes y Viernes 11:30 hrs (Radio Corporación 97.7 FM)</span>
             </a>
           </div>
@@ -45,7 +45,7 @@ import FormularioContacto from '../components/FormularioContacto.astro';
         <div class="rounded-sm bg-[#181a1f] border border-slate-700 p-6 md:p-8 shadow-lg">
           <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
             <div class="space-y-3 max-w-2xl">
-              <div id="live-badge" style="background-color: #1e293b; border: 1px solid #C5A880; color: #C5A880; display: inline-block; padding: 4px 12px; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;">
+              <div style="background-color: #1e293b; border: 1px solid #C5A880; color: #C5A880; display: inline-block; padding: 4px 12px; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;">
                 📻 Programa Radial • Martes y Viernes 11:30 hrs
               </div>
 
@@ -59,8 +59,8 @@ import FormularioContacto from '../components/FormularioContacto.astro';
             </div>
 
             <div class="flex flex-col gap-3 shrink-0">
-              <a id="live-btn" href="https://www.radiocorporacionpichilemu.net/" target="_blank" rel="noopener noreferrer" style="background-color: #C5A880; color: #12151B; display: inline-flex; align-items: center; justify-content: center; padding: 14px 24px; font-weight: 700; font-size: 14px; border-radius: 4px; text-decoration: none; text-align: center;">
-                <span id="btn-text">▶ Escuchar Señal Oficial Online</span>
+              <a href="https://www.radiocorporacionpichilemu.net/" target="_blank" rel="noopener noreferrer" style="background-color: #C5A880; color: #12151B; display: inline-flex; align-items: center; justify-content: center; padding: 14px 24px; font-weight: 700; font-size: 14px; border-radius: 4px; text-decoration: none; text-align: center;">
+                <span>▶ Escuchar Señal Oficial Online</span>
               </a>
 
               <div class="flex items-center justify-center gap-4 text-xs pt-1">
@@ -73,53 +73,6 @@ import FormularioContacto from '../components/FormularioContacto.astro';
         </div>
       </div>
     </section>
-
-    <script is:inline>
-      (function checkLiveStatus() {
-        try {
-          const now = new Date();
-          const options = { timeZone: 'America/Santiago', weekday: 'short', hour: 'numeric', minute: 'numeric', hour12: false };
-          const parts = new Intl.DateTimeFormat('en-US', options).formatToParts(now);
-          let weekday = '';
-          let hour = 0;
-          let minute = 0;
-
-          parts.forEach(part => {
-            if (part.type === 'weekday') weekday = part.value.toLowerCase();
-            if (part.type === 'hour') hour = parseInt(part.value, 10);
-            if (part.type === 'minute') minute = parseInt(part.value, 10);
-          });
-
-          const isBroadcastDay = (weekday.startsWith('tu') || weekday.startsWith('fr'));
-          const totalMinutes = hour * 60 + minute;
-          const isLiveTime = isBroadcastDay && (totalMinutes >= 690 && totalMinutes <= 750);
-
-          const badge = document.getElementById('live-badge');
-          const btn = document.getElementById('live-btn');
-          const btnText = document.getElementById('btn-text');
-          const heroBtn = document.getElementById('hero-radio-btn');
-
-          if (isLiveTime) {
-            if (badge) {
-              badge.style.backgroundColor = '#7f1d1d';
-              badge.style.borderColor = '#ef4444';
-              badge.style.color = '#fecaca';
-              badge.innerHTML = '🔴 ¡ESTAMOS AL AIRE AHORA MISMO! (11:30 - 12:30 HRS)';
-            }
-            if (btn && btnText) {
-              btn.style.backgroundColor = '#dc2626';
-              btn.style.color = '#ffffff';
-              btnText.textContent = '🔴 Escuchar Programa en Vivo Ahora';
-            }
-            if (heroBtn) {
-              heroBtn.style.backgroundColor = '#dc2626';
-              heroBtn.style.color = '#ffffff';
-              heroBtn.innerHTML = '<span>🔴 ¡AL AIRE AHORA! Escuchar Programa en Vivo (97.7 FM)</span>';
-            }
-          }
-        } catch (e) {}
-      })();
-    </script>
 
     <!-- Nuestra Filosofía -->
     <section class="py-14 bg-slate-50 border-t border-b border-slate-200" id="filosofia">
@@ -370,7 +323,7 @@ import FormularioContacto from '../components/FormularioContacto.astro';
             <div>
               <div class="flex justify-between items-center mb-3">
                 <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-sm bg-[#F4EFEA] text-oro-oscuro">Libertad de Prensa</span>
-                <span class="text-xs font-semibold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded-sm">Rol N° 7808-2026</span>
+                <span class="text-xs font-semibold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded-sm>Rol N° 7808-2026</span>
               </div>
               <h3 class="text-base font-bold text-slate-900 mb-2 leading-snug">
                 <a href="https://www.diarioconstitucional.cl/2026/06/16/corte-suprema-descarta-eliminar-noticias-invocando-el-derecho-al-olvido/" target="_blank" rel="noopener noreferrer" class="hover:text-oro-oscuro transition-colors">
