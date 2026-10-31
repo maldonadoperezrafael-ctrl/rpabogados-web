@@ -5,6 +5,169 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import FormularioContacto from '../components/FormularioContacto.astro';
 ---
+<style>
+  .radio-live-pill,
+  .radio-live-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+  }
+
+  .radio-live-pill {
+    max-width: 100%;
+    flex-wrap: wrap;
+    padding: 0.45rem 0.8rem;
+    border: 1px solid #C5A880;
+    border-radius: 999px;
+    background: rgba(197, 168, 128, 0.08);
+    color: #C5A880;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .radio-live-dot {
+    width: 0.58rem;
+    height: 0.58rem;
+    flex: 0 0 auto;
+    border-radius: 999px;
+    background: #ff4d5e;
+    box-shadow: 0 0 0 0 rgba(255, 77, 94, 0.55);
+    animation: radioPulse 1.7s ease-out infinite;
+  }
+
+  .radio-eq {
+    display: inline-flex;
+    align-items: flex-end;
+    gap: 2px;
+    height: 13px;
+  }
+
+  .radio-eq i {
+    display: block;
+    width: 3px;
+    height: 5px;
+    border-radius: 999px;
+    background: currentColor;
+    animation: radioEq 0.85s ease-in-out infinite;
+  }
+
+  .radio-eq i:nth-child(2) { animation-delay: 0.14s; }
+  .radio-eq i:nth-child(3) { animation-delay: 0.28s; }
+
+  .radio-live-cta {
+    justify-content: center;
+    min-height: 52px;
+    padding: 0.9rem 1.25rem;
+    border-radius: 4px;
+    background: linear-gradient(135deg, #b89455, #dfc083);
+    color: #12151B;
+    font-weight: 800;
+    text-decoration: none;
+    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.35);
+    position: relative;
+    overflow: hidden;
+    transition: transform 180ms ease, box-shadow 180ms ease;
+  }
+
+  .radio-live-cta::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(110deg, transparent 20%, rgba(255,255,255,0.35) 50%, transparent 80%);
+    transform: translateX(-100%);
+    animation: ctaShine 3.6s ease-in-out infinite;
+  }
+
+  .radio-live-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.42);
+  }
+
+  .case-award {
+    margin-top: 1.5rem;
+    padding: 1.1rem 1.25rem;
+    border-left: 4px solid #C5A880;
+    background: rgba(197, 168, 128, 0.14);
+  }
+
+  .case-award span,
+  .case-award small {
+    display: block;
+  }
+
+  .case-award span {
+    color: #6f6049;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .case-award strong {
+    display: block;
+    margin-top: 0.3rem;
+    color: #12151B;
+    font-family: Cormorant, serif;
+    font-size: clamp(2.4rem, 6vw, 4.4rem);
+    line-height: 0.95;
+  }
+
+  .case-award small {
+    margin-top: 0.45rem;
+    color: #62594c;
+    font-size: 0.78rem;
+  }
+
+  .case-source-link,
+  .social-mini {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding: 0.8rem 0.9rem;
+    border: 1px solid rgba(197, 168, 128, 0.45);
+    border-radius: 4px;
+    color: #F8F1E7;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background 180ms ease, border-color 180ms ease, transform 180ms ease;
+  }
+
+  .case-source-link:hover,
+  .social-mini:hover {
+    background: rgba(197, 168, 128, 0.12);
+    border-color: #C5A880;
+    transform: translateY(-1px);
+  }
+
+  @keyframes radioPulse {
+    70% { box-shadow: 0 0 0 10px rgba(255, 77, 94, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 77, 94, 0); }
+  }
+
+  @keyframes radioEq {
+    0%, 100% { height: 5px; }
+    50% { height: 13px; }
+  }
+
+  @keyframes ctaShine {
+    0%, 35% { transform: translateX(-100%); }
+    70%, 100% { transform: translateX(100%); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .radio-live-dot,
+    .radio-eq i,
+    .radio-live-cta,
+    .radio-live-cta::after {
+      animation: none;
+      transition: none;
+    }
+  }
+</style>
 
 <Layout title="RP Abogados | Litigación Estratégica & Derecho Público | Santiago, Chile">
   <Header />
@@ -31,22 +194,34 @@ import FormularioContacto from '../components/FormularioContacto.astro';
 
           <!-- BOTÓN DIRECTO EN LA PORTADA -->
           <div style="margin-top: 20px;">
-            <a href="https://www.radiocorporacionpichilemu.net/" target="_blank" rel="noopener noreferrer" style="background-color: #C5A880; color: #12151B; display: inline-flex; align-items: center; gap: 10px; padding: 14px 24px; font-weight: 700; font-size: 14px; border-radius: 4px; text-decoration: none; box-shadow: 0 4px 14px rgba(0,0,0,0.5);">
-              <span>📻 Escúchanos en Vivo: Martes y Viernes 11:30 hrs (Radio Corporación 97.7 FM)</span>
+            <a
+              href="https://www.radiocorporacionpichilemu.net/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="radio-live-cta"
+              aria-label="Escuchar en vivo Radio Corporación 97.7 FM"
+            >
+              <span class="radio-live-dot" aria-hidden="true"></span>
+              <span>Al Aire · Escúchanos en vivo</span>
+              <span class="radio-eq" aria-hidden="true"><i></i><i></i><i></i></span>
+              <span>Miércoles y Viernes · 11:30 hrs</span>
             </a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- BANNER PROGRAMA RADIAL RP ABOGADOS -->
+    <!-- BANNER COBERTURA Y PROGRAMA RADIAL RP ABOGADOS -->
     <section class="bg-[#12151B] py-10 px-4 border-t border-b border-white/20">
       <div class="max-w-6xl mx-auto">
         <div class="rounded-sm bg-[#181a1f] border border-slate-700 p-6 md:p-8 shadow-lg">
           <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
             <div class="space-y-3 max-w-2xl">
-              <div style="background-color: #1e293b; border: 1px solid #C5A880; color: #C5A880; display: inline-block; padding: 4px 12px; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;">
-                📻 Programa Radial • Martes y Viernes 11:30 hrs
+              <div class="radio-live-pill">
+                <span class="radio-live-dot" aria-hidden="true"></span>
+                <span>Al Aire</span>
+                <span class="radio-eq" aria-hidden="true"><i></i><i></i><i></i></span>
+                <span>Cobertura y atención · Miércoles y Viernes · 11:30 hrs</span>
               </div>
 
               <h2 class="text-2xl md:text-3xl font-bold text-white tracking-tight">
@@ -54,19 +229,77 @@ import FormularioContacto from '../components/FormularioContacto.astro';
               </h2>
 
               <p class="text-white/85 text-sm md:text-base leading-relaxed">
-                Sintoniza a <strong class="text-white">Rafael Pérez Maldonado</strong> junto a Germán Rojas López en <strong class="text-white">Radio Corporación Pichilemu (97.7 FM)</strong>. Todos los martes y viernes a las 11:30 hrs analizamos casos reales, defensa de terrenos, herencias, negligencias y respondemos tus consultas en directo.
+                Nuestra presencia regional se respalda con litigación efectiva:
+                en Pichilemu, <strong class="text-white">RP Abogados</strong> obtuvo
+                una condena solidaria de
+                <strong class="text-[#C5A880]">$300.000.000</strong>
+                en el caso destacado de reparación civil. Sintoniza a
+                <strong class="text-white">Rafael Pérez Maldonado</strong> junto a
+                Germán Rojas López en
+                <strong class="text-white">Radio Corporación Pichilemu, 97.7 FM</strong>,
+                los miércoles y viernes a las 11:30 horas.
+              </p>
+
+              <p class="text-white/65 text-xs leading-relaxed">
+                Atención presencial y telemática en la Región Metropolitana y la Región de O’Higgins.
               </p>
             </div>
 
-            <div class="flex flex-col gap-3 shrink-0">
-              <a href="https://www.radiocorporacionpichilemu.net/" target="_blank" rel="noopener noreferrer" style="background-color: #C5A880; color: #12151B; display: inline-flex; align-items: center; justify-content: center; padding: 14px 24px; font-weight: 700; font-size: 14px; border-radius: 4px; text-decoration: none; text-align: center;">
-                <span>▶ Escuchar Señal Oficial Online</span>
+            <div class="flex flex-col gap-3 shrink-0 w-full lg:w-auto">
+              <a
+                href="https://www.radiocorporacionpichilemu.net/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="radio-live-cta"
+                aria-label="Escuchar señal en vivo de Radio Corporación 97.7 FM"
+              >
+                <span class="radio-live-dot" aria-hidden="true"></span>
+                <span>Escuchar señal en vivo</span>
+                <span class="radio-eq" aria-hidden="true"><i></i><i></i><i></i></span>
               </a>
 
+              <div class="grid grid-cols-2 gap-2">
+                <a
+                  href="https://www.youtube.com/@RadioCorpPichilemu"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="social-mini"
+                  aria-label="Ver YouTube de Radio Corporación"
+                >
+                  <span>YouTube</span>
+                  <span aria-hidden="true">↗</span>
+                </a>
+
+                <a
+                  href="https://www.facebook.com/RadioCorporacionDePichilemu/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="social-mini"
+                  aria-label="Ver Facebook de Radio Corporación"
+                >
+                  <span>Facebook</span>
+                  <span aria-hidden="true">↗</span>
+                </a>
+              </div>
+
               <div class="flex items-center justify-center gap-4 text-xs pt-1">
-                <a href="https://radio.garden/listen/radio-corporacion-pichilemu-97-7-fm/5txg3gi4?hl=es" target="_blank" rel="noopener noreferrer" style="color: #cbd5e1; text-decoration: underline;">Radio Garden (Celular)</a>
+                <a
+                  href="https://radio.garden/listen/radio-corporacion-pichilemu-97-7-fm/5txg3gi4?hl=es"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-slate-300 hover:text-[#C5A880] underline"
+                >
+                  Radio Garden
+                </a>
                 <span class="text-white/30">•</span>
-                <a href="https://emisora.cl/corporacion-pichilemu/" target="_blank" rel="noopener noreferrer" style="color: #cbd5e1; text-decoration: underline;">Señal Emisora.cl</a>
+                <a
+                  href="https://emisora.cl/corporacion-pichilemu/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-slate-300 hover:text-[#C5A880] underline"
+                >
+                  Emisora.cl
+                </a>
               </div>
             </div>
           </div>
@@ -133,6 +366,97 @@ import FormularioContacto from '../components/FormularioContacto.astro';
             <div class="text-3xl md:text-4xl font-light text-[#C5A880] mb-1">RM-VI</div>
             <div class="text-xs md:text-sm text-white/70">Santiago y Región de O'Higgins</div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Caso destacado · Responsabilidad civil -->
+    <section
+      class="relative py-16 bg-[#F4EFEA] border-t border-b border-[#d8c8a8]"
+      aria-labelledby="case-title"
+    >
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div class="lg:col-span-7">
+            <span class="text-xs font-bold uppercase tracking-widest text-oro-oscuro block mb-2">
+              Caso destacado · Responsabilidad civil
+            </span>
+
+            <h2
+              id="case-title"
+              class="font-cormorant text-4xl md:text-5xl lg:text-6xl font-semibold text-slate-900 leading-tight tracking-tight"
+            >
+              Sentencia de reparación civil en Pichilemu.
+            </h2>
+
+            <div class="w-16 h-0.5 bg-[#C5A880] mt-4 mb-5"></div>
+
+            <p class="text-slate-700 text-sm md:text-base leading-relaxed max-w-2xl">
+              El Juzgado de Letras de Pichilemu declaró la responsabilidad solidaria
+              del conductor y del propietario de un vehículo por un atropello ocurrido
+              en abril de 2023. La resolución ordenó reparar los daños derivados del
+              fallecimiento de una mujer y de las lesiones sufridas por su hijo.
+            </p>
+
+            <div class="mt-5 flex flex-wrap gap-2 text-xs">
+              <span class="px-3 py-1.5 rounded-sm bg-white border border-slate-300 text-slate-700 font-semibold">
+                Sentencia · 8 de octubre de 2026
+              </span>
+              <span class="px-3 py-1.5 rounded-sm bg-white border border-slate-300 text-slate-700 font-semibold">
+                Representación · RP Abogados
+              </span>
+            </div>
+
+            <div
+              class="case-award"
+              aria-label="Condena solidaria obtenida por RP Abogados por 300 millones de pesos"
+            >
+              <span>Condena solidaria obtenida por RP Abogados</span>
+              <strong>$300.000.000</strong>
+              <small>Reparación civil destacada · Pichilemu · 8 de octubre de 2026</small>
+            </div>
+          </div>
+
+          <aside class="lg:col-span-5 bg-[#12151B] text-white p-6 md:p-7 rounded-sm border border-white/10 shadow-lg">
+            <span class="text-xs font-bold uppercase tracking-widest text-[#C5A880] block mb-2">
+              Fuentes periodísticas
+            </span>
+
+            <h3 class="text-xl md:text-2xl font-bold text-white leading-snug">
+              Cobertura del fallo en medios regionales.
+            </h3>
+
+            <div class="w-12 h-0.5 bg-[#C5A880] my-4"></div>
+
+            <p class="text-white/75 text-sm leading-relaxed mb-5">
+              La sentencia fue informada por medios de la costa regional y destaca
+              la responsabilidad solidaria decretada por el tribunal.
+            </p>
+
+            <div class="space-y-3">
+              <a
+                href="https://www.expresodelacosta.cl/noticia/justicia-por-fatal-atropello-en-pichilemu-condenan-a-conductor-y-dueno-de-camioneta-a-pagar-mas-de-299-millones"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="case-source-link"
+                aria-label="Leer nota en Expreso de la Costa"
+              >
+                <span>Expreso de la Costa</span>
+                <span aria-hidden="true">↗</span>
+              </a>
+
+              <a
+                href="https://www.diarioelmarino.cl/2026/10/16/juzgado-de-pichilemu-condena-a-conductor-y-propietario-de-camioneta-a-pagar-casi-300-millones-por-atropello-fatal/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="case-source-link"
+                aria-label="Leer nota en Diario El Marino"
+              >
+                <span>Diario El Marino</span>
+                <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+          </aside>
         </div>
       </div>
     </section>
