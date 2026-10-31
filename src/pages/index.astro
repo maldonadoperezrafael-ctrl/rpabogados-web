@@ -1,13 +1,13 @@
 ---
 // src/pages/index.astro
-// Compilación íntegra de Home.tsx + SiteHeader + EditorialList + FaqList + ContactForm + SiteFooter
+// Versión oficial definitiva: Identidad visual corporativa, colores originales (azul/oscuro y oro #C5A880), logo oficial, hito $300M, Radio Corporación 97.7 FM y Radar de Jurisprudencia / Actualidad (PJUD + Prensa).
 ---
 <!doctype html>
-<html lang="es-CL">
+<html lang="es-CL" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#1a1a1a" />
+    <meta name="theme-color" content="#12151b" />
     <meta name="robots" content="index, follow" />
     <meta
       name="description"
@@ -22,14 +22,6 @@
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://www.rpabogados.cl/" />
     <meta property="og:image" content="https://www.rpabogados.cl/marca/rp-abogados-og.png" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="RP Abogados. Estrategia legal. Defensa con propósito." />
-
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="RP Abogados | Estrategia legal. Defensa con propósito." />
-    <meta name="twitter:description" content="Litigación estratégica para personas y empresas en la Región Metropolitana y O’Higgins." />
-    <meta name="twitter:image" content="https://www.rpabogados.cl/marca/rp-abogados-og.png" />
 
     <link rel="icon" type="image/png" sizes="32x32" href="https://2zlfjfqwo2nyc.kimi.pro/favicon-32.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="https://2zlfjfqwo2nyc.kimi.pro/marca/rp-abogados-simbolo-180.png" />
@@ -37,7 +29,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Source+Sans+3:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Source+Sans+3:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
 
@@ -74,113 +66,94 @@
       }
     </script>
 
-    <!-- Estilos Base de Kimi (App.css) -->
     <link rel="stylesheet" href="https://2zlfjfqwo2nyc.kimi.pro/assets/index-DvIUQ_nt.css" />
 
-    <!-- Estilos de Home.overrides.css (Condena $300M y Botón Radio Corporación 97.7 FM) -->
     <style>
-      .case-award {
-        margin: 1.5rem 0 1.75rem;
-        padding: 1.15rem 1.35rem;
-        border-left: 3px solid #9a7b4f;
-        background: rgba(154, 123, 79, 0.08);
-        display: flex;
-        flex-direction: column;
-        gap: 0.2rem;
+      :root {
+        --color-azul-corporativo: #12151b;
+        --color-azul-panel: #181a1f;
+        --color-oro: #C5A880;
+        --color-oro-hover: #b4976e;
       }
-      .case-award span {
-        font-size: 0.76rem;
+      body {
+        background-color: var(--color-azul-corporativo);
+        color: #f5f2eb;
+      }
+      /* Cero naranja, acentos estrictamente en azul/oscuro y oro #C5A880 */
+      .text-oro { color: var(--color-oro) !important; }
+      .bg-oro { background-color: var(--color-oro) !important; }
+      .border-oro { border-color: var(--color-oro) !important; }
+
+      /* Tarjeta de Condena Solidaria $300 Millones */
+      .rp-300m-box {
+        margin: 1.5rem 0;
+        padding: 1.25rem 1.5rem;
+        background: rgba(197, 168, 128, 0.08);
+        border-left: 4px solid var(--color-oro);
+        border-top: 1px solid rgba(197, 168, 128, 0.2);
+        border-right: 1px solid rgba(197, 168, 128, 0.2);
+        border-bottom: 1px solid rgba(197, 168, 128, 0.2);
+        border-radius: 4px;
+      }
+      .rp-300m-title {
+        font-size: 0.75rem;
         font-weight: 700;
         text-transform: uppercase;
         letter-spacing: 0.12em;
-        color: #7d623c;
+        color: var(--color-oro);
+        margin-bottom: 0.3rem;
       }
-      .case-award strong {
+      .rp-300m-amount {
         font-family: 'Newsreader', Georgia, serif;
-        font-size: clamp(1.9rem, 3.2vw, 2.65rem);
+        font-size: clamp(2rem, 3.5vw, 2.75rem);
         font-weight: 600;
-        line-height: 1.05;
-        color: #171614;
+        color: #ffffff;
+        line-height: 1.1;
       }
-      .case-award small {
-        font-size: 0.85rem;
-        color: #57534e;
+      .rp-300m-sub {
+        font-size: 0.82rem;
+        color: rgba(255, 255, 255, 0.75);
+        margin-top: 0.2rem;
       }
-      .radio-live {
+
+      /* Botón Radio Corporación 97.7 FM */
+      .rp-radio-btn {
+        background-color: var(--color-oro);
+        color: #12151B;
         display: inline-flex;
         align-items: center;
-        gap: 0.55rem;
+        justify-content: center;
+        gap: 10px;
+        padding: 14px 24px;
+        font-weight: 700;
+        font-size: 14px;
+        border-radius: 4px;
+        text-decoration: none !important;
+        box-shadow: 0 4px 14px rgba(0,0,0,0.4);
+        transition: all 0.2s ease;
       }
-      .radio-live-dot {
+      .rp-radio-btn:hover {
+        background-color: var(--color-oro-hover);
+        transform: translateY(-1px);
+      }
+      .rp-live-dot {
         position: relative;
         display: inline-flex;
-        width: 9px;
-        height: 9px;
-        border-radius: 999px;
+        width: 10px;
+        height: 10px;
         background: #ef4444;
-        flex-shrink: 0;
+        border-radius: 50%;
       }
-      .radio-live-dot::after {
+      .rp-live-dot::after {
         content: '';
         position: absolute;
         inset: -4px;
-        border-radius: 999px;
-        background: rgba(239, 68, 68, 0.45);
-        animation: rpPulse 1.5s ease-out infinite;
-      }
-      .radio-eq {
-        display: inline-flex;
-        align-items: flex-end;
-        gap: 2.5px;
-        height: 14px;
-      }
-      .radio-eq i {
-        display: block;
-        width: 2.5px;
-        background: currentColor;
-        border-radius: 2px;
-      }
-      .radio-eq i:nth-child(1) { height: 6px; animation: rpEq 0.8s ease-in-out infinite; }
-      .radio-eq i:nth-child(2) { height: 13px; animation: rpEq 0.65s ease-in-out 0.15s infinite; }
-      .radio-eq i:nth-child(3) { height: 8px; animation: rpEq 0.9s ease-in-out 0.3s infinite; }
-
-      .radio-live-cta {
-        margin: 1.15rem 0 0.9rem;
-        padding: 0.95rem 1.2rem;
-        border-radius: 6px;
-        background: linear-gradient(135deg, #d4b26a 0%, #c5a880 55%, #a88438 100%);
-        color: #141413 !important;
-        font-weight: 700;
-        font-size: 0.96rem;
-        display: inline-flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 0.8rem;
-        width: 100%;
-        text-decoration: none !important;
-        box-shadow: 0 10px 26px rgba(197, 168, 128, 0.24);
-        transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
-      }
-      .radio-live-cta:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 14px 30px rgba(197, 168, 128, 0.36);
-        filter: brightness(1.04);
-      }
-      .radio-live-cta .radio-live-dot {
-        background: #dc2626;
+        border-radius: 50%;
+        background: rgba(239, 68, 68, 0.5);
+        animation: rpPulse 1.5s infinite;
       }
       @keyframes rpPulse {
-        75%, 100% { transform: scale(2.1); opacity: 0; }
-      }
-      @keyframes rpEq {
-        0%, 100% { height: 4px; }
-        50% { height: 14px; }
-      }
-      @media (prefers-reduced-motion: reduce) {
-        .radio-live-dot::after,
-        .radio-eq i {
-          animation: none !important;
-        }
+        75%, 100% { transform: scale(2.2); opacity: 0; }
       }
     </style>
   </head>
@@ -188,1082 +161,511 @@
   <body>
     <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
-    <!-- Presentación de Marca (brand-intro) -->
-    <div id="brand-intro" class="brand-intro" role="region" aria-label="Presentación de RP Abogados" style="display: none;">
-      <div class="intro-brand">
-        <img
-          class="intro-logo"
-          src="/marca/rp-abogados-logo-claro.png"
-          onerror="this.onerror=null;this.src='https://2zlfjfqwo2nyc.kimi.pro/marca/rp-abogados-logo-claro.png';"
-          alt="RP Abogados — Ayudamos a la gente"
-          width="1600"
-          height="237"
-        />
-      </div>
-      <div class="intro-rule" aria-hidden="true"></div>
-      <button type="button" id="skip-intro-btn">Saltar presentación</button>
-    </div>
-
-    <!-- SiteHeader -->
-    <header id="site-header" class="site-header">
-      <div class="header-inner">
-        <a class="brand" href="#inicio" aria-label="RP Abogados, volver al inicio">
+    <!-- SiteHeader con Logo Oficial -->
+    <header class="sticky top-0 z-50 bg-[#12151B]/95 backdrop-blur-md border-b border-white/10">
+      <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+        <a href="#inicio" class="flex items-center group">
           <img
-            class="brand-logo"
             src="/marca/rp-abogados-logo-claro.png"
             onerror="this.onerror=null;this.src='https://2zlfjfqwo2nyc.kimi.pro/marca/rp-abogados-logo-claro.png';"
-            alt=""
+            alt="RP Abogados - Ayudamos a la gente"
+            class="h-10 w-auto object-contain"
             width="1600"
             height="237"
           />
         </a>
-        <nav class="desktop-nav" aria-label="Navegación principal">
-          <a class="nav-link" href="#filosofia">Filosofía</a>
-          <a class="nav-link" href="#areas">Áreas</a>
-          <a class="nav-link" href="#metodo">Método</a>
-          <a class="nav-link" href="#socios">Socios</a>
-          <a class="nav-link" href="#actualidad">Actualidad</a>
-          <a class="nav-link contact-nav-link" href="#contacto">Contacto</a>
+
+        <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-stone-300" aria-label="Navegación principal">
+          <a href="#filosofia" class="hover:text-[#C5A880] transition-colors">FILOSOFÍA</a>
+          <a href="#areas" class="hover:text-[#C5A880] transition-colors">ÁREAS</a>
+          <a href="#metodo" class="hover:text-[#C5A880] transition-colors">MÉTODO</a>
+          <a href="#socios" class="hover:text-[#C5A880] transition-colors">SOCIOS</a>
+          <a href="#actualidad" class="hover:text-[#C5A880] transition-colors">ACTUALIDAD</a>
+          <a href="#contacto" class="hover:text-[#C5A880] transition-colors">CONTACTO</a>
         </nav>
-        <button id="menu-open-btn" class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false">
-          <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu" aria-hidden="true"><path d="M4 5h16"/><path d="M4 12h16"/><path d="M4 19h16"/></svg>
-        </button>
+
+        <a
+          href="#contacto"
+          class="px-4 py-2 rounded bg-[#C5A880] hover:bg-[#b4976e] text-[#12151B] font-bold text-xs sm:text-sm transition-all"
+        >
+          Solicitar evaluación
+        </a>
       </div>
     </header>
 
-    <!-- Menú Móvil Desplegable -->
-    <div id="mobile-menu-backdrop" class="mobile-menu-backdrop" style="display: none;">
-      <div class="mobile-menu" role="dialog" aria-modal="true" aria-label="Menú de navegación" onclick="event.stopPropagation()">
-        <div class="mobile-menu-top">
-          <img
-            class="brand-logo mobile-menu-logo"
-            src="/marca/rp-abogados-logo-claro.png"
-            onerror="this.onerror=null;this.src='https://2zlfjfqwo2nyc.kimi.pro/marca/rp-abogados-logo-claro.png';"
-            alt="RP Abogados"
-            width="1600"
-            height="237"
-          />
-          <button id="menu-close-btn" type="button" aria-label="Cerrar menú">
-            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
-          </button>
-        </div>
-        <nav aria-label="Navegación móvil">
-          <a href="#filosofia" class="mobile-nav-item">Filosofía <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7 7 10 10"/><path d="M17 7v10H7"/></svg></a>
-          <a href="#areas" class="mobile-nav-item">Áreas <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7 7 10 10"/><path d="M17 7v10H7"/></svg></a>
-          <a href="#metodo" class="mobile-nav-item">Método <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7 7 10 10"/><path d="M17 7v10H7"/></svg></a>
-          <a href="#socios" class="mobile-nav-item">Socios <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7 7 10 10"/><path d="M17 7v10H7"/></svg></a>
-          <a href="#actualidad" class="mobile-nav-item">Actualidad <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7 7 10 10"/><path d="M17 7v10H7"/></svg></a>
-          <a href="#contacto" class="contact-nav-link mobile-nav-item">Contacto <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7 7 10 10"/><path d="M17 7v10H7"/></svg></a>
-          <a href="#presencia" class="mobile-nav-item">Presencia regional <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7 7 10 10"/><path d="M17 7v10H7"/></svg></a>
-        </nav>
-        <a class="button-primary mobile-menu-cta mobile-nav-item" href="#contacto">
-          Solicitar evaluación inicial
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-        </a>
-      </div>
-    </div>
-
     <main id="contenido">
-      <!-- HERO -->
-      <section class="hero hero-concept" id="inicio" aria-labelledby="hero-title">
-        <div class="hero-media" aria-hidden="true">
-          <img
-            src="/fotos/fondo-hormigon.webp"
-            onerror="this.onerror=null;this.src='https://2zlfjfqwo2nyc.kimi.pro/fotos/fondo-hormigon.webp';"
-            alt=""
-            width="1920"
-            height="1282"
-            fetchpriority="high"
-            decoding="async"
-          />
+      <!-- HERO SECTION -->
+      <section id="inicio" class="relative min-h-[90vh] flex items-end overflow-hidden bg-[#181a1f]">
+        <div class="absolute inset-0">
+          <img src="/fotos/fondo-hormigon.webp" onerror="this.onerror=null;this.src='https://2zlfjfqwo2nyc.kimi.pro/fotos/fondo-hormigon.webp';" width="1920" height="1282" fetchpriority="high" decoding="async" alt="" class="w-full h-full object-cover object-center" />
+          <div class="absolute inset-0 bg-gradient-to-r from-black/85 via-black/55 to-transparent"></div>
         </div>
-        <div class="container hero-inner">
-          <div class="hero-kicker hero-enter">Litigación de alta complejidad</div>
-          <h1 id="hero-title" class="hero-title">
-            <span>Estrategia legal.</span>
-            <span class="hero-title-shift">Defensa con <em>propósito.</em></span>
-          </h1>
-          <div class="hero-bottom hero-enter hero-enter-delay-2">
-            <p class="hero-intro">
-              Litigación de alta complejidad para personas y empresas que necesitan una respuesta rigurosa, clara y comprometida.
+
+        <div class="relative z-10 w-full max-w-7xl mx-auto px-6 pb-20 pt-24">
+          <div class="max-w-3xl">
+            <h1 class="font-cormorant text-white text-6xl md:text-8xl lg:text-9xl font-semibold leading-[0.9] mb-6 tracking-normal drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)]">
+              RP<br />ABOGADOS
+            </h1>
+
+            <div class="w-24 h-1 bg-[#C5A880] mb-8 shadow-md"></div>
+
+            <p class="text-white/95 text-lg md:text-xl font-normal leading-relaxed max-w-2xl drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)] mb-8">
+              Estudio jurídico orientado en litigación de alta complejidad, en juicios de derechos de daños, en delitos penales económicos-tributarios y de alta connotación social, contencioso administrativos, acciones constitucionales, derecho migratorio y derecho laboral de la empresa colectivo e individual. Desde Santiago y la Región de O'Higgins, asesoramos a personas, empresas e instituciones en los casos más desafiantes, con un enfoque estratégico, ético y orientado a resultados.
             </p>
-            <div class="hero-actions">
-              <a class="text-link text-link-light" href="#areas">
-                Explorar áreas de práctica
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7 7 10 10"/><path d="M17 7v10H7"/></svg>
+
+            <!-- Botón de acceso directo al programa radial en el Hero -->
+            <div class="flex flex-wrap items-center gap-4 pt-2">
+              <a href="https://www.radiocorporacionpichilemu.net/" target="_blank" rel="noopener noreferrer" class="rp-radio-btn">
+                <span class="rp-live-dot" aria-hidden="true"></span>
+                <span>📻 Escúchanos en Vivo: Martes y Viernes 11:30 hrs (Radio Corporación 97.7 FM)</span>
+              </a>
+              <a href="#presencia" class="text-white/80 hover:text-white text-sm font-semibold underline underline-offset-4">
+                Ver cobertura y programa en detalle &rarr;
               </a>
             </div>
           </div>
-          <div class="hero-practices hero-enter hero-enter-delay-3" aria-label="Áreas de práctica">
-            <span>Derecho civil y de daños</span><span>Representación penal</span><span>Derecho público</span><span>Litigación laboral</span>
-          </div>
         </div>
       </section>
 
-      <!-- FILOSOFÍA -->
-      <section class="philosophy section-light" id="filosofia">
-        <div class="container philosophy-grid">
-          <h2 data-reveal>
-            No se trata solo de responder.<br />
-            <em>Se trata de entender qué está en juego.</em>
-          </h2>
-          <div class="philosophy-copy" data-reveal data-delay="120">
-            <p>
-              Cada conflicto exige una lectura propia. Por eso combinamos análisis jurídico, estrategia y seguimiento cercano, sin fórmulas automáticas ni promesas fáciles.
-            </p>
-            <p>
-              Nuestro trabajo comienza antes de presentar una acción: comprender el problema, ordenar los antecedentes y tomar decisiones con criterio.
-            </p>
-            <a class="text-link" href="#metodo">
-              Conocer nuestra forma de trabajo
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7 7 10 10"/><path d="M17 7v10H7"/></svg>
-            </a>
-          </div>
-        </div>
-      </section>
+      <!-- BANNER PROGRAMA RADIAL "LA LEY SIN LETRA CHICA" -->
+      <section id="presencia" class="bg-[#12151B] py-12 px-6 border-t border-b border-white/20">
+        <div class="max-w-6xl mx-auto">
+          <div class="rounded-sm bg-[#181a1f] border border-slate-700 p-6 md:p-10 shadow-lg">
+            <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
+              <div class="space-y-4 max-w-2xl">
+                <div style="background-color: #1e293b; border: 1px solid #C5A880; color: #C5A880; display: inline-block; padding: 4px 12px; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;">
+                  📻 Programa Radial • Martes y Viernes 11:30 hrs
+                </div>
 
-      <!-- INTERLUDIO VISUAL -->
-      <section class="media-interlude" aria-labelledby="media-title">
-        <div class="media-grid" aria-hidden="true">
-          <div class="media-shot media-shot-main">
-            <img src="/fotos/area-publico.webp" onerror="this.onerror=null;this.src='https://2zlfjfqwo2nyc.kimi.pro/fotos/area-publico.webp';" alt="" width="720" height="420" loading="lazy" decoding="async" />
-          </div>
-          <div class="media-shot media-shot-top">
-            <img src="/fotos/area-civil.webp" onerror="this.onerror=null;this.src='https://2zlfjfqwo2nyc.kimi.pro/fotos/area-civil.webp';" alt="" width="1400" height="935" loading="lazy" decoding="async" />
-          </div>
-          <div class="media-shot media-shot-bottom">
-            <img src="/fotos/area-laboral.webp" onerror="this.onerror=null;this.src='https://2zlfjfqwo2nyc.kimi.pro/fotos/area-laboral.webp';" alt="" width="900" height="592" loading="lazy" decoding="async" />
-          </div>
-        </div>
-        <div class="media-statement" data-reveal>
-          <span>El trabajo detrás de cada estrategia</span>
-          <h2 id="media-title">Leer. Contrastar. Decidir.</h2>
-        </div>
-      </section>
+                <h2 class="text-2xl md:text-4xl font-bold text-white tracking-tight">
+                  «¿Por qué nadie lo ha dicho antes?» <span class="text-[#C5A880]">La Ley sin Letra Chica</span>
+                </h2>
 
-      <!-- ÁREAS DE PRÁCTICA (DESPLIEGUE DINÁMICO) -->
-      <section class="areas-section" id="areas" aria-labelledby="areas-title">
-        <div class="container">
-          <div class="section-heading" data-reveal>
-            <div>
-              <span class="section-kicker">Áreas de práctica</span>
-              <h2 id="areas-title">Especialización que se explica con claridad.</h2>
+                <p class="text-white/85 text-sm md:text-base leading-relaxed">
+                  Sintoniza a <strong class="text-white">Rafael Pérez Maldonado</strong> junto a Germán Rojas López en <strong class="text-white">Radio Corporación Pichilemu (97.7 FM)</strong>. Todos los martes y viernes a las 11:30 hrs analizamos casos reales, defensa de terrenos, herencias, negligencias y respondemos tus consultas en directo.
+                </p>
+              </div>
+
+              <div class="flex flex-col gap-3 shrink-0">
+                <a href="https://www.radiocorporacionpichilemu.net/" target="_blank" rel="noopener noreferrer" class="rp-radio-btn justify-center text-center">
+                  <span class="rp-live-dot" aria-hidden="true"></span>
+                  <span>▶ Escuchar Señal Oficial Online</span>
+                </a>
+
+                <div class="flex items-center justify-center gap-4 text-xs pt-2 text-slate-300">
+                  <a href="https://radio.garden/listen/radio-corporacion-pichilemu-97-7-fm/5txg3gi4?hl=es" target="_blank" rel="noopener noreferrer" class="hover:text-white underline">Radio Garden (Celular)</a>
+                  <span class="text-white/30">•</span>
+                  <a href="https://emisora.cl/corporacion-pichilemu/" target="_blank" rel="noopener noreferrer" class="hover:text-white underline">Señal Emisora.cl</a>
+                </div>
+              </div>
             </div>
-            <p>Cuatro ámbitos de litigación. Una misma exigencia: comprender antes de actuar.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- NUESTRA FILOSOFÍA -->
+      <section class="py-16 bg-slate-50 border-t border-b border-slate-200 text-slate-900" id="filosofia">
+        <div class="max-w-6xl mx-auto px-6">
+          <div class="text-center max-w-3xl mx-auto mb-12">
+            <span class="text-xs font-bold uppercase tracking-widest text-[#C5A880] block mb-2">Principios Rectores</span>
+            <h2 class="text-3xl md:text-4xl font-bold tracking-tight">Nuestra Filosofía</h2>
+            <div class="w-12 h-0.5 bg-[#C5A880] mx-auto mt-3"></div>
           </div>
 
-          <div class="areas-layout">
-            <div class="area-visual" data-reveal>
-              <img
-                id="active-area-img"
-                src="/fotos/area-civil.webp"
-                onerror="this.onerror=null;this.src='https://2zlfjfqwo2nyc.kimi.pro/fotos/area-civil.webp';"
-                alt="Imagen editorial del área de Daños y civil"
-                width="1400"
-                height="935"
-                loading="lazy"
-                decoding="async"
-              />
-              <div class="area-visual-caption">
-                <span id="active-area-num">01</span>
-                <strong id="active-area-short">Daños y civil</strong>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-white p-8 rounded-sm border border-slate-200 border-t-4 border-t-[#C5A880] shadow-sm">
+              <span class="text-4xl font-bold text-[#C5A880] block mb-3">01</span>
+              <h3 class="text-xl font-bold mb-2">Dirección Personalizada de Cada Causa</h3>
+              <p class="text-slate-600 text-sm leading-relaxed">
+                Conducción directa y estratégica de cada litigio a cargo de los socios de la firma, integrando análisis crítico y visión multidisciplinaria en cada etapa procesal.
+              </p>
+            </div>
+
+            <div class="bg-white p-8 rounded-sm border border-slate-200 border-t-4 border-t-[#C5A880] shadow-sm">
+              <span class="text-4xl font-bold text-[#C5A880] block mb-3">02</span>
+              <h3 class="text-xl font-bold mb-2">Fundamentación y Precisión Técnica</h3>
+              <p class="text-slate-600 text-sm leading-relaxed">
+                Construcción de argumentos de alto estándar técnico sustentados en el análisis exhaustivo de legislación especializada, doctrina y jurisprudencia consolidada.
+              </p>
+            </div>
+
+            <div class="bg-white p-8 rounded-sm border border-slate-200 border-t-4 border-t-[#C5A880] shadow-sm">
+              <span class="text-4xl font-bold text-[#C5A880] block mb-3">03</span>
+              <h3 class="text-xl font-bold mb-2">Comunicación Permanente y Confidencialidad</h3>
+              <p class="text-slate-600 text-sm leading-relaxed">
+                Información continua y transparente sobre los avances y escenarios de cada causa, bajo el más estricto resguardo ético y reserva profesional.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- BARRA DE DATOS -->
+      <section class="bg-[#12151B] text-white py-12 border-t border-b border-white/10">
+        <div class="max-w-6xl mx-auto px-6">
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div>
+              <div class="text-3xl md:text-5xl font-light text-[#C5A880] mb-1">15+</div>
+              <div class="text-xs md:text-sm text-white/70 font-medium">Años de Trayectoria Jurídica</div>
+            </div>
+            <div>
+              <div class="text-3xl md:text-5xl font-light text-[#C5A880] mb-1">TS</div>
+              <div class="text-xs md:text-sm text-white/70 font-medium">Suprema, Cortes y TC</div>
+            </div>
+            <div>
+              <div class="text-3xl md:text-5xl font-light text-[#C5A880] mb-1">100%</div>
+              <div class="text-xs md:text-sm text-white/70 font-medium">Conducción Directa de Socios</div>
+            </div>
+            <div>
+              <div class="text-3xl md:text-5xl font-light text-[#C5A880] mb-1">RM-VI</div>
+              <div class="text-xs md:text-sm text-white/70 font-medium">Santiago y Región de O'Higgins</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ÁREAS DE PRÁCTICA -->
+      <section id="areas" class="py-16 bg-white text-slate-900">
+        <div class="text-center max-w-3xl mx-auto mb-12 px-6">
+          <span class="text-xs font-bold uppercase tracking-widest text-[#C5A880] block mb-1">Especialización Jurídica</span>
+          <h2 class="text-3xl md:text-4xl font-bold tracking-tight">Áreas de Práctica</h2>
+          <div class="w-12 h-0.5 bg-[#C5A880] mx-auto mt-3"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+          <div class="relative h-[380px] overflow-hidden group cursor-pointer">
+            <img src="/fotos/area-civil.webp" onerror="this.onerror=null;this.src='https://2zlfjfqwo2nyc.kimi.pro/fotos/area-civil.webp';" alt="" width="800" height="437" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+            <div class="absolute inset-0 bg-black/60 group-hover:bg-black/45 transition-all duration-500"></div>
+            <div class="relative z-10 h-full flex flex-col justify-end p-6">
+              <span class="text-xs font-bold uppercase tracking-widest text-[#C5A880] mb-1">01 / Civil</span>
+              <h3 class="text-white text-xl font-semibold mb-2">Litigación Civil</h3>
+              <div class="w-12 h-0.5 bg-[#C5A880] mb-3"></div>
+              <ul class="text-white/90 text-xs space-y-1.5 opacity-95">
+                <li>• Particiones de herencias y comunidades</li>
+                <li>• Expropiaciones e indemnizaciones</li>
+                <li>• Responsabilidad contractual y extracontractual</li>
+                <li>• Controversias sobre inmuebles y bienes</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="relative h-[380px] overflow-hidden group cursor-pointer">
+            <img src="/fotos/area-penal.webp" onerror="this.onerror=null;this.src='https://2zlfjfqwo2nyc.kimi.pro/fotos/area-penal.webp';" alt="" width="600" height="439" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+            <div class="absolute inset-0 bg-black/60 group-hover:bg-black/45 transition-all duration-500"></div>
+            <div class="relative z-10 h-full flex flex-col justify-end p-6">
+              <span class="text-xs font-bold uppercase tracking-widest text-[#C5A880] mb-1">02 / Penal</span>
+              <h3 class="text-white text-xl font-semibold mb-2">Litigación Penal &amp; Compliance</h3>
+              <div class="w-12 h-0.5 bg-[#C5A880] mb-3"></div>
+              <ul class="text-white/90 text-xs space-y-1.5 opacity-95">
+                <li>• Litigios penales de alta complejidad</li>
+                <li>• Delitos económicos, societarios y tributarios</li>
+                <li>• Querellas criminales y defensa penal</li>
+                <li>• Modelos de prevención del delito (Compliance)</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="relative h-[380px] overflow-hidden group cursor-pointer">
+            <img src="/fotos/area-publico.webp" onerror="this.onerror=null;this.src='https://2zlfjfqwo2nyc.kimi.pro/fotos/area-publico.webp';" alt="" width="720" height="420" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+            <div class="absolute inset-0 bg-black/60 group-hover:bg-black/45 transition-all duration-500"></div>
+            <div class="relative z-10 h-full flex flex-col justify-end p-6">
+              <span class="text-xs font-bold uppercase tracking-widest text-[#C5A880] mb-1">03 / Público</span>
+              <h3 class="text-white text-xl font-semibold mb-2">Derecho Público &amp; Administrativo</h3>
+              <div class="w-12 h-0.5 bg-[#C5A880] mb-3"></div>
+              <ul class="text-white/90 text-xs space-y-1.5 opacity-95">
+                <li>• Contencioso administrativo y sanciones</li>
+                <li>• Recursos de protección y amparo</li>
+                <li>• Contratación pública (ChileCompra)</li>
+                <li>• Sumarios disciplinarios y régimen municipal</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="relative h-[380px] overflow-hidden group cursor-pointer">
+            <img src="/fotos/area-laboral.webp" onerror="this.onerror=null;this.src='https://2zlfjfqwo2nyc.kimi.pro/fotos/area-laboral.webp';" alt="" width="900" height="592" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+            <div class="absolute inset-0 bg-black/60 group-hover:bg-black/45 transition-all duration-500"></div>
+            <div class="relative z-10 h-full flex flex-col justify-end p-6">
+              <span class="text-xs font-bold uppercase tracking-widest text-[#C5A880] mb-1">04 / Laboral</span>
+              <h3 class="text-white text-xl font-semibold mb-2">Litigación Laboral</h3>
+              <div class="w-12 h-0.5 bg-[#C5A880] mb-3"></div>
+              <ul class="text-white/90 text-xs space-y-1.5 opacity-95">
+                <li>• Juicios laborales de alta cuantía indemnizatoria</li>
+                <li>• Accidentes laborales y enfermedades profesionales</li>
+                <li>• Tutela laboral de derechos fundamentales</li>
+                <li>• Desvinculaciones de alta dirección y ejecutivos</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CASO DESTACADO · HITO $300 MILLONES EN PICHILEMU -->
+      <section class="py-16 bg-white border-t border-slate-200 text-slate-900">
+        <div class="max-w-6xl mx-auto px-6">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            <div class="lg:col-span-7 space-y-5">
+              <span class="text-xs font-bold uppercase tracking-widest text-[#C5A880] block">Caso destacado · Responsabilidad civil</span>
+              <h2 class="text-3xl md:text-5xl font-bold tracking-tight">Sentencia de reparación civil en Pichilemu.</h2>
+              <p class="text-slate-600 text-base leading-relaxed">
+                El Juzgado de Letras de Pichilemu declaró la responsabilidad solidaria del conductor y del propietario de un vehículo por un atropello ocurrido en abril de 2023. La resolución ordenó reparar los daños derivados del fallecimiento de una mujer y de las lesiones sufridas por su hijo.
+              </p>
+              
+              <!-- Recuadro del monto de $300 Millones exactos -->
+              <div class="rp-300m-box">
+                <div class="rp-300m-title">Condena solidaria obtenida por RP Abogados</div>
+                <div class="rp-300m-amount">$300.000.000</div>
+                <div class="rp-300m-sub">($299.622.440 · Sentencia firme del 8 de octubre de 2026)</div>
+              </div>
+
+              <div class="flex flex-wrap gap-6 text-xs text-slate-500 pt-1">
+                <span><strong>Sentencia</strong> · 8 de octubre de 2026</span>
+                <span><strong>Representación</strong> · RP Abogados</span>
+              </div>
+
+              <div class="pt-4 border-t border-slate-200 flex flex-wrap items-center gap-4 text-xs font-semibold">
+                <span class="text-slate-500">Fuentes en prensa:</span>
+                <a href="https://www.expresodelacosta.cl/noticia/justicia-por-fatal-atropello-en-pichilemu-condenan-a-conductor-y-dueno-de-camioneta-a-pagar-mas-de-299-millones" target="_blank" rel="noopener noreferrer" class="text-[#C5A880] hover:underline flex items-center gap-1">
+                  Expreso de la Costa ↗
+                </a>
+                <a href="https://www.diarioelmarino.cl/2026/10/16/juzgado-de-pichilemu-condena-a-conductor-y-propietario-de-camioneta-a-pagar-casi-300-millones-por-atropello-fatal/" target="_blank" rel="noopener noreferrer" class="text-[#C5A880] hover:underline flex items-center gap-1">
+                  Diario El Marino ↗
+                </a>
               </div>
             </div>
 
-            <div class="area-list" id="area-accordion-list" data-reveal data-delay="100">
-              <!-- Se renderiza dinámicamente e inicia con el área 01 desplegada -->
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- MÉTODO -->
-      <section class="method-section section-dark" id="metodo" aria-labelledby="method-title">
-        <div class="container">
-          <div class="method-intro" data-reveal>
-            <span class="section-kicker">Método</span>
-            <h2 id="method-title">Una estrategia se construye antes de entrar al tribunal.</h2>
-            <p>Claridad sobre el problema, el riesgo y los próximos pasos.</p>
-          </div>
-          <div class="method-grid">
-            <article data-reveal data-delay="0">
-              <span class="method-number">01</span>
-              <h3>Escuchar antes de concluir</h3>
-              <p>Partimos por comprender los hechos, el contexto y aquello que realmente está en juego para ti o tu empresa.</p>
-            </article>
-            <article data-reveal data-delay="80">
-              <span class="method-number">02</span>
-              <h3>Leer el riesgo</h3>
-              <p>Revisamos antecedentes, escenarios y puntos críticos para tomar decisiones con información, no por impulso.</p>
-            </article>
-            <article data-reveal data-delay="160">
-              <span class="method-number">03</span>
-              <h3>Diseñar la respuesta</h3>
-              <p>Construimos una estrategia jurídica proporcional al conflicto, con objetivos y prioridades claramente definidos.</p>
-            </article>
-            <article data-reveal data-delay="240">
-              <span class="method-number">04</span>
-              <h3>Sostener el seguimiento</h3>
-              <p>Comunicamos los hitos relevantes y mantenemos una lectura activa del caso durante su desarrollo.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- CASO DESTACADO · RESPONSABILIDAD CIVIL ($300.000.000) -->
-      <section class="case-section section-light" aria-labelledby="case-title">
-        <div class="container case-grid">
-          <article class="case-copy" data-reveal>
-            <span class="case-kicker">Caso destacado · Responsabilidad civil</span>
-            <h2 id="case-title">Sentencia de reparación civil en Pichilemu.</h2>
-            <p>
-              El Juzgado de Letras de Pichilemu declaró la responsabilidad solidaria del conductor y del propietario de un vehículo por un atropello ocurrido en abril de 2023. La resolución ordenó reparar los daños derivados del fallecimiento de una mujer y de las lesiones sufridas por su hijo.
-            </p>
-            <div class="case-context" aria-label="Antecedentes de la resolución">
-              <span>Sentencia · 8 de octubre de 2026</span>
-              <span>Representación · RP Abogados</span>
-            </div>
-            <div class="case-award" aria-label="Condena solidaria obtenida por RP Abogados">
-              <span>Condena solidaria obtenida</span>
-              <strong>$300.000.000</strong>
-              <small>Monto destacado de la reparación civil.</small>
-            </div>
-            <figure class="case-reference">
-              <div class="case-reference-media">
+            <div class="lg:col-span-5">
+              <div class="rounded bg-slate-100 border border-slate-200 p-4 shadow-sm">
                 <img
                   src="/fotos/juzgado-pichilemu.webp"
                   onerror="this.onerror=null;this.src='https://2zlfjfqwo2nyc.kimi.pro/fotos/juzgado-pichilemu.webp';"
-                  alt="Fachada del Juzgado de Letras y Garantía de Pichilemu"
+                  alt="Juzgado de Letras y Garantía de Pichilemu"
                   width="1024"
                   height="768"
                   loading="lazy"
                   decoding="async"
+                  class="rounded w-full h-auto object-cover mb-3"
                 />
+                <div class="text-xs text-slate-500 flex justify-between items-center">
+                  <span>Juzgado de Letras y Garantía de Pichilemu.</span>
+                  <span>Imagen: El Rancagüino</span>
+                </div>
               </div>
-              <figcaption>
-                Juzgado de Letras y Garantía de Pichilemu.
-                <a
-                  href="https://www.elrancaguino.cl/2024/05/15/juzgado-de-letras-y-garantia-de-pichilemu-incorpora-plataforma-de-atencion-de-publico-virtual/"
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label="Ver la fuente de la fotografía en El Rancagüino (se abre en una pestaña nueva)"
-                >
-                  Imagen: El Rancagüino
-                  <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
-                </a>
-              </figcaption>
-            </figure>
-            <div class="case-sources" aria-label="Fuentes periodísticas">
-              <span>Fuentes</span>
-              <a
-                href="https://www.expresodelacosta.cl/noticia/justicia-por-fatal-atropello-en-pichilemu-condenan-a-conductor-y-dueno-de-camioneta-a-pagar-mas-de-299-millones"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="Leer la nota en Expreso de la Costa (se abre en una pestaña nueva)"
-              >
-                Expreso de la Costa
-                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
-              </a>
-              <a
-                href="https://www.diarioelmarino.cl/2026/10/16/juzgado-de-pichilemu-condena-a-conductor-y-propietario-de-camioneta-a-pagar-casi-300-millones-por-atropello-fatal/"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="Leer la nota en Diario El Marino (se abre en una pestaña nueva)"
-              >
-                Diario El Marino
-                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
-              </a>
             </div>
-          </article>
+          </div>
         </div>
       </section>
 
       <!-- SOCIOS -->
-      <section class="partners-section" id="socios" aria-labelledby="partners-title">
-        <div class="container">
-          <div class="partners-heading" data-reveal>
-            <span class="section-kicker">Socios</span>
-            <h2 id="partners-title">Criterio profesional<br />Trato directo</h2>
+      <section id="socios" class="py-16 bg-slate-50 border-t border-slate-200 text-slate-900">
+        <div class="max-w-6xl mx-auto px-6">
+          <div class="text-center max-w-3xl mx-auto mb-12">
+            <span class="text-xs font-bold uppercase tracking-widest text-[#C5A880] block mb-2">Dirección Jurídica &amp; Litigación</span>
+            <h2 class="text-3xl md:text-4xl font-bold tracking-tight">Socios del Estudio</h2>
+            <div class="w-12 h-0.5 bg-[#C5A880] mx-auto mt-3"></div>
           </div>
-          <div class="partners-grid">
-            <article class="partner" data-reveal>
-              <div class="partner-photo">
-                <img src="/fotos/foto_gerente.webp" onerror="this.onerror=null;this.src='https://2zlfjfqwo2nyc.kimi.pro/fotos/foto_gerente.webp';" alt="Rafael Pérez Maldonado" width="716" height="718" loading="lazy" decoding="async" />
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-4xl mx-auto">
+            <article class="bg-white border border-slate-200 rounded-sm overflow-hidden shadow-sm flex flex-col">
+              <div class="relative h-96 w-full overflow-hidden bg-slate-900">
+                <img src="/fotos/foto_gerente.webp" onerror="this.onerror=null;this.src='https://2zlfjfqwo2nyc.kimi.pro/fotos/foto_gerente.webp';" alt="Rafael Pérez Maldonado" width="716" height="718" loading="lazy" decoding="async" class="w-full h-full object-cover object-top block" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent"></div>
+                <div class="absolute bottom-4 left-4 right-4">
+                  <h3 class="text-white text-xl font-bold leading-tight">Rafael Pérez Maldonado</h3>
+                  <span class="text-[#C5A880] text-xs font-semibold uppercase tracking-wider block mt-1">Socio Fundador &bull; Director de Litigios</span>
+                </div>
               </div>
-              <div class="partner-meta"><h3>Rafael Pérez Maldonado</h3><span>Socio</span></div>
+              <div class="p-6 flex flex-col flex-1 justify-between">
+                <div>
+                  <span class="text-xs font-bold text-slate-800 block mb-2">Magíster en Derecho Público y Constitucional</span>
+                  <p class="text-xs text-slate-600 leading-relaxed">
+                    Más de 15 años de ejercicio profesional ininterrumpido ante la Corte Suprema, Cortes de Apelaciones y el Tribunal Constitucional. Conductor del espacio radial «La Ley sin Letra Chica» en Radio Corporación 97.7 FM.
+                  </p>
+                </div>
+                <div class="pt-4 border-t border-slate-200 mt-6 flex justify-between items-center text-xs">
+                  <a href="mailto:rafael@rpabogados.cl" class="text-slate-600 hover:text-[#C5A880] font-medium">rafael@rpabogados.cl</a>
+                </div>
+              </div>
             </article>
-            <article class="partner partner-offset" data-reveal data-delay="120">
-              <div class="partner-photo">
-                <img src="/fotos/yerko-scheihing.webp" onerror="this.onerror=null;this.src='https://2zlfjfqwo2nyc.kimi.pro/fotos/yerko-scheihing.webp';" alt="Yerko Scheihing Sepúlveda" width="640" height="640" loading="lazy" decoding="async" />
+
+            <article class="bg-white border border-slate-200 rounded-sm overflow-hidden shadow-sm flex flex-col">
+              <div class="relative h-96 w-full overflow-hidden bg-slate-900">
+                <img src="/fotos/yerko-scheihing.webp" onerror="this.onerror=null;this.src='https://2zlfjfqwo2nyc.kimi.pro/fotos/yerko-scheihing.webp';" alt="Yerko Scheihing Sepúlveda" width="640" height="640" loading="lazy" decoding="async" class="w-full h-full object-cover object-top block" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent"></div>
+                <div class="absolute bottom-4 left-4 right-4">
+                  <h3 class="text-white text-xl font-bold leading-tight">Yerko Scheihing Sepúlveda</h3>
+                  <span class="text-[#C5A880] text-xs font-semibold uppercase tracking-wider block mt-1">Socio &bull; Litigación Penal &amp; Compliance</span>
+                </div>
               </div>
-              <div class="partner-meta"><h3>Yerko Scheihing Sepúlveda</h3><span>Socio</span></div>
+              <div class="p-6 flex flex-col flex-1 justify-between">
+                <div>
+                  <span class="text-xs font-bold text-slate-800 block mb-2">Magíster en Derecho Penal y Ciencias Penales (Pompeu Fabra)</span>
+                  <p class="text-xs text-slate-600 leading-relaxed">
+                    Abogado litigante especializado en litigación penal compleja, derecho penal económico y juicio oral adversarial ante Juzgados de Garantía y Tribunales de Juicio Oral en lo Penal.
+                  </p>
+                </div>
+                <div class="pt-4 border-t border-slate-200 mt-6 flex justify-between items-center text-xs">
+                  <a href="mailto:yerko@rpabogados.cl" class="text-slate-600 hover:text-[#C5A880] font-medium">yerko@rpabogados.cl</a>
+                </div>
+              </div>
             </article>
           </div>
         </div>
       </section>
 
-      <!-- PRESENCIA REGIONAL + LA LEY SIN LETRA CHICA (RADIO CORPORACIÓN 97.7 FM) -->
-      <section class="regional-section regional-compact section-dark" id="presencia" aria-labelledby="regional-title">
-        <div class="container regional-grid">
-          <div class="regional-copy" data-reveal>
-            <span class="section-kicker">Cobertura y atención</span>
-            <h2 id="regional-title">Donde está<br /><em>tu causa.</em></h2>
-            <p class="regional-lead">
-              Nuestra presencia regional se respalda con litigación efectiva: en Pichilemu,
-              RP Abogados obtuvo una condena solidaria de <strong>$300.000.000</strong> en el
-              caso destacado de reparación civil. Atención presencial y telemática para personas
-              y empresas, con coordinación directa de la firma.
-            </p>
-            <div class="region-places" aria-label="Consultar por zona de atención">
-              <a
-                href="https://wa.me/56985497497?text=Hola%20RP%20Abogados%2C%20quisiera%20solicitar%20una%20evaluaci%C3%B3n%20inicial%20en%20la%20Regi%C3%B3n%20Metropolitana."
-                target="_blank"
-                rel="noreferrer"
-                aria-label="Consultar por WhatsApp en la Región Metropolitana (se abre en una pestaña nueva)"
-              >
-                Región Metropolitana
-                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
-              </a>
-              <a
-                href="https://wa.me/56985497497?text=Hola%20RP%20Abogados%2C%20quisiera%20solicitar%20una%20evaluaci%C3%B3n%20inicial%20en%20la%20Regi%C3%B3n%20de%20O%E2%80%99Higgins."
-                target="_blank"
-                rel="noreferrer"
-                aria-label="Consultar por WhatsApp en la Región de O’Higgins (se abre en una pestaña nueva)"
-              >
-                Región de O’Higgins
-                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
-              </a>
-            </div>
-          </div>
-
-          <aside class="radio-feature" data-reveal data-delay="140">
-            <span class="radio-live" aria-label="Al aire, miércoles y viernes">
-              <span class="radio-live-dot" aria-hidden="true"></span>
-              <span>Al aire</span>
-              <span class="radio-eq" aria-hidden="true"><i></i><i></i><i></i></span>
-              <span>Miércoles y viernes</span>
-            </span>
-            <h3>La Ley sin<br />Letra Chica</h3>
-            <p>Un espacio para conversar de derecho con lenguaje claro y mirada práctica.</p>
-            <div class="radio-station"><strong>97.7 FM</strong><span>Radio Corporación<br />11:30 horas</span></div>
-            <a
-              class="radio-live-cta"
-              href="https://www.radiocorporacionpichilemu.net/"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="Escuchar señal en vivo de Radio Corporación 97.7 FM (se abre en una pestaña nueva)"
-            >
-              <span class="radio-live-dot" aria-hidden="true"></span>
-              <span>Escuchar señal en vivo</span>
-              <span class="radio-eq" aria-hidden="true"><i></i><i></i><i></i></span>
-              <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
-            </a>
-            <a class="text-link text-link-light" href="#contacto">
-              Consultar por tu zona
-              <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-            </a>
-            <div class="radio-socials" aria-label="Radio Corporación en redes sociales">
-              <a
-                href="https://www.youtube.com/@RadioCorpPichilemu"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="Ver el canal de YouTube de Radio Corporación (se abre en una pestaña nueva)"
-              >
-                <img class="social-brand-icon" src="https://2zlfjfqwo2nyc.kimi.pro/marca/youtube-color.svg" alt="" width="20" height="20" loading="lazy" decoding="async" aria-hidden="true" />
-                YouTube
-              </a>
-              <a
-                href="https://www.facebook.com/RadioCorporacionDePichilemu/"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="Visitar la página de Facebook de Radio Corporación (se abre en una pestaña nueva)"
-              >
-                <img class="social-brand-icon" src="https://2zlfjfqwo2nyc.kimi.pro/marca/facebook-color.svg" alt="" width="20" height="20" loading="lazy" decoding="async" aria-hidden="true" />
-                Facebook
-              </a>
-            </div>
-          </aside>
-        </div>
-      </section>
-
-      <!-- ACTUALIDAD (DESPLIEGUE DINÁMICO DE FILTROS Y LISTADO) -->
-      <section class="insights-section section-light" id="actualidad" aria-labelledby="insights-title">
-        <div class="container">
-          <div class="insights-top" data-reveal>
+      <!-- RADAR JURÍDICO & ACTUALIDAD (FALLOS PJUD + PRENSA) -->
+      <section id="actualidad" class="relative py-16 overflow-hidden bg-slate-100 border-t border-slate-200 text-slate-900">
+        <div class="max-w-6xl mx-auto px-6">
+          <div class="mb-10 pb-3 border-b border-slate-300 flex flex-col md:flex-row md:items-end justify-between gap-4">
             <div>
-              <span class="section-kicker">Actualidad</span>
-              <h2 id="insights-title">Contenido con criterio jurídico.</h2>
+              <span class="text-xs font-bold uppercase tracking-widest text-[#C5A880] block mb-1">Radar Jurídico &amp; Jurisprudencia</span>
+              <h2 class="text-3xl md:text-4xl font-bold tracking-tight">Actualidad de Tribunales &amp; Fallos Clave</h2>
             </div>
-            <p class="insights-intro">Tres formatos distintos para informar sin confundir una resolución, una interpretación y una noticia.</p>
-          </div>
-
-          <div class="editorial-definitions" aria-label="Diferencias entre los contenidos">
-            <article>
-              <strong>Fallos</strong>
-              <span>¿Qué decidió el tribunal?</span>
-              <p>Resumen objetivo y acceso a la fuente oficial.</p>
-            </article>
-            <article>
-              <strong>Análisis RP</strong>
-              <span>¿Por qué importa?</span>
-              <p>Interpretación con autoría y revisión profesional.</p>
-            </article>
-            <article>
-              <strong>Prensa</strong>
-              <span>¿Qué informa un medio?</span>
-              <p>Cobertura externa seleccionada por relevancia temática.</p>
-            </article>
-          </div>
-
-          <div class="insights-toolbar">
-            <div class="insight-filters" id="insight-filters" aria-label="Filtrar contenidos">
-              <button type="button" data-category="Todos" aria-pressed="true">Todos</button>
-              <button type="button" data-category="Fallos" aria-pressed="false">Fallos</button>
-              <button type="button" data-category="Análisis" aria-pressed="false">Análisis</button>
-              <button type="button" data-category="Prensa" aria-pressed="false">Prensa</button>
-            </div>
-            <div class="insights-status">
-              <span><i aria-hidden="true"></i>Fallos y Prensa · revisión automática diaria</span>
-              <span>Última revisión · <time datetime="2026-10-29T00:05:11.527Z">28 oct, 21:05</time></span>
+            <div class="text-xs text-slate-500 bg-white px-3 py-1.5 rounded border border-slate-200 shadow-sm">
+              <span>Actualización automática diaria · Notas del PJUD y Prensa</span>
             </div>
           </div>
 
-          <div id="insights-list" class="insight-list is-visible" aria-live="polite"></div>
-
-          <div class="insights-actions">
-            <button type="button" id="insights-more-btn" class="insights-more" aria-expanded="false" aria-controls="insights-list">
-              <span id="insights-more-label">Ver toda la actualidad</span>
-              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
-            </button>
-            <a class="insights-archive" href="#actualidad" onclick="document.getElementById('insights-more-btn').click()">
-              Abrir Actualidad
-              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <!-- PREGUNTAS FRECUENTES (DESPLIEGUE DINÁMICO) -->
-      <section class="faq-section section-light" aria-labelledby="faq-title">
-        <div class="container faq-layout">
-          <div class="faq-heading" data-reveal>
-            <span class="section-kicker">Antes de consultar</span>
-            <h2 id="faq-title">Respuestas claras desde el primer contacto.</h2>
-            <p>Información general sobre la evaluación inicial, la cobertura y los antecedentes útiles.</p>
-          </div>
-          <div class="faq-list" id="faq-accordion-list"></div>
-        </div>
-      </section>
-
-      <!-- CONTACTO, FORMULARIO Y MAPA INTERACTIVO -->
-      <section class="contact-section section-dark" id="contacto" aria-labelledby="contact-title">
-        <div class="container contact-grid">
-          <div class="contact-copy" data-reveal>
-            <span class="section-kicker">Contacto</span>
-            <h2 id="contact-title">Conversemos sobre tu caso.</h2>
-            <p>Cuéntanos lo esencial. El primer paso es comprender tu situación y determinar cómo podemos ayudarte.</p>
-            <div class="direct-contact">
-              <a href="mailto:contacto@rpabogados.cl">
-                <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
-                contacto@rpabogados.cl
-              </a>
-              <a href="tel:+56985497497">
-                <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"/></svg>
-                +56 9 8549 7497
-              </a>
-              <a
-                class="office-address-link"
-                href="https://www.google.com/maps/search/?api=1&query=Eliodoro%20Y%C3%A1%C3%B1ez%202084%2C%20Providencia%2C%20Santiago%2C%20Chile"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
-                Eliodoro Yáñez 2084, oficina 41, Providencia, Santiago
-              </a>
-            </div>
-            <a
-              class="whatsapp-link"
-              href="https://wa.me/56985497497?text=Hola%20RP%20Abogados%2C%20quisiera%20solicitar%20una%20evaluaci%C3%B3n%20inicial."
-              target="_blank"
-              rel="noreferrer"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"/></svg>
-              Conversar por WhatsApp
-              <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
-            </a>
-          </div>
-
-          <!-- ContactForm -->
-          <form id="rp-contact-form" class="contact-form" data-reveal data-delay="100">
-            <div class="form-heading">
-              <h3>Solicitar evaluación inicial</h3>
-              <span>Envía tus antecedentes para una primera revisión.</span>
-            </div>
-            <div class="form-row">
-              <label>Nombre<input name="nombre" type="text" autocomplete="name" required minlength="2" maxlength="120" placeholder="Tu nombre" /></label>
-              <label>Correo<input name="email" type="email" autocomplete="email" required maxlength="320" placeholder="tu@correo.cl" /></label>
-            </div>
-            <div class="form-row">
-              <label>Teléfono <span>(opcional)</span><input name="telefono" type="tel" autocomplete="tel" maxlength="60" placeholder="+56 9 …" /></label>
-              <label>Región
-                <select name="region" required defaultValue="">
-                  <option value="" disabled selected>Seleccionar región</option>
-                  <option value="Región Metropolitana">Región Metropolitana</option>
-                  <option value="Región de O’Higgins">Región de O’Higgins</option>
-                </select>
-              </label>
-            </div>
-            <label>Área de consulta
-              <select id="contact-area-select" name="area" required>
-                <option value="" disabled selected>Seleccionar área</option>
-                <option value="Derecho de daños y litigación civil">Daños y civil</option>
-                <option value="Penal económico">Penal económico</option>
-                <option value="Derecho público">Derecho público</option>
-                <option value="Litigación laboral">Litigación laboral</option>
-                <option value="Otra consulta">Otra consulta</option>
-              </select>
-            </label>
-            <label>¿Qué está ocurriendo?
-              <textarea name="mensaje" required minlength="20" maxlength="3000" rows="4" placeholder="Describe brevemente tu situación, la etapa en que se encuentra y la ayuda que buscas."></textarea>
-            </label>
-            <p class="form-care">Para esta primera consulta no incluyas datos sensibles ni antecedentes que no sean necesarios.</p>
-            <label class="form-honeypot" aria-hidden="true">Sitio web<input name="website" type="text" tabindex="-1" autocomplete="off" /></label>
-            <label class="privacy-check">
-              <input name="privacidad" type="checkbox" required />
-              <span>He leído la <a href="/privacidad">política de privacidad</a> y acepto el tratamiento de estos datos para responder mi consulta.</span>
-            </label>
-            <button class="button-primary form-submit" type="submit">
-              <span>Enviar solicitud</span>
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-            </button>
-            <div id="form-success-msg" class="form-feedback form-success" role="status" style="display: none;">
-              <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="editorial-grid">
+            <!-- Nota 1: Pleno Corte Suprema Licencias Médicas -->
+            <article class="bg-white border border-slate-200 rounded-sm p-6 flex flex-col justify-between shadow-sm">
               <div>
-                <strong>Recibimos tu solicitud correctamente.</strong>
-                <p>Tus antecedentes quedaron registrados para revisión de la firma.</p>
+                <div class="flex justify-between items-center mb-3">
+                  <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-sm bg-[#F4EFEA] text-[#C5A880]">Fallos · PJUD</span>
+                  <span class="text-xs font-semibold text-slate-700 bg-slate-100 px-2 py-0.5 rounded-sm">28 oct 2026</span>
+                </div>
+                <h3 class="text-base font-bold text-slate-900 mb-2 leading-snug">
+                  <a href="https://www.pjud.cl/prensa-y-comunicaciones/noticias-del-poder-judicial/149770" target="_blank" rel="noopener noreferrer" class="hover:text-[#C5A880] transition-colors">
+                    Pleno de la Corte Suprema resuelve 5 causas por viajes de jueces y juezas fuera del país con licencia médica
+                  </a>
+                </h3>
+                <p class="text-xs text-slate-600 line-clamp-3 mb-4 leading-relaxed">
+                  El Pleno de la Corte Suprema informó la decisión tras la vista de 5 cuadernos de remoción relativos a integrantes del escalafón primario que viajaron fuera del país haciendo uso de licencias médicas.
+                </p>
+              </div>
+              <div class="pt-3 border-t border-slate-100 flex justify-between items-center text-xs">
+                <span class="text-slate-500">Corte Suprema · Poder Judicial</span>
+                <a href="https://www.pjud.cl/prensa-y-comunicaciones/noticias-del-poder-judicial/149770" target="_blank" rel="noopener noreferrer" class="text-[#C5A880] font-semibold hover:underline">Ver fallo oficial &rarr;</a>
+              </div>
+            </article>
+
+            <!-- Nota 2: Remoción Juez Urrutia -->
+            <article class="bg-white border border-slate-200 rounded-sm p-6 flex flex-col justify-between shadow-sm">
+              <div>
+                <div class="flex justify-between items-center mb-3">
+                  <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-sm bg-[#F4EFEA] text-[#C5A880]">Prensa Externa</span>
+                  <span class="text-xs font-semibold text-orange-800 bg-orange-50 px-2 py-0.5 rounded-sm">28 oct 2026</span>
+                </div>
+                <h3 class="text-base font-bold text-slate-900 mb-2 leading-snug">
+                  <a href="https://www.elmostrador.cl/noticias/pais/2026/10/28/corte-suprema-remueve-al-juez-daniel-urrutia-por-viajes-al-extranjero-con-licencia-medica/" target="_blank" rel="noopener noreferrer" class="hover:text-[#C5A880] transition-colors">
+                    Corte Suprema remueve al juez Daniel Urrutia por viajes al extranjero con licencia médica
+                  </a>
+                </h3>
+                <p class="text-xs text-slate-600 line-clamp-3 mb-4 leading-relaxed">
+                  El pleno de la Corte Suprema removió del Poder Judicial al magistrado tras concluir que incurrió en falta grave a la probidad al viajar al extranjero encontrándose con licencia médica.
+                </p>
+              </div>
+              <div class="pt-3 border-t border-slate-100 flex justify-between items-center text-xs">
+                <span class="text-slate-500">El Mostrador</span>
+                <a href="https://www.elmostrador.cl/noticias/pais/2026/10/28/corte-suprema-remueve-al-juez-daniel-urrutia-por-viajes-al-extranjero-con-licencia-medica/" target="_blank" rel="noopener noreferrer" class="text-[#C5A880] font-semibold hover:underline">Leer cobertura &rarr;</a>
+              </div>
+            </article>
+
+            <!-- Nota 3: Condena al Fisco Torturas -->
+            <article class="bg-white border border-slate-200 rounded-sm p-6 flex flex-col justify-between shadow-sm">
+              <div>
+                <div class="flex justify-between items-center mb-3">
+                  <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-sm bg-[#F4EFEA] text-[#C5A880]">Fallos · PJUD</span>
+                  <span class="text-xs font-semibold text-red-700 bg-red-50 px-2 py-0.5 rounded-sm">Rol 55.616-2024</span>
+                </div>
+                <h3 class="text-base font-bold text-slate-900 mb-2 leading-snug">
+                  <a href="https://www.pjud.cl/prensa-y-comunicaciones/noticias-del-poder-judicial/149769" target="_blank" rel="noopener noreferrer" class="hover:text-[#C5A880] transition-colors">
+                    Corte Suprema condena al Fisco a pagar indemnización a prisionero político sometido a torturas
+                  </a>
+                </h3>
+                <p class="text-xs text-slate-600 line-clamp-3 mb-4 leading-relaxed">
+                  La Corte Suprema condenó al Fisco a pagar indemnización a un poblador de Quilaco sometido a prisión política y torturas en un retén de Carabineros en septiembre de 1973.
+                </p>
+              </div>
+              <div class="pt-3 border-t border-slate-100 flex justify-between items-center text-xs">
+                <span class="text-slate-500">Corte Suprema · Poder Judicial</span>
+                <a href="https://www.pjud.cl/prensa-y-comunicaciones/noticias-del-poder-judicial/149769" target="_blank" rel="noopener noreferrer" class="text-[#C5A880] font-semibold hover:underline">Ver sentencia &rarr;</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACTO Y UBICACIÓN -->
+      <section class="py-16 bg-white border-t border-slate-200 text-slate-900" id="contacto">
+        <div class="max-w-6xl mx-auto px-6">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+            <div class="lg:col-span-6">
+              <span class="text-xs font-bold uppercase tracking-widest text-[#C5A880] block mb-1">Atención Presencial &amp; Telemática</span>
+              <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-3">Contacto y Ubicación</h2>
+              <div class="w-12 h-0.5 bg-[#C5A880] mb-4"></div>
+              <p class="text-slate-600 text-sm leading-relaxed mb-6">Estudio jurídico ubicado en Providencia, Santiago.</p>
+              <div class="mb-6 rounded overflow-hidden shadow-sm border border-slate-200">
+                <div id="map-container">
+                  <button id="load-map-btn" class="w-full h-[260px] bg-slate-100 flex flex-col items-center justify-center gap-2 text-slate-700 hover:bg-slate-200 transition-colors cursor-pointer text-sm font-semibold">
+                    <span>📍 Cargar mapa de Google Maps (Providencia)</span>
+                  </button>
+                </div>
               </div>
             </div>
-          </form>
 
-          <!-- Ubicación y Mapa con Consentimiento -->
-          <div class="office-location" data-reveal>
-            <div class="office-details">
-              <span class="section-kicker">Oficina</span>
-              <h3>Providencia, Santiago.</h3>
-              <address>
-                Eliodoro Yáñez 2084, oficina 41<br />
-                Providencia, Santiago, Chile.
-              </address>
-              <p>Atención presencial y telemática.</p>
-              <a
-                class="office-map-link"
-                href="https://www.google.com/maps/search/?api=1&query=Eliodoro%20Y%C3%A1%C3%B1ez%202084%2C%20Providencia%2C%20Santiago%2C%20Chile"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Abrir en Google Maps
-                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
-              </a>
-            </div>
-
-            <div class="map-frame" id="map-frame-container">
-              <button
-                id="show-map-btn"
-                class="map-consent"
-                type="button"
-                aria-label="Ver mapa de Google de la oficina de RP Abogados"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
-                <strong>Ver mapa</strong>
-                <span>Al abrir el mapa, Google puede usar cookies.</span>
-              </button>
+            <div class="lg:col-span-6 bg-slate-50 border border-slate-200 p-8 rounded-sm shadow-sm">
+              <h3 class="text-xl font-bold mb-1">Consulta Confidencial</h3>
+              <p class="text-xs text-slate-500 mb-5">Indique los antecedentes preliminares para la evaluación jurídica de su asunto.</p>
+              
+              <form onsubmit="event.preventDefault(); window.open('https://wa.me/56985497497?text=' + encodeURIComponent('Hola RP Abogados, consulta desde la web. Nombre: ' + this.nombre.value + '. Asunto: ' + this.mensaje.value), '_blank');" class="space-y-4 text-xs">
+                <div>
+                  <label class="block font-semibold mb-1">Nombre</label>
+                  <input type="text" name="nombre" required class="w-full p-2.5 bg-white border border-slate-300 rounded text-slate-900" placeholder="Su nombre" />
+                </div>
+                <div>
+                  <label class="block font-semibold mb-1">Correo electrónico</label>
+                  <input type="email" name="email" required class="w-full p-2.5 bg-white border border-slate-300 rounded text-slate-900" placeholder="correo@ejemplo.cl" />
+                </div>
+                <div>
+                  <label class="block font-semibold mb-1">Región</label>
+                  <select name="region" required class="w-full p-2.5 bg-white border border-slate-300 rounded text-slate-900">
+                    <option value="Región Metropolitana">Región Metropolitana</option>
+                    <option value="Región de O’Higgins">Región de O’Higgins</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block font-semibold mb-1">¿Qué está ocurriendo?</label>
+                  <textarea name="mensaje" required rows="4" class="w-full p-2.5 bg-white border border-slate-300 rounded text-slate-900" placeholder="Describa brevemente su caso..."></textarea>
+                </div>
+                <button type="submit" class="w-full py-3 bg-[#C5A880] hover:bg-[#b4976e] text-[#12151B] font-bold rounded uppercase tracking-wider transition-all">
+                  Enviar Consulta por WhatsApp
+                </button>
+              </form>
             </div>
           </div>
         </div>
       </section>
     </main>
 
-    <!-- SiteFooter -->
-    <footer class="site-footer">
-      <div class="container footer-top">
-        <a class="brand" href="#inicio" aria-label="RP Abogados, volver al inicio">
-          <img
-            class="brand-logo"
-            src="/marca/rp-abogados-logo-claro.png"
-            onerror="this.onerror=null;this.src='https://2zlfjfqwo2nyc.kimi.pro/marca/rp-abogados-logo-claro.png';"
-            alt=""
-            width="1600"
-            height="237"
-          />
-        </a>
-        <p>Litigación estratégica en la Región Metropolitana y la Región de O’Higgins.</p>
-        <a class="back-top" href="#inicio">
-          Volver arriba
-          <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
-        </a>
-      </div>
-      <div class="container footer-bottom">
-        <span>© 2026 RP Abogados</span>
-        <a href="/privacidad">Privacidad</a>
-        <a href="#actualidad">Actualidad jurídica</a>
+    <!-- FOOTER -->
+    <footer class="bg-[#12151B] text-white py-12 border-t border-white/10 text-xs">
+      <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div>
+          <img src="/marca/rp-abogados-logo-claro.png" onerror="this.onerror=null;this.src='https://2zlfjfqwo2nyc.kimi.pro/marca/rp-abogados-logo-claro.png';" alt="RP Abogados" class="h-8 w-auto mb-2 opacity-90" width="1600" height="237" />
+          <p class="text-white/70">Litigación estratégica en la Región Metropolitana y la Región de O’Higgins.</p>
+        </div>
+        <div class="flex items-center gap-6 text-white/80">
+          <a href="#inicio" class="hover:text-[#C5A880]">Volver arriba ↑</a>
+          <a href="#actualidad" class="hover:text-[#C5A880]">Actualidad jurídica</a>
+        </div>
       </div>
     </footer>
 
-    <!-- Motor de Despliegues Dinámicos (Áreas, Actualidad, FAQs, Mapa, Intro y Animaciones) -->
+    <!-- Script para activar mapa de Google de forma interactiva -->
     <script is:inline>
-      (function () {
-        // 1. Datos de Áreas de Práctica
-        var areas = [
-          {
-            slug: 'danos-litigacion-civil',
-            title: 'Derecho de daños y litigación civil',
-            short: 'Daños y civil',
-            description: 'Estrategia y representación en conflictos donde la evidencia, la cuantificación del daño y la lectura del riesgo exigen una preparación rigurosa.',
-            matters: ['Responsabilidad civil', 'Indemnización de daños', 'Litigación de alta complejidad'],
-            image: '/fotos/area-civil.webp',
-            imageWidth: 1400,
-            imageHeight: 935
-          },
-          {
-            slug: 'penal-economico',
-            title: 'Penal económico',
-            short: 'Penal económico',
-            description: 'Defensa y representación en materias penales de relevancia económica, con una estrategia construida desde los antecedentes y el contexto de cada caso.',
-            matters: ['Defensa penal', 'Querellas', 'Asesoría a empresas'],
-            image: '/fotos/area-penal.webp',
-            imageWidth: 600,
-            imageHeight: 439
-          },
-          {
-            slug: 'derecho-publico',
-            title: 'Derecho público',
-            short: 'Derecho público',
-            description: 'Litigación y asesoría frente a actuaciones de la Administración, con especial atención a la estrategia procesal y a los derechos involucrados.',
-            matters: ['Contencioso-administrativo', 'Actuaciones administrativas', 'Litigación pública'],
-            image: '/fotos/area-publico.webp',
-            imageWidth: 720,
-            imageHeight: 420
-          },
-          {
-            slug: 'litigacion-laboral',
-            title: 'Litigación laboral',
-            short: 'Litigación laboral',
-            description: 'Representación en conflictos laborales que requieren combinar conocimiento técnico, preparación probatoria y una mirada práctica del conflicto.',
-            matters: ['Litigios laborales', 'Estrategia probatoria', 'Asesoría en conflictos'],
-            image: '/fotos/area-laboral.webp',
-            imageWidth: 900,
-            imageHeight: 592
-          }
-        ];
-
-        var activeArea = 0;
-        var areaListEl = document.getElementById('area-accordion-list');
-        var areaImgEl = document.getElementById('active-area-img');
-        var areaNumEl = document.getElementById('active-area-num');
-        var areaShortEl = document.getElementById('active-area-short');
-
-        function renderAreas() {
-          if (!areaListEl) return;
-          var current = areas[activeArea];
-          if (areaImgEl) {
-            areaImgEl.src = current.image;
-            areaImgEl.alt = 'Imagen editorial del área de ' + current.short;
-            areaImgEl.width = current.imageWidth;
-            areaImgEl.height = current.imageHeight;
-          }
-          if (areaNumEl) areaNumEl.textContent = '0' + (activeArea + 1);
-          if (areaShortEl) areaShortEl.textContent = current.short;
-
-          areaListEl.innerHTML = areas
-            .map(function (area, idx) {
-              var isActive = idx === activeArea;
-              var mattersHtml = area.matters
-                .map(function (m) {
-                  return '<li><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>' + m + '</li>';
-                })
-                .join('');
-
-              return (
-                '<article class="area-item ' + (isActive ? 'is-active' : '') + '">' +
-                  '<h3>' +
-                    '<button type="button" data-area-idx="' + idx + '" aria-expanded="' + isActive + '" aria-controls="area-panel-' + idx + '">' +
-                      '<span>' + area.title + '</span>' +
-                      '<svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>' +
-                    '</button>' +
-                  '</h3>' +
-                  (isActive
-                    ? '<div class="area-panel" id="area-panel-' + idx + '">' +
-                        '<p>' + area.description + '</p>' +
-                        '<ul>' + mattersHtml + '</ul>' +
-                        '<div class="area-panel-actions">' +
-                          '<a class="text-link" href="#contacto" data-select-area="' + area.title + '">Conocer esta área <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>' +
-                          '<a class="area-consult-link" href="#contacto" data-select-area="' + area.title + '">Consultar por esta área</a>' +
-                        '</div>' +
-                      '</div>'
-                    : '') +
-                '</article>'
-              );
-            })
-            .join('');
-
-          areaListEl.querySelectorAll('button[data-area-idx]').forEach(function (btn) {
-            btn.addEventListener('click', function () {
-              activeArea = Number(btn.getAttribute('data-area-idx'));
-              renderAreas();
-            });
-          });
-
-          areaListEl.querySelectorAll('a[data-select-area]').forEach(function (link) {
-            link.addEventListener('click', function () {
-              var select = document.getElementById('contact-area-select');
-              if (select) select.value = link.getAttribute('data-select-area');
-            });
-          });
-        }
-        renderAreas();
-
-        // 2. Datos y Despliegue Dinámico de Actualidad (EditorialList)
-        var editorialItems = [
-          {
-            id: 'pjud-fallo-149770',
-            category: 'Fallos',
-            dateLabel: '28 oct 2026',
-            publishedAt: '2026-10-28T12:00:00.000Z',
-            title: 'Pleno de la Corte Suprema resuelve 5 causas por viajes de jueces y juezas fuera del país con licencia médica',
-            text: 'El Pleno de la Corte Suprema informó hoy – miércoles 28 de octubre- la decisión tras la vista de 5 cuadernos de remoción relativos a integrantes del escalafón primario que viajaron fuera del país haciendo uso de licencias médicas.',
-            meta: 'Corte Suprema',
-            source: 'Poder Judicial',
-            url: 'https://www.pjud.cl/prensa-y-comunicaciones/noticias-del-poder-judicial/149770',
-            rulingUrl: ''
-          },
-          {
-            id: 'prensa-urrutia',
-            category: 'Prensa',
-            dateLabel: '28 oct 2026',
-            publishedAt: '2026-10-28T12:00:00.000Z',
-            title: 'Corte Suprema remueve al juez Daniel Urrutia por viajes al extranjero con licencia médica',
-            text: 'El pleno de la Corte Suprema removió del Poder Judicial al juez del Séptimo Juzgado de Garantía de Santiago, Daniel Urrutia, tras concluir que incurrió en una falta grave a la probidad al realizar dos viajes al extranjero mientras se encontraba con licencia médica.',
-            meta: 'Actualidad jurídica · medio externo',
-            source: 'El Mostrador',
-            url: 'https://www.elmostrador.cl/noticias/pais/2026/10/28/corte-suprema-remueve-al-juez-daniel-urrutia-por-viajes-al-extranjero-con-licencia-medica/',
-            rulingUrl: ''
-          },
-          {
-            id: 'pjud-fallo-149769',
-            category: 'Fallos',
-            dateLabel: '28 oct 2026',
-            publishedAt: '2026-10-28T12:00:00.000Z',
-            title: 'Corte Suprema condena al Fisco a pagar indemnización a prisionero político sometido a torturas',
-            text: 'La Corte Suprema condenó al Fisco a pagar indemnización a un poblador de Quilaco sometido a prisión política y torturas en un retén de Carabineros en septiembre de 1973.',
-            meta: 'Corte Suprema · Rol 55.616-2024',
-            source: 'Poder Judicial',
-            url: 'https://www.pjud.cl/prensa-y-comunicaciones/noticias-del-poder-judicial/149769',
-            rulingUrl: 'https://www.pjud.cl/prensa-y-comunicaciones/getRulingNew/80342'
-          },
-          {
-            id: 'prensa-rabat',
-            category: 'Prensa',
-            dateLabel: '28 oct 2026',
-            publishedAt: '2026-10-28T12:00:00.000Z',
-            title: 'DC se suma a ofensiva contra Rabat y confirma acusación constitucional por rebajas de condenas',
-            text: 'La presión sobre el ministro de Justicia, Fernando Rabat, sumó un nuevo capítulo. La bancada de diputados de la Democracia Cristiana (DC) confirmó que avanzará junto a la oposición en una acusación constitucional contra el secretario de Estado, en medio de las revelaciones sobre rebajas de condenas a delincuentes sexuales y personas vinculadas al Tren de Aragua.',
-            meta: 'Actualidad jurídica · medio externo',
-            source: 'El Mostrador',
-            url: 'https://www.elmostrador.cl/noticias/pais/2026/10/28/dc-se-suma-a-ofensiva-contra-rabat-y-confirma-acusacion-constitucional-por-rebajas-de-condenas/',
-            rulingUrl: ''
-          },
-          {
-            id: 'pjud-fallo-149768',
-            category: 'Fallos',
-            dateLabel: '28 oct 2026',
-            publishedAt: '2026-10-28T12:00:00.000Z',
-            title: 'Corte de Coyhaique confirma la prisión preventiva de imputados por tráfico de drogas y tenencia de armas y municiones',
-            text: 'La Corte de Apelaciones de Coyhaique confirmó la medida cautelar de prisión preventiva de C.E.T.V. y B.E.V.O., imputados por el Ministerio Público como autores de los delitos de tráfico de drogas, tenencia ilegal de armas de fuego y tenencia ilegal de municiones.',
-            meta: 'Corte de Coyhaique · Rol 306-2026',
-            source: 'Poder Judicial',
-            url: 'https://www.pjud.cl/prensa-y-comunicaciones/noticias-del-poder-judicial/149768',
-            rulingUrl: ''
-          },
-          {
-            id: 'prensa-fondo-e',
-            category: 'Prensa',
-            dateLabel: '28 oct 2026',
-            publishedAt: '2026-10-28T12:00:00.000Z',
-            title: 'Fondo E: Congreso, Contraloría y regulador cercan a las AFP por pérdidas y sus responsabilidades',
-            text: 'La caída registrada en los fondos de pensiones de las AFP, particularmente en el fondo E, que marcó una baja de 4,92% en septiembre –acumulando en el año un desplome de 10,39% en términos reales– dejó de ser solo una discusión sobre rentabilidades y mercados financieros.',
-            meta: 'Actualidad jurídica · medio externo',
-            source: 'El Mostrador',
-            url: 'https://www.elmostrador.cl/noticias/pais/2026/10/28/fondo-e-congreso-contraloria-y-regulador-cercan-a-las-afp-por-perdidas-y-sus-responsabilidade/',
-            rulingUrl: ''
-          },
-          {
-            id: 'pjud-fallo-149765',
-            category: 'Fallos',
-            dateLabel: '28 oct 2026',
-            publishedAt: '2026-10-28T12:00:00.000Z',
-            title: 'Corte Suprema rechaza reclamación de multa a comercializadora de pescados y mariscos de La Serena',
-            text: 'La Corte Suprema rechazó recurso de casación en contra de la sentencia que confirmó una multa a una comercializadora de pescados y mariscos de La Serena por no contar con autorización.',
-            meta: 'Corte Suprema · Rol 47.135-2026',
-            source: 'Poder Judicial',
-            url: 'https://www.pjud.cl/prensa-y-comunicaciones/noticias-del-poder-judicial/149765',
-            rulingUrl: 'https://www.pjud.cl/prensa-y-comunicaciones/getRulingNew/80339'
-          },
-          {
-            id: 'prensa-18-nombramientos',
-            category: 'Prensa',
-            dateLabel: '27 oct 2026',
-            publishedAt: '2026-10-27T12:00:00.000Z',
-            title: 'Fiscalía investiga 18 nombramientos judiciales y pone bajo la lupa a ministra de la Suprema',
-            text: 'Al menos 18 jueces, ministros de cortes, notarios y conservadores de bienes raíces están bajo investigación de la Fiscalía Regional de Valparaíso por eventuales irregularidades en sus nombramientos.',
-            meta: 'Actualidad jurídica · medio externo',
-            source: 'El Mostrador',
-            url: 'https://www.elmostrador.cl/noticias/pais/2026/10/27/fiscalia-investiga-18-nombramientos-judiciales-y-pone-bajo-la-lupa-a-ministra-de-la-suprema/',
-            rulingUrl: ''
-          }
-        ];
-
-        var currentCategory = 'Todos';
-        var isExpanded = false;
-        var insightsListEl = document.getElementById('insights-list');
-        var moreBtnEl = document.getElementById('insights-more-btn');
-        var moreLabelEl = document.getElementById('insights-more-label');
-
-        function renderEditorial() {
-          if (!insightsListEl) return;
-          var filtered = editorialItems.filter(function (item) {
-            return currentCategory === 'Todos' || item.category === currentCategory;
-          });
-          var visible = currentCategory === 'Todos' && !isExpanded ? filtered.slice(0, 3) : filtered;
-
-          if (moreBtnEl) {
-            moreBtnEl.style.display = currentCategory === 'Todos' && filtered.length > 3 ? '' : 'none';
-            moreBtnEl.classList.toggle('is-expanded', isExpanded);
-            moreBtnEl.setAttribute('aria-expanded', String(isExpanded));
-          }
-          if (moreLabelEl) {
-            moreLabelEl.textContent = isExpanded ? 'Mostrar menos' : 'Ver toda la actualidad';
-          }
-
-          if (visible.length === 0 && currentCategory === 'Análisis') {
-            insightsListEl.innerHTML =
-              '<div class="analysis-empty">' +
-                '<span>Publicación con revisión profesional</span>' +
-                '<h3>La interpretación jurídica no se automatiza.</h3>' +
-                '<p>Aún no hay análisis publicados. Esta categoría abrirá artículos dentro del sitio cuando exista un texto con autoría, revisión y fuentes verificables.</p>' +
-              '</div>';
-            return;
-          }
-
-          insightsListEl.innerHTML = visible
-            .map(function (item, idx) {
-              var detailText = item.category === 'Prensa' ? item.source + ' · ' + item.meta : item.meta + ' · ' + item.source;
-              var rulingHtml = item.rulingUrl
-                ? '<a href="' + item.rulingUrl + '" target="_blank" rel="noreferrer">Texto de la sentencia <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>'
-                : '';
-
-              return (
-                '<article class="insight-row" style="--insight-index:' + idx + '">' +
-                  '<div class="insight-label">' +
-                    '<span class="insight-category">' + item.category + '</span>' +
-                    '<time class="insight-date" datetime="' + item.publishedAt + '">' + item.dateLabel + '</time>' +
-                  '</div>' +
-                  '<div class="insight-content">' +
-                    '<h3>' +
-                      '<a href="' + item.url + '" target="_blank" rel="noreferrer">' +
-                        item.title +
-                        '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>' +
-                      '</a>' +
-                    '</h3>' +
-                    '<p>' + item.text + '</p>' +
-                    '<div class="insight-detail">' +
-                      '<span>' + detailText + '</span>' +
-                      rulingHtml +
-                    '</div>' +
-                  '</div>' +
-                '</article>'
-              );
-            })
-            .join('');
-        }
-
-        document.querySelectorAll('#insight-filters button').forEach(function (btn) {
-          btn.addEventListener('click', function () {
-            currentCategory = btn.getAttribute('data-category') || 'Todos';
-            isExpanded = false;
-            document.querySelectorAll('#insight-filters button').forEach(function (b) {
-              b.setAttribute('aria-pressed', String(b === btn));
-            });
-            renderEditorial();
-          });
-        });
-
-        if (moreBtnEl) {
-          moreBtnEl.addEventListener('click', function () {
-            isExpanded = !isExpanded;
-            renderEditorial();
-          });
-        }
-        renderEditorial();
-
-        // 3. Despliegue Dinámico de Preguntas Frecuentes (FaqList)
-        var faqs = [
-          {
-            question: '¿Solicitar una evaluación significa contratar al estudio?',
-            answer: 'No. El primer contacto permite comprender la situación y determinar si la firma puede ayudarte. El alcance del trabajo y sus condiciones se conversan posteriormente.'
-          },
-          {
-            question: '¿Qué conviene contar en el primer mensaje?',
-            answer: 'Una cronología breve, la etapa del conflicto, las partes involucradas y cualquier fecha o actuación próxima. No es necesario enviar todos los documentos en el primer contacto.'
-          },
-          {
-            question: '¿La atención es presencial o telemática?',
-            answer: 'Ambas modalidades están disponibles. La coordinación depende de la naturaleza del caso y de la región desde la que consultas.'
-          },
-          {
-            question: '¿Dónde atiende RP Abogados?',
-            answer: 'La cobertura informada en este sitio comprende la Región Metropolitana y la Región de O’Higgins, con atención para personas y empresas.'
-          },
-          {
-            question: '¿Se pueden anticipar honorarios o resultados desde el formulario?',
-            answer: 'No. Los honorarios y el alcance requieren una revisión previa del asunto. Tampoco es posible garantizar el resultado de una gestión o de un juicio.'
-          }
-        ];
-
-        var openFaq = 0;
-        var faqListEl = document.getElementById('faq-accordion-list');
-
-        function renderFaqs() {
-          if (!faqListEl) return;
-          faqListEl.innerHTML = faqs
-            .map(function (item, idx) {
-              var isOpen = openFaq === idx;
-              return (
-                '<article class="faq-item ' + (isOpen ? 'is-open' : '') + '">' +
-                  '<h3>' +
-                    '<button type="button" data-faq-idx="' + idx + '" aria-expanded="' + isOpen + '" aria-controls="faq-panel-' + idx + '">' +
-                      '<span>' + item.question + '</span>' +
-                      '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>' +
-                    '</button>' +
-                  '</h3>' +
-                  (isOpen ? '<div class="faq-answer" id="faq-panel-' + idx + '"><p>' + item.answer + '</p></div>' : '') +
-                '</article>'
-              );
-            })
-            .join('');
-
-          faqListEl.querySelectorAll('button[data-faq-idx]').forEach(function (btn) {
-            btn.addEventListener('click', function () {
-              var idx = Number(btn.getAttribute('data-faq-idx'));
-              openFaq = openFaq === idx ? null : idx;
-              renderFaqs();
-            });
-          });
-        }
-        renderFaqs();
-
-        // 4. Despliegue del Mapa de Google
-        var showMapBtn = document.getElementById('show-map-btn');
-        var mapFrameContainer = document.getElementById('map-frame-container');
-        if (showMapBtn && mapFrameContainer) {
-          showMapBtn.addEventListener('click', function () {
-            mapFrameContainer.innerHTML =
-              '<iframe title="Mapa de RP Abogados en Providencia" src="https://www.google.com/maps?q=Eliodoro%20Y%C3%A1%C3%B1ez%202084%2C%20Providencia%2C%20Santiago%2C%20Chile&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>';
-          });
-        }
-
-        // 5. Header Scroll + Menú Móvil
-        var headerEl = document.getElementById('site-header');
-        function onScroll() {
-          if (headerEl) headerEl.classList.toggle('is-scrolled', window.scrollY > 28);
-        }
-        onScroll();
-        window.addEventListener('scroll', onScroll, { passive: true });
-
-        var backdropEl = document.getElementById('mobile-menu-backdrop');
-        var openMenuBtn = document.getElementById('menu-open-btn');
-        var closeMenuBtn = document.getElementById('menu-close-btn');
-        function closeMobileMenu() {
-          if (backdropEl) backdropEl.style.display = 'none';
-          if (openMenuBtn) openMenuBtn.setAttribute('aria-expanded', 'false');
-          document.body.style.overflow = '';
-        }
-        if (openMenuBtn && backdropEl) {
-          openMenuBtn.addEventListener('click', function () {
-            backdropEl.style.display = 'flex';
-            openMenuBtn.setAttribute('aria-expanded', 'true');
-            document.body.style.overflow = 'hidden';
-          });
-          backdropEl.addEventListener('click', closeMobileMenu);
-        }
-        if (closeMenuBtn) closeMenuBtn.addEventListener('click', closeMobileMenu);
-        document.querySelectorAll('.mobile-nav-item').forEach(function (el) {
-          el.addEventListener('click', closeMobileMenu);
-        });
-
-        // 6. Envío del Formulario de Contacto
-        var contactForm = document.getElementById('rp-contact-form');
-        var successMsg = document.getElementById('form-success-msg');
-        if (contactForm) {
-          contactForm.addEventListener('submit', function (e) {
-            e.preventDefault();
-            var data = new FormData(contactForm);
-            if (successMsg) successMsg.style.display = 'flex';
-            var texto =
-              'Hola RP Abogados, solicito evaluación inicial.\n' +
-              'Nombre: ' + (data.get('nombre') || '') + '\n' +
-              'Correo: ' + (data.get('email') || '') + '\n' +
-              'Región: ' + (data.get('region') || '') + '\n' +
-              'Área: ' + (data.get('area') || '') + '\n' +
-              'Caso: ' + (data.get('mensaje') || '');
-            window.open('https://wa.me/56985497497?text=' + encodeURIComponent(texto), '_blank');
-            contactForm.reset();
-          });
-        }
-
-        // 7. Presentación Inicial (brand-intro) y Animaciones [data-reveal]
-        var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        var introEl = document.getElementById('brand-intro');
-        var skipIntroBtn = document.getElementById('skip-intro-btn');
-        try {
-          if (!reducedMotion && !sessionStorage.getItem('rp-brand-intro') && introEl) {
-            introEl.style.display = 'flex';
-            sessionStorage.setItem('rp-brand-intro', 'seen');
-            setTimeout(function () { introEl.classList.add('is-leaving'); }, 950);
-            setTimeout(function () { introEl.style.display = 'none'; }, 1250);
-          }
-        } catch (err) {}
-        if (skipIntroBtn && introEl) {
-          skipIntroBtn.addEventListener('click', function () {
-            introEl.style.display = 'none';
-          });
-        }
-
-        if (!reducedMotion && 'IntersectionObserver' in window) {
-          var revealObserver = new IntersectionObserver(
-            function (entries) {
-              entries.forEach(function (entry) {
-                if (!entry.isIntersecting) return;
-                var el = entry.target;
-                var delay = Number(el.getAttribute('data-delay') || 0);
-                if (el.animate) {
-                  el.animate(
-                    [
-                      { opacity: 0, transform: 'translateY(26px) scale(0.985)' },
-                      { opacity: 1, transform: 'translateY(0) scale(1)' }
-                    ],
-                    { duration: 680, delay: delay, easing: 'cubic-bezier(0.22, 1, 0.36, 1)', fill: 'both' }
-                  );
-                }
-                revealObserver.unobserve(el);
-              });
-            },
-            { threshold: 0.12, rootMargin: '0px 0px -5% 0px' }
-          );
-          document.querySelectorAll('[data-reveal]').forEach(function (el) {
-            revealObserver.observe(el);
-          });
-        }
-      })();
+      document.getElementById('load-map-btn').addEventListener('click', function() {
+        document.getElementById('map-container').innerHTML = '<iframe title="Mapa de RP Abogados" src="https://www.google.com/maps?q=Eliodoro%20Y%C3%A1%C3%B1ez%202084%2C%20Providencia%2C%20Santiago%2C%20Chile&output=embed" width="100%" height="260" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>';
+      });
     </script>
   </body>
 </html>
